@@ -17,7 +17,7 @@ const DevelopmentContainer = styled.section`
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 0 var(--gridGap);
     margin-bottom: 50px;
-    height: 100%;
+    /* height: 100%; */
   }
 
   .excerpt {
@@ -83,7 +83,7 @@ const DevelopmentContainer = styled.section`
 `;
 
 const ProjectImage = styled.div`
-  /* margin-top: auto;
+  margin-top: auto;
   position: relative;
 
   &::before {
@@ -103,7 +103,7 @@ const ProjectImage = styled.div`
 
   @media (min-width: 768px) {
     grid-column: 1 / 4;
-  } */
+  }
 `;
 
 const Development = ({ project, noPrefix }) => {
