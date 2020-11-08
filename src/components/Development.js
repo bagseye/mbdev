@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import BackgroundImage from 'gatsby-background-image';
+import Img from 'gatsby-image';
 
 const DevelopmentContainer = styled.section`
   border-top: var(--borderSmall) solid #fff;
@@ -54,18 +54,6 @@ const DevelopmentContainer = styled.section`
   }
 `;
 
-const Button = styled(Link)`
-  font-size: var(--paragraph);
-  line-height: var(--paragraphLineHeight);
-  text-decoration: underline rgba(255, 255, 255, 1);
-  transition: text-decoration 0.5s ease;
-
-  &:hover,
-  &:active {
-    text-decoration: underline rgba(255, 255, 255, 0);
-  }
-`;
-
 const ProjectImage = styled.div`
   margin-top: auto;
   grid-column: 1 / 7;
@@ -113,7 +101,7 @@ const Excerpt = styled.div`
   }
 `;
 
-const Image = styled(BackgroundImage)`
+const Image = styled(Img)`
   height: 100%;
   width: 100%;
   position: absolute !important;
@@ -124,7 +112,6 @@ const Image = styled(BackgroundImage)`
 `;
 
 const Development = ({ project, noPrefix }) => {
-  console.log(noPrefix);
   const { name, excerpt, slug, images } = project;
   const projectImg = images[0].fluid;
 
@@ -134,12 +121,12 @@ const Development = ({ project, noPrefix }) => {
         <h2>{name}</h2>
         <Excerpt>
           <p>{excerpt}</p>
-          <Button
+          <Link
             className="link__std"
             to={noPrefix ? `${slug}` : `projects/${slug}`}
           >
             View Project
-          </Button>
+          </Link>
         </Excerpt>
       </div>
       <ProjectImage>
