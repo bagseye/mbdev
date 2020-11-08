@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import BackgroundImage from 'gatsby-background-image';
+import Img from 'gatsby-image';
 
 const DevelopmentContainer = styled.section`
   border-top: var(--borderSmall) solid #fff;
@@ -113,7 +114,17 @@ const Excerpt = styled.div`
   }
 `;
 
-const Image = styled(BackgroundImage)`
+// const Image = styled(BackgroundImage)`
+//   height: 100%;
+//   width: 100%;
+//   position: absolute !important;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+// `;
+
+const Image = styled(Img)`
   height: 100%;
   width: 100%;
   position: absolute !important;
@@ -124,7 +135,6 @@ const Image = styled(BackgroundImage)`
 `;
 
 const Development = ({ project, noPrefix }) => {
-  console.log(noPrefix);
   const { name, excerpt, slug, images } = project;
   const projectImg = images[0].fluid;
 

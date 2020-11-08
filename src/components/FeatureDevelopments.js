@@ -1,6 +1,7 @@
 import React from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import styled from 'styled-components';
+import Img from 'gatsby-image';
 import Grid from './Grid';
 import Development from './Development';
 import Heading from './Heading';
@@ -35,7 +36,7 @@ const FeatureDevelopments = () => {
             excerpt
             images {
               fluid(quality: 90, maxWidth: 1000) {
-                ...GatsbyContentfulFluid_tracedSVG
+                ...GatsbyContentfulFluid_withWebp
               }
             }
           }
