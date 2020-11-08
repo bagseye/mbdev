@@ -59,17 +59,16 @@ const JournalItemStyles = styled.article`
 
 const getPosts = graphql`
   query {
-    posts: allContentfulPosts(
-      limit: 2
-      sort: { fields: published, order: DESC }
-    ) {
+    posts: allMdx(limit: 2) {
       edges {
         node {
-          published(formatString: "MMMM Do, YYYY")
-          title
           slug
-          introduction
-          postId: contentful_id
+          excerpt
+          id
+          frontmatter {
+            title
+            date(formatString: "MMMM Do, YYYY")
+          }
         }
       }
     }
@@ -81,18 +80,20 @@ const JournalItem = () => {
 
   return (
     <>
-      {posts.edges.map(({ node }) => (
-        <JournalItemStyles key={node.postId}>
-          <h2>{node.title}</h2>
-          <div>
-            <p>{node.introduction}</p>
-            <time>{node.published}</time>
-            <Link to={node.slug} className="link__std">
-              Read Article
-            </Link>
-          </div>
-        </JournalItemStyles>
-      ))}
+      {posts.edges.map(({ node }) =>
+        node.slug ? (
+          <JournalItemStyles key={node.id}>
+            <h2>{node.frontmatter.title}</h2>
+            <div>
+              <p>{node.excerpt}</p>
+              <time>{node.frontmatter.date}</time>
+              <Link to={node.slug} className="link__std">
+                Read Article
+              </Link>
+            </div>
+          </JournalItemStyles>
+        ) : null
+      )}
     </>
   );
 };

@@ -44,9 +44,9 @@ const projectsPage = ({ data }) => {
         </Hero>
         <SplitContainerStyles>
           <Grid>
-            {developmentData.map(({ node }) => (
-              <Development noPrefix project={node} />
-            ))}
+            {developmentData.map(({ node }) =>
+              node.slug ? <Development noPrefix project={node} /> : null
+            )}
           </Grid>
         </SplitContainerStyles>
       </Layout>

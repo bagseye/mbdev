@@ -55,9 +55,9 @@ const FeatureDevelopments = () => {
         </TitleArea>
       </Grid>
       <Grid>
-        {developmentData.map(({ node }) => (
-          <Development project={node} />
-        ))}
+        {developmentData.map(({ node }) =>
+          node.slug ? <Development project={node} /> : null
+        )}
       </Grid>
       <ViewMore>
         <Link className="link__std" to="/projects">
