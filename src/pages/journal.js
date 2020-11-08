@@ -79,14 +79,16 @@ const JournalPageItem = styled.article`
 
 export const getProjects = graphql`
   query {
-    allContentfulPosts {
+    allMdx {
       edges {
         node {
-          published(formatString: "MMMM Do, YYYY")
-          title
           slug
-          introduction
-          postId: contentful_id
+          excerpt
+          id
+          frontmatter {
+            title
+            date(formatString: "MMMM Do, YYYY")
+          }
         }
       }
     }
@@ -94,7 +96,7 @@ export const getProjects = graphql`
 `;
 
 const journalPage = ({ data }) => {
-  const item = data.allContentfulPosts.edges;
+  const item = data.allMdx.edges;
 
   return (
     <>
@@ -104,19 +106,21 @@ const journalPage = ({ data }) => {
         </Hero>
         <SplitContainerStyles>
           <Grid>
-            {item.map(({ node }) => (
-              <JournalPageItem key={node.postId}>
-                <hr />
-                <h2>{node.title}</h2>
-                <div>
-                  <p>{node.introduction}</p>
-                  <time>{node.published}</time>
-                  <Link className="link__std" to={node.slug}>
-                    Read Article
-                  </Link>
-                </div>
-              </JournalPageItem>
-            ))}
+            {item.map(({ node }) =>
+              node.slug ? (
+                <JournalPageItem key={node.id}>
+                  <hr />
+                  <h2>{node.frontmatter.title}</h2>
+                  <div>
+                    <p>{node.excerpt}</p>
+                    <time>{node.frontmatter.date}</time>
+                    <Link className="link__std" to={node.slug}>
+                      Read Article
+                    </Link>
+                  </div>
+                </JournalPageItem>
+              ) : null
+            )}
           </Grid>
         </SplitContainerStyles>
       </Layout>

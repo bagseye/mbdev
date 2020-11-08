@@ -97,7 +97,6 @@ export default function PageTemplate({ data }) {
 
   return (
     <Layout>
-      {/* <PageTransition> */}
       <SEO title={title} description={description} />
       <Hero>
         <Banner description={title} />

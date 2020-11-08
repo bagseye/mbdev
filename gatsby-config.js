@@ -3,20 +3,21 @@
  *
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
-require("dotenv").config({
+require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
-})
+});
+
 module.exports = {
   siteMetadata: {
-    title: "Morgan Baker Dev",
+    title: 'Morgan Baker Dev',
     description:
       "I'm a front end developer from Inverness, building React applications using GatsbyJS",
     subline:
       "Coupling a love of design with web development I've created and continue to maintain a number of open-source themes",
-    author: "Morgan Baker",
-    twitterUsername: "@dave",
-    image: "/yellow-metal-design-decoration.jpg",
-    siteUrl: "https://www.morganbaker.dev",
+    author: 'Morgan Baker',
+    twitterUsername: '@dave',
+    image: '/yellow-metal-design-decoration.jpg',
+    siteUrl: 'https://www.morganbaker.dev',
   },
   /* Your site config here */
   plugins: [
@@ -46,7 +47,7 @@ module.exports = {
       resolve: `gatsby-plugin-offline`,
       options: {
         workboxConfig: {
-          globPatterns: ["**/*"],
+          globPatterns: ['**/*'],
         },
       },
     },
@@ -63,10 +64,10 @@ module.exports = {
       options: {
         googleAnalytics: {
           trackingId: process.env.GOOGLE_ANALYTICS,
-          cookieName: "morgan-baker-google-analytics",
+          cookieName: 'morgan-baker-google-analytics',
           anonymize: true,
         },
-        environments: ["production"],
+        environments: ['production'],
       },
     },
     {
@@ -85,11 +86,11 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-robots-txt",
+      resolve: 'gatsby-plugin-robots-txt',
       options: {
-        host: "https://www.morganbaker.dev",
-        sitemap: "https://www.morganbaker.dev/sitemap.xml",
-        policy: [{ userAgent: "*", allow: "/" }],
+        host: 'https://www.morganbaker.dev',
+        sitemap: 'https://www.morganbaker.dev/sitemap.xml',
+        policy: [{ userAgent: '*', allow: '/' }],
       },
     },
     `gatsby-plugin-playground`,
@@ -98,4 +99,4 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-transition-link`,
   ],
-}
+};

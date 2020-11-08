@@ -14,9 +14,35 @@ const DevelopmentContainer = styled.section`
   .project-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: var(--gridGap);
+    grid-gap: 0 var(--gridGap);
     margin-bottom: 40px;
     height: 100%;
+  }
+
+  .excerpt {
+    grid-column: 4 / 7;
+    display: flex;
+    flex-wrap: wrap;
+
+    > p {
+      font-size: var(--paragraph);
+      line-height: var(--paragraphLineHeight);
+      margin: 0;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+
+    .link__std {
+      margin-top: auto;
+    }
+
+    @media (min-width: 768px) {
+      grid-column: 2 / 4;
+    }
+
+    @media (min-width: 834px) {
+      grid-column: 2 / 4;
+    }
   }
 
   h2 {
@@ -79,38 +105,6 @@ const ProjectImage = styled.div`
   }
 `;
 
-const Excerpt = styled.div`
-  grid-column: 4 / 7;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  > p {
-    font-size: var(--paragraph);
-    line-height: var(--paragraphLineHeight);
-    margin: 0;
-    margin-bottom: 20px;
-  }
-
-  @media (min-width: 768px) {
-    grid-column: 2 / 4;
-  }
-
-  @media (min-width: 834px) {
-    grid-column: 2 / 4;
-  }
-`;
-
-const Image = styled(Img)`
-  height: 100%;
-  width: 100%;
-  position: absolute !important;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-`;
-
 const Development = ({ project, noPrefix }) => {
   const { name, excerpt, slug, images } = project;
   const projectImg = images[0].fluid;
@@ -119,7 +113,7 @@ const Development = ({ project, noPrefix }) => {
     <DevelopmentContainer>
       <div className="project-grid">
         <h2>{name}</h2>
-        <Excerpt>
+        <div className="excerpt">
           <p>{excerpt}</p>
           <Link
             className="link__std"
@@ -127,10 +121,10 @@ const Development = ({ project, noPrefix }) => {
           >
             View Project
           </Link>
-        </Excerpt>
+        </div>
       </div>
       <ProjectImage>
-        <Image fluid={projectImg} />
+        <Img fluid={projectImg} />
       </ProjectImage>
     </DevelopmentContainer>
   );

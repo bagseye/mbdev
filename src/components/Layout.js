@@ -153,6 +153,8 @@ a {
   font-weight: 700;
 
   &.link__std {
+    font-size: var(--paragraph);
+    display: inline-block;
     text-decoration: underline #fff;
     transition: text-decoration-color 0.5s ease;
 
