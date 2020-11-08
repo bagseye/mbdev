@@ -76,9 +76,17 @@ const MainArticle = styled.div`
   }
 
   h2,
-  p {
-    margin-top: 20px;
-    margin-bottom: 20px;
+  p,
+  pre {
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+
+  pre {
+    padding: 25px 15px;
+    background-color: #111;
+    border-radius: 4px;
+    color: #aaa;
   }
 
   > *:first-child {
