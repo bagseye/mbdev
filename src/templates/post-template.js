@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { graphql, Link } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { VscArrowLeft as Arrow } from 'react-icons/vsc';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import Banner from '../components/Banner/Banner';
@@ -11,11 +12,11 @@ import Grid from '../components/Grid';
 const Border = styled.hr`
   border: none;
   height: var(--borderSmall);
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.2);
   width: 100%;
   grid-column: 1 / 7;
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 
   @media (min-width: 768px) {
     grid-column: 1 / 5;
@@ -35,6 +36,7 @@ const Author = styled.div`
 const Name = styled.div`
   grid-column: 3 / 5;
   font-size: var(--paragraph);
+  color: #aaa;
 
   @media (min-width: 768px) {
     grid-column: 2 / 3;
@@ -44,6 +46,7 @@ const Name = styled.div`
 const Date = styled.div`
   grid-column: 5 / 7;
   font-size: var(--paragraph);
+  color: #aaa;
 
   @media (min-width: 768px) {
     grid-column: 4 / 5;
@@ -52,7 +55,7 @@ const Date = styled.div`
 
 const BodyContainer = styled.div`
   padding: 0 var(--gridGap);
-  max-width: 1440px;
+  max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
 `;
@@ -64,10 +67,12 @@ const MainArticle = styled.div`
   margin-bottom: var(--margins);
   font-size: var(--paragraph);
   line-height: var(--paragraphLineHeight);
+  color: #aaa;
 
   h2 {
     font-size: var(--paragraph);
     font-weight: 700;
+    color: #fff;
   }
 
   h2,
@@ -110,7 +115,9 @@ export default function PageTemplate({ data }) {
           <Date>{date}</Date>
           <MainArticle>
             <MDXRenderer>{body}</MDXRenderer>
-            <Back className="link__std">Return to journal</Back>
+            <Link className="link__arrow" to="/journal">
+              <Arrow className="arrow__left" /> Return to journal
+            </Link>
           </MainArticle>
         </Grid>
       </BodyContainer>

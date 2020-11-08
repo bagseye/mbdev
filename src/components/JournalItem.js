@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link, useStaticQuery, graphql } from 'gatsby';
+import { VscArrowRight as Arrow } from 'react-icons/vsc';
 
 const JournalItemStyles = styled.article`
-  border-top: var(--borderSmall) solid #fff;
-  padding-top: 10px;
+  border-top: var(--borderSmall) solid rgba(255, 255, 255, 0.2);
+  padding-top: 25px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-column: 1 / 7;
@@ -25,12 +26,13 @@ const JournalItemStyles = styled.article`
     p {
       margin-top: 0;
       line-height: var(--paragraphLineHeight);
+      color: #aaa;
     }
 
     > p,
     > time {
       font-size: var(--paragraph);
-      margin-bottom: 20px;
+      margin-bottom: 50px;
     }
 
     a {
@@ -38,8 +40,9 @@ const JournalItemStyles = styled.article`
     }
 
     > time {
-      font-weight: 700;
-      color: #777;
+      /* font-weight: 700; */
+      color: #aaa;
+      margin-bottom: 50px;
     }
   }
 
@@ -67,7 +70,6 @@ const getPosts = graphql`
           id
           frontmatter {
             title
-            date(formatString: "MMMM Do, YYYY")
           }
         }
       }
@@ -86,9 +88,8 @@ const JournalItem = () => {
             <h2>{node.frontmatter.title}</h2>
             <div>
               <p>{node.excerpt}</p>
-              <time>{node.frontmatter.date}</time>
-              <Link to={node.slug} className="link__std">
-                Read Article
+              <Link className="link__arrow" to={`journal/${node.slug}`}>
+                Read article <Arrow className="arrow" />
               </Link>
             </div>
           </JournalItemStyles>

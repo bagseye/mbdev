@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 import PageTransition from 'gatsby-v2-plugin-page-transitions';
 import styled from 'styled-components';
 import Hero from '../components/Hero/Hero';
@@ -15,7 +15,7 @@ import ContactMethods from '../components/ContactMethods';
 
 const SplitContainerStyles = styled.div`
   padding: 0 var(--gridGap);
-  max-width: 1440px;
+  max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
 `;

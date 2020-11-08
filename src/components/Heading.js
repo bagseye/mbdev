@@ -12,6 +12,7 @@ const HeadingStyles = styled.div`
 
     span {
       color: #777;
+      font-weight: 300;
     }
   }
 `;

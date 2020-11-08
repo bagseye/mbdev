@@ -8,7 +8,7 @@ import Grid from '../components/Grid';
 
 const BodyContainer = styled.div`
   padding: 0 var(--gridGap);
-  max-width: 1440px;
+  max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: var(--margins);
@@ -25,6 +25,7 @@ const Para = styled.div`
   font-size: var(--paragraph);
   line-height: var(--paragraphLineHeight);
   margin-bottom: 20px;
+  color: #aaa;
 
   @media (min-width: 768px) {
     grid-column: 3 / 5;
@@ -47,6 +48,7 @@ const Role = styled.div`
   font-size: var(--paragraph);
   line-height: var(--paragraphLineHeight);
   margin-bottom: 20px;
+  color: #aaa;
 
   @media (min-width: 768px) {
     grid-column: 4 / 5;
@@ -55,10 +57,10 @@ const Role = styled.div`
 
 const Border = styled.hr`
   height: var(--borderSmall);
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.2);
   width: 100%;
   grid-column: 1 / 7;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   margin-top: var(--margins);
 
   &:first-of-type {

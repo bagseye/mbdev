@@ -2,10 +2,11 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
+import { VscArrowRight as Arrow } from 'react-icons/vsc';
 
 const DevelopmentContainer = styled.section`
-  border-top: var(--borderSmall) solid #fff;
-  padding-top: 10px;
+  border-top: var(--borderSmall) solid rgba(255, 255, 255, 0.2);
+  padding-top: 25px;
   grid-column: 1 / 7;
   margin-bottom: 50px;
   display: flex;
@@ -15,7 +16,7 @@ const DevelopmentContainer = styled.section`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 0 var(--gridGap);
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     height: 100%;
   }
 
@@ -28,11 +29,12 @@ const DevelopmentContainer = styled.section`
       font-size: var(--paragraph);
       line-height: var(--paragraphLineHeight);
       margin: 0;
-      margin-bottom: 20px;
+      margin-bottom: 50px;
       width: 100%;
+      color: #aaa;
     }
 
-    .link__std {
+    .link__arrow {
       margin-top: auto;
     }
 
@@ -82,7 +84,6 @@ const DevelopmentContainer = styled.section`
 
 const ProjectImage = styled.div`
   margin-top: auto;
-  grid-column: 1 / 7;
   position: relative;
 
   &::before {
@@ -116,10 +117,10 @@ const Development = ({ project, noPrefix }) => {
         <div className="excerpt">
           <p>{excerpt}</p>
           <Link
-            className="link__std"
+            className="link__arrow"
             to={noPrefix ? `${slug}` : `projects/${slug}`}
           >
-            View Project
+            View Project <Arrow className="arrow" />
           </Link>
         </div>
       </div>

@@ -8,18 +8,23 @@ import Grid from '../components/Grid';
 
 const BodyContainer = styled.div`
   padding: 0 var(--gridGap);
-  max-width: 1440px;
+  max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: var(--margins);
 `;
 
 const MainContent = styled.div`
-  border-top: var(--borderSmall) solid #fff;
-  padding-top: 20px;
+  border-top: var(--borderSmall) solid rgba(255, 255, 255, 0.2);
+  padding-top: 25px;
   grid-column: 1 / 7;
   font-size: var(--paragraph);
   line-height: var(--paragraphLineHeight);
+  color: #aaa;
+
+  > *:first-child {
+    margin-top: 0;
+  }
   @media (min-width: 768px) {
     grid-column: 1 / 5;
   }

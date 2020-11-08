@@ -2,13 +2,14 @@ import React from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
+import { VscArrowRight as Arrow } from 'react-icons/vsc';
 import Grid from './Grid';
 import Development from './Development';
 import Heading from './Heading';
 
 const Container = styled.section`
   padding: 0 var(--gridGap);
-  max-width: 1440px;
+  max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
 `;
@@ -60,8 +61,8 @@ const FeatureDevelopments = () => {
         )}
       </Grid>
       <ViewMore>
-        <Link className="link__std" to="/projects">
-          View all projects
+        <Link className="link__arrow" to="/projects">
+          View all projects <Arrow className="arrow" />
         </Link>
       </ViewMore>
     </Container>

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Grid from './Grid';
 
 const Container = styled.div`
-  max-width: 1440px;
+  max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
   padding: 0 var(--gridGap) var(--gridGap);
@@ -12,30 +12,18 @@ const Container = styled.div`
   hr {
     border: none;
     height: var(--borderSmall);
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.2);
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
   }
 `;
 
 const Copyright = styled.div`
   grid-column: 1 / 4;
   margin-bottom: 0;
-  font-weight: 700;
   letter-spacing: -1px;
-  color: #777;
-  font-size: var(--paragraph);
-
-  a {
-    font-size: var(--paragraph);
-    color: #777;
-    text-decoration: none;
-    transition: color 0.75s ease;
-
-    &:hover {
-      color: #fff;
-    }
-  }
+  color: #aaa;
+  font-size: 13px;
 `;
 
 const Privacy = styled.div`
@@ -43,15 +31,7 @@ const Privacy = styled.div`
   letter-spacing: -1px;
 
   a {
-    text-decoration: none;
-    color: #777;
-    transition: color 0.75s ease;
-    font-size: var(--paragraph);
-    font-weight: 700;
-
-    &:hover {
-      color: #fff;
-    }
+    font-size: 13px;
   }
 `;
 
@@ -79,6 +59,8 @@ const Footer = () => {
               href="https://www.linkedin.com/in/morgan-baker-developer-inverness/"
               target="_blank"
               rel="noopener noreferrer"
+              className="link__std"
+              style={{ fontSize: '13px' }}
             >
               {siteMetadata.author}
             </a>

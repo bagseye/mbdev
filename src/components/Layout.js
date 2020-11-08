@@ -8,7 +8,7 @@ import Header from './Header/Header';
 
 const GlobalStyle = createGlobalStyle`
 :root {
-  --background: #000;
+  --background: #171717;
   --charcoal: #111;
   --border: #313131;
   --primary: #fff;
@@ -81,14 +81,13 @@ const GlobalStyle = createGlobalStyle`
     --logo: 1.35rem;
   }
 
-  @media(min-width: 1440px) {
+  @media(min-width: 1600px) {
     --titleLarge: 50px;
     --titleLargeLineHeight: 56px;
     --paragraph: 20px;
     --gridGap: 40px;
     --margins: 150px;
     --borderLarge: 10px;
-    --borderSmall: 3px;
   }
 }
 * {
@@ -150,17 +149,67 @@ h2 {
 
 a {
   color: #fff;
-  font-weight: 700;
-
-  &.link__std {
-    font-size: var(--paragraph);
-    display: inline-block;
-    text-decoration: underline #fff;
+  font-weight: 400;
+    text-decoration: underline #808080;
     transition: text-decoration-color 0.5s ease;
 
     &:hover {
-      text-decoration-color: rgba(255,255,255,0);
+      text-decoration: underline rgba(0,0,0,0);
     }
+
+   &.link__std {
+    font-size: var(--paragraph); 
+    font-weight: 400;
+    text-decoration: underline #808080;
+    transition: text-decoration-color 0.5s ease;
+
+    &:hover {
+      text-decoration: underline rgba(0,0,0,0);
+    }
+  }
+
+  &.link__arrow {
+    font-size: var(--paragraph);
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    text-decoration: underline #808080;
+    transition: text-decoration-color 0.5s ease;
+
+    .arrow,
+    .arrow__left { 
+      color: #808080;
+      font-size: 22px;
+    }
+
+    .arrow {
+      margin-left: 10px;
+      transition: color 0.5s ease, margin-left 0.5s ease;
+    }
+
+    .arrow__left {
+      margin-right: 10px;
+      transition: color 0.5s ease, margin-right 0.5s ease;
+    }
+
+    &:hover {
+      text-decoration: underline rgba(0,0,0,0);
+
+      .arrow {
+        margin-left: 20px;
+      }
+
+      .arrow,
+      .arrow__left {
+        color: #2962ff;
+      }
+
+      .arrow__left {
+        margin-right: 20px;
+      }
+    }
+
+    
   }
 }
 

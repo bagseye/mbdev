@@ -26,8 +26,8 @@ const TitleArea = styled.div`
 `;
 
 const ContactListStyles = styled.div`
-  border-top: var(--borderSmall) solid #fff;
-  padding-top: 10px;
+  border-top: var(--borderSmall) solid rgba(255, 255, 255, 0.2);
+  padding-top: 25px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-column: 1 / 7;

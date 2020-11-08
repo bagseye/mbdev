@@ -11,7 +11,7 @@ import Grid from '../components/Grid';
 
 const BodyContainer = styled.div`
   padding: 0 var(--gridGap);
-  max-width: 1440px;
+  max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: var(--margins);
@@ -24,6 +24,7 @@ const ProjectContent = styled.div`
   line-height: var(--paragraphLineHeight);
   grid-column: 1 / 7;
   padding-top: var(--margins);
+  color: #aaa;
 
   > *:first-child {
     margin-top: 0;
@@ -36,10 +37,10 @@ const ProjectContent = styled.div`
 
 const Border = styled.hr`
   height: var(--borderSmall);
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.2);
   width: 100%;
   grid-column: 1 / 7;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 
   @media (min-width: 768px) {
     grid-column: 1 / 5;
@@ -57,6 +58,7 @@ const Built = styled.div`
 `;
 
 const Tech = styled.div`
+  color: #aaa;
   grid-column: 3 / 5;
   font-size: var(--paragraph);
 

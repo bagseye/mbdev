@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 
 const Content = styled.aside`
   padding: 0 15px;
-  max-width: 1440px;
+  max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
 
@@ -17,7 +17,7 @@ const Content = styled.aside`
     padding: 0 30px;
   }
 
-  @media (min-width: 1440px) {
+  @media (min-width: 1600px) {
     padding: 0 40px;
   }
 `

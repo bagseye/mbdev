@@ -28,7 +28,7 @@ const Container = styled.section`
   width: 100%;
   height: 100vh;
   max-height: 600px;
-  max-width: 1800px;
+  max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
 `

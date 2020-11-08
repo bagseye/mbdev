@@ -5,7 +5,7 @@ import Grid from "../Grid"
 
 const Container = styled.div`
   padding: var(--margins) var(--gridGap); 
-  max-width: 1440px;
+  max-width: 1600px;
   margin-left: auto;
   margin-right: auto; 
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
+import { VscArrowRight as Arrow } from 'react-icons/vsc';
 import Banner from '../components/Banner/Banner';
 import Grid from '../components/Grid';
 import Hero from '../components/Hero/Hero';
@@ -8,7 +9,7 @@ import Layout from '../components/Layout';
 
 const SplitContainerStyles = styled.div`
   padding: 0 var(--gridGap);
-  max-width: 1440px;
+  max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
 `;
@@ -24,9 +25,9 @@ const JournalPageItem = styled.article`
     grid-column: 1 /7;
     border: none;
     height: var(--borderSmall);
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.2);
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
   }
 
   > h2 {
@@ -41,13 +42,14 @@ const JournalPageItem = styled.article`
     flex-direction: column;
 
     p {
+      color: #aaa;
       margin-top: 0;
       line-height: var(--paragraphLineHeight);
     }
 
     p,
     time {
-      margin-bottom: 20px;
+      margin-bottom: 50px;
     }
 
     time {
@@ -113,9 +115,12 @@ const journalPage = ({ data }) => {
                   <h2>{node.frontmatter.title}</h2>
                   <div>
                     <p>{node.excerpt}</p>
-                    <time>{node.frontmatter.date}</time>
-                    <Link className="link__std" to={node.slug}>
+                    {/* <time>{node.frontmatter.date}</time> */}
+                    {/* <Link className="link__std" to={node.slug}>
                       Read Article
+                    </Link> */}
+                    <Link className="link__arrow" to={node.slug}>
+                      View all projects <Arrow className="arrow" />
                     </Link>
                   </div>
                 </JournalPageItem>
