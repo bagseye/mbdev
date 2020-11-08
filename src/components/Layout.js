@@ -1,12 +1,10 @@
-import React, { useState } from "react"
-import SideMenu from "./Navbar/SideMenu"
-import Hamburger from "./Navbar/Hamburger"
-import Footer from "./Footer"
-import { createGlobalStyle } from "styled-components"
-import CookieConsent from "react-cookie-consent"
-import "typeface-inter"
-import Logo from "../components/Logo/Logo"
-import QuickLinks from "../components/QuickLinks"
+import React, { useState } from 'react';
+import { createGlobalStyle } from 'styled-components';
+import CookieConsent from 'react-cookie-consent';
+import MenuButton from './Header/MenuButton';
+import Footer from './Footer';
+import 'typeface-inter';
+import Header from './Header/Header';
 
 const GlobalStyle = createGlobalStyle`
 :root {
@@ -32,6 +30,23 @@ const GlobalStyle = createGlobalStyle`
   --button: 1.15rem;
   --logo: 1.1rem;
 
+
+
+  --titleLarge: 38px;
+  --titleLargeLineHeight: 42px;
+  --titleLargeLetterSpacing: -1.5px;
+  --paragraph: 14px;
+  --paragraphLineHeight: 1.4;
+  --gridGap: 15px;
+  --margins: 70px;
+  --borderLarge: 8px;
+  --borderSmall: 2px;
+
+  @media(min-width:414px) {
+    --gridGap: 20px;
+    --margins: 80px;
+  }
+
   @media(min-width:768px) {
     --h1: 2rem;
     --h1Large: 3.25rem;
@@ -45,6 +60,15 @@ const GlobalStyle = createGlobalStyle`
     --logo: 1.25rem;
   }
 
+  @media(min-width: 834px) {
+    --titleLarge: 42px;
+    --titleLargeLineHeight: 50px;
+    --paragraph: 16px;
+    --grdGap: 30px;
+    --margins: 120px;
+    --borderLarge: 9px;
+  }
+
   @media(min-width: 1200px) {
     /* --menuItem: 1.25rem; */
     --h1: 2.15rem;
@@ -55,6 +79,16 @@ const GlobalStyle = createGlobalStyle`
     --hero: 3.25rem;
     --button: 1.6rem;
     --logo: 1.35rem;
+  }
+
+  @media(min-width: 1440px) {
+    --titleLarge: 50px;
+    --titleLargeLineHeight: 56px;
+    --paragraph: 20px;
+    --gridGap: 40px;
+    --margins: 150px;
+    --borderLarge: 10px;
+    --borderSmall: 3px;
   }
 }
 * {
@@ -75,31 +109,11 @@ body {
   }
 
 #main {
-  transition: margin-left 0.75s cubic-bezier(0.445, 0.050, 0.550, 0.950);
+  transition: margin-left 0.5s ease;
   width: 100%;
-
-  &.menu-open {
-    margin-left: 100vw;
-  }
+  padding-top: 80px;
 }
 
-.burger {
-  background-color: transparent;
-  border: none;
-  position: fixed;
-  top: calc(var(--spacing) * 2);
-  right: calc(var(--spacing) * 2.5);
-  z-index: 5;
-  padding: 0;
-
-  @media (min-width: 768px) {
-    right:  calc(var(--spacing) * 4);
-  }
-
-  @media (min-width: 1200px) {
-    right:  calc(var(--spacing) * 5);
-  }
-}
 
 h1,
 h2 {
@@ -137,6 +151,15 @@ h2 {
 a {
   color: #fff;
   font-weight: 700;
+
+  &.link__std {
+    text-decoration: underline #fff;
+    transition: text-decoration-color 0.5s ease;
+
+    &:hover {
+      text-decoration-color: rgba(255,255,255,0);
+    }
+  }
 }
 
 
@@ -166,11 +189,6 @@ button.btn {
     }
   }
 
-  .burger {
-    width: 32px;
-    height: 32px;
-  }
-
   .container {
     max-width: 1200px;
     margin-left: auto;
@@ -185,13 +203,13 @@ button.btn {
   .section-padding--large {
     padding: var(--paddingLarge) var(--paddingBorder);
   }
-`
+`;
 
 const Layout = ({ children }) => {
-  const [isOpen, setNav] = useState(false)
+  const [isOpen, setNav] = useState(false);
   const toggleNav = () => {
-    setNav(isOpen => !isOpen)
-  }
+    setNav((isOpen) => !isOpen);
+  };
 
   return (
     <>
@@ -204,19 +222,17 @@ const Layout = ({ children }) => {
       >
         This site uses cookies
       </CookieConsent>
-      <div id="main" className={isOpen ? "menu-open" : "menu-closed"}>
-        <SideMenu status={isOpen} />
-
-        <QuickLinks status={isOpen} />
-        <button className="burger" onClick={toggleNav}>
-          <Hamburger status={isOpen} />
-        </button>
-        <Logo status={isOpen} />
+      <div id="main" style={{ marginLeft: isOpen ? '100vw' : '0' }}>
+        <Header status={isOpen}>
+          <button onClick={toggleNav}>
+            <MenuButton status={isOpen} />
+          </button>
+        </Header>
         {children}
         <Footer />
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

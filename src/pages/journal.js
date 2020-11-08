@@ -1,147 +1,126 @@
-import React from "react"
-import SEO from "../components/SEO"
-// import Layout from "../components/Layout"
-import Contact from "../components/Contact"
-import { graphql } from "gatsby"
-import styled from "styled-components"
-import Button from "../components/Button/Button"
-import Banner from "../components/Banner/Banner"
-import PageTransition from "gatsby-v2-plugin-page-transitions"
-import Layout from "../components/Layout"
+import React from 'react';
+import { graphql, Link } from 'gatsby';
+import styled from 'styled-components';
+import Banner from '../components/Banner/Banner';
+import Grid from '../components/Grid';
+import Hero from '../components/Hero/Hero';
+import Layout from '../components/Layout';
 
-const Container = styled.div`
-  padding: 0 calc(var(--spacing) * 2.5);
+const SplitContainerStyles = styled.div`
+  padding: 0 var(--gridGap);
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+`;
 
-  @media (min-width: 768px) {
-    padding: 0 calc(var(--spacing) * 4);
-  }
-
-  @media (min-width: 1200px) {
-    padding: 0 calc(var(--spacing) * 5);
-  }
-`
-
-const GridContainer = styled.div`
-  width: 100%;
+const JournalPageItem = styled.article`
+  grid-column: 1 / 7;
   display: grid;
-  grid-gap: var(--spacing);
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 0 var(--gridGap);
+  margin-bottom: var(--margins);
 
-  @media (min-width: 768px) {
-    grid-template-rows: auto;
+  > hr {
+    grid-column: 1 /7;
+    border: none;
+    height: var(--borderSmall);
+    background-color: #fff;
+    width: 100%;
+    margin-bottom: 20px;
   }
 
-  @media (min-width: 1200px) {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 15px;
-  }
-`
-
-const Content = styled.div`
-  grid-column: 1 / 5;
-  grid-row: 2 / 3;
-
-  p {
-    font-size: var(--h3);
-    line-height: 1.3;
+  > h2 {
+    grid-column: 1 / 4;
+    font-size: var(--paragraph);
     margin-top: 0;
-    margin-bottom: var(--spacing);
+  }
 
-    &:first-child,
-    &:last-child {
+  > div {
+    grid-column: 4 / 7;
+    display: flex;
+    flex-direction: column;
+
+    p {
       margin-top: 0;
-      margin-bottom: 0;
+      line-height: var(--paragraphLineHeight);
     }
 
-    a {
-      color: var(--primary);
-      text-underline-position: under;
-      text-decoration-color: rgba(255, 255, 255, 0.35);
-      transition: text-decoration-color 0.75s ease, color 0.75s ease;
+    p,
+    time {
+      margin-bottom: 20px;
+    }
 
-      &:hover {
-        cursor: pointer;
-        text-decoration-color: rgba(255, 255, 255, 1);
-      }
+    time {
+      font-weight: 700;
+      color: #777;
+    }
+
+    p,
+    time,
+    a {
+      font-size: var(--paragraph);
     }
   }
 
   @media (min-width: 768px) {
-    grid-column: 1 / 4;
-    grid-row: 1 / 2;
+    > hr {
+      grid-column: 1 / 5;
+    }
+
+    > h2 {
+      grid-column: 1 / 2;
+    }
+
+    > div {
+      grid-column: 3 / 5;
+    }
   }
+`;
 
-  @media (min-width: 1200px) {
-    grid-column: 1 / 4;
-  }
-`
-
-const Title = styled.h2`
-  margin-top: 0;
-  margin-bottom: 10px;
-  font-size: var(--h1);
-  line-height: 1.25;
-
-  @media (min-width: 1200px) {
-    margin-bottom: 15px;
-  }
-`
-
-const blog = ({ data }) => {
-  const blogs = data.allMdx.edges
-
-  return (
-    <Layout>
-      <PageTransition>
-        <SEO title="Development Journal" />
-        <Banner description="Random ramblings" />
-        <Container>
-          <GridContainer>
-            {blogs.map(({ node }) => {
-              if (node.frontmatter.slug) {
-                return (
-                  <>
-                    <Content>
-                      <Title key={node.id}>{node.frontmatter.title}</Title>
-                      <p>
-                        <date datetime={node.frontmatter.date}>
-                          {node.frontmatter.date}
-                        </date>
-                      </p>
-                      <Button
-                        text="Read Article"
-                        link={`/journal/${node.frontmatter.slug}`}
-                        anilink={true}
-                      />
-                    </Content>
-                  </>
-                )
-              } else return null
-            })}
-          </GridContainer>
-        </Container>
-        <Contact />
-      </PageTransition>
-    </Layout>
-  )
-}
-
-export const getBlogs = graphql`
+export const getProjects = graphql`
   query {
-    allMdx {
+    allContentfulPosts {
       edges {
         node {
-          frontmatter {
-            title
-            date(formatString: "MMMM, Do, YYYY")
-            slug
-          }
-          id
+          published(formatString: "MMMM Do, YYYY")
+          title
+          slug
+          introduction
+          postId: contentful_id
         }
       }
     }
   }
-`
+`;
 
-export default blog
+const journalPage = ({ data }) => {
+  const item = data.allContentfulPosts.edges;
+
+  return (
+    <>
+      <Layout>
+        <Hero>
+          <Banner description="Journal" />
+        </Hero>
+        <SplitContainerStyles>
+          <Grid>
+            {item.map(({ node }) => (
+              <JournalPageItem key={node.postId}>
+                <hr />
+                <h2>{node.title}</h2>
+                <div>
+                  <p>{node.introduction}</p>
+                  <time>{node.published}</time>
+                  <Link className="link__std" to={node.slug}>
+                    Read Article
+                  </Link>
+                </div>
+              </JournalPageItem>
+            ))}
+          </Grid>
+        </SplitContainerStyles>
+      </Layout>
+    </>
+  );
+};
+export default journalPage;

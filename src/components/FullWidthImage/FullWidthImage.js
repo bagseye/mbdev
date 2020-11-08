@@ -4,14 +4,21 @@ import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 
 const Content = styled.aside`
-  padding: 0 calc(var(--spacing) * 2.5);
+  padding: 0 15px;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
 
-  @media (min-width: 768px) {
-    padding: 0 calc(var(--spacing) * 4);
+  @media (min-width: 414px) {
+    padding: 0 20px;
   }
 
-  @media (min-width: 1200px) {
-    padding: 0 calc(var(--spacing) * 5);
+  @media (min-width: 834px) {
+    padding: 0 30px;
+  }
+
+  @media (min-width: 1440px) {
+    padding: 0 40px;
   }
 `
 

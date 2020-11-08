@@ -3,58 +3,51 @@ import styled from "styled-components"
 import Grid from "../Grid"
 
 const Container = styled.div`
-  padding: calc(var(--spacing) * 2.5) calc(var(--spacing) * 2.5);
+  padding: var(--margins) var(--gridGap);
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
 
-  @media (min-width: 768px) {
-    padding: calc(var(--spacing) * 5) calc(var(--spacing) * 4);
-  }
+  section {
+    grid-column: 1 / 7;
+    column-count: 2;
+    column-gap: var(--gridGap);
 
-  @media (min-width: 1200px) {
-    padding: calc(var(--spacing) * 7.5) calc(var(--spacing) * 5);
-  }
-`
+    p {
+      font-size: var(--paragraph);
+      line-height: var(--paragraphLineHeight);
+      margin-top: 0;
 
-const TitleArea = styled.div`
-  grid-column: 1 / 6;
-  display: flex;
-  align-items: center;
+      &:nth-child(1) {
+        font-weight: 700;
+      }
 
-  @media (min-width: 768px) {
-    grid-column: 3 / 6;
-  }
-`
+      a {
+        text-underline-position: under;
+        text-decoration-color: rgba(255, 255, 255, 0.35);
+        transition: text-decoration-color 0.75s ease;
 
-const Title = styled.h2`
-  column-count: 2;
-  margin-top: 0;
-  margin-bottom: 0;
-  font-size: var(--para);
-  letter-spacing: -1px;
-  color: rgba(255, 255, 255, 0.8);
-  font-weight: 400;
-
-  a {
-    text-underline-position: under;
-    text-decoration-color: rgba(255, 255, 255, 0.35);
-    transition: text-decoration-color 0.75s ease;
-
-    &:hover {
-      text-decoration-color: rgba(255, 255, 255, 1);
+        &:hover {
+          text-decoration-color: rgba(255, 255, 255, 1);
+        }
+      }
     }
   }
 
-  @media (min-width: 1200px) {
-    font-size: var(--logo);
+  @media (min-width: 768px) {
+
+    section {
+      grid-column: 1 / 5;
+    }
   }
 `
 
 const About = ({ id }) => {
   return (
-    <section id={id}>
       <Container>
         <Grid>
-          <TitleArea>
-            <Title>
+          <section>
+            <p>
               Using{" "}
               <a
                 href="https://www.gatsbyjs.com/"
@@ -65,15 +58,16 @@ const About = ({ id }) => {
               </a>{" "}
               I have built, and continue to maintain, a number of open source
               projects that are listed within their official starters library.
+            </p>
+            <p>
               These starter themes offer the perfect platform for aspiring
               developers, and those looking to start a new business venture. The
               sites offer an app-like experience in the way they deiliver
               content, with a focus on speed.
-            </Title>
-          </TitleArea>
+            </p>
+          </section>
         </Grid>
       </Container>
-    </section>
   )
 }
 
