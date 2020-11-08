@@ -1,53 +1,33 @@
-import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
-import styled from "styled-components"
-import Grid from "../components/Grid"
-import socialLinks from "../constants/socials"
+import React from 'react';
+import { useStaticQuery, graphql, Link } from 'gatsby';
+import styled from 'styled-components';
+import Grid from './Grid';
 
 const Container = styled.div`
-  padding: calc(var(--spacing) * 2.5) calc(var(--spacing) * 2.5);
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 var(--gridGap) var(--gridGap);
 
-  @media (min-width: 768px) {
-    padding: calc(var(--spacing) * 5) calc(var(--spacing) * 4);
+  hr {
+    border: none;
+    height: var(--borderSmall);
+    background-color: #fff;
+    width: 100%;
+    margin-bottom: 20px;
   }
-
-  @media (min-width: 1200px) {
-    padding: calc(var(--spacing) * 7.5) calc(var(--spacing) * 5);
-  }
-`
-
-const Socials = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-`
-
-const Social = styled.li`
-  font-weight: 700;
-  letter-spacing: -1px;
-  margin-right: var(--spacing);
-
-  a {
-    color: #777;
-    text-decoration: none;
-    transition: color 0.75s ease;
-
-    &:hover {
-      color: #fff;
-    }
-  }
-`
+`;
 
 const Copyright = styled.div`
-  grid-column: 1 / 3;
+  grid-column: 1 / 4;
   margin-bottom: 0;
   font-weight: 700;
   letter-spacing: -1px;
   color: #777;
+  font-size: var(--paragraph);
 
   a {
-    font-size: var(--para);
+    font-size: var(--paragraph);
     color: #777;
     text-decoration: none;
     transition: color 0.75s ease;
@@ -56,25 +36,24 @@ const Copyright = styled.div`
       color: #fff;
     }
   }
-`
+`;
 
 const Privacy = styled.div`
-  grid-column: 3 / 6;
+  grid-column: 4 / 7;
   letter-spacing: -1px;
-  text-align: right;
 
   a {
     text-decoration: none;
     color: #777;
     transition: color 0.75s ease;
-    font-size: var(--para);
+    font-size: var(--paragraph);
     font-weight: 700;
 
     &:hover {
       color: #fff;
     }
   }
-`
+`;
 
 const Footer = () => {
   const {
@@ -87,23 +66,15 @@ const Footer = () => {
         }
       }
     }
-  `)
+  `);
 
   return (
     <>
       <Container>
+        <hr />
         <Grid>
-          <Socials>
-            {socialLinks.map(item => (
-              <Social>
-                <a href={item.url} target="_blank" rel="noreferrer noopener">
-                  {item.title}
-                </a>
-              </Social>
-            ))}
-          </Socials>
           <Copyright>
-            &copy; {new Date().getFullYear()}{" "}
+            &copy; {new Date().getFullYear()}{' '}
             <a
               href="https://www.linkedin.com/in/morgan-baker-developer-inverness/"
               target="_blank"
@@ -118,7 +89,7 @@ const Footer = () => {
         </Grid>
       </Container>
     </>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

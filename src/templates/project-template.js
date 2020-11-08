@@ -1,107 +1,127 @@
-import React from "react"
-import { graphql } from "gatsby"
-import Layout from "../components/Layout"
-import SEO from "../components/SEO"
-import Banner from "../components/Banner/Banner"
-import Image from "gatsby-image"
-import Contact from "../components/Contact"
-import styled from "styled-components"
-import PageTransition from "gatsby-v2-plugin-page-transitions"
+import React from 'react';
+import { graphql } from 'gatsby';
+import Image from 'gatsby-image';
+import styled from 'styled-components';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import Layout from '../components/Layout';
+import SEO from '../components/SEO';
+import Banner from '../components/Banner/Banner';
+import Hero from '../components/Hero/Hero';
+import Grid from '../components/Grid';
 
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+const BodyContainer = styled.div`
+  padding: 0 var(--gridGap);
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--margins);
+`;
 
-const Container = styled.div`
-  padding: calc(var(--spacing) * 2.5) calc(var(--spacing) * 2.5);
+const ProjectContent = styled.div`
+  column-count: 2;
+  column-gap: var(--gridGap);
+  font-size: var(--paragraph);
+  line-height: var(--paragraphLineHeight);
+  grid-column: 1 / 7;
+  padding-top: var(--margins);
+
+  > *:first-child {
+    margin-top: 0;
+  }
 
   @media (min-width: 768px) {
-    padding: calc(var(--spacing) * 5) calc(var(--spacing) * 4);
+    grid-column: 1 / 5;
   }
+`;
 
-  @media (min-width: 1200px) {
-    padding: calc(var(--spacing) * 7.5) calc(var(--spacing) * 5);
-  }
-`
-
-const GridContainer = styled.div`
+const Border = styled.hr`
+  height: var(--borderSmall);
+  background-color: #fff;
   width: 100%;
-  display: grid;
-  grid-gap: var(--spacing);
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto auto;
+  grid-column: 1 / 7;
+  margin-bottom: 20px;
 
   @media (min-width: 768px) {
-    grid-template-rows: auto;
+    grid-column: 1 / 5;
   }
+`;
 
-  @media (min-width: 1200px) {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 15px;
-  }
-`
-
-const Content = styled.div`
-  grid-column: 1 / 5;
-  grid-row: 2 / 3;
-
-  p {
-    font-size: var(--h3);
-    line-height: 1.3;
-    margin-top: 0;
-    margin-bottom: var(--spacing);
-
-    &:first-child,
-    &:last-child {
-      margin-top: 0;
-      margin-bottom: 0;
-    }
-
-    a {
-      color: var(--primary);
-      text-underline-position: under;
-      text-decoration-color: rgba(255, 255, 255, 0.35);
-      transition: text-decoration-color 0.75s ease, color 0.75s ease;
-
-      &:hover {
-        cursor: pointer;
-        text-decoration-color: rgba(255, 255, 255, 1);
-      }
-    }
-  }
+const Built = styled.div`
+  grid-column: 1 / 3;
+  font-size: var(--paragraph);
+  font-weight: 700;
 
   @media (min-width: 768px) {
-    grid-column: 1 / 4;
-    grid-row: 1 / 2;
+    grid-column: 1 / 2;
   }
+`;
 
-  @media (min-width: 1200px) {
-    grid-column: 1 / 4;
-  }
-`
+const Tech = styled.div`
+  grid-column: 3 / 5;
+  font-size: var(--paragraph);
 
-const Details = styled.div`
-  h2 {
-    margin-top: 0;
-    font-size: var(--h3);
-    letter-spacing: -0.5px;
+  @media (min-width: 768px) {
+    grid-column: 2 / 3;
   }
-  a {
-    font-size: var(--h3);
-    letter-spacing: -0.5px;
-    font-weight: 700;
-  }
-  grid-column: 1 / 4;
-  grid-row: 1 / 2;
+`;
+
+const Website = styled.div`
+  grid-column: 5 / 7;
+  font-size: var(--paragraph);
 
   @media (min-width: 768px) {
     grid-column: 4 / 5;
   }
+`;
 
-  @media (min-width: 1200px) {
-    grid-column: 5 /7;
+const FeatureImage = styled.div`
+  margin: var(--margins) 0;
+  grid-column: 1 / 7;
+
+  @media (min-width: 768px) {
+    grid-column: 1 / 4;
+    margin-bottom: 0;
   }
-`
 
-const ImageArea = styled.section``
+  @media (min-width: 1024px) {
+    grid-column: 1 / 5;
+  }
+`;
+
+const ImageArea = styled.div`
+  margin: var(--margins) 0;
+  grid-column: 1 / 7;
+
+  @media (min-width: 768px) {
+    margin-bottom: 0;
+
+    &.standard-image__0 {
+      grid-column: 4 / 7;
+    }
+
+    &.standard-image__1 {
+      grid-column: 1 / 4;
+    }
+
+    &.standard-image__2 {
+      grid-column: 4 / 7;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    &.standard-image__0 {
+      grid-column: 1 / 3;
+    }
+
+    &.standard-image__1 {
+      grid-column: 3 / 5;
+    }
+
+    &.standard-image__2 {
+      grid-column: 5 / 7;
+    }
+  }
+`;
 
 const projectTemplate = ({ data }) => {
   const {
@@ -111,64 +131,62 @@ const projectTemplate = ({ data }) => {
     images,
     technology,
     website,
-  } = data.project
+  } = data.project;
 
   const options = {
     // Pass in the node and dril down to the required data
     renderNode: {
       // Render the contentful rich content image
-      "embedded-asset-block": node => {
-        return (
-          <div className="content-image">
-            <img
-              src={node.data.target.fields.file["en-US"].url}
-              alt={node.data.target.fields.title["en-US"]}
-            />
-          </div>
-        )
-      },
+      'embedded-asset-block': (node) => (
+        <div className="content-image">
+          <img
+            src={node.data.target.fields.file['en-US'].url}
+            alt={node.data.target.fields.title['en-US']}
+          />
+        </div>
+      ),
     },
-  }
+  };
 
-  const [mainImage, ...projectImages] = images
+  const [mainImage, ...projectImages] = images;
 
   return (
     <Layout>
-      <PageTransition>
-        <SEO title={name} description={excerpt} />
+      <SEO title={name} description={excerpt} />
+      <Hero>
         <Banner description={name} />
-        <Image className="hero" fluid={mainImage.fluid} />
-        <Container>
-          <GridContainer>
-            <Content>
-              {/* Render Contentful rich content here */}
-              {documentToReactComponents(json, options)}
-            </Content>
-            <Details>
-              <h2>Built using {technology}</h2>
-              <a
-                href={website}
-                className="btn"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Site
-              </a>
-            </Details>
-          </GridContainer>
-        </Container>
-        <ImageArea>
-          {projectImages.map((item, index) => {
-            return (
+      </Hero>
+      <BodyContainer>
+        <Grid>
+          <Border />
+          <Built>Built using</Built>
+          <Tech>{technology}</Tech>
+          <Website>
+            <a
+              href={website}
+              className="link__std"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Visit Website
+            </a>
+          </Website>
+          <ProjectContent>
+            {documentToReactComponents(json, options)}
+          </ProjectContent>
+          <FeatureImage>
+            <Image className="feature" fluid={mainImage.fluid} />
+          </FeatureImage>
+          {projectImages.map((item, index) => (
+            <ImageArea className={`standard-image__${index}`}>
               <Image className="gallery-item" key={index} fluid={item.fluid} />
-            )
-          })}
-        </ImageArea>
-        <Contact />
-      </PageTransition>
+            </ImageArea>
+          ))}
+        </Grid>
+      </BodyContainer>
     </Layout>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query($slug: String!) {
@@ -187,5 +205,5 @@ export const query = graphql`
       }
     }
   }
-`
-export default projectTemplate
+`;
+export default projectTemplate;

@@ -1,46 +1,29 @@
-import React from "react"
-import SEO from "../components/SEO"
-import Layout from "../components/Layout"
-import Contact from "../components/Contact"
-import { graphql } from "gatsby"
-import Banner from "../components/Banner/Banner"
-import Project from "../components/Project/Project"
-import PageTransition from "gatsby-v2-plugin-page-transitions"
+import React from 'react';
+import { graphql } from 'gatsby';
+import styled from 'styled-components';
+import Banner from '../components/Banner/Banner';
+import Development from '../components/Development';
+import Grid from '../components/Grid';
+import Hero from '../components/Hero/Hero';
+import Layout from '../components/Layout';
 
-const projects = ({ data }) => {
-  const project = data.projects.edges
-
-  return (
-    <Layout>
-      <PageTransition>
-        <SEO />
-        <Banner description="Recent Projects" />
-        {project.map(({ node }, i) => {
-          return (
-            <Project
-              key={i}
-              item={node}
-              className={i % 2 ? "align-left" : "align-right"}
-            />
-          )
-        })}
-        <Contact />
-      </PageTransition>
-    </Layout>
-  )
-}
+const SplitContainerStyles = styled.div`
+  padding: 0 var(--gridGap);
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+`;
 
 export const getProjects = graphql`
   query {
-    projects: allContentfulProjects {
+    allContentfulProjects {
       edges {
         node {
-          contentful_id
           name
-          excerpt
           slug
+          excerpt
           images {
-            fluid {
+            fluid(quality: 90, maxWidth: 1000) {
               ...GatsbyContentfulFluid_tracedSVG
             }
           }
@@ -48,6 +31,27 @@ export const getProjects = graphql`
       }
     }
   }
-`
+`;
 
-export default projects
+const projectsPage = ({ data }) => {
+  const developmentData = data.allContentfulProjects.edges;
+
+  return (
+    <>
+      <Layout>
+        <Hero>
+          <Banner description="Projects" />
+        </Hero>
+        <SplitContainerStyles>
+          <Grid>
+            {developmentData.map(({ node }) => (
+              <Development noPrefix project={node} />
+            ))}
+          </Grid>
+        </SplitContainerStyles>
+      </Layout>
+    </>
+  );
+};
+
+export default projectsPage;

@@ -6,7 +6,7 @@ import Grid from "../Grid"
 import PropTypes from "prop-types"
 
 const Container = styled.section`
-  padding-top: calc(var(--spacing) * 2.5);
+  /* padding-top: calc(var(--spacing) * 2.5);
   padding-right: calc(var(--spacing) * 2.5);
   padding-bottom: calc(var(--spacing) * 2.5);
   padding-left: calc(var(--spacing) * 2.5);
@@ -21,7 +21,7 @@ const Container = styled.section`
     padding-left: calc(var(--spacing) * 5);
     padding-top: calc(var(--spacing) * 8);
     padding-bottom: calc(var(--spacing) * 8);
-  }
+  } */
 `
 
 const ProjectDetails = styled.div`
