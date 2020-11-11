@@ -113,26 +113,24 @@ export default function PageTemplate({ data }) {
   return (
     <Layout>
       <SEO title={title} description={description} />
-      <PageTransition>
-        <Hero>
-          <Banner description={title} />
-        </Hero>
+      <Hero>
+        <Banner description={title} />
+      </Hero>
 
-        <BodyContainer>
-          <Grid>
-            <Border />
-            <Author>Written by</Author>
-            <Name>{author}</Name>
-            <Date>{date}</Date>
-            <MainArticle>
-              <MDXRenderer>{body}</MDXRenderer>
-              <Link className="link__arrow" to="/journal">
-                <Arrow className="arrow__left" /> Return to journal
-              </Link>
-            </MainArticle>
-          </Grid>
-        </BodyContainer>
-      </PageTransition>
+      <BodyContainer>
+        <Grid>
+          <Border />
+          <Author>Written by</Author>
+          <Name>{author}</Name>
+          <Date>{date}</Date>
+          <MainArticle>
+            <MDXRenderer>{body}</MDXRenderer>
+            <Link className="link__arrow" to="/journal">
+              <Arrow className="arrow__left" /> Return to journal
+            </Link>
+          </MainArticle>
+        </Grid>
+      </BodyContainer>
     </Layout>
   );
 }
