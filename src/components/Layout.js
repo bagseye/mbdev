@@ -4,6 +4,8 @@ import CookieConsent from 'react-cookie-consent';
 import MenuButton from './Header/MenuButton';
 import Footer from './Footer';
 import 'typeface-inter';
+import 'typeface-domine';
+import 'typeface-playfair-display';
 import Header from './Header/Header';
 
 const GlobalStyle = createGlobalStyle`
@@ -24,6 +26,7 @@ const GlobalStyle = createGlobalStyle`
   --paddingStd: 3.125rem;
   --paddingLarge: 4.688rem;
   --sansSerif: 'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  --serif: 'Playfair Display', serif;
   --spacing: 1rem;
   /* --hero: 1.65rem; */
   --hero: 6.5vw;
@@ -34,12 +37,12 @@ const GlobalStyle = createGlobalStyle`
 
   --titleLarge: 38px;
   --titleLargeLineHeight: 42px;
-  --titleLargeLetterSpacing: -1.5px;
+  --titleLargeLetterSpacing: -2px;
   --paragraph: 14px;
   --paragraphLineHeight: 1.4;
   --gridGap: 15px;
   --margins: 70px;
-  --borderLarge: 8px;
+  --borderLarge: 5px;
   --borderSmall: 2px;
 
   @media(min-width:414px) {
@@ -87,7 +90,7 @@ const GlobalStyle = createGlobalStyle`
     --paragraph: 20px;
     --gridGap: 40px;
     --margins: 150px;
-    --borderLarge: 10px;
+    --borderLarge: 6px;
   }
 }
 * {
@@ -118,7 +121,8 @@ h1,
 h2 {
   margin-bottom: 1rem;
   line-height: 1.3;
-  font-weight: 700;
+  font-weight: 500;
+  letter-spacing: -2px;
 
   @media(min-width: 1200px) {
     margin-bottom: 1.5rem;

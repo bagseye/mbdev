@@ -115,10 +115,6 @@ const journalPage = ({ data }) => {
                   <h2>{node.frontmatter.title}</h2>
                   <div>
                     <p>{node.excerpt}</p>
-                    {/* <time>{node.frontmatter.date}</time> */}
-                    {/* <Link className="link__std" to={node.slug}>
-                      Read Article
-                    </Link> */}
                     <Link className="link__arrow" to={node.slug}>
                       View all projects <Arrow className="arrow" />
                     </Link>

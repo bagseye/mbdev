@@ -38,12 +38,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-v2-plugin-page-transitions`,
-      options: {
-        transitionTime: 2000,
-      },
-    },
-    {
       resolve: `gatsby-plugin-offline`,
       options: {
         workboxConfig: {
@@ -97,6 +91,5 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
-    `gatsby-plugin-transition-link`,
   ],
 };

@@ -1,5 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import PageTransition from 'gatsby-v2-plugin-page-transitions';
+
 import Image from 'gatsby-image';
 import styled from 'styled-components';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
@@ -155,37 +157,43 @@ const projectTemplate = ({ data }) => {
   return (
     <Layout>
       <SEO title={name} description={excerpt} />
-      <Hero>
-        <Banner description={name} />
-      </Hero>
-      <BodyContainer>
-        <Grid>
-          <Border />
-          <Built>Built using</Built>
-          <Tech>{technology}</Tech>
-          <Website>
-            <a
-              href={website}
-              className="link__std"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Visit Website
-            </a>
-          </Website>
-          <ProjectContent>
-            {documentToReactComponents(json, options)}
-          </ProjectContent>
-          <FeatureImage>
-            <Image className="feature" fluid={mainImage.fluid} />
-          </FeatureImage>
-          {projectImages.map((item, index) => (
-            <ImageArea className={`standard-image__${index}`}>
-              <Image className="gallery-item" key={index} fluid={item.fluid} />
-            </ImageArea>
-          ))}
-        </Grid>
-      </BodyContainer>
+      <PageTransition>
+        <Hero>
+          <Banner description={name} />
+        </Hero>
+        <BodyContainer>
+          <Grid>
+            <Border />
+            <Built>Built using</Built>
+            <Tech>{technology}</Tech>
+            <Website>
+              <a
+                href={website}
+                className="link__std"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Visit Website
+              </a>
+            </Website>
+            <ProjectContent>
+              {documentToReactComponents(json, options)}
+            </ProjectContent>
+            <FeatureImage>
+              <Image className="feature" fluid={mainImage.fluid} />
+            </FeatureImage>
+            {projectImages.map((item, index) => (
+              <ImageArea className={`standard-image__${index}`}>
+                <Image
+                  className="gallery-item"
+                  key={index}
+                  fluid={item.fluid}
+                />
+              </ImageArea>
+            ))}
+          </Grid>
+        </BodyContainer>
+      </PageTransition>
     </Layout>
   );
 };

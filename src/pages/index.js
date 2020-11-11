@@ -1,6 +1,5 @@
 import React from 'react';
-import { useStaticQuery, graphql, Link } from 'gatsby';
-import PageTransition from 'gatsby-v2-plugin-page-transitions';
+import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import Hero from '../components/Hero/Hero';
 import Banner from '../components/Banner/Banner';
@@ -25,21 +24,19 @@ const Index = () => {
 
   return (
     <Layout>
-      <PageTransition>
-        <SEO title="Home" />
-        <Hero>
-          <Banner description={queryResponse.site.siteMetadata.description} />
-        </Hero>
-        <FullWidthImage />
-        <About id="about" />
-        <FeatureDevs />
-        <SplitContainerStyles>
-          <Grid>
-            <Journal />
-            <ContactMethods />
-          </Grid>
-        </SplitContainerStyles>
-      </PageTransition>
+      <SEO title="Home" />
+      <Hero>
+        <Banner description={queryResponse.site.siteMetadata.description} />
+      </Hero>
+      <FullWidthImage />
+      <About id="about" />
+      <FeatureDevs />
+      <SplitContainerStyles>
+        <Grid>
+          <Journal />
+          <ContactMethods />
+        </Grid>
+      </SplitContainerStyles>
     </Layout>
   );
 };

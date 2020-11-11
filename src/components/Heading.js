@@ -9,6 +9,7 @@ const HeadingStyles = styled.div`
     grid-column: 1 / 7;
     border-top: var(--borderLarge) solid #fff;
     padding-top: 20px;
+    letter-spacing: -2px;
 
     span {
       color: #777;

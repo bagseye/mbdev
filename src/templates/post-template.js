@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { graphql, Link } from 'gatsby';
+import PageTransition from 'gatsby-v2-plugin-page-transitions';
+
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { VscArrowLeft as Arrow } from 'react-icons/vsc';
 import Layout from '../components/Layout';
@@ -111,24 +113,26 @@ export default function PageTemplate({ data }) {
   return (
     <Layout>
       <SEO title={title} description={description} />
-      <Hero>
-        <Banner description={title} />
-      </Hero>
+      <PageTransition>
+        <Hero>
+          <Banner description={title} />
+        </Hero>
 
-      <BodyContainer>
-        <Grid>
-          <Border />
-          <Author>Written by</Author>
-          <Name>{author}</Name>
-          <Date>{date}</Date>
-          <MainArticle>
-            <MDXRenderer>{body}</MDXRenderer>
-            <Link className="link__arrow" to="/journal">
-              <Arrow className="arrow__left" /> Return to journal
-            </Link>
-          </MainArticle>
-        </Grid>
-      </BodyContainer>
+        <BodyContainer>
+          <Grid>
+            <Border />
+            <Author>Written by</Author>
+            <Name>{author}</Name>
+            <Date>{date}</Date>
+            <MainArticle>
+              <MDXRenderer>{body}</MDXRenderer>
+              <Link className="link__arrow" to="/journal">
+                <Arrow className="arrow__left" /> Return to journal
+              </Link>
+            </MainArticle>
+          </Grid>
+        </BodyContainer>
+      </PageTransition>
     </Layout>
   );
 }
