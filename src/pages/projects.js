@@ -6,6 +6,7 @@ import Development from '../components/Development';
 import Grid from '../components/Grid';
 import Hero from '../components/Hero/Hero';
 import Layout from '../components/Layout';
+import FadeIn from '../components/FadeIn';
 
 const SplitContainerStyles = styled.div`
   padding: 0 var(--gridGap);
@@ -43,11 +44,13 @@ const projectsPage = ({ data }) => {
           <Banner description="Projects" />
         </Hero>
         <SplitContainerStyles>
-          <Grid>
-            {developmentData.map(({ node }) =>
-              node.slug ? <Development noPrefix project={node} /> : null
-            )}
-          </Grid>
+          <FadeIn>
+            <Grid>
+              {developmentData.map(({ node }) =>
+                node.slug ? <Development noPrefix project={node} /> : null
+              )}
+            </Grid>
+          </FadeIn>
         </SplitContainerStyles>
       </Layout>
     </>

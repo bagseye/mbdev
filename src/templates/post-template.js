@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { graphql, Link } from 'gatsby';
-import PageTransition from 'gatsby-v2-plugin-page-transitions';
 
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { VscArrowLeft as Arrow } from 'react-icons/vsc';
@@ -75,6 +74,7 @@ const MainArticle = styled.div`
     font-size: var(--paragraph);
     font-weight: 700;
     color: #fff;
+    letter-spacing: -0.5px;
   }
 
   h2,

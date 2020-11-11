@@ -16,6 +16,7 @@ const JournalItemStyles = styled.article`
     margin-top: 0;
     grid-column: 1 / 4;
     font-size: var(--paragraph);
+    letter-spacing: -0.5px;
   }
 
   > div {
@@ -40,7 +41,6 @@ const JournalItemStyles = styled.article`
     }
 
     > time {
-      /* font-weight: 700; */
       color: #aaa;
       margin-bottom: 50px;
     }

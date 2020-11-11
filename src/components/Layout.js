@@ -69,7 +69,7 @@ const GlobalStyle = createGlobalStyle`
     --paragraph: 16px;
     --grdGap: 30px;
     --margins: 120px;
-    --borderLarge: 9px;
+    /* --borderLarge: 9px; */
   }
 
   @media(min-width: 1200px) {

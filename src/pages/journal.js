@@ -34,6 +34,7 @@ const JournalPageItem = styled.article`
     grid-column: 1 / 4;
     font-size: var(--paragraph);
     margin-top: 0;
+    letter-spacing: -0.5px;
   }
 
   > div {
