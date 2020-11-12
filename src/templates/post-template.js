@@ -95,16 +95,14 @@ const MainArticle = styled.div`
     margin-top: 0;
   }
 
+  .link__arrow {
+    margin-top: var(--margins);
+  }
+
   @media (min-width: 768px) {
     grid-column: 1 / 5;
   }
 `;
-
-// const Back = styled(Link)`
-//   display: inline-block;
-//   margin-top: var(--margins);
-//   font-size: var(--paragraph);
-// `;
 
 export default function PageTemplate({ data }) {
   const { title, date, author, description } = data.mdx.frontmatter;
@@ -125,7 +123,7 @@ export default function PageTemplate({ data }) {
           <Date>{date}</Date>
           <MainArticle>
             <MDXRenderer>{body}</MDXRenderer>
-            <FadeLink className="link__arrow" linkTo="/journal">
+            <FadeLink linkClass="link__arrow" linkTo="/journal">
               <Arrow className="arrow__left" /> Return to journal
             </FadeLink>
           </MainArticle>

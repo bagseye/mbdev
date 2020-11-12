@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import FadeIn from '../FadeIn';
 import Grid from '../Grid';
 
 const Container = styled.div`
@@ -45,30 +44,28 @@ const Container = styled.div`
 
 const About = ({ id }) => (
   <Container>
-    <FadeIn thresVal={1}>
-      <Grid>
-        <section>
-          <p>
-            Using{' '}
-            <a
-              href="https://www.gatsbyjs.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GatsbyJS
-            </a>{' '}
-            I have built, and continue to maintain, a number of open source
-            projects that are listed within their official starters library.
-          </p>
-          <p>
-            These starter themes offer the perfect platform for aspiring
-            developers, and those looking to start a new business venture. The
-            sites offer an app-like experience in the way they deiliver content,
-            with a focus on speed.
-          </p>
-        </section>
-      </Grid>
-    </FadeIn>
+    <Grid>
+      <section>
+        <p>
+          Using{' '}
+          <a
+            href="https://www.gatsbyjs.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GatsbyJS
+          </a>{' '}
+          I have built, and continue to maintain, a number of open source
+          projects that are listed within their official starters library.
+        </p>
+        <p>
+          These starter themes offer the perfect platform for aspiring
+          developers, and those looking to start a new business venture. The
+          sites offer an app-like experience in the way they deiliver content,
+          with a focus on speed.
+        </p>
+      </section>
+    </Grid>
   </Container>
 );
 

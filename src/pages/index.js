@@ -11,7 +11,6 @@ import Layout from '../components/Layout';
 import Journal from '../components/Journal';
 import Grid from '../components/Grid';
 import ContactMethods from '../components/ContactMethods';
-import FadeIn from '../components/FadeIn';
 
 const SplitContainerStyles = styled.div`
   padding: 0 var(--gridGap);
@@ -36,12 +35,10 @@ const Index = () => {
       <About id="about" />
       <FeatureDevs />
       <SplitContainerStyles>
-        <FadeIn>
-          <Grid>
-            <Journal />
-            <ContactMethods />
-          </Grid>
-        </FadeIn>
+        <Grid>
+          <Journal />
+          <ContactMethods />
+        </Grid>
       </SplitContainerStyles>
     </Layout>
   );
