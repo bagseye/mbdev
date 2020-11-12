@@ -17,7 +17,6 @@ const DevelopmentContainer = styled.section`
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 0 var(--gridGap);
     margin-bottom: 50px;
-    /* height: 100%; */
   }
 
   .excerpt {
@@ -131,7 +130,7 @@ const Development = ({ project, noPrefix }) => {
         <div className="excerpt">
           <p>{excerpt}</p>
           <FadeLink
-            className="link__arrow"
+            linkClass="link__arrow"
             linkTo={noPrefix ? `${slug}` : `projects/${slug}`}
           >
             View Project <Arrow className="arrow" />

@@ -5,6 +5,7 @@ import MenuButton from './Header/MenuButton';
 import Footer from './Footer';
 import 'typeface-inter';
 import Header from './Header/Header';
+import { FadeWrapper } from './FadeWrapper';
 
 const GlobalStyle = createGlobalStyle`
 :root {
@@ -151,12 +152,14 @@ h2 {
 a {
   color: #fff;
   font-weight: 400;
-    text-decoration: underline #808080;
-    transition: text-decoration-color 0.5s ease;
+  text-decoration: underline #808080;
+  transition: text-decoration-color 0.5s ease;
+
 
     &:hover {
       text-decoration: underline rgba(0,0,0,0);
     }
+
 
    &.link__std {
     font-size: var(--paragraph); 
@@ -274,15 +277,17 @@ const Layout = ({ children }) => {
       >
         This site uses cookies
       </CookieConsent>
-      <div id="main" style={{ marginLeft: isOpen ? '100vw' : '0' }}>
-        <Header status={isOpen}>
-          <button onClick={toggleNav}>
-            <MenuButton status={isOpen} />
-          </button>
-        </Header>
-        {children}
-        <Footer />
-      </div>
+      <FadeWrapper>
+        <div id="main" style={{ marginLeft: isOpen ? '100vw' : '0' }}>
+          <Header status={isOpen}>
+            <button type="button" onClick={toggleNav}>
+              <MenuButton status={isOpen} />
+            </button>
+          </Header>
+          {children}
+          <Footer />
+        </div>
+      </FadeWrapper>
     </>
   );
 };

@@ -5,7 +5,6 @@ import Banner from '../components/Banner/Banner';
 import Layout from '../components/Layout';
 import Hero from '../components/Hero/Hero';
 import Grid from '../components/Grid';
-import FadeIn from '../components/FadeIn';
 
 const BodyContainer = styled.div`
   padding: 0 var(--gridGap);
@@ -80,90 +79,86 @@ const aboutPage = () => (
       <Banner description="About the developer" />
     </Hero>
     <BodyContainer>
-      <FadeIn>
-        <Grid>
-          <Border />
-          <ContentTitle>Early career</ContentTitle>
-          <Para>
-            I'm a frontend web developer with 5+years of agency-based employment
-            working in Inverness for projects across Scotland. Working in a
-            professional capacity with WordPress/PHP, developing bespoke
-            websites that focus on design and fast speeds. On personal projects
-            using the Javascript library React through the GatsbyJS framework.
-          </Para>
-          <Para>
-            Professional projects that I have worked on include major timber
-            suppliers and luxury accommodation providers across Scotland. At
-            home, I have developed and maintain several themes that are listed
-            on the Gatsby Starter Library under an open-source licence.
-          </Para>
-          <Border />
-          <ContentTitle>Qualifications</ContentTitle>
-          <Para>HND in Interactive Media</Para>
-          <Para>
-            BSc(hons) in Computing & IT (Software) - Currently studying
-          </Para>
-          <Border />
-          <ContentTitle>Employment</ContentTitle>
-          <Business>
-            <a
-              className="link__std"
-              href="https://www.strutdigital.co.uk/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Strut
-            </a>
-          </Business>
-          <Role>Developer</Role>
-          <Border />
-          <ContentTitle>Past Employment</ContentTitle>
-          <Business>
-            <a
-              className="link__std"
-              href="https://velocity.design/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Velocity Design
-            </a>
-          </Business>
-          <Role>Developer</Role>
-          <Business>
-            <a
-              className="link__std"
-              href="https://www.dynamicedge.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Dynamic Edge
-            </a>
-          </Business>
-          <Role>Developer</Role>
-          <Business>
-            <a
-              className="link__std"
-              href="https://www.qcode.co.uk/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Qcode
-            </a>
-          </Business>
-          <Role>Junior Developer</Role>
-          <Business>
-            <a
-              className="link__std"
-              href="https://velocity.design/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Velocity Design
-            </a>
-          </Business>
-          <Role>Junior Designer</Role>
-        </Grid>
-      </FadeIn>
+      <Grid>
+        <Border />
+        <ContentTitle>Early career</ContentTitle>
+        <Para>
+          I'm a frontend web developer with 5+years of agency-based employment
+          working in Inverness for projects across Scotland. Working in a
+          professional capacity with WordPress/PHP, developing bespoke websites
+          that focus on design and fast speeds. On personal projects using the
+          Javascript library React through the GatsbyJS framework.
+        </Para>
+        <Para>
+          Professional projects that I have worked on include major timber
+          suppliers and luxury accommodation providers across Scotland. At home,
+          I have developed and maintain several themes that are listed on the
+          Gatsby Starter Library under an open-source licence.
+        </Para>
+        <Border />
+        <ContentTitle>Qualifications</ContentTitle>
+        <Para>HND in Interactive Media</Para>
+        <Para>BSc(hons) in Computing & IT (Software) - Currently studying</Para>
+        <Border />
+        <ContentTitle>Employment</ContentTitle>
+        <Business>
+          <a
+            className="link__std"
+            href="https://www.strutdigital.co.uk/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Strut
+          </a>
+        </Business>
+        <Role>Developer</Role>
+        <Border />
+        <ContentTitle>Past Employment</ContentTitle>
+        <Business>
+          <a
+            className="link__std"
+            href="https://velocity.design/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Velocity Design
+          </a>
+        </Business>
+        <Role>Developer</Role>
+        <Business>
+          <a
+            className="link__std"
+            href="https://www.dynamicedge.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Dynamic Edge
+          </a>
+        </Business>
+        <Role>Developer</Role>
+        <Business>
+          <a
+            className="link__std"
+            href="https://www.qcode.co.uk/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Qcode
+          </a>
+        </Business>
+        <Role>Junior Developer</Role>
+        <Business>
+          <a
+            className="link__std"
+            href="https://velocity.design/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Velocity Design
+          </a>
+        </Business>
+        <Role>Junior Designer</Role>
+      </Grid>
     </BodyContainer>
   </Layout>
 );

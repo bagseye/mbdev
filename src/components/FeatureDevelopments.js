@@ -2,7 +2,6 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import { VscArrowRight as Arrow } from 'react-icons/vsc';
-import FadeIn from './FadeIn';
 import Grid from './Grid';
 import Development from './Development';
 import Heading from './Heading';
@@ -51,23 +50,21 @@ const FeatureDevelopments = () => {
 
   return (
     <Container>
-      <FadeIn thresVal={0.35} transVal="0.5s">
-        <Grid>
-          <TitleArea>
-            <Heading content="Featured " highlight="Developments" />
-          </TitleArea>
-        </Grid>
-        <Grid>
-          {developmentData.map(({ node }) =>
-            node.slug ? <Development project={node} /> : null
-          )}
-        </Grid>
-        <ViewMore>
-          <FadeLink className="link__arrow" linkTo="/projects">
-            View all projects <Arrow className="arrow" />
-          </FadeLink>
-        </ViewMore>
-      </FadeIn>
+      <Grid>
+        <TitleArea>
+          <Heading content="Featured " highlight="Developments" />
+        </TitleArea>
+      </Grid>
+      <Grid>
+        {developmentData.map(({ node }) =>
+          node.slug ? <Development project={node} /> : null
+        )}
+      </Grid>
+      <ViewMore>
+        <FadeLink linkClass="link__arrow" linkTo="/projects">
+          View all projects <Arrow className="arrow" />
+        </FadeLink>
+      </ViewMore>
     </Container>
   );
 };

@@ -93,7 +93,7 @@ const JournalItem = () => {
             </h2>
             <div>
               <p>{node.excerpt}</p>
-              <FadeLink className="link__arrow" linkTo={`journal/${node.slug}`}>
+              <FadeLink linkClass="link__arrow" linkTo={`journal/${node.slug}`}>
                 Read article <Arrow className="arrow" />
               </FadeLink>
             </div>
