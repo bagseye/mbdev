@@ -10,12 +10,7 @@ export const FadeWrapper = ({ children }) => {
   return (
     <TransitionState>
       {({ transitionStatus }) => (
-        <motion.div
-          transition={{ duration: 0.5 }}
-          initial="hidden"
-          animate="visible"
-          variants={variants}
-        >
+        <motion.div initial="hidden" animate="visible" variants={variants}>
           {children}
         </motion.div>
       )}

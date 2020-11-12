@@ -7,8 +7,8 @@ const FadeLink = ({ children, linkClass, linkTo }) => {
     <TransitionLink
       className={linkClass && linkClass}
       to={linkTo}
-      exit={{ length: 0.4 }}
-      entry={{ delay: 0.5 }}
+      exit={{ length: 0.7 }}
+      entry={{ delay: 0.7 }}
     >
       {children}
     </TransitionLink>
