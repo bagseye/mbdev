@@ -19,9 +19,6 @@ const Container = styled.div`
     span {
       color: #777;
       font-weight: 300;
-      background-clip: text;
-      background-image: linear-gradient(to left, #8e2de2, #4a00e0);
-      -webkit-text-fill-color: transparent;
     }
   }
 
