@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 import { VscArrowRight as Arrow } from 'react-icons/vsc';
+import FadeLink from './FadeLink';
 
 const DevelopmentContainer = styled.section`
   border-top: var(--borderSmall) solid rgba(255, 255, 255, 0.2);
@@ -124,22 +124,24 @@ const Development = ({ project, noPrefix }) => {
     <DevelopmentContainer>
       <div className="project-grid">
         <h2>
-          <Link to={noPrefix ? `${slug}` : `projects/${slug}`}>{name}</Link>
+          <FadeLink linkTo={noPrefix ? `${slug}` : `projects/${slug}`}>
+            {name}
+          </FadeLink>
         </h2>
         <div className="excerpt">
           <p>{excerpt}</p>
-          <Link
+          <FadeLink
             className="link__arrow"
-            to={noPrefix ? `${slug}` : `projects/${slug}`}
+            linkTo={noPrefix ? `${slug}` : `projects/${slug}`}
           >
             View Project <Arrow className="arrow" />
-          </Link>
+          </FadeLink>
         </div>
       </div>
       <ProjectImage>
-        <Link to={noPrefix ? `${slug}` : `projects/${slug}`}>
+        <FadeLink linkTo={noPrefix ? `${slug}` : `projects/${slug}`}>
           <Img fluid={projectImg} />
-        </Link>
+        </FadeLink>
       </ProjectImage>
     </DevelopmentContainer>
   );

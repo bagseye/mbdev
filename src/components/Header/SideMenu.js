@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'gatsby';
 import menuItems from '../../constants/links';
+import FadeLink from '../FadeLink';
 
 const Cont = styled.div`
   height: 100%;
@@ -105,7 +105,7 @@ const SideMenu = ({ status }) => (
     <ul style={{ opacity: status ? '1' : '0' }}>
       {menuItems.map((item, index) => (
         <li key={index}>
-          <Link to={item.path}>{item.text}</Link>
+          <FadeLink linkTo={item.path}>{item.text}</FadeLink>
         </li>
       ))}
     </ul>

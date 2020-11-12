@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { graphql, Link } from 'gatsby';
-
+import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { VscArrowLeft as Arrow } from 'react-icons/vsc';
 import Layout from '../components/Layout';
@@ -9,6 +8,7 @@ import SEO from '../components/SEO';
 import Banner from '../components/Banner/Banner';
 import Hero from '../components/Hero/Hero';
 import Grid from '../components/Grid';
+import FadeLink from '../components/FadeLink';
 
 const Border = styled.hr`
   border: none;
@@ -100,11 +100,11 @@ const MainArticle = styled.div`
   }
 `;
 
-const Back = styled(Link)`
-  display: inline-block;
-  margin-top: var(--margins);
-  font-size: var(--paragraph);
-`;
+// const Back = styled(Link)`
+//   display: inline-block;
+//   margin-top: var(--margins);
+//   font-size: var(--paragraph);
+// `;
 
 export default function PageTemplate({ data }) {
   const { title, date, author, description } = data.mdx.frontmatter;
@@ -125,9 +125,9 @@ export default function PageTemplate({ data }) {
           <Date>{date}</Date>
           <MainArticle>
             <MDXRenderer>{body}</MDXRenderer>
-            <Link className="link__arrow" to="/journal">
+            <FadeLink className="link__arrow" linkTo="/journal">
               <Arrow className="arrow__left" /> Return to journal
-            </Link>
+            </FadeLink>
           </MainArticle>
         </Grid>
       </BodyContainer>
