@@ -33,7 +33,10 @@ const Index = () => {
     <Layout>
       <SEO title="Home" />
       <Hero>
-        <Banner description={queryResponse.site.siteMetadata.description} />
+        <Banner
+          description="I'm a front end developer from Inverness, "
+          secondary="building React applications using GatsbyJS"
+        />
       </Hero>
       <FullWidthImage />
       <About id="about" />

@@ -86,6 +86,10 @@ const ProjectImage = styled.div`
   margin-top: auto;
   position: relative;
 
+  img {
+    transition: transform 0.5s ease, opacity 500ms ease 0s !important;
+  }
+
   &::before {
     content: '';
     width: 1px;
@@ -101,6 +105,12 @@ const ProjectImage = styled.div`
     clear: both;
   }
 
+  &:hover {
+    img {
+      transform: scale(1.1);
+    }
+  }
+
   @media (min-width: 768px) {
     grid-column: 1 / 4;
   }
@@ -113,7 +123,9 @@ const Development = ({ project, noPrefix }) => {
   return (
     <DevelopmentContainer>
       <div className="project-grid">
-        <h2>{name}</h2>
+        <h2>
+          <Link to={noPrefix ? `${slug}` : `projects/${slug}`}>{name}</Link>
+        </h2>
         <div className="excerpt">
           <p>{excerpt}</p>
           <Link
@@ -125,7 +137,9 @@ const Development = ({ project, noPrefix }) => {
         </div>
       </div>
       <ProjectImage>
-        <Img fluid={projectImg} />
+        <Link to={noPrefix ? `${slug}` : `projects/${slug}`}>
+          <Img fluid={projectImg} />
+        </Link>
       </ProjectImage>
     </DevelopmentContainer>
   );

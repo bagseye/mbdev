@@ -12,6 +12,12 @@ const LogoCont = styled(Link)`
   grid-column: 1 / 4;
   text-decoration: none;
 
+  .alt {
+    background-clip: text;
+    background-image: linear-gradient(to left, #8e2de2, #4a00e0);
+    -webkit-text-fill-color: transparent;
+  }
+
   @media (min-width: 414px) {
     grid-column: 1 / 3;
   }
@@ -40,7 +46,9 @@ const Logo = ({ status }) => (
       Morgan Baker
     </span>
     <br />
-    <span style={{ color: '#777', fontWeight: '300' }}>Developer</span>
+    <span className="alt" style={{ color: '#777', fontWeight: '300' }}>
+      Developer
+    </span>
   </LogoCont>
 );
 

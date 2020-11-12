@@ -19,6 +19,9 @@ const Container = styled.div`
     span {
       color: #777;
       font-weight: 300;
+      background-clip: text;
+      background-image: linear-gradient(to left, #8e2de2, #4a00e0);
+      -webkit-text-fill-color: transparent;
     }
   }
 
@@ -34,13 +37,15 @@ const TitleArea = styled.div`
   padding-top: 20px;
 `;
 
-const Banner = ({ description }) => (
+const Banner = ({ description, secondary }) => (
   <Container>
     <TitleArea>
       <Grid>
         <h1>
-          I'm a front end developer from Inverness,{' '}
-          <span>building React applications using GatsbyJS</span>
+          {description}
+          {secondary ? <span>{secondary}</span> : null}
+          {/* I'm a front end developer from Inverness,{' '}
+          <span>building React applications using GatsbyJS</span> */}
         </h1>
       </Grid>
     </TitleArea>

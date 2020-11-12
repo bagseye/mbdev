@@ -85,7 +85,9 @@ const JournalItem = () => {
       {posts.edges.map(({ node }) =>
         node.slug ? (
           <JournalItemStyles key={node.id}>
-            <h2>{node.frontmatter.title}</h2>
+            <h2>
+              <Link to={`journal/${node.slug}`}>{node.frontmatter.title}</Link>
+            </h2>
             <div>
               <p>{node.excerpt}</p>
               <Link className="link__arrow" to={`journal/${node.slug}`}>

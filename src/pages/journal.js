@@ -113,7 +113,9 @@ const journalPage = ({ data }) => {
               node.slug ? (
                 <JournalPageItem key={node.id}>
                   <hr />
-                  <h2>{node.frontmatter.title}</h2>
+                  <h2>
+                    <Link to={node.slug}>{node.frontmatter.title}</Link>
+                  </h2>
                   <div>
                     <p>{node.excerpt}</p>
                     <Link className="link__arrow" to={node.slug}>

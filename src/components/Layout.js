@@ -10,7 +10,7 @@ import Header from './Header/Header';
 
 const GlobalStyle = createGlobalStyle`
 :root {
-  --background: #171717;
+  --background: linear-gradient( to top, #171717, #202020);;
   --charcoal: #111;
   --border: #313131;
   --primary: #fff;
@@ -104,7 +104,7 @@ body {
     margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: var(--background);
+    background: var(--background);
     color: #fff;
     font-size: 16px;
     line-height: 1.4em;
