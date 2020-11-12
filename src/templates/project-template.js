@@ -78,25 +78,117 @@ const Website = styled.div`
 `;
 
 const FeatureImage = styled.div`
-  margin: var(--margins) 0;
+  margin: var(--margins) 0 0 0;
   grid-column: 1 / 7;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 0 var(--gridGap);
+
+  h3,
+  figure {
+    font-size: 11px;
+    line-height: 1.4;
+    margin: 0 0 var(--margins) 0;
+  }
+
+  h3 {
+    font-weight: 300;
+    grid-column: 1 / 4;
+  }
+
+  figure {
+    grid-column: 4 / 7;
+    font-weight: 700;
+    text-align: right;
+  }
+
+  .feature {
+    grid-column: 1 / 7;
+    width: 100%;
+  }
 
   @media (min-width: 768px) {
     grid-column: 1 / 4;
     margin-bottom: 0;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    h3 {
+      grid-column: 1 / 2;
+    }
+
+    figure {
+      grid-column: 3 / 4;
+    }
+
+    .feature {
+      grid-column: 1 / 4;
+    }
   }
 
   @media (min-width: 1024px) {
-    grid-column: 1 / 5;
+    grid-column: 1 / 7;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+
+    h3 {
+      grid-column: 5 / 6;
+    }
+
+    figure {
+      grid-column: 6 / 7;
+    }
+
+    .feature {
+      grid-column: 1 / 5;
+      grid-row: 1 / 2;
+    }
+
+    h3,
+    figure {
+      font-size: 12px;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    h3,
+    figure {
+      font-size: 14px;
+    }
   }
 `;
 
 const ImageArea = styled.div`
-  margin: var(--margins) 0;
+  margin: var(--margins) 0 0 0;
   grid-column: 1 / 7;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 0 var(--gridGap);
+
+  h3,
+  figure {
+    font-size: 11px;
+    line-height: 1.4;
+    margin: 0 0 var(--margins) 0;
+  }
+
+  h3 {
+    font-weight: 300;
+    grid-column: 1 / 4;
+  }
+
+  figure {
+    grid-column: 4 / 7;
+    font-weight: 700;
+    text-align: right;
+  }
+
+  .gallery-item {
+    grid-column: 1 / 7;
+  }
 
   @media (min-width: 768px) {
     margin-bottom: 0;
+    grid-template-columns: 1fr 1fr 1fr;
 
     &.standard-image__0 {
       grid-column: 4 / 7;
@@ -109,9 +201,28 @@ const ImageArea = styled.div`
     &.standard-image__2 {
       grid-column: 4 / 7;
     }
+
+    h3 {
+      grid-column: 1 / 2;
+    }
+
+    figure {
+      grid-column: 3 / 4;
+    }
+
+    h3,
+    figure {
+      font-size: 12px;
+    }
+
+    .gallery-item {
+      grid-column: 1 / 4;
+    }
   }
 
   @media (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+
     &.standard-image__0 {
       grid-column: 1 / 3;
     }
@@ -122,6 +233,25 @@ const ImageArea = styled.div`
 
     &.standard-image__2 {
       grid-column: 5 / 7;
+    }
+
+    h3 {
+      grid-column: 1 / 2;
+    }
+
+    figure {
+      grid-column: 2 / 3;
+    }
+
+    .gallery-item {
+      grid-column: 1 / 3;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    h3,
+    figure {
+      font-size: 14px;
     }
   }
 `;
@@ -153,6 +283,8 @@ const projectTemplate = ({ data }) => {
 
   const [mainImage, ...projectImages] = images;
 
+  console.log(mainImage);
+
   return (
     <Layout>
       <SEO title={name} description={excerpt} />
@@ -178,10 +310,14 @@ const projectTemplate = ({ data }) => {
             {documentToReactComponents(json, options)}
           </ProjectContent>
           <FeatureImage>
+            <h3>{mainImage.description}</h3>
+            <figure>Fig01</figure>
             <Image className="feature" fluid={mainImage.fluid} />
           </FeatureImage>
           {projectImages.map((item, index) => (
             <ImageArea className={`standard-image__${index}`}>
+              <h3>{item.description}</h3>
+              <figure>Fig0{index + 2}</figure>
               <Image className="gallery-item" key={index} fluid={item.fluid} />
             </ImageArea>
           ))}
@@ -199,6 +335,7 @@ export const query = graphql`
       technology
       website
       images {
+        description
         fluid(maxWidth: 2000) {
           ...GatsbyContentfulFluid_tracedSVG
         }
