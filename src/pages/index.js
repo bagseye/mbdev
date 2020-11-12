@@ -1,7 +1,5 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { useInView } from 'react-intersection-observer';
-import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import Hero from '../components/Hero/Hero';
 import Banner from '../components/Banner/Banner';
@@ -24,10 +22,6 @@ const SplitContainerStyles = styled.div`
 
 const Index = () => {
   const queryResponse = useStaticQuery(data);
-
-  const [ref, inView] = useInView({
-    threshold: 0.35,
-  });
 
   return (
     <Layout>

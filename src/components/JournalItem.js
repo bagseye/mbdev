@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link, useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import { VscArrowRight as Arrow } from 'react-icons/vsc';
+import FadeLink from './FadeLink';
 
 const JournalItemStyles = styled.article`
   border-top: var(--borderSmall) solid rgba(255, 255, 255, 0.2);
@@ -86,13 +87,15 @@ const JournalItem = () => {
         node.slug ? (
           <JournalItemStyles key={node.id}>
             <h2>
-              <Link to={`journal/${node.slug}`}>{node.frontmatter.title}</Link>
+              <FadeLink linkTo={`journal/${node.slug}`}>
+                {node.frontmatter.title}
+              </FadeLink>
             </h2>
             <div>
               <p>{node.excerpt}</p>
-              <Link className="link__arrow" to={`journal/${node.slug}`}>
+              <FadeLink className="link__arrow" linkTo={`journal/${node.slug}`}>
                 Read article <Arrow className="arrow" />
-              </Link>
+              </FadeLink>
             </div>
           </JournalItemStyles>
         ) : null

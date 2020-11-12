@@ -1,16 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'gatsby';
+import FadeLink from '../FadeLink';
 
-const LogoCont = styled(Link)`
-  font-weight: 700;
+const LogoCont = styled.div`
   letter-spacing: -1px;
   margin: 0;
-  transition: opacity 0.5s ease;
   font-size: 18px;
   z-index: 5;
   grid-column: 1 / 4;
-  text-decoration: none;
+
+  a {
+    font-weight: 500;
+    text-decoration: none;
+    transition: opacity 0.5s ease;
+  }
 
   @media (min-width: 414px) {
     grid-column: 1 / 3;
@@ -25,24 +28,28 @@ const LogoCont = styled(Link)`
   }
 
   &:hover {
-    opacity: 0.5;
+    a {
+      opacity: 0.5;
+    }
   }
 `;
 
 const Logo = ({ status }) => (
-  <LogoCont to="/">
-    <span
-      style={{
-        color: status ? 'var(--charcoal)' : '#fff',
-        transition: 'color 0.5s ease',
-      }}
-    >
-      Morgan Baker
-    </span>
-    <br />
-    <span className="alt" style={{ color: '#777', fontWeight: '300' }}>
-      Developer
-    </span>
+  <LogoCont>
+    <FadeLink linkTo="/">
+      <span
+        style={{
+          color: status ? 'var(--charcoal)' : '#fff',
+          transition: 'color 0.5s ease',
+        }}
+      >
+        Morgan Baker
+      </span>
+      <br />
+      <span className="alt" style={{ color: '#777', fontWeight: '300' }}>
+        Developer
+      </span>
+    </FadeLink>
   </LogoCont>
 );
 

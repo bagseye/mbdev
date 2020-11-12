@@ -1,11 +1,12 @@
 import React from 'react';
-import { useStaticQuery, graphql, Link } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import { VscArrowRight as Arrow } from 'react-icons/vsc';
 import FadeIn from './FadeIn';
 import Grid from './Grid';
 import Development from './Development';
 import Heading from './Heading';
+import FadeLink from './FadeLink';
 
 const Container = styled.section`
   padding: 0 var(--gridGap);
@@ -62,9 +63,9 @@ const FeatureDevelopments = () => {
           )}
         </Grid>
         <ViewMore>
-          <Link className="link__arrow" to="/projects">
+          <FadeLink className="link__arrow" linkTo="/projects">
             View all projects <Arrow className="arrow" />
-          </Link>
+          </FadeLink>
         </ViewMore>
       </FadeIn>
     </Container>

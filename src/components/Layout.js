@@ -4,13 +4,11 @@ import CookieConsent from 'react-cookie-consent';
 import MenuButton from './Header/MenuButton';
 import Footer from './Footer';
 import 'typeface-inter';
-import 'typeface-domine';
-import 'typeface-playfair-display';
 import Header from './Header/Header';
 
 const GlobalStyle = createGlobalStyle`
 :root {
-  --background: linear-gradient( to top, #171717, #202020);;
+  --background: #171717;
   --charcoal: #111;
   --border: #313131;
   --primary: #fff;
@@ -26,7 +24,6 @@ const GlobalStyle = createGlobalStyle`
   --paddingStd: 3.125rem;
   --paddingLarge: 4.688rem;
   --sansSerif: 'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-  --serif: 'Playfair Display', serif;
   --spacing: 1rem;
   /* --hero: 1.65rem; */
   --hero: 6.5vw;

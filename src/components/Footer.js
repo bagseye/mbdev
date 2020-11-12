@@ -1,7 +1,8 @@
 import React from 'react';
-import { useStaticQuery, graphql, Link } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import Grid from './Grid';
+import FadeLink from './FadeLink';
 
 const Container = styled.div`
   max-width: 1600px;
@@ -66,7 +67,7 @@ const Footer = () => {
             </a>
           </Copyright>
           <Privacy>
-            <Link to="/privacy">Privacy & Your Data</Link>
+            <FadeLink linkTo="/privacy">Privacy & Your Data</FadeLink>
           </Privacy>
         </Grid>
       </Container>
