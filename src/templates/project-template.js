@@ -51,7 +51,7 @@ const Border = styled.hr`
 const Built = styled.div`
   grid-column: 1 / 3;
   font-size: var(--paragraph);
-  font-weight: 700;
+  font-weight: 500;
 
   @media (min-width: 768px) {
     grid-column: 1 / 2;
@@ -89,6 +89,7 @@ const FeatureImage = styled.div`
     font-size: 11px;
     line-height: 1.4;
     margin: 0 0 var(--margins) 0;
+    color: #aaa;
   }
 
   h3 {
@@ -98,7 +99,7 @@ const FeatureImage = styled.div`
 
   figure {
     grid-column: 4 / 7;
-    font-weight: 700;
+    font-weight: 500;
     text-align: right;
   }
 
@@ -169,6 +170,7 @@ const ImageArea = styled.div`
     font-size: 11px;
     line-height: 1.4;
     margin: 0 0 var(--margins) 0;
+    color: #aaa;
   }
 
   h3 {
@@ -178,7 +180,7 @@ const ImageArea = styled.div`
 
   figure {
     grid-column: 4 / 7;
-    font-weight: 700;
+    font-weight: 500;
     text-align: right;
   }
 
@@ -295,7 +297,7 @@ const projectTemplate = ({ data }) => {
         <Grid>
           <Border />
           <Built>Built using</Built>
-          <Tech>{technology}</Tech>
+          {technology && <Tech>{technology}</Tech>}
           <Website>
             <a
               href={website}
@@ -310,14 +312,28 @@ const projectTemplate = ({ data }) => {
             {documentToReactComponents(json, options)}
           </ProjectContent>
           <FeatureImage>
-            <h3>{mainImage.description}</h3>
-            <figure>Fig01</figure>
+            {mainImage.description && (
+              <>
+                <h3>{mainImage.description}</h3>
+                <figure>Fig01</figure>
+              </>
+            )}
+
             <Image className="feature" fluid={mainImage.fluid} />
           </FeatureImage>
           {projectImages.map((item, index) => (
             <ImageArea className={`standard-image__${index}`}>
-              <h3>{item.description}</h3>
-              <figure>Fig0{index + 2}</figure>
+              {item.description && (
+                <>
+                  {/* Only render the description if one is present */}
+                  <h3>{item.description}</h3>
+                  <figure>
+                    {/* if the count is less than 10, we want to render the leading 0 */}
+                    Fig{index + 2 < 10 ? '0' : null}
+                    {index + 2}
+                  </figure>
+                </>
+              )}
               <Image className="gallery-item" key={index} fluid={item.fluid} />
             </ImageArea>
           ))}

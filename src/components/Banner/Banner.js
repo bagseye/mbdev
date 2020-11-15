@@ -41,8 +41,6 @@ const Banner = ({ description, secondary }) => (
         <h1>
           {description}
           {secondary ? <span>{secondary}</span> : null}
-          {/* I'm a front end developer from Inverness,{' '}
-          <span>building React applications using GatsbyJS</span> */}
         </h1>
       </Grid>
     </TitleArea>

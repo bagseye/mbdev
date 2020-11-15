@@ -1,5 +1,4 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import Hero from '../components/Hero/Hero';
 import Banner from '../components/Banner/Banner';
@@ -19,39 +18,25 @@ const SplitContainerStyles = styled.div`
   margin-right: auto;
 `;
 
-const Index = () => {
-  const queryResponse = useStaticQuery(data);
-
-  return (
-    <Layout>
-      <SEO title="Home" />
-      <Hero>
-        <Banner
-          description="I'm a front end developer from Inverness, "
-          secondary="building React applications using GatsbyJS"
-        />
-      </Hero>
-      <FullWidthImage />
-      <About id="about" />
-      <FeatureDevs />
-      <SplitContainerStyles>
-        <Grid>
-          <Journal />
-          <ContactMethods />
-        </Grid>
-      </SplitContainerStyles>
-    </Layout>
-  );
-};
-
-const data = graphql`
-  {
-    site {
-      siteMetadata {
-        description
-      }
-    }
-  }
-`;
+const Index = () => (
+  <Layout>
+    <SEO title="Home" />
+    <Hero>
+      <Banner
+        description="I'm a web developer & designer from Inverness, "
+        secondary="building fast, stylish websites using WordPress & GatsbyJS"
+      />
+    </Hero>
+    <FullWidthImage />
+    <About id="about" />
+    <FeatureDevs />
+    <SplitContainerStyles>
+      <Grid>
+        <Journal />
+        <ContactMethods />
+      </Grid>
+    </SplitContainerStyles>
+  </Layout>
+);
 
 export default Index;

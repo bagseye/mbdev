@@ -1,8 +1,8 @@
-import React from "react"
-import styled from "styled-components"
-import Grid from "../Grid"
-import Logo from "./Logo"
-import SideMenu from "./SideMenu"
+import React from 'react';
+import styled from 'styled-components';
+import Grid from '../Grid';
+import Logo from './Logo';
+import SideMenu from './SideMenu';
 
 const Container = styled.header`
   padding: var(--gridGap);
@@ -26,20 +26,18 @@ const Container = styled.header`
       grid-column: 6 / 7;
     }
   }
-`
+`;
 
-const Header = ({ children, status }) => {
-  return (
-    <>
-      <Container>
-        <Grid>
-          <Logo status={status} />
-          {children}
-        </Grid>
-      </Container>
-      <SideMenu status={status} />
-    </>
-  )
-}
+const Header = ({ children, status }) => (
+  <>
+    <Container>
+      <Grid>
+        <Logo status={status} />
+        {children}
+      </Grid>
+    </Container>
+    <SideMenu status={status} />
+  </>
+);
 
-export default Header
+export default Header;
