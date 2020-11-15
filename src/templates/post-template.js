@@ -27,7 +27,7 @@ const Border = styled.hr`
 const Author = styled.div`
   grid-column: 1 / 3;
   font-size: var(--paragraph);
-  font-weight: 700;
+  font-weight: 500;
 
   @media (min-width: 768px) {
     grid-column: 1 / 2;
@@ -72,7 +72,7 @@ const MainArticle = styled.div`
 
   h2 {
     font-size: var(--paragraph);
-    font-weight: 700;
+    font-weight: 500;
     color: #fff;
     letter-spacing: -0.5px;
   }
