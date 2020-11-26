@@ -5,7 +5,8 @@ import FadeLink from '../FadeLink';
 const LogoCont = styled.div`
   letter-spacing: -1px;
   margin: 0;
-  font-size: 18px;
+  font-size: 14px;
+  line-height: 18px;
   z-index: 5;
   grid-column: 1 / 4;
 
@@ -17,6 +18,10 @@ const LogoCont = styled.div`
 
   @media (min-width: 414px) {
     grid-column: 1 / 3;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 18px;
   }
 
   @media (min-width: 834px) {

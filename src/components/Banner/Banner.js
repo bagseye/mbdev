@@ -29,21 +29,14 @@ const Container = styled.div`
   }
 `;
 
-const TitleArea = styled.div`
-  border-top: var(--borderLarge) solid #fff;
-  padding-top: 20px;
-`;
-
 const Banner = ({ description, secondary }) => (
   <Container>
-    <TitleArea>
-      <Grid>
-        <h1>
-          {description}
-          {secondary ? <span>{secondary}</span> : null}
-        </h1>
-      </Grid>
-    </TitleArea>
+    <Grid>
+      <h1>
+        {description}
+        {secondary ? <span>{secondary}</span> : null}
+      </h1>
+    </Grid>
   </Container>
 );
 

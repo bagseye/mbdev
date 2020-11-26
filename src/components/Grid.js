@@ -6,6 +6,7 @@ const Container = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 15px;
   grid-gap: 0 var(--gridGap);
+  width: 100%;
 `;
 
 const Grid = ({ children }) => <Container>{children}</Container>;

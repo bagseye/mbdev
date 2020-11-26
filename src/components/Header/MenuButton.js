@@ -5,9 +5,15 @@ const Container = styled.div`
   position: relative;
   border: none;
   transition: opacity 0.5s ease, color 0.5s ease;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 500;
   letter-spacing: -1px;
+  display: flex;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    font-size: 18px;
+  }
 
   @media (min-width: 834px) {
     font-size: 20px;
