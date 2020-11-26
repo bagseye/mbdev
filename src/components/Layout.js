@@ -33,13 +33,13 @@ const GlobalStyle = createGlobalStyle`
 
 
 
-  --titleLarge: 38px;
-  --titleLargeLineHeight: 42px;
+  --titleLarge: 30px;
+  --titleLargeLineHeight: 36px;
   --titleLargeLetterSpacing: -2px;
   --paragraph: 14px;
   --paragraphLineHeight: 1.4;
   --gridGap: 15px;
-  --margins: 70px;
+  --margins: 80px;
   --borderLarge: 5px;
   --borderSmall: 2px;
 

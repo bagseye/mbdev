@@ -5,13 +5,30 @@ import Logo from './Logo';
 import SideMenu from './SideMenu';
 
 const Container = styled.header`
-  padding: var(--gridGap);
+  padding: 0 var(--gridGap);
   z-index: 100;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 20;
+  height: 60px;
+  display: flex;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    height: 80px;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: var(--gridGap);
+    height: 1px;
+    width: calc(100% - 30px);
+    background-color: rgba(255, 255, 255, 0.15);
+  }
 
   button {
     background-color: transparent;
