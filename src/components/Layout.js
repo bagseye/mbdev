@@ -65,7 +65,7 @@ const GlobalStyle = createGlobalStyle`
     --titleLarge: 42px;
     --titleLargeLineHeight: 50px;
     --paragraph: 16px;
-    --grdGap: 30px;
+    --gridGap: 30px;
     --margins: 120px;
     /* --borderLarge: 9px; */
   }
