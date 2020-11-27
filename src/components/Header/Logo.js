@@ -8,7 +8,7 @@ const LogoCont = styled.div`
   font-size: 14px;
   line-height: 18px;
   z-index: 5;
-  grid-column: 1 / 4;
+  margin-right: auto;
 
   a {
     font-weight: 500;
@@ -16,12 +16,16 @@ const LogoCont = styled.div`
     transition: opacity 0.5s ease;
   }
 
-  @media (min-width: 414px) {
-    grid-column: 1 / 3;
-  }
-
   @media (min-width: 768px) {
     font-size: 18px;
+
+    br {
+      display: none;
+    }
+
+    span:nth-child(1) {
+      margin-right: 5px;
+    }
   }
 
   @media (min-width: 834px) {
