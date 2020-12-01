@@ -34,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
 
 
   --titleLarge: 30px;
-  --titleLargeLineHeight: 36px;
+  --titleLargeLineHeight: 40px;
   --titleLargeLetterSpacing: -2px;
   --paragraph: 14px;
   --paragraphLineHeight: 1.4;
@@ -45,7 +45,7 @@ const GlobalStyle = createGlobalStyle`
 
   @media(min-width:414px) {
     --gridGap: 20px;
-    --margins: 80px;
+    --margins: 100px;
   }
 
   @media(min-width:768px) {
@@ -63,10 +63,10 @@ const GlobalStyle = createGlobalStyle`
 
   @media(min-width: 834px) {
     --titleLarge: 42px;
-    --titleLargeLineHeight: 50px;
+    --titleLargeLineHeight: 58px;
     --paragraph: 16px;
     --gridGap: 30px;
-    --margins: 120px;
+    --margins: 150px;
     /* --borderLarge: 9px; */
   }
 
@@ -84,10 +84,10 @@ const GlobalStyle = createGlobalStyle`
 
   @media(min-width: 1600px) {
     --titleLarge: 50px;
-    --titleLargeLineHeight: 56px;
+    --titleLargeLineHeight: 66px;
     --paragraph: 20px;
     --gridGap: 40px;
-    --margins: 150px;
+    --margins: 175px;
     --borderLarge: 6px;
   }
 }
