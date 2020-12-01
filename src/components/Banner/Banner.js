@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import Grid from '../Grid';
 
 const Container = styled.div`
@@ -31,12 +32,18 @@ const Container = styled.div`
 
 const Banner = ({ description, secondary }) => (
   <Container>
-    <Grid>
-      <h1>
-        {description}
-        {secondary ? <span>{secondary}</span> : null}
-      </h1>
-    </Grid>
+    <motion.div
+      initial={{ opacity: 0, y: 25 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ ease: 'easeOut', duration: 1.25, delay: 0.75 }}
+    >
+      <Grid>
+        <h1>
+          {description}
+          {secondary ? <span>{secondary}</span> : null}
+        </h1>
+      </Grid>
+    </motion.div>
   </Container>
 );
 

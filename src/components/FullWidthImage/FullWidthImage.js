@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
+import { motion } from 'framer-motion';
 
 const Content = styled.aside`
   padding: 0 var(--gridGap);
@@ -13,9 +14,15 @@ const Content = styled.aside`
 const FullWidthImg = () => {
   const queryResponse = useStaticQuery(getImage);
   return (
-    <Content>
-      <Img fluid={queryResponse.fluid.childImageSharp.fluid} />
-    </Content>
+    <motion.div
+      initial={{ opacity: 0, y: 25 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ ease: 'easeOut', duration: 1.25, delay: 1.5 }}
+    >
+      <Content>
+        <Img fluid={queryResponse.fluid.childImageSharp.fluid} />
+      </Content>
+    </motion.div>
   );
 };
 
