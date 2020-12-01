@@ -33,9 +33,9 @@ const Container = styled.div`
 const Banner = ({ description, secondary }) => (
   <Container>
     <motion.div
-      initial={{ opacity: 0, y: 25 }}
+      initial={{ opacity: 0, y: 15 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ ease: 'easeOut', duration: 1.25, delay: 0.75 }}
+      transition={{ ease: 'easeOut', duration: 1.15, delay: 0.75 }}
     >
       <Grid>
         <h1>

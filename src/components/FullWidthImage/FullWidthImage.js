@@ -15,9 +15,9 @@ const FullWidthImg = () => {
   const queryResponse = useStaticQuery(getImage);
   return (
     <motion.div
-      initial={{ opacity: 0, y: 25 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ ease: 'easeOut', duration: 1.25, delay: 1.5 }}
+      initial={{ opacity: 0, y: 25, scale: 0.99 }}
+      animate={{ y: 0, opacity: 1, scale: 1 }}
+      transition={{ ease: 'easeOut', duration: 1.15, delay: 1.65 }}
     >
       <Content>
         <Img fluid={queryResponse.fluid.childImageSharp.fluid} />
