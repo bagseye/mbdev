@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import { motion } from 'framer-motion';
 
-const Content = styled.aside`
+const Content = styled(motion.aside)`
   padding: 0 var(--gridGap);
   max-width: 1600px;
   margin-left: auto;
@@ -14,15 +14,13 @@ const Content = styled.aside`
 const FullWidthImg = () => {
   const queryResponse = useStaticQuery(getImage);
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 25 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ ease: 'easeOut', duration: 1.25, delay: 1.5 }}
+    <Content
+      initial={{ opacity: 0, y: 25, scale: 0.99 }}
+      animate={{ y: 0, opacity: 1, scale: 1 }}
+      transition={{ ease: 'easeOut', duration: 1.35, delay: 1.65 }}
     >
-      <Content>
-        <Img fluid={queryResponse.fluid.childImageSharp.fluid} />
-      </Content>
-    </motion.div>
+      <Img fluid={queryResponse.fluid.childImageSharp.fluid} />
+    </Content>
   );
 };
 

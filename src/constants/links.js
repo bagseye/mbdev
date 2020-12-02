@@ -1,18 +1,18 @@
 export default [
   {
     path: '/projects',
-    text: 'recent projects',
+    text: 'projects',
   },
   {
     path: '/about',
-    text: 'about the devleoper',
+    text: 'about',
   },
   {
     path: '/journal',
-    text: 'random ramblings',
+    text: 'journal',
   },
   {
     path: '/contact',
-    text: 'contact the developer',
+    text: 'contact',
   },
 ];
