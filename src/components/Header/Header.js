@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { BsEnvelope as MailIcon } from 'react-icons/bs';
+import { AiOutlineUser as UserIcon } from 'react-icons/ai';
 import { Link } from 'gatsby';
 import Logo from './Logo';
 import SideMenu from './SideMenu';
+import { getUser, isLoggedIn, logout } from '../../services/auth';
 
 const Container = styled.header`
   padding: 0 var(--gridGap);
@@ -62,7 +64,7 @@ const Container = styled.header`
   }
 `;
 
-const Mail = styled(Link)`
+const Icon = styled(Link)`
   width: 30px;
   height: 30px;
   font-size: 22px;
@@ -93,9 +95,12 @@ const Header = ({ children, status }) => (
   <>
     <Container>
       <Logo status={status} />
-      <Mail to="/contact">
+      <Icon to="/dashboard/login">
+        <UserIcon />
+      </Icon>
+      <Icon to="/contact">
         <MailIcon />
-      </Mail>
+      </Icon>
       {children}
     </Container>
     <SideMenu status={status} />

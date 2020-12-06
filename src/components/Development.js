@@ -115,7 +115,7 @@ const ProjectImage = styled.div`
   }
 `;
 
-const Development = ({ project, noPrefix }) => {
+const Development = ({ project, noPrefix, base }) => {
   const { name, excerpt, slug, images } = project;
   const projectImg = images[0].fluid;
 
@@ -123,7 +123,7 @@ const Development = ({ project, noPrefix }) => {
     <DevelopmentContainer>
       <div className="project-grid">
         <h2>
-          <FadeLink linkTo={noPrefix ? `${slug}` : `projects/${slug}`}>
+          <FadeLink linkTo={base ? `${base}/${slug}` : `${slug}`}>
             {name}
           </FadeLink>
         </h2>
@@ -131,14 +131,14 @@ const Development = ({ project, noPrefix }) => {
           <p>{excerpt}</p>
           <FadeLink
             linkClass="link__arrow"
-            linkTo={noPrefix ? `${slug}` : `projects/${slug}`}
+            linkTo={base ? `${base}/${slug}` : `${slug}`}
           >
             View Project <Arrow className="arrow" />
           </FadeLink>
         </div>
       </div>
       <ProjectImage>
-        <FadeLink linkTo={noPrefix ? `${slug}` : `projects/${slug}`}>
+        <FadeLink linkTo={base ? `${base}/${slug}` : `${slug}`}>
           <Img fluid={projectImg} />
         </FadeLink>
       </ProjectImage>

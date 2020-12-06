@@ -1,8 +1,10 @@
 import React from 'react';
+import { Link, navigate } from 'gatsby';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import menuItems from '../../constants/links';
 import FadeLink from '../FadeLink';
+import { getUser, isLoggedIn, logout } from '../../services/auth';
 
 const menuListVariants = {
   open: { transition: { staggerChildren: 0.25, delayChildren: 0.35 } },
@@ -98,6 +100,20 @@ const SideMenu = ({ status }) => (
           <FadeLink linkTo={item.path}>{item.text}</FadeLink>
         </motion.li>
       ))}
+      <motion.li variants={menuItemVariants}>
+        <FadeLink linkTo="/dashboard/agency">Dashboard</FadeLink>
+      </motion.li>
+      {isLoggedIn() ? (
+        <motion.li
+          variants={menuItemVariants}
+          onClick={(event) => {
+            event.preventDefault();
+            logout(() => navigate(`/dashboard/login`));
+          }}
+        >
+          <FadeLink linkTo="/">Logout</FadeLink>
+        </motion.li>
+      ) : null}
     </motion.ul>
   </Cont>
 );

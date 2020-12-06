@@ -15,27 +15,27 @@ const GlobalStyle = createGlobalStyle`
   --primary: #fff;
   --inActive: #505050;
   --menuItem: 0.875rem;
-  --transition: 0.3s;
-  --h1: 1.5rem;
+  /* --transition: 0.3s; */
+  /* --h1: 1.5rem;
   --h1Large: 2.5rem;
-  --h2: 1.2rem;
   --h3: 1.05rem;
-  --para: 0.85rem;
+  --para: 0.85rem; */
   --paddingBorder: 1.875rem;
   --paddingStd: 3.125rem;
   --paddingLarge: 4.688rem;
   --sansSerif: 'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   --spacing: 1rem;
   /* --hero: 1.65rem; */
-  --hero: 6.5vw;
-  --button: 1.15rem;
-  --logo: 1.1rem;
+  /* --hero: 6.5vw; */
+  /* --button: 1.15rem; */
+  /* --logo: 1.1rem; */
 
 
 
   --titleLarge: 30px;
   --titleLargeLineHeight: 40px;
   --titleLargeLetterSpacing: -2px;
+  --h2: 22px;
   --paragraph: 14px;
   --paragraphLineHeight: 1.4;
   --gridGap: 15px;
@@ -49,7 +49,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   @media(min-width:768px) {
-    --h1: 2rem;
+    /* --h1: 2rem;
     --h1Large: 3.25rem;
     --h2: 1.35rem;
     --h3: 1.2rem;
@@ -58,12 +58,14 @@ const GlobalStyle = createGlobalStyle`
     --paddingLarge: 7.813rem;
     --hero: 4.5vw;
     --button: 1.35rem;
-    --logo: 1.25rem;
+    --logo: 1.25rem; */
+    
   }
 
   @media(min-width: 834px) {
     --titleLarge: 42px;
     --titleLargeLineHeight: 58px;
+    --h2: 26px;
     --paragraph: 16px;
     --gridGap: 30px;
     --margins: 150px;
@@ -72,19 +74,20 @@ const GlobalStyle = createGlobalStyle`
 
   @media(min-width: 1200px) {
     /* --menuItem: 1.25rem; */
-    --h1: 2.15rem;
+    /* --h1: 2.15rem;
     --h1Large: 3.75rem;
     --h2: 1.65rem;
     --paddingStd: 5.625rem;
     --paddingLarge: 9.375rem;
     --hero: 3.25rem;
     --button: 1.6rem;
-    --logo: 1.35rem;
+    --logo: 1.35rem; */
   }
 
   @media(min-width: 1600px) {
     --titleLarge: 50px;
     --titleLargeLineHeight: 66px;
+    --h2: 30px;
     --paragraph: 20px;
     --gridGap: 40px;
     --margins: 175px;
