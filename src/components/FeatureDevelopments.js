@@ -57,7 +57,7 @@ const FeatureDevelopments = () => {
       </Grid>
       <Grid>
         {developmentData.map(({ node }) =>
-          node.slug ? <Development project={node} /> : null
+          node.slug ? <Development base="projects" project={node} /> : null
         )}
       </Grid>
       <ViewMore>
