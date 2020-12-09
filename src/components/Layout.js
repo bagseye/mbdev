@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import CookieConsent from 'react-cookie-consent';
 import MenuButton from './Header/MenuButton';
@@ -6,11 +6,11 @@ import Footer from './Footer';
 import 'typeface-inter';
 import Header from './Header/Header';
 import { FadeWrapper } from './FadeWrapper';
+import MenuContext from './MenuContext';
 
 const GlobalStyle = createGlobalStyle`
 :root {
   --background: #171717;
-  --charcoal: #111;
   --border: #313131;
   --primary: #fff;
   --inActive: #505050;
@@ -32,6 +32,7 @@ const GlobalStyle = createGlobalStyle`
 
 
 
+  --charcoal: #777;
   --titleLarge: 30px;
   --titleLargeLineHeight: 40px;
   --titleLargeLetterSpacing: -2px;
@@ -264,7 +265,9 @@ button.btn {
 `;
 
 const Layout = ({ children }) => {
-  const [isOpen, setNav] = useState(false);
+  // Access state globally using context
+  const [isOpen, setNav] = useContext(MenuContext);
+
   const toggleNav = () => {
     setNav((isOpen) => !isOpen);
   };
@@ -282,8 +285,12 @@ const Layout = ({ children }) => {
       </CookieConsent>
       <FadeWrapper>
         <div id="main" style={{ marginLeft: isOpen ? '100vw' : '0' }}>
-          <Header status={isOpen}>
-            <button type="button" onClick={toggleNav}>
+          <Header>
+            <button
+              style={{ backgroundColor: 'transparent', border: 'none' }}
+              type="button"
+              onClick={toggleNav}
+            >
               <MenuButton status={isOpen} />
             </button>
           </Header>

@@ -3,7 +3,6 @@ import { navigate } from 'gatsby';
 import styled from 'styled-components';
 import { handleLogin, isLoggedIn } from '../services/auth';
 import Banner from './Banner/Banner';
-import Hero from './Hero/Hero';
 import Grid from './Grid';
 
 const LoginStyles = styled.div`
@@ -141,9 +140,7 @@ class Login extends React.Component {
     }
     return (
       <>
-        <Hero>
-          <Banner description="Employers login" />
-        </Hero>
+        <Banner description="Employers login" />
         <LoginStyles>
           <Grid>
             <LoginForm

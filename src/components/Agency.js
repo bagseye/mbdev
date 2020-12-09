@@ -5,7 +5,6 @@ import Banner from './Banner/Banner';
 import Development from './Development';
 import Grid from './Grid';
 import Heading from './Heading';
-import Hero from './Hero/Hero';
 
 const Container = styled.section`
   padding: 0 var(--gridGap);
@@ -48,12 +47,10 @@ const Agency = () => {
   const agencyData = data.allContentfulAgency.edges;
   return (
     <>
-      <Hero>
-        <Banner
-          description="Work completed as part of a team of developers. "
-          secondary="Please view these below and my contributions"
-        />
-      </Hero>
+      <Banner
+        description="Work completed as part of a team of developers. "
+        secondary="Please view these below and my contributions"
+      />
       <Container>
         <Grid>
           <TitleArea>

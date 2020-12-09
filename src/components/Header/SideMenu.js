@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, navigate } from 'gatsby';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import menuItems from '../../constants/links';
 import FadeLink from '../FadeLink';
 import { getUser, isLoggedIn, logout } from '../../services/auth';
+import MenuContext from '../MenuContext';
 
 const menuListVariants = {
   open: { transition: { staggerChildren: 0.25, delayChildren: 0.35 } },
@@ -87,35 +88,50 @@ const Cont = styled.div`
   }
 `;
 
-const SideMenu = ({ status }) => (
-  <Cont style={{ transform: status ? 'translateX(0)' : 'translateX(-100vw)' }}>
-    <motion.ul
-      animate={status ? 'open' : 'closed'}
-      variants={menuListVariants}
-      transition={{ ease: 'easeOut', duration: 1.35, delay: 0.75 }}
-      style={{ opacity: status ? '1' : '0' }}
+const SideMenu = () => {
+  // Access state globally using context
+  const [isOpen, setNav] = useContext(MenuContext);
+
+  const toggleNav = () => {
+    setNav((isOpen) => !isOpen);
+  };
+
+  return (
+    <Cont
+      style={{ transform: isOpen ? 'translateX(0)' : 'translateX(-100vw)' }}
     >
-      {menuItems.map((item, index) => (
-        <motion.li variants={menuItemVariants} key={index}>
-          <FadeLink linkTo={item.path}>{item.text}</FadeLink>
+      <motion.ul
+        animate={isOpen ? 'open' : 'closed'}
+        variants={menuListVariants}
+        transition={{ ease: 'easeOut', duration: 1.35, delay: 0.75 }}
+        style={{ opacity: isOpen ? '1' : '0' }}
+      >
+        {menuItems.map((item, index) => (
+          <motion.li
+            variants={menuItemVariants}
+            key={index}
+            onClick={toggleNav}
+          >
+            <FadeLink linkTo={item.path}>{item.text}</FadeLink>
+          </motion.li>
+        ))}
+        <motion.li variants={menuItemVariants}>
+          <FadeLink linkTo="/dashboard/agency">Dashboard</FadeLink>
         </motion.li>
-      ))}
-      <motion.li variants={menuItemVariants}>
-        <FadeLink linkTo="/dashboard/agency">Dashboard</FadeLink>
-      </motion.li>
-      {isLoggedIn() ? (
-        <motion.li
-          variants={menuItemVariants}
-          onClick={(event) => {
-            event.preventDefault();
-            logout(() => navigate(`/dashboard/login`));
-          }}
-        >
-          <FadeLink linkTo="/">Logout</FadeLink>
-        </motion.li>
-      ) : null}
-    </motion.ul>
-  </Cont>
-);
+        {isLoggedIn() ? (
+          <motion.li
+            variants={menuItemVariants}
+            onClick={(event) => {
+              event.preventDefault();
+              logout(() => navigate(`/dashboard/login`));
+            }}
+          >
+            <FadeLink linkTo="/">Logout</FadeLink>
+          </motion.li>
+        ) : null}
+      </motion.ul>
+    </Cont>
+  );
+};
 
 export default SideMenu;

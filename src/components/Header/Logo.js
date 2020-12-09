@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import FadeLink from '../FadeLink';
+import MenuContext from '../MenuContext';
 
 const LogoCont = styled.div`
   letter-spacing: -1px;
@@ -43,23 +44,31 @@ const LogoCont = styled.div`
   }
 `;
 
-const Logo = ({ status }) => (
-  <LogoCont>
-    <FadeLink linkTo="/">
-      <span
-        style={{
-          color: status ? 'var(--charcoal)' : '#fff',
-          transition: 'color 0.5s ease',
-        }}
-      >
-        Morgan Baker
-      </span>
-      <br />
-      <span className="alt" style={{ color: '#777', fontWeight: '300' }}>
-        Developer
-      </span>
-    </FadeLink>
-  </LogoCont>
-);
+const Logo = () => {
+  // Access state globally using context
+  const [isOpen, setNav] = useContext(MenuContext);
+
+  return (
+    <LogoCont>
+      <FadeLink linkTo="/">
+        <span
+          style={{
+            color: isOpen ? 'var(--charcoal)' : '#fff',
+            transition: 'color 0.5s ease',
+          }}
+        >
+          Morgan Baker
+        </span>
+        <br />
+        <span
+          className="alt"
+          style={{ color: 'var(--charcoal)', fontWeight: '300' }}
+        >
+          Developer
+        </span>
+      </FadeLink>
+    </LogoCont>
+  );
+};
 
 export default Logo;

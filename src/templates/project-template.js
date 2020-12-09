@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import Banner from '../components/Banner/Banner';
-import Hero from '../components/Hero/Hero';
 import Grid from '../components/Grid';
 import Gallery from '../components/Gallery';
 import ProjectInfo from '../components/ProjectInfo';
@@ -49,9 +48,7 @@ const projectTemplate = ({ data }) => {
   return (
     <Layout>
       <SEO title={name} description={excerpt} />
-      <Hero>
-        <Banner description={name} excerpt={excerpt} />
-      </Hero>
+      <Banner description={name} excerpt={excerpt} />
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         animate={{ y: 0, opacity: 1 }}

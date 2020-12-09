@@ -6,7 +6,6 @@ import { VscArrowLeft as Arrow } from 'react-icons/vsc';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import Banner from '../components/Banner/Banner';
-import Hero from '../components/Hero/Hero';
 import Grid from '../components/Grid';
 import FadeLink from '../components/FadeLink';
 
@@ -111,9 +110,7 @@ export default function PageTemplate({ data }) {
   return (
     <Layout>
       <SEO title={title} description={description} />
-      <Hero>
-        <Banner description={title} />
-      </Hero>
+      <Banner description={title} />
 
       <BodyContainer>
         <Grid>

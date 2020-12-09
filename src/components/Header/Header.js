@@ -2,12 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import { BsEnvelope as MailIcon } from 'react-icons/bs';
 import { AiOutlineUser as UserIcon } from 'react-icons/ai';
-import { Link } from 'gatsby';
 import Logo from './Logo';
 import SideMenu from './SideMenu';
 import { getUser, isLoggedIn, logout } from '../../services/auth';
+import { HeaderIcon } from '../../styles/IconStyles';
+import FadeLink from '../FadeLink';
 
-const Container = styled.header`
+const HeaderStyles = styled.header`
   padding: 0 var(--gridGap);
   z-index: 100;
   position: fixed;
@@ -49,61 +50,25 @@ const Container = styled.header`
       width: calc(100% - 80px);
     }
   }
-
-  button {
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    display: flex;
-    justify-content: flex-end;
-    z-index: 10;
-
-    @media (min-width: 768px) {
-      grid-column: 6 / 7;
-    }
-  }
 `;
 
-const Icon = styled(Link)`
-  width: 30px;
-  height: 30px;
-  font-size: 22px;
-  color: #777;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 4px;
-  margin-right: 20px;
-  transition: opacity 0.5s ease;
-
-  &:hover {
-    opacity: 0.5;
-  }
-
-  @media (min-width: 834px) {
-    padding: 2px;
-    margin-right: 25px;
-  }
-
-  svg {
-    width: 100%;
-    height: 100%;
-  }
-`;
-
-const Header = ({ children, status }) => (
+const Header = ({ children }) => (
   <>
-    <Container>
-      <Logo status={status} />
-      <Icon to="/dashboard/login">
-        <UserIcon />
-      </Icon>
-      <Icon to="/contact">
-        <MailIcon />
-      </Icon>
+    <HeaderStyles>
+      <Logo />
+      <HeaderIcon>
+        <FadeLink linkTo="/dashboard/login">
+          <UserIcon />
+        </FadeLink>
+      </HeaderIcon>
+      <HeaderIcon>
+        <FadeLink linkTo="/contact">
+          <MailIcon />
+        </FadeLink>
+      </HeaderIcon>
       {children}
-    </Container>
-    <SideMenu status={status} />
+    </HeaderStyles>
+    <SideMenu />
   </>
 );
 

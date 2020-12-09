@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import Hero from './Hero/Hero';
 import Banner from './Banner/Banner';
 import Grid from './Grid';
 import ProjectInfo from './ProjectInfo';
@@ -17,8 +16,6 @@ const BodyContainer = styled.div`
 `;
 
 const AgencyProject = ({ agencyData }) => {
-  console.log(agencyData);
-
   const {
     name,
     richDescription: { json },
@@ -32,9 +29,7 @@ const AgencyProject = ({ agencyData }) => {
 
   return (
     <>
-      <Hero>
-        <Banner description={name} excerpt={excerpt} />
-      </Hero>
+      <Banner description={name} excerpt={excerpt} />
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         animate={{ y: 0, opacity: 1 }}

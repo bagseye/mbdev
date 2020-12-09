@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import SEO from '../components/SEO';
 import Banner from '../components/Banner/Banner';
 import Layout from '../components/Layout';
-import Hero from '../components/Hero/Hero';
 import Grid from '../components/Grid';
 
 const BodyContainer = styled.div`
@@ -75,9 +74,7 @@ const Border = styled.hr`
 const aboutPage = () => (
   <Layout>
     <SEO title="About the developer" />
-    <Hero>
-      <Banner description="About the developer" />
-    </Hero>
+    <Banner description="About the developer" />
     <BodyContainer>
       <Grid>
         <Border />

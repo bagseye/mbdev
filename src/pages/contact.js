@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import SEO from '../components/SEO';
 import Banner from '../components/Banner/Banner';
 import Layout from '../components/Layout';
-import Hero from '../components/Hero/Hero';
 import Grid from '../components/Grid';
 
 const BodyContainer = styled.div`
@@ -122,9 +121,7 @@ const ButtonArea = styled.div`
 const Contact = () => (
   <Layout>
     <SEO title="Contact the developer" />
-    <Hero>
-      <Banner description="Contact the developer" />
-    </Hero>
+    <Banner description="Contact the developer" />
     <BodyContainer>
       <Grid>
         <ContactForm name="contact" netlify>

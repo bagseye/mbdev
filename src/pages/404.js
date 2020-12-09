@@ -1,11 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-
 import { Link } from 'gatsby';
 import SEO from '../components/SEO';
 import Banner from '../components/Banner/Banner';
 import Layout from '../components/Layout';
-import Hero from '../components/Hero/Hero';
 import Grid from '../components/Grid';
 
 const BodyContainer = styled.div`
@@ -36,9 +34,7 @@ const MainContent = styled.div`
 const error = () => (
   <Layout>
     <SEO title="Error" />
-    <Hero>
-      <Banner description="Page not found" />
-    </Hero>
+    <Banner description="Page not found" />
     <BodyContainer>
       <Grid>
         <MainContent>

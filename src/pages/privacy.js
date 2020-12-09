@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import Banner from '../components/Banner/Banner';
-import Hero from '../components/Hero/Hero';
 import Grid from '../components/Grid';
 
 const BodyContainer = styled.div`
@@ -33,9 +32,7 @@ const MainContent = styled.div`
 const privacyPage = () => (
   <Layout>
     <SEO title="Privacy & Your Data" />
-    <Hero>
-      <Banner description="Privacy & your data" />
-    </Hero>
+    <Banner description="Privacy & your data" />
     <BodyContainer>
       <Grid>
         <MainContent>

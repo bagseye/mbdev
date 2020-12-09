@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { VscArrowRight as Arrow } from 'react-icons/vsc';
 import Banner from '../components/Banner/Banner';
 import Grid from '../components/Grid';
-import Hero from '../components/Hero/Hero';
 import Layout from '../components/Layout';
 
 const SplitContainerStyles = styled.div`
@@ -104,9 +103,7 @@ const journalPage = ({ data }) => {
   return (
     <>
       <Layout>
-        <Hero>
-          <Banner description="Journal" />
-        </Hero>
+        <Banner description="Journal" />
         <SplitContainerStyles>
           <Grid>
             {item.map(({ node }) =>

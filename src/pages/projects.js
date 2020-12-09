@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import Banner from '../components/Banner/Banner';
 import Development from '../components/Development';
 import Grid from '../components/Grid';
-import Hero from '../components/Hero/Hero';
 import Layout from '../components/Layout';
 
 const SplitContainerStyles = styled.div`
@@ -39,13 +38,13 @@ const projectsPage = ({ data }) => {
   return (
     <>
       <Layout>
-        <Hero>
-          <Banner description="Projects" />
-        </Hero>
+        <Banner description="Projects" />
         <SplitContainerStyles>
           <Grid>
             {developmentData.map(({ node }) =>
-              node.slug ? <Development noPrefix project={node} /> : null
+              node.slug ? (
+                <Development key={node.name} noPrefix project={node} />
+              ) : null
             )}
           </Grid>
         </SplitContainerStyles>
