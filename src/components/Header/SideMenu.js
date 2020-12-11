@@ -3,7 +3,6 @@ import { Link, navigate } from 'gatsby';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import menuItems from '../../constants/links';
-import FadeLink from '../FadeLink';
 import { getUser, isLoggedIn, logout } from '../../services/auth';
 import MenuContext from '../MenuContext';
 
@@ -30,7 +29,7 @@ const menuItemVariants = {
   },
 };
 
-const Cont = styled.div`
+const SideMenuStyles = styled.div`
   height: 100%;
   width: 100%;
   padding: 140px var(--gridGap) 0 var(--gridGap);
@@ -97,7 +96,7 @@ const SideMenu = () => {
   };
 
   return (
-    <Cont
+    <SideMenuStyles
       style={{ transform: isOpen ? 'translateX(0)' : 'translateX(-100vw)' }}
     >
       <motion.ul
@@ -112,11 +111,13 @@ const SideMenu = () => {
             key={index}
             onClick={toggleNav}
           >
-            <FadeLink linkTo={item.path}>{item.text}</FadeLink>
+            <Link to={item.path}>{item.text}</Link>
           </motion.li>
         ))}
         <motion.li variants={menuItemVariants}>
-          <FadeLink linkTo="/dashboard/agency">Dashboard</FadeLink>
+          <Link to="/dashboard/agency" onClick={toggleNav}>
+            Dashboard
+          </Link>
         </motion.li>
         {isLoggedIn() ? (
           <motion.li
@@ -126,11 +127,11 @@ const SideMenu = () => {
               logout(() => navigate(`/dashboard/login`));
             }}
           >
-            <FadeLink linkTo="/">Logout</FadeLink>
+            <Link to="/">Logout</Link>
           </motion.li>
         ) : null}
       </motion.ul>
-    </Cont>
+    </SideMenuStyles>
   );
 };
 

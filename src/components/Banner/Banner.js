@@ -19,11 +19,6 @@ const BannerStyles = styled(motion.div)`
     font-weight: 500;
     margin: 0;
     letter-spacing: var(--titleLargeLetterSpacing);
-
-    span {
-      color: var(--charcoal);
-      font-weight: 300;
-    }
   }
 
   h1,
@@ -46,23 +41,39 @@ const BannerStyles = styled(motion.div)`
   }
 `;
 
-const Banner = ({ description, secondary, excerpt, children }) => (
-  <BannerStyles
-    initial={{ opacity: 0, y: 15 }}
-    animate={{ y: 0, opacity: 1 }}
-    transition={{ ease: 'easeOut', duration: 1.35, delay: 0.75 }}
-  >
+const Banner = ({ description, excerpt, children }) => (
+  <BannerStyles>
     <Grid>
       <section>
-        <h1>
-          {description}
-          {secondary && <span>{secondary}</span>}
-        </h1>
-        {excerpt && <h2>{excerpt}</h2>}
+        {description && (
+          <h1>
+            {[...description].map((item, i) => (
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.75, delay: i * 0.02 }}
+              >
+                {item}
+              </motion.span>
+            ))}
+          </h1>
+        )}
+        {excerpt && (
+          <h2>
+            {[...excerpt].map((item, i) => (
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.75, delay: i * 0.02 }}
+              >
+                {item}
+              </motion.span>
+            ))}
+          </h2>
+        )}
         {children}
       </section>
     </Grid>
   </BannerStyles>
 );
-
 export default Banner;
