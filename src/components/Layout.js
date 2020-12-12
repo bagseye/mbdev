@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import CookieConsent from 'react-cookie-consent';
 import MenuButton from './Header/MenuButton';
@@ -6,6 +6,7 @@ import Footer from './Footer';
 import 'typeface-inter';
 import Header from './Header/Header';
 import { FadeWrapper } from './FadeWrapper';
+import MenuContext from './MenuContext';
 
 const GlobalStyle = createGlobalStyle`
 :root {
@@ -85,7 +86,7 @@ body {
   }
 
 #main {
-  transition: margin-left 0.5s ease;
+  /* transition: 0.5s ease; */
   width: 100%;
   padding-top: 80px;
 }
@@ -236,27 +237,39 @@ button.btn {
   }
 `;
 
-const Layout = ({ children }) => (
-  <>
-    <GlobalStyle />
-    <CookieConsent
-      location="bottom"
-      buttonText="Accept"
-      declineButtonText="Decline"
-      cookieName="morgan-baker-google-analytics"
-    >
-      This site uses cookies
-    </CookieConsent>
-    <FadeWrapper>
-      <div id="main">
+const Layout = ({ children }) => {
+  // Access state globally using context
+  const [isOpen, setNav] = useContext(MenuContext);
+
+  return (
+    <>
+      <GlobalStyle />
+      <CookieConsent
+        location="bottom"
+        buttonText="Accept"
+        declineButtonText="Decline"
+        cookieName="morgan-baker-google-analytics"
+      >
+        This site uses cookies
+      </CookieConsent>
+      <FadeWrapper>
         <Header>
           <MenuButton />
         </Header>
-        {children}
-        <Footer />
-      </div>
-    </FadeWrapper>
-  </>
-);
+        <div
+          id="main"
+          style={{
+            transitionDuration: '0.75s',
+            transitionDelay: !isOpen ? '1s' : null,
+            opacity: isOpen ? 0 : 1,
+          }}
+        >
+          {children}
+          <Footer />
+        </div>
+      </FadeWrapper>
+    </>
+  );
+};
 
 export default Layout;
