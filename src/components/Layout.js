@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import CookieConsent from 'react-cookie-consent';
 import MenuButton from './Header/MenuButton';
@@ -6,7 +6,6 @@ import Footer from './Footer';
 import 'typeface-inter';
 import Header from './Header/Header';
 import { FadeWrapper } from './FadeWrapper';
-import MenuContext from './MenuContext';
 
 const GlobalStyle = createGlobalStyle`
 :root {
@@ -15,21 +14,13 @@ const GlobalStyle = createGlobalStyle`
   --primary: #fff;
   --inActive: #505050;
   --menuItem: 0.875rem;
-  /* --transition: 0.3s; */
-  /* --h1: 1.5rem;
-  --h1Large: 2.5rem;
-  --h3: 1.05rem;
-  --para: 0.85rem; */
+
+
   --paddingBorder: 1.875rem;
   --paddingStd: 3.125rem;
   --paddingLarge: 4.688rem;
   --sansSerif: 'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   --spacing: 1rem;
-  /* --hero: 1.65rem; */
-  /* --hero: 6.5vw; */
-  /* --button: 1.15rem; */
-  /* --logo: 1.1rem; */
-
 
 
   --charcoal: #777;
@@ -38,6 +29,7 @@ const GlobalStyle = createGlobalStyle`
   --titleLargeLetterSpacing: -2px;
   --h2: 22px;
   --paragraph: 14px;
+  --menuBtn: 14px;
   --paragraphLineHeight: 1.4;
   --gridGap: 15px;
   --margins: 80px;
@@ -50,16 +42,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   @media(min-width:768px) {
-    /* --h1: 2rem;
-    --h1Large: 3.25rem;
-    --h2: 1.35rem;
-    --h3: 1.2rem;
-    --para: 1rem;
-    --paddingStd: 4.688rem;
-    --paddingLarge: 7.813rem;
-    --hero: 4.5vw;
-    --button: 1.35rem;
-    --logo: 1.25rem; */
+    --menuBtn: 18px;
     
   }
 
@@ -68,21 +51,9 @@ const GlobalStyle = createGlobalStyle`
     --titleLargeLineHeight: 58px;
     --h2: 26px;
     --paragraph: 16px;
+    --menuBtn: 20px;
     --gridGap: 30px;
     --margins: 150px;
-    /* --borderLarge: 9px; */
-  }
-
-  @media(min-width: 1200px) {
-    /* --menuItem: 1.25rem; */
-    /* --h1: 2.15rem;
-    --h1Large: 3.75rem;
-    --h2: 1.65rem;
-    --paddingStd: 5.625rem;
-    --paddingLarge: 9.375rem;
-    --hero: 3.25rem;
-    --button: 1.6rem;
-    --logo: 1.35rem; */
   }
 
   @media(min-width: 1600px) {
@@ -90,6 +61,7 @@ const GlobalStyle = createGlobalStyle`
     --titleLargeLineHeight: 66px;
     --h2: 30px;
     --paragraph: 20px;
+    --menuBtn: 22px;
     --gridGap: 40px;
     --margins: 175px;
     --borderLarge: 6px;
@@ -264,42 +236,27 @@ button.btn {
   }
 `;
 
-const Layout = ({ children }) => {
-  // Access state globally using context
-  const [isOpen, setNav] = useContext(MenuContext);
-
-  const toggleNav = () => {
-    setNav((isOpen) => !isOpen);
-  };
-
-  return (
-    <>
-      <GlobalStyle />
-      <CookieConsent
-        location="bottom"
-        buttonText="Accept"
-        declineButtonText="Decline"
-        cookieName="morgan-baker-google-analytics"
-      >
-        This site uses cookies
-      </CookieConsent>
-      <FadeWrapper>
-        <div id="main" style={{ marginLeft: isOpen ? '100vw' : '0' }}>
-          <Header>
-            <button
-              style={{ backgroundColor: 'transparent', border: 'none' }}
-              type="button"
-              onClick={toggleNav}
-            >
-              <MenuButton status={isOpen} />
-            </button>
-          </Header>
-          {children}
-          <Footer />
-        </div>
-      </FadeWrapper>
-    </>
-  );
-};
+const Layout = ({ children }) => (
+  <>
+    <GlobalStyle />
+    <CookieConsent
+      location="bottom"
+      buttonText="Accept"
+      declineButtonText="Decline"
+      cookieName="morgan-baker-google-analytics"
+    >
+      This site uses cookies
+    </CookieConsent>
+    <FadeWrapper>
+      <div id="main">
+        <Header>
+          <MenuButton />
+        </Header>
+        {children}
+        <Footer />
+      </div>
+    </FadeWrapper>
+  </>
+);
 
 export default Layout;

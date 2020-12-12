@@ -6,9 +6,28 @@ import menuItems from '../../constants/links';
 import { getUser, isLoggedIn, logout } from '../../services/auth';
 import MenuContext from '../MenuContext';
 
+const menuVariants = {
+  open: {
+    width: '100%',
+    transition: {
+      width: { duration: 0.4, velocity: -50, stiffness: 500 },
+    },
+  },
+  closed: {
+    width: '0%',
+    transition: {
+      width: { duration: 0.4, delay: 0.35 },
+    },
+  },
+};
+
 const menuListVariants = {
-  open: { transition: { staggerChildren: 0.25, delayChildren: 0.35 } },
-  // closed: { opacity: 0, x: '-100px' },
+  open: {
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
+    },
+  },
 };
 
 const menuItemVariants = {
@@ -29,22 +48,23 @@ const menuItemVariants = {
   },
 };
 
-const SideMenuStyles = styled.div`
+const SideMenuStyles = styled(motion.div)`
   height: 100%;
-  width: 100%;
-  padding: 140px var(--gridGap) 0 var(--gridGap);
+  width: 0%;
   position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   z-index: 4;
   top: 0;
   left: 0;
   overflow-x: hidden;
-  transition: transform 0.5s ease;
   background-color: #fff;
-  transform: translateX(-100vw);
 
   ul {
+    width: 100%;
     max-width: 1520px;
-    padding-left: 0;
+    padding: 0 var(--gridGap);
     margin: 0 auto;
     transition: opacity 0.5s ease;
     display: grid;
@@ -73,18 +93,6 @@ const SideMenuStyles = styled.div`
       }
     }
   }
-
-  @media (min-width: 414px) {
-    padding-top: 160px;
-  }
-
-  @media (min-width: 834px) {
-    padding-top: 200px;
-  }
-
-  @media (min-width: 1600px) {
-    padding-top: 230px;
-  }
 `;
 
 const SideMenu = () => {
@@ -97,21 +105,18 @@ const SideMenu = () => {
 
   return (
     <SideMenuStyles
-      style={{ transform: isOpen ? 'translateX(0)' : 'translateX(-100vw)' }}
+      animate={isOpen ? 'open' : 'closed'}
+      variants={menuVariants}
     >
       <motion.ul
         animate={isOpen ? 'open' : 'closed'}
         variants={menuListVariants}
-        transition={{ ease: 'easeOut', duration: 1.35, delay: 0.75 }}
-        style={{ opacity: isOpen ? '1' : '0' }}
       >
         {menuItems.map((item, index) => (
-          <motion.li
-            variants={menuItemVariants}
-            key={index}
-            onClick={toggleNav}
-          >
-            <Link to={item.path}>{item.text}</Link>
+          <motion.li variants={menuItemVariants} key={index}>
+            <Link to={item.path} onClick={toggleNav}>
+              {item.text}
+            </Link>
           </motion.li>
         ))}
         <motion.li variants={menuItemVariants}>
