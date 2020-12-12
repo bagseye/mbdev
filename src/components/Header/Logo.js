@@ -53,8 +53,9 @@ const Logo = () => {
       <FadeLink linkTo="/">
         <span
           style={{
-            color: isOpen ? 'var(--charcoal)' : '#fff',
+            color: isOpen ? 'var(--background)' : '#fff',
             transition: 'color 0.5s ease',
+            transitionDelay: isOpen ? '0.75s' : '1.5s',
           }}
         >
           Morgan Baker

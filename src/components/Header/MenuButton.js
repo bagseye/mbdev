@@ -95,7 +95,8 @@ const MenuButton = () => {
         aria-label={isOpen ? 'Close Menu' : 'Open Menu'}
         type="button"
         style={{
-          color: isOpen ? 'var(--charcoal)' : '#fff',
+          color: isOpen ? 'var(--background)' : '#fff',
+          transitionDelay: isOpen ? '0.75s' : '1.5s',
         }}
       >
         {isOpen ? 'Close' : 'Menu'}
