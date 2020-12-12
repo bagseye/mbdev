@@ -18,8 +18,3 @@ import { MenuProvider } from './src/components/MenuContext';
 export function wrapRootElement({ element }) {
   return <MenuProvider>{element}</MenuProvider>;
 }
-
-export function onRouteUpdate({ location, prevLocation }) {
-  console.log('new pathname', location.pathname);
-  console.log('old pathname', prevLocation ? prevLocation.pathname : null);
-}

@@ -23,7 +23,7 @@ export const getProjects = graphql`
           excerpt
           images {
             fluid(quality: 90, maxWidth: 1000) {
-              ...GatsbyContentfulFluid_tracedSVG
+              ...GatsbyContentfulFluid_withWebp
             }
           }
         }

@@ -35,7 +35,7 @@ const Agency = () => {
             images {
               description
               fluid(maxWidth: 2000) {
-                ...GatsbyContentfulFluid_tracedSVG
+                ...GatsbyContentfulFluid_withWebp
               }
             }
           }
