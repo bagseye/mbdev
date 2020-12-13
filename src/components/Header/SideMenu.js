@@ -9,15 +9,33 @@ import FadeLink from '../FadeLink';
 
 const menuVariants = {
   open: {
-    width: 'calc(100% + (var(--gridGap) * 2))',
+    width: '100%',
+    paddingLeft: 'var(--gridGap)',
+    paddingRight: 'var(--gridGap)',
     transition: {
       width: { duration: 0.4, delay: 0.75, velocity: -50, stiffness: 500 },
+      paddingLeft: {
+        duration: 0.4,
+        delay: 0.75,
+        velocity: -50,
+        stiffness: 500,
+      },
+      paddingRight: {
+        duration: 0.4,
+        delay: 0.75,
+        velocity: -50,
+        stiffness: 500,
+      },
     },
   },
   closed: {
     width: '0%',
+    paddingLeft: '0',
+    paddingRight: '0',
     transition: {
       width: { duration: 0.4, delay: 1.5 },
+      paddingLeft: { delay: 1.5 },
+      paddingRight: { delay: 1.5 },
     },
   },
 };
@@ -65,12 +83,13 @@ const SideMenuStyles = styled(motion.div)`
   justify-content: center;
   z-index: 4;
   top: 0;
-  left: -80px;
-  padding: 0 var(--gridGap);
+  left: 0;
+  padding: 0;
   overflow-x: hidden;
   background-color: #fff;
 
   ul {
+    padding: 0;
     width: 100%;
     max-width: 1520px;
     margin: 0 auto;
