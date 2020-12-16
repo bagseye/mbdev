@@ -1,11 +1,8 @@
 import React, { useContext } from "react";
 import { createGlobalStyle } from "styled-components";
-import CookieConsent from "react-cookie-consent";
 import MenuButton from "./Header/MenuButton";
 import Footer from "./Footer";
-import "fontsource-inter";
 import Header from "./Header/Header";
-import { FadeWrapper } from "./FadeWrapper";
 import MenuContext from "./MenuContext";
 
 const GlobalStyle = createGlobalStyle`
@@ -244,15 +241,6 @@ const Layout = ({ children }) => {
   return (
     <>
       <GlobalStyle />
-      <CookieConsent
-        location="bottom"
-        buttonText="Accept"
-        declineButtonText="Decline"
-        cookieName="morgan-baker-google-analytics"
-      >
-        This site uses cookies
-      </CookieConsent>
-      {/* <FadeWrapper> */}
       <Header>
         <MenuButton />
       </Header>
@@ -267,7 +255,6 @@ const Layout = ({ children }) => {
         {children}
         <Footer />
       </div>
-      {/* </FadeWrapper> */}
     </>
   );
 };

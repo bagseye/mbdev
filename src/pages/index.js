@@ -4,7 +4,6 @@ import About from "../components/About/About";
 import SEO from "../components/SEO";
 import FullWidthImage from "../components/FullWidthImage/FullWidthImage";
 import FeatureDevs from "../components/FeatureDevelopments";
-import Layout from "../components/Layout";
 import Journal from "../components/Journal";
 import Grid from "../components/Grid";
 import ContactMethods from "../components/ContactMethods";

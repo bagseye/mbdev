@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import { motion } from 'framer-motion';
-import Grid from '../Grid';
+import React from "react";
+import styled from "styled-components";
+import { motion } from "framer-motion";
+import Grid from "../Grid";
 
 const BannerStyles = styled(motion.div)`
   padding: var(--margins) var(--gridGap);
@@ -47,7 +47,8 @@ const Banner = ({ description, excerpt, children }) => (
       <section>
         {description && (
           <h1>
-            {[...description].map((item, i) => (
+            {description}
+            {/* {[...description].map((item, i) => (
               <motion.span
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -55,12 +56,13 @@ const Banner = ({ description, excerpt, children }) => (
               >
                 {item}
               </motion.span>
-            ))}
+            ))} */}
           </h1>
         )}
         {excerpt && (
           <h2>
-            {[...excerpt].map((item, i) => (
+            {excerpt}
+            {/* {[...excerpt].map((item, i) => (
               <motion.span
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -68,7 +70,7 @@ const Banner = ({ description, excerpt, children }) => (
               >
                 {item}
               </motion.span>
-            ))}
+            ))} */}
           </h2>
         )}
         {children}

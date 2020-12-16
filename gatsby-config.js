@@ -3,21 +3,21 @@
  *
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
-require('dotenv').config({
+require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
 module.exports = {
   siteMetadata: {
-    title: 'Morgan Baker Dev',
+    title: "Morgan Baker Dev",
     description:
       "I'm a web developer & designer from Inverness, building fast, stylish websites using WordPress & GatsbyJS",
     subline:
       "Coupling a love of design with web development I've created and continue to maintain a number of open-source themes",
-    author: 'Morgan Baker',
-    twitterUsername: '@dave',
-    image: '/yellow-metal-design-decoration.jpg',
-    siteUrl: 'https://www.morganbaker.dev',
+    author: "Morgan Baker",
+    twitterUsername: "@dave",
+    image: "/yellow-metal-design-decoration.jpg",
+    siteUrl: "https://www.morganbaker.dev",
   },
   /* Your site config here */
   plugins: [
@@ -38,14 +38,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-offline`,
-      options: {
-        workboxConfig: {
-          globPatterns: ['**/*'],
-        },
-      },
-    },
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `posts`,
@@ -53,17 +45,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-mdx`,
-    {
-      resolve: `gatsby-plugin-gdpr-cookies`,
-      options: {
-        googleAnalytics: {
-          trackingId: process.env.GOOGLE_ANALYTICS,
-          cookieName: 'morgan-baker-google-analytics',
-          anonymize: true,
-        },
-        environments: ['production'],
-      },
-    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -80,11 +61,11 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-robots-txt',
+      resolve: "gatsby-plugin-robots-txt",
       options: {
-        host: 'https://www.morganbaker.dev',
-        sitemap: 'https://www.morganbaker.dev/sitemap.xml',
-        policy: [{ userAgent: '*', allow: '/' }],
+        host: "https://www.morganbaker.dev",
+        sitemap: "https://www.morganbaker.dev/sitemap.xml",
+        policy: [{ userAgent: "*", allow: "/" }],
       },
     },
     `gatsby-plugin-transition-link`,
