@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import Grid from '../Grid';
+import React from "react";
+import styled from "styled-components";
+import Grid from "../Grid";
 
 const Container = styled.div`
   padding: var(--margins) var(--gridGap);
@@ -10,8 +10,8 @@ const Container = styled.div`
 
   section {
     grid-column: 1 / 7;
-    column-count: 2;
-    column-gap: var(--gridGap);
+    /* column-count: 2; */
+    /* column-gap: var(--gridGap); */
 
     p {
       font-size: var(--paragraph);
@@ -47,14 +47,14 @@ const About = ({ id }) => (
     <Grid>
       <section>
         <p>
-          Using{' '}
+          Using{" "}
           <a
             href="https://www.gatsbyjs.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
             GatsbyJS
-          </a>{' '}
+          </a>{" "}
           I have built, and continue to maintain, a number of open source
           projects that are listed within their official starters library.
         </p>

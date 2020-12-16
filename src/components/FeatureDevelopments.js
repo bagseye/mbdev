@@ -1,11 +1,11 @@
-import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import styled from 'styled-components';
-import { VscArrowRight as Arrow } from 'react-icons/vsc';
-import Grid from './Grid';
-import Development from './Development';
-import Heading from './Heading';
-import FadeLink from './FadeLink';
+import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
+import styled from "styled-components";
+import { VscArrowRight as Arrow } from "react-icons/vsc";
+import Grid from "./Grid";
+import Development from "./Development";
+import Heading from "./Heading";
+import FadeLink from "./FadeLink";
 
 const Container = styled.section`
   padding: 0 var(--gridGap);
@@ -52,7 +52,7 @@ const FeatureDevelopments = () => {
     <Container>
       <Grid>
         <TitleArea>
-          <Heading content="Featured " highlight="Developments" />
+          <Heading content="Featured Projects" />
         </TitleArea>
       </Grid>
       <Grid>

@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import Heading from './Heading';
+import React from "react";
+import styled from "styled-components";
+import Heading from "./Heading";
 
 const ContactMethodsStyles = styled.section`
   grid-column: 1 / 7;
@@ -10,7 +10,6 @@ const ContactMethodsStyles = styled.section`
   height: min-content;
 
   @media (min-width: 768px) {
-    grid-column: 4 / 7;
     grid-template-columns: 1fr 1fr 1fr;
     padding-right: 0;
   }
@@ -26,8 +25,6 @@ const TitleArea = styled.div`
 `;
 
 const ContactListStyles = styled.div`
-  border-top: var(--borderSmall) solid rgba(255, 255, 255, 0.2);
-  padding-top: 25px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-column: 1 / 7;
@@ -35,7 +32,7 @@ const ContactListStyles = styled.div`
   margin-bottom: var(--margins);
 
   > a {
-    font-size: var(--paragraph);
+    font-size: var(--h2);
 
     :nth-child(1) {
       grid-column: 1 / 4;
@@ -73,7 +70,7 @@ const ContactListStyles = styled.div`
 const ContactMethods = () => (
   <ContactMethodsStyles>
     <TitleArea>
-      <Heading content="Methods of " highlight="Contact" />
+      <Heading content="Methods of Contact" />
     </TitleArea>
     <ContactListStyles>
       <a

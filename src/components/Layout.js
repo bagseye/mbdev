@@ -1,12 +1,12 @@
-import React, { useContext } from 'react';
-import { createGlobalStyle } from 'styled-components';
-import CookieConsent from 'react-cookie-consent';
-import MenuButton from './Header/MenuButton';
-import Footer from './Footer';
-import 'typeface-inter';
-import Header from './Header/Header';
-import { FadeWrapper } from './FadeWrapper';
-import MenuContext from './MenuContext';
+import React, { useContext } from "react";
+import { createGlobalStyle } from "styled-components";
+import CookieConsent from "react-cookie-consent";
+import MenuButton from "./Header/MenuButton";
+import Footer from "./Footer";
+import "fontsource-inter";
+import Header from "./Header/Header";
+import { FadeWrapper } from "./FadeWrapper";
+import MenuContext from "./MenuContext";
 
 const GlobalStyle = createGlobalStyle`
 :root {
@@ -64,7 +64,8 @@ const GlobalStyle = createGlobalStyle`
     --paragraph: 20px;
     --menuBtn: 22px;
     --gridGap: 40px;
-    --margins: 175px;
+    /* --margins: 175px; */
+    --margins: 225px;
     --borderLarge: 6px;
   }
 }
@@ -75,7 +76,7 @@ const GlobalStyle = createGlobalStyle`
 body {
     overflow-x: hidden;
     font-family: var(--sansSerif);
-    font-weight: 400;
+    font-weight: 300;
     margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -86,7 +87,6 @@ body {
   }
 
 #main {
-  /* transition: 0.5s ease; */
   width: 100%;
   padding-top: 80px;
 }
@@ -259,8 +259,8 @@ const Layout = ({ children }) => {
         <div
           id="main"
           style={{
-            transitionDuration: '0.75s',
-            transitionDelay: !isOpen ? '1s' : null,
+            transitionDuration: "0.75s",
+            transitionDelay: !isOpen ? "1s" : null,
             opacity: isOpen ? 0 : 1,
           }}
         >

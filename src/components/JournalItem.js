@@ -1,12 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
-import { useStaticQuery, graphql } from 'gatsby';
-import { VscArrowRight as Arrow } from 'react-icons/vsc';
-import FadeLink from './FadeLink';
+import React from "react";
+import styled from "styled-components";
+import { useStaticQuery, graphql } from "gatsby";
+import { VscArrowRight as Arrow } from "react-icons/vsc";
+import FadeLink from "./FadeLink";
 
 const JournalItemStyles = styled.article`
-  border-top: var(--borderSmall) solid rgba(255, 255, 255, 0.2);
-  padding-top: 25px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-column: 1 / 7;
@@ -15,15 +13,15 @@ const JournalItemStyles = styled.article`
 
   > h2 {
     margin-top: 0;
-    grid-column: 1 / 4;
-    font-size: var(--paragraph);
+    grid-column: 1 / 7;
+    font-size: var(--h2);
     letter-spacing: -0.5px;
   }
 
   > div {
     display: flex;
     flex-direction: column;
-    grid-column: 4 / 7;
+    grid-column: 1 / 7;
 
     p {
       margin-top: 0;
@@ -48,15 +46,12 @@ const JournalItemStyles = styled.article`
   }
 
   @media (min-width: 768px) {
-    grid-column: 1 / 4;
-    grid-template-columns: 1fr 1fr 1fr;
-
     > h2 {
-      grid-column: 1 / 2;
+      grid-column: 1 / 3;
     }
 
     > div {
-      grid-column: 2 / 4;
+      grid-column: 4 / 7;
     }
   }
 `;

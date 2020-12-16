@@ -1,12 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
-import Img from 'gatsby-image';
-import { VscArrowRight as Arrow } from 'react-icons/vsc';
-import FadeLink from './FadeLink';
+import React from "react";
+import styled from "styled-components";
+import Img from "gatsby-image";
+import { VscArrowRight as Arrow } from "react-icons/vsc";
+import FadeLink from "./FadeLink";
 
 const DevelopmentContainer = styled.section`
-  border-top: var(--borderSmall) solid rgba(255, 255, 255, 0.2);
-  padding-top: 25px;
   grid-column: 1 / 7;
   margin-bottom: 50px;
   display: flex;
@@ -20,7 +18,7 @@ const DevelopmentContainer = styled.section`
   }
 
   .excerpt {
-    grid-column: 4 / 7;
+    grid-column: 1 / 7;
     display: flex;
     flex-wrap: wrap;
 
@@ -36,18 +34,10 @@ const DevelopmentContainer = styled.section`
     .link__arrow {
       margin-top: auto;
     }
-
-    @media (min-width: 768px) {
-      grid-column: 2 / 4;
-    }
-
-    @media (min-width: 834px) {
-      grid-column: 2 / 4;
-    }
   }
 
   h2 {
-    font-size: var(--paragraph);
+    font-size: var(--h2);
     line-height: var(--paragraphLineHeight);
     margin-top: 0;
     grid-column: 1 / 4;
@@ -61,10 +51,6 @@ const DevelopmentContainer = styled.section`
   @media (min-width: 768px) {
     .project-grid {
       grid-template-columns: 1fr 1fr 1fr;
-    }
-
-    h2 {
-      grid-column: 1 / 2;
     }
 
     &:nth-child(odd) {
@@ -89,8 +75,12 @@ const ProjectImage = styled.div`
     transition: transform 0.5s ease, opacity 500ms ease 0s !important;
   }
 
+  &::before,
+  &::after {
+    content: "";
+  }
+
   &::before {
-    content: '';
     width: 1px;
     margin-left: -1px;
     float: left;
@@ -99,7 +89,6 @@ const ProjectImage = styled.div`
   }
 
   &::after {
-    content: '';
     display: table;
     clear: both;
   }
