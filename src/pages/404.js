@@ -1,10 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'gatsby';
-import SEO from '../components/SEO';
-import Banner from '../components/Banner/Banner';
-import Layout from '../components/Layout';
-import Grid from '../components/Grid';
+import React from "react";
+import styled from "styled-components";
+import { Link } from "gatsby";
+import SEO from "../components/SEO";
+import Banner from "../components/Banner/Banner";
+import Layout from "../components/Layout";
+import Grid from "../components/Grid";
 
 const BodyContainer = styled.div`
   padding: 0 var(--gridGap);
@@ -32,7 +32,7 @@ const MainContent = styled.div`
 `;
 
 const error = () => (
-  <Layout>
+  <>
     <SEO title="Error" />
     <Banner description="Page not found" />
     <BodyContainer>
@@ -49,7 +49,7 @@ const error = () => (
         </MainContent>
       </Grid>
     </BodyContainer>
-  </Layout>
+  </>
 );
 
 export default error;

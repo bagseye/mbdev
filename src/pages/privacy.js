@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
-import Layout from '../components/Layout';
-import SEO from '../components/SEO';
-import Banner from '../components/Banner/Banner';
-import Grid from '../components/Grid';
+import React from "react";
+import styled from "styled-components";
+import Layout from "../components/Layout";
+import SEO from "../components/SEO";
+import Banner from "../components/Banner/Banner";
+import Grid from "../components/Grid";
 
 const BodyContainer = styled.div`
   padding: 0 var(--gridGap);
@@ -30,7 +30,7 @@ const MainContent = styled.div`
 `;
 
 const privacyPage = () => (
-  <Layout>
+  <>
     <SEO title="Privacy & Your Data" />
     <Banner description="Privacy & your data" />
     <BodyContainer>
@@ -49,7 +49,7 @@ const privacyPage = () => (
         </MainContent>
       </Grid>
     </BodyContainer>
-  </Layout>
+  </>
 );
 
 export default privacyPage;

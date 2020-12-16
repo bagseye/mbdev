@@ -1,13 +1,13 @@
-import React from 'react';
-import styled from 'styled-components';
-import { graphql } from 'gatsby';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { VscArrowLeft as Arrow } from 'react-icons/vsc';
-import Layout from '../components/Layout';
-import SEO from '../components/SEO';
-import Banner from '../components/Banner/Banner';
-import Grid from '../components/Grid';
-import FadeLink from '../components/FadeLink';
+import React from "react";
+import styled from "styled-components";
+import { graphql } from "gatsby";
+import { MDXRenderer } from "gatsby-plugin-mdx";
+import { VscArrowLeft as Arrow } from "react-icons/vsc";
+import Layout from "../components/Layout";
+import SEO from "../components/SEO";
+import Banner from "../components/Banner/Banner";
+import Grid from "../components/Grid";
+import FadeLink from "../components/FadeLink";
 
 const Border = styled.hr`
   border: none;
@@ -108,7 +108,7 @@ export default function PageTemplate({ data }) {
   const { body } = data.mdx;
 
   return (
-    <Layout>
+    <>
       <SEO title={title} description={description} />
       <Banner description={title} />
 
@@ -126,7 +126,7 @@ export default function PageTemplate({ data }) {
           </MainArticle>
         </Grid>
       </BodyContainer>
-    </Layout>
+    </>
   );
 }
 

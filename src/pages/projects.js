@@ -1,10 +1,10 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import styled from 'styled-components';
-import Banner from '../components/Banner/Banner';
-import Development from '../components/Development';
-import Grid from '../components/Grid';
-import Layout from '../components/Layout';
+import React from "react";
+import { graphql } from "gatsby";
+import styled from "styled-components";
+import Banner from "../components/Banner/Banner";
+import Development from "../components/Development";
+import Grid from "../components/Grid";
+import Layout from "../components/Layout";
 
 const SplitContainerStyles = styled.div`
   padding: 0 var(--gridGap);
@@ -37,18 +37,16 @@ const projectsPage = ({ data }) => {
 
   return (
     <>
-      <Layout>
-        <Banner description="Projects" />
-        <SplitContainerStyles>
-          <Grid>
-            {developmentData.map(({ node }) =>
-              node.slug ? (
-                <Development key={node.name} noPrefix project={node} />
-              ) : null
-            )}
-          </Grid>
-        </SplitContainerStyles>
-      </Layout>
+      <Banner description="Projects" />
+      <SplitContainerStyles>
+        <Grid>
+          {developmentData.map(({ node }) =>
+            node.slug ? (
+              <Development key={node.name} noPrefix project={node} />
+            ) : null
+          )}
+        </Grid>
+      </SplitContainerStyles>
     </>
   );
 };

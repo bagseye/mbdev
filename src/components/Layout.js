@@ -252,22 +252,22 @@ const Layout = ({ children }) => {
       >
         This site uses cookies
       </CookieConsent>
-      <FadeWrapper>
-        <Header>
-          <MenuButton />
-        </Header>
-        <div
-          id="main"
-          style={{
-            transitionDuration: "0.75s",
-            transitionDelay: !isOpen ? "1s" : null,
-            opacity: isOpen ? 0 : 1,
-          }}
-        >
-          {children}
-          <Footer />
-        </div>
-      </FadeWrapper>
+      {/* <FadeWrapper> */}
+      <Header>
+        <MenuButton />
+      </Header>
+      <div
+        id="main"
+        style={{
+          transitionDuration: "0.75s",
+          transitionDelay: !isOpen ? "1s" : null,
+          opacity: isOpen ? 0 : 1,
+        }}
+      >
+        {children}
+        <Footer />
+      </div>
+      {/* </FadeWrapper> */}
     </>
   );
 };

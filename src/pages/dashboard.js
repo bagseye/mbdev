@@ -1,12 +1,12 @@
-import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
 
-import { Router } from '@reach/router';
-import Layout from '../components/Layout';
-import PrivateRoute from '../components/PrivateRoute';
-import Agency from '../components/Agency';
-import Login from '../components/Login';
-import AgencyProject from '../components/AgencyProject';
+import { Router } from "@reach/router";
+import Layout from "../components/Layout";
+import PrivateRoute from "../components/PrivateRoute";
+import Agency from "../components/Agency";
+import Login from "../components/Login";
+import AgencyProject from "../components/AgencyProject";
 
 const Dashboard = () => {
   const data = useStaticQuery(graphql`
@@ -37,7 +37,7 @@ const Dashboard = () => {
   const agencyData = data.allContentfulAgency.edges;
 
   return (
-    <Layout>
+    <>
       <Router>
         <PrivateRoute path="/dashboard/agency" component={Agency} />
         {agencyData.map(({ node }) =>
@@ -51,7 +51,7 @@ const Dashboard = () => {
         )}
         <Login path="/dashboard/login" />
       </Router>
-    </Layout>
+    </>
   );
 };
 

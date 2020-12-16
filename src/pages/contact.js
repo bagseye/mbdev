@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
-import SEO from '../components/SEO';
-import Banner from '../components/Banner/Banner';
-import Layout from '../components/Layout';
-import Grid from '../components/Grid';
+import React from "react";
+import styled from "styled-components";
+import SEO from "../components/SEO";
+import Banner from "../components/Banner/Banner";
+import Layout from "../components/Layout";
+import Grid from "../components/Grid";
 
 const BodyContainer = styled.div`
   padding: 0 var(--gridGap);
@@ -119,7 +119,7 @@ const ButtonArea = styled.div`
 `;
 
 const Contact = () => (
-  <Layout>
+  <>
     <SEO title="Contact the developer" />
     <Banner description="Contact the developer" />
     <BodyContainer>
@@ -144,7 +144,7 @@ const Contact = () => (
         </ContactForm>
       </Grid>
     </BodyContainer>
-  </Layout>
+  </>
 );
 
 export default Contact;

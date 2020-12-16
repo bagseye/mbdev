@@ -1,10 +1,10 @@
-import React from 'react';
-import { graphql, Link } from 'gatsby';
-import styled from 'styled-components';
-import { VscArrowRight as Arrow } from 'react-icons/vsc';
-import Banner from '../components/Banner/Banner';
-import Grid from '../components/Grid';
-import Layout from '../components/Layout';
+import React from "react";
+import { graphql, Link } from "gatsby";
+import styled from "styled-components";
+import { VscArrowRight as Arrow } from "react-icons/vsc";
+import Banner from "../components/Banner/Banner";
+import Grid from "../components/Grid";
+import Layout from "../components/Layout";
 
 const SplitContainerStyles = styled.div`
   padding: 0 var(--gridGap);
@@ -102,29 +102,27 @@ const journalPage = ({ data }) => {
 
   return (
     <>
-      <Layout>
-        <Banner description="Journal" />
-        <SplitContainerStyles>
-          <Grid>
-            {item.map(({ node }) =>
-              node.slug ? (
-                <JournalPageItem key={node.id}>
-                  <hr />
-                  <h2>
-                    <Link to={node.slug}>{node.frontmatter.title}</Link>
-                  </h2>
-                  <div>
-                    <p>{node.excerpt}</p>
-                    <Link className="link__arrow" to={node.slug}>
-                      View all projects <Arrow className="arrow" />
-                    </Link>
-                  </div>
-                </JournalPageItem>
-              ) : null
-            )}
-          </Grid>
-        </SplitContainerStyles>
-      </Layout>
+      <Banner description="Journal" />
+      <SplitContainerStyles>
+        <Grid>
+          {item.map(({ node }) =>
+            node.slug ? (
+              <JournalPageItem key={node.id}>
+                <hr />
+                <h2>
+                  <Link to={node.slug}>{node.frontmatter.title}</Link>
+                </h2>
+                <div>
+                  <p>{node.excerpt}</p>
+                  <Link className="link__arrow" to={node.slug}>
+                    View all projects <Arrow className="arrow" />
+                  </Link>
+                </div>
+              </JournalPageItem>
+            ) : null
+          )}
+        </Grid>
+      </SplitContainerStyles>
     </>
   );
 };

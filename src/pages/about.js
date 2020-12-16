@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
-import SEO from '../components/SEO';
-import Banner from '../components/Banner/Banner';
-import Layout from '../components/Layout';
-import Grid from '../components/Grid';
+import React from "react";
+import styled from "styled-components";
+import SEO from "../components/SEO";
+import Banner from "../components/Banner/Banner";
+import Layout from "../components/Layout";
+import Grid from "../components/Grid";
 
 const BodyContainer = styled.div`
   padding: 0 var(--gridGap);
@@ -72,7 +72,7 @@ const Border = styled.hr`
 `;
 
 const aboutPage = () => (
-  <Layout>
+  <>
     <SEO title="About the developer" />
     <Banner description="About the developer" />
     <BodyContainer>
@@ -157,7 +157,7 @@ const aboutPage = () => (
         <Role>Junior Designer</Role>
       </Grid>
     </BodyContainer>
-  </Layout>
+  </>
 );
 
 export default aboutPage;
