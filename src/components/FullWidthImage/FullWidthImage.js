@@ -13,7 +13,7 @@ const getImage = graphql`
   query {
     fluid: file(relativePath: { eq: "bonneville-bag-mockup.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 3000) {
+        fluid(maxWidth: 2000) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }

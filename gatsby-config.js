@@ -21,6 +21,7 @@ module.exports = {
   },
   /* Your site config here */
   plugins: [
+    `gatsby-plugin-netlify`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
     {
