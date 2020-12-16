@@ -13,8 +13,8 @@ const Index = () => (
   <>
     <SEO title="Home" />
     <Banner description="I'm a web developer & designer from Inverness, building fast, stylish websites using WordPress & GatsbyJS" />
-    <FullWidthImage />
-    {/* <About id="about" /> */}
+    {/* <FullWidthImage /> */}
+    <About id="about" />
     <FeatureDevs />
     <SplitContainerStyles>
       <Grid>
