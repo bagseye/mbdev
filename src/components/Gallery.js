@@ -1,6 +1,6 @@
-import React from 'react';
-import Image from 'gatsby-image';
-import { GalleryItem } from '../styles/GalleryStyles';
+import React from "react";
+import Image from "gatsby-image";
+import { GalleryItem } from "../styles/GalleryStyles";
 
 const Gallery = ({ mainImage, projectImages }) => (
   <>
@@ -20,7 +20,7 @@ const Gallery = ({ mainImage, projectImages }) => (
               <h3>{item.description}</h3>
               <figure>
                 {/* if the count is less than 10, we want to render the leading 0 */}
-                Fig{index + 2 < 10 ? '0' : null}
+                Fig{index + 2 < 10 ? "0" : null}
                 {index + 2}
               </figure>
             </>

@@ -2,13 +2,14 @@ import React from "react";
 import { graphql } from "gatsby";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import Banner from "../components/Banner/Banner";
 import Grid from "../components/Grid";
 import Gallery from "../components/Gallery";
 import ProjectInfo from "../components/ProjectInfo";
 import ProjectContent from "../components/ProjectContent";
+import FadeLink from "../components/FadeLink";
+import { VscArrowLeft as Arrow } from "react-icons/vsc";
 
 const BodyContainer = styled.div`
   padding: 0 var(--gridGap);
@@ -62,6 +63,9 @@ const projectTemplate = ({ data }) => {
           <ProjectContent json={json} options={options} />
           <Gallery projectImages={projectImages} />
         </Grid>
+        <FadeLink linkClass="link__arrow" linkTo="/projects">
+          <Arrow className="arrow" /> Back to all projects
+        </FadeLink>
       </BodyContainer>
     </>
   );

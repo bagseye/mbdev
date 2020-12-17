@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { VscGithub as GitIcon } from "react-icons/vsc";
 import { BsEnvelope as MailIcon } from "react-icons/bs";
 import { AiOutlineUser as UserIcon } from "react-icons/ai";
 import Logo from "./Logo";
@@ -34,6 +35,15 @@ const Header = ({ children }) => (
   <>
     <HeaderStyles>
       <Logo />
+      <HeaderIcon>
+        <a
+          href="https://github.com/bagseye"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <GitIcon />
+        </a>
+      </HeaderIcon>
       <HeaderIcon>
         <FadeLink linkTo="/dashboard/login">
           <UserIcon />

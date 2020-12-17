@@ -1,5 +1,5 @@
-import React from "react"
-import { VscMail, VscHome } from "react-icons/vsc"
+import React from "react";
+import { VscMail, VscHome, VscGithub } from "react-icons/vsc";
 
 export default [
   {
@@ -10,4 +10,8 @@ export default [
     icon: <VscHome />,
     path: "/",
   },
-]
+  {
+    icon: <VscGithub />,
+    path: "https://github.com/bagseye",
+  },
+];

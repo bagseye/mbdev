@@ -4,6 +4,7 @@ import MenuButton from "./Header/MenuButton";
 import Footer from "./Footer";
 import Header from "./Header/Header";
 import MenuContext from "./MenuContext";
+import "fontsource-inter";
 
 const GlobalStyle = createGlobalStyle`
 :root {
@@ -81,6 +82,7 @@ body {
     color: #fff;
     font-size: 16px;
     line-height: 1.4em;
+    min-height: 100vh;
   }
 
 #main {
@@ -93,7 +95,7 @@ h1,
 h2 {
   margin-bottom: 1rem;
   line-height: 1.3;
-  font-weight: 500;
+  /* font-weight: 500; */
   letter-spacing: -2px;
 
   @media(min-width: 1200px) {

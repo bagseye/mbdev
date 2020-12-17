@@ -1,17 +1,17 @@
-import React, { useContext } from 'react';
-import { navigate } from 'gatsby';
-import styled from 'styled-components';
-import { motion } from 'framer-motion';
-import menuItems from '../../constants/links';
-import { getUser, isLoggedIn, logout } from '../../services/auth';
-import MenuContext from '../MenuContext';
-import FadeLink from '../FadeLink';
+import React, { useContext } from "react";
+import { navigate } from "gatsby";
+import styled from "styled-components";
+import { motion } from "framer-motion";
+import menuItems from "../../constants/links";
+import { getUser, isLoggedIn, logout } from "../../services/auth";
+import MenuContext from "../MenuContext";
+import FadeLink from "../FadeLink";
 
 const menuVariants = {
   open: {
-    width: '100%',
-    paddingLeft: 'var(--gridGap)',
-    paddingRight: 'var(--gridGap)',
+    width: "100%",
+    paddingLeft: "var(--gridGap)",
+    paddingRight: "var(--gridGap)",
     transition: {
       width: { duration: 0.4, delay: 0.75, velocity: -50, stiffness: 500 },
       paddingLeft: {
@@ -29,9 +29,9 @@ const menuVariants = {
     },
   },
   closed: {
-    width: '0%',
-    paddingLeft: '0',
-    paddingRight: '0',
+    width: "0%",
+    paddingLeft: "0",
+    paddingRight: "0",
     transition: {
       width: { duration: 0.4, delay: 1.5 },
       paddingLeft: { delay: 1.5 },
@@ -101,7 +101,7 @@ const SideMenuStyles = styled(motion.div)`
   li,
   li a {
     font-size: var(--titleLarge);
-    font-weight: 700;
+    font-weight: 500;
     list-style: none;
     color: var(--background);
     letter-spacing: var(--titleLargeLetterSpacing);
@@ -129,11 +129,11 @@ const SideMenu = () => {
 
   return (
     <SideMenuStyles
-      animate={isOpen ? 'open' : 'closed'}
+      animate={isOpen ? "open" : "closed"}
       variants={menuVariants}
     >
       <motion.ul
-        animate={isOpen ? 'open' : 'closed'}
+        animate={isOpen ? "open" : "closed"}
         variants={menuListVariants}
       >
         {menuItems.map((item, index) => (
@@ -145,15 +145,14 @@ const SideMenu = () => {
             <FadeLink linkTo={item.path}>{item.text}</FadeLink>
           </motion.li>
         ))}
-        <motion.li variants={menuItemVariants}>
-          <FadeLink linkTo="/dashboard/agency" onClick={toggleNav}>
-            Dashboard
-          </FadeLink>
+        <motion.li variants={menuItemVariants} onClick={toggleNav}>
+          <FadeLink linkTo="/dashboard/agency">Dashboard</FadeLink>
         </motion.li>
         {isLoggedIn() ? (
           <motion.li
             variants={menuItemVariants}
             onClick={(event) => {
+              toggleNav();
               event.preventDefault();
               logout(() => navigate(`/dashboard/login`));
             }}

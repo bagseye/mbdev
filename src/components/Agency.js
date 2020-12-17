@@ -1,10 +1,10 @@
-import { graphql, useStaticQuery } from 'gatsby';
-import React from 'react';
-import styled from 'styled-components';
-import Banner from './Banner/Banner';
-import Development from './Development';
-import Grid from './Grid';
-import Heading from './Heading';
+import { graphql, useStaticQuery } from "gatsby";
+import React from "react";
+import styled from "styled-components";
+import Banner from "./Banner/Banner";
+import Development from "./Development";
+import Grid from "./Grid";
+import Heading from "./Heading";
 
 const Container = styled.section`
   padding: 0 var(--gridGap);
@@ -54,7 +54,7 @@ const Agency = () => {
       <Container>
         <Grid>
           <TitleArea>
-            <Heading content="Agency " highlight="Developments" />
+            <Heading content="Agency Projects" />
           </TitleArea>
         </Grid>
         <Grid>
