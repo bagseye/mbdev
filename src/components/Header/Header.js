@@ -44,11 +44,11 @@ const Header = ({ children }) => (
           <GitIcon />
         </a>
       </HeaderIcon>
-      <HeaderIcon>
+      {/* <HeaderIcon>
         <FadeLink linkTo="/dashboard/login">
           <UserIcon />
         </FadeLink>
-      </HeaderIcon>
+      </HeaderIcon> */}
       <HeaderIcon>
         <FadeLink linkTo="/contact">
           <MailIcon />

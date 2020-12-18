@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require("path");
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -6,6 +6,13 @@ exports.createPages = async ({ graphql, actions }) => {
   const { data } = await graphql(`
     query {
       projects: allContentfulProjects {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
+      agency: allContentfulAgency {
         edges {
           node {
             slug
@@ -26,7 +33,17 @@ exports.createPages = async ({ graphql, actions }) => {
   data.projects.edges.forEach(({ node }) => {
     createPage({
       path: `projects/${node.slug}`,
-      component: path.resolve('src/templates/project-template.js'),
+      component: path.resolve("src/templates/project-template.js"),
+      context: {
+        slug: node.slug,
+      },
+    });
+  });
+
+  data.agency.edges.forEach(({ node }) => {
+    createPage({
+      path: `agency/${node.slug}`,
+      component: path.resolve("src/templates/agency-template.js"),
       context: {
         slug: node.slug,
       },
@@ -36,7 +53,7 @@ exports.createPages = async ({ graphql, actions }) => {
   data.allMdx.edges.forEach(({ node }) => {
     createPage({
       path: `journal/${node.frontmatter.slug}`,
-      component: path.resolve('src/templates/post-template.js'),
+      component: path.resolve("src/templates/post-template.js"),
       context: {
         slug: node.frontmatter.slug,
       },
@@ -52,7 +69,7 @@ exports.onCreatePage = async ({ page, actions }) => {
   // page.matchPath is a special key that's used for matching pages
   // only on the client.
   if (page.path.match(/^\/dashboard/)) {
-    page.matchPath = '/dashboard/*';
+    page.matchPath = "/dashboard/*";
 
     // Update the page
     createPage(page);

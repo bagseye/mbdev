@@ -146,7 +146,7 @@ const SideMenu = () => {
             <FadeLink linkTo={item.path}>{item.text}</FadeLink>
           </motion.li>
         ))}
-        <motion.li variants={menuItemVariants} onClick={toggleNav}>
+        {/* <motion.li variants={menuItemVariants} onClick={toggleNav}>
           <FadeLink linkTo="/dashboard/agency">Dashboard</FadeLink>
         </motion.li>
         {isLoggedIn() ? (
@@ -160,7 +160,7 @@ const SideMenu = () => {
           >
             <FadeLink linkTo="/">Logout</FadeLink>
           </motion.li>
-        ) : null}
+        ) : null} */}
       </motion.ul>
     </SideMenuStyles>
   );

@@ -1,18 +1,22 @@
 export default [
   {
-    path: '/projects',
-    text: 'projects',
+    path: "/agency",
+    text: "agency projects",
   },
   {
-    path: '/about',
-    text: 'about',
+    path: "/projects",
+    text: "side projects",
   },
   {
-    path: '/journal',
-    text: 'journal',
+    path: "/about",
+    text: "about",
   },
   {
-    path: '/contact',
-    text: 'contact',
+    path: "/journal",
+    text: "journal",
+  },
+  {
+    path: "/contact",
+    text: "contact",
   },
 ];
