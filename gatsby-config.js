@@ -25,20 +25,6 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
     {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Morgan Baker Developments`,
-        short_name: `MBDev`,
-        start_url: `/`,
-        lang: `en`,
-        background_color: `#d5d5d5`,
-        theme_color: `#000000`,
-        display: `standalone`,
-        icon: `src/images/icon.png`,
-        cache_busting_mode: `none`,
-      },
-    },
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `posts`,
@@ -70,7 +56,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-transition-link`,
-    `gatsby-plugin-playground`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
