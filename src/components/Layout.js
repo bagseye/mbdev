@@ -95,7 +95,7 @@ h1,
 h2 {
   margin-bottom: 1rem;
   line-height: 1.3;
-  /* font-weight: 500; */
+  font-weight: 700;
   letter-spacing: -2px;
 
   @media(min-width: 1200px) {

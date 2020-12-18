@@ -12,6 +12,10 @@ export const HeaderIcon = styled.div`
   transition: opacity 0.5s ease;
 
   @media (min-width: 375px) {
+    margin-right: 10px;
+  }
+
+  @media (min-width: 768px) {
     margin-right: 20px;
   }
 

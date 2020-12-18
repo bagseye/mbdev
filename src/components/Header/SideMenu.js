@@ -101,7 +101,7 @@ const SideMenuStyles = styled(motion.div)`
   li,
   li a {
     font-size: var(--titleLarge);
-    font-weight: 500;
+    font-weight: 700;
     list-style: none;
     color: var(--background);
     letter-spacing: var(--titleLargeLetterSpacing);

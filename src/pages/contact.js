@@ -47,7 +47,7 @@ const Field = styled.input`
   background-color: transparent;
   grid-column: 4 / 7;
   margin-bottom: 50px;
-  font-size: var(--paragraph);
+  font-size: 16px;
   color: #aaa;
   transition: border-bottom-color 0.5s ease;
 
@@ -73,7 +73,7 @@ const TextArea = styled.textarea`
   background-color: transparent;
   grid-column: 4 / 7;
   margin-bottom: 50px;
-  font-size: var(--paragraph);
+  font-size: 16px;
   color: #aaa;
   transition: border-bottom-color 0.5s ease;
 

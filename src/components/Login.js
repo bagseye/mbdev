@@ -1,9 +1,9 @@
-import React from 'react';
-import { navigate } from 'gatsby';
-import styled from 'styled-components';
-import { handleLogin, isLoggedIn } from '../services/auth';
-import Banner from './Banner/Banner';
-import Grid from './Grid';
+import React from "react";
+import { navigate } from "gatsby";
+import styled from "styled-components";
+import { handleLogin, isLoggedIn } from "../services/auth";
+import Banner from "./Banner/Banner";
+import Grid from "./Grid";
 
 const LoginStyles = styled.div`
   padding: 0 var(--gridGap);
@@ -47,7 +47,7 @@ const UserNameField = styled.input`
   background-color: transparent;
   grid-column: 4 / 7;
   margin-bottom: 50px;
-  font-size: var(--paragraph);
+  font-size: 16px;
   color: #aaa;
   transition: border-bottom-color 0.5s ease;
 
@@ -72,7 +72,7 @@ const PasswordField = styled.input`
   background-color: transparent;
   grid-column: 4 / 7;
   margin-bottom: 50px;
-  font-size: var(--paragraph);
+  font-size: 16px;
   color: #aaa;
   transition: border-bottom-color 0.5s ease;
 
