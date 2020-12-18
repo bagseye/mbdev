@@ -1,12 +1,13 @@
-import React, { useContext } from 'react';
-import styled from 'styled-components';
-import MenuContext from '../MenuContext';
+import React, { useContext } from "react";
+import styled from "styled-components";
+import MenuContext from "../MenuContext";
 
 const Container = styled.button`
   border: none;
   transition: opacity 0.5s ease, color 0.5s ease;
   font-size: var(--menuBtn);
   font-weight: 500;
+  font-variation-settings: "wght" 600;
   letter-spacing: -1px;
   display: flex;
   align-items: center;
@@ -92,15 +93,15 @@ const MenuButton = () => {
     <>
       <Container
         onClick={toggleNav}
-        aria-label={isOpen ? 'Close Menu' : 'Open Menu'}
+        aria-label={isOpen ? "Close Menu" : "Open Menu"}
         type="button"
         style={{
-          color: isOpen ? 'var(--background)' : '#fff',
-          transitionDelay: isOpen ? '0.75s' : '1.5s',
+          color: isOpen ? "var(--background)" : "#fff",
+          transitionDelay: isOpen ? "0.75s" : "1.5s",
         }}
       >
-        {isOpen ? 'Close' : 'Menu'}
-        <div className={isOpen ? 'burger burger-open' : 'burger'}>
+        {isOpen ? "Close" : "Menu"}
+        <div className={isOpen ? "burger burger-open" : "burger"}>
           <span />
           <span />
           <span />

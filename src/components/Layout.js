@@ -97,6 +97,7 @@ h2 {
   line-height: 1.3;
   font-weight: 700;
   letter-spacing: -2px;
+  font-variation-settings: 'wght' 600;
 
   @media(min-width: 1200px) {
     margin-bottom: 1.5rem;

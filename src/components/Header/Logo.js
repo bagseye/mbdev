@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
-import styled from 'styled-components';
-import FadeLink from '../FadeLink';
-import MenuContext from '../MenuContext';
+import React, { useContext } from "react";
+import styled from "styled-components";
+import FadeLink from "../FadeLink";
+import MenuContext from "../MenuContext";
 
 const LogoCont = styled.div`
   letter-spacing: -1px;
@@ -13,6 +13,7 @@ const LogoCont = styled.div`
 
   a {
     font-weight: 500;
+    font-variation-settings: "wght" 600;
     text-decoration: none;
     transition: opacity 0.5s ease;
   }
@@ -53,9 +54,9 @@ const Logo = () => {
       <FadeLink linkTo="/">
         <span
           style={{
-            color: isOpen ? 'var(--background)' : '#fff',
-            transition: 'color 0.5s ease',
-            transitionDelay: isOpen ? '0.75s' : '1.5s',
+            color: isOpen ? "var(--background)" : "#fff",
+            transition: "color 0.5s ease",
+            transitionDelay: isOpen ? "0.75s" : "1.5s",
           }}
         >
           Morgan Baker
@@ -63,7 +64,7 @@ const Logo = () => {
         <br />
         <span
           className="alt"
-          style={{ color: 'var(--charcoal)', fontWeight: '300' }}
+          style={{ color: "var(--charcoal)", fontWeight: "300" }}
         >
           Developer
         </span>
