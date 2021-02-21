@@ -4,7 +4,8 @@ import MenuButton from "./Header/MenuButton";
 import Footer from "./Footer";
 import Header from "./Header/Header";
 import MenuContext from "./MenuContext";
-import "fontsource-inter";
+import "@fontsource/inter";
+import "@fontsource/cormorant";
 
 const GlobalStyle = createGlobalStyle`
 :root {
@@ -19,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
   --paddingStd: 3.125rem;
   --paddingLarge: 4.688rem;
   --sansSerif: 'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  --serif: 'Cormorant', serif;
   --spacing: 1rem;
 
 
@@ -73,7 +75,7 @@ const GlobalStyle = createGlobalStyle`
 }  
 body {
     overflow-x: hidden;
-    font-family: var(--sansSerif);
+    font-family: var(--serif);
     font-weight: 300;
     margin: 0;
     -webkit-font-smoothing: antialiased;
@@ -109,7 +111,11 @@ h2,
 h3,
 h4,
 h5,
-h6,
+h6 {
+  font-family: var(--serif);
+}
+
+p,
 button {
   font-family: var(--sansSerif);
 }

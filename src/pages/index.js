@@ -12,7 +12,7 @@ import { SplitContainerStyles } from "../styles/SiteStyles";
 const Index = () => (
   <>
     <SEO title="Home" />
-    <Banner description="I'm a web developer & designer from Inverness, building fast, stylish websites using WordPress & GatsbyJS" />
+    <Banner description="I'm a web developer & designer from Inverness, working with WordPress & GatsbyJS" />
     <FullWidthImage />
     <About id="about" />
     <FeatureDevs />

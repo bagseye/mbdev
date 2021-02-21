@@ -1,9 +1,5 @@
 export default [
   {
-    path: "/agency",
-    text: "agency projects",
-  },
-  {
     path: "/projects",
     text: "side projects",
   },
