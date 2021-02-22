@@ -12,13 +12,6 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-      agency: allContentfulAgency {
-        edges {
-          node {
-            slug
-          }
-        }
-      }
       allMdx {
         edges {
           node {
@@ -40,16 +33,6 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-  // data.agency.edges.forEach(({ node }) => {
-  //   createPage({
-  //     path: `agency/${node.slug}`,
-  //     component: path.resolve("src/templates/agency-template.js"),
-  //     context: {
-  //       slug: node.slug,
-  //     },
-  //   });
-  // });
-
   data.allMdx.edges.forEach(({ node }) => {
     createPage({
       path: `journal/${node.frontmatter.slug}`,
@@ -59,19 +42,4 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     });
   });
-};
-
-// Implement the Gatsby API “onCreatePage”. This is
-// called after every page is created.
-exports.onCreatePage = async ({ page, actions }) => {
-  const { createPage } = actions;
-
-  // page.matchPath is a special key that's used for matching pages
-  // only on the client.
-  if (page.path.match(/^\/dashboard/)) {
-    page.matchPath = "/dashboard/*";
-
-    // Update the page
-    createPage(page);
-  }
 };

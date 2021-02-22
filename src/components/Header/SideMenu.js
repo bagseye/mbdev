@@ -1,9 +1,7 @@
 import React, { useContext } from "react";
-import { navigate } from "gatsby";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import menuItems from "../../constants/links";
-import { getUser, isLoggedIn, logout } from "../../services/auth";
 import MenuContext from "../MenuContext";
 import FadeLink from "../FadeLink";
 
@@ -146,21 +144,6 @@ const SideMenu = () => {
             <FadeLink linkTo={item.path}>{item.text}</FadeLink>
           </motion.li>
         ))}
-        {/* <motion.li variants={menuItemVariants} onClick={toggleNav}>
-          <FadeLink linkTo="/dashboard/agency">Dashboard</FadeLink>
-        </motion.li>
-        {isLoggedIn() ? (
-          <motion.li
-            variants={menuItemVariants}
-            onClick={(event) => {
-              toggleNav();
-              event.preventDefault();
-              logout(() => navigate(`/dashboard/login`));
-            }}
-          >
-            <FadeLink linkTo="/">Logout</FadeLink>
-          </motion.li>
-        ) : null} */}
       </motion.ul>
     </SideMenuStyles>
   );

@@ -12,18 +12,18 @@ const JournalStyles = styled.section`
   @media (min-width: 768px) {
     padding-right: 0;
   }
-`;
 
-const TitleArea = styled.div`
-  grid-column: 1 / 7;
-  margin-bottom: var(--margins);
+  .title {
+    grid-column: 1 / 7;
+    margin-bottom: var(--margins);
+  }
 `;
 
 const Journal = () => (
   <JournalStyles>
-    <TitleArea>
-      <Heading content="Recent Journal Entries" />
-    </TitleArea>
+    <div className="title">
+      <Heading content="Recent " highlight="Journal Entries" />
+    </div>
     <JournalItem className="item" />
   </JournalStyles>
 );

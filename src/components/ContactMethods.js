@@ -13,66 +13,66 @@ const ContactMethodsStyles = styled.section`
     grid-template-columns: 1fr 1fr 1fr;
     padding-right: 0;
   }
-`;
 
-const TitleArea = styled.div`
-  grid-column: 1 / 7;
-  margin-bottom: var(--margins);
-
-  @media (min-width: 768px) {
-    grid-column: 1 / 4;
-  }
-`;
-
-const ContactListStyles = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-column: 1 / 7;
-  grid-gap: var(--gridGap);
-  margin-bottom: var(--margins);
-
-  > a {
-    font-size: var(--h2);
-
-    :nth-child(1) {
-      grid-column: 1 / 4;
-    }
-
-    :nth-child(2) {
-      grid-column: 4 / 7;
-    }
-
-    :nth-child(3) {
-      grid-column: 1 / 4;
-    }
+  .title {
+    grid-column: 1 / 7;
+    margin-bottom: var(--margins);
 
     @media (min-width: 768px) {
+      grid-column: 1 / 4;
+    }
+  }
+
+  .contact-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-column: 1 / 7;
+    grid-gap: var(--gridGap);
+    margin-bottom: var(--margins);
+
+    > a {
+      font-size: var(--h2);
+
       :nth-child(1) {
-        grid-column: 1 / 2;
+        grid-column: 1 / 4;
       }
 
       :nth-child(2) {
-        grid-column: 2 / 3;
+        grid-column: 4 / 7;
       }
 
       :nth-child(3) {
-        grid-column: 3 / 4;
+        grid-column: 1 / 4;
+      }
+
+      @media (min-width: 768px) {
+        :nth-child(1) {
+          grid-column: 1 / 2;
+        }
+
+        :nth-child(2) {
+          grid-column: 2 / 3;
+        }
+
+        :nth-child(3) {
+          grid-column: 3 / 4;
+        }
       }
     }
-  }
 
-  @media (min-width: 768px) {
-    grid-column: 1 / 4;
-    grid-template-columns: 1fr 1fr 1fr;
+    @media (min-width: 768px) {
+      grid-column: 1 / 4;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
   }
 `;
 
 const ContactMethods = () => (
   <ContactMethodsStyles>
-    <TitleArea>
-      <Heading content="Methods of Contact" />
-    </TitleArea>
-    <ContactListStyles>
+    <div className="title">
+      <Heading content="Contact " highlight="Methods" />
+    </div>
+    <div className="contact-list">
       <a
         className="link__std"
         href="https://www.linkedin.com/in/morgan-baker-developer-inverness/"
@@ -92,7 +92,7 @@ const ContactMethods = () => (
       >
         Github
       </a>
-    </ContactListStyles>
+    </div>
   </ContactMethodsStyles>
 );
 

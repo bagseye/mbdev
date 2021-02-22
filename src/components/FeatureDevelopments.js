@@ -7,23 +7,23 @@ import Development from "./Development";
 import Heading from "./Heading";
 import FadeLink from "./FadeLink";
 
-const Container = styled.section`
+const FeaturedProjectsStyles = styled.section`
   padding: 0 var(--gridGap);
   max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
-`;
 
-const TitleArea = styled.div`
-  grid-column: 1 / 7;
-  margin: 0 0 var(--margins) 0;
-`;
+  .title {
+    grid-column: 1 / 7;
+    margin: 0 0 var(--margins) 0;
+  }
 
-const ViewMore = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: var(--margins);
-  font-size: var(--paragraph);
+  .view-more {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: var(--margins);
+    font-size: var(--paragraph);
+  }
 `;
 
 const FeatureDevelopments = () => {
@@ -49,11 +49,11 @@ const FeatureDevelopments = () => {
   const developmentData = data.allContentfulProjects.edges;
 
   return (
-    <Container>
+    <FeaturedProjectsStyles>
       <Grid>
-        <TitleArea>
-          <Heading content="Featured Projects" />
-        </TitleArea>
+        <div className="title">
+          <Heading content="Featured " highlight="Projects" />
+        </div>
       </Grid>
       <Grid>
         {developmentData.map(({ node }) =>
@@ -62,12 +62,12 @@ const FeatureDevelopments = () => {
           ) : null
         )}
       </Grid>
-      <ViewMore>
+      <div className="view-more">
         <FadeLink linkClass="link__arrow" linkTo="/projects">
           View all projects <Arrow className="arrow" />
         </FadeLink>
-      </ViewMore>
-    </Container>
+      </div>
+    </FeaturedProjectsStyles>
   );
 };
 

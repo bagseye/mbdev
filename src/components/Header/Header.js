@@ -2,10 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { VscGithub as GitIcon } from "react-icons/vsc";
 import { BsEnvelope as MailIcon } from "react-icons/bs";
-import { AiOutlineUser as UserIcon } from "react-icons/ai";
 import Logo from "./Logo";
 import SideMenu from "./SideMenu";
-import { getUser, isLoggedIn, logout } from "../../services/auth";
 import { HeaderIcon } from "../../styles/IconStyles";
 import FadeLink from "../FadeLink";
 
@@ -44,11 +42,6 @@ const Header = ({ children }) => (
           <GitIcon />
         </a>
       </HeaderIcon>
-      {/* <HeaderIcon>
-        <FadeLink linkTo="/dashboard/login">
-          <UserIcon />
-        </FadeLink>
-      </HeaderIcon> */}
       <HeaderIcon>
         <FadeLink linkTo="/contact">
           <MailIcon />

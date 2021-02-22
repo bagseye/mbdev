@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const HeadingStyles = styled.div`
   > h2 {
@@ -7,7 +7,7 @@ const HeadingStyles = styled.div`
     font-size: var(--titleLarge);
     line-height: var(--titleLargeLineHeight);
     grid-column: 1 / 7;
-    border-top: var(--borderLarge) solid #fff;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
     padding-top: 20px;
     letter-spacing: -2px;
 
