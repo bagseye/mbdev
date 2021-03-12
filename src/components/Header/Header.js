@@ -37,13 +37,15 @@ const Header = ({ children }) => (
         <a
           href="https://github.com/bagseye"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener noreferrer nofollow"
         >
+          <span className="sr-only">GitHub Profile</span>
           <GitIcon />
         </a>
       </HeaderIcon>
       <HeaderIcon>
         <FadeLink linkTo="/contact">
+          <span className="sr-only">Contact</span>
           <MailIcon />
         </FadeLink>
       </HeaderIcon>

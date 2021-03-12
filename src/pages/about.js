@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import SEO from "../components/SEO";
 import Banner from "../components/Banner/Banner";
-import Layout from "../components/Layout";
 import Grid from "../components/Grid";
 
 const BodyContainer = styled.div`
@@ -24,7 +23,6 @@ const Para = styled.div`
   font-size: var(--paragraph);
   line-height: var(--paragraphLineHeight);
   margin-bottom: 20px;
-  color: #aaa;
 
   @media (min-width: 768px) {
     grid-column: 3 / 5;
@@ -47,7 +45,6 @@ const Role = styled.div`
   font-size: var(--paragraph);
   line-height: var(--paragraphLineHeight);
   margin-bottom: 20px;
-  color: #aaa;
 
   @media (min-width: 768px) {
     grid-column: 4 / 5;
@@ -74,7 +71,7 @@ const Border = styled.hr`
 const aboutPage = () => (
   <>
     <SEO title="About the developer" />
-    <Banner description="About the developer" />
+    <Banner heading="About the developer" />
     <BodyContainer>
       <Grid>
         <Border />

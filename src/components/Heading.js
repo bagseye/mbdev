@@ -1,29 +1,25 @@
 import React from "react";
 import styled from "styled-components";
 
-const HeadingStyles = styled.div`
-  > h2 {
-    margin: 0;
-    font-size: var(--titleLarge);
-    line-height: var(--titleLargeLineHeight);
-    grid-column: 1 / 7;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-    padding-top: 20px;
-    letter-spacing: -2px;
+const HeadingStyles = styled.h2`
+  border-top: 4px solid var(--secondary);
+  padding-top: var(--gridGap);
+  margin: 0;
+  font-size: var(--titleLarge);
+  line-height: var(--titleLargeLineHeight);
+  letter-spacing: var(--titleLargeLetterSpacing);
+  margin-bottom: calc(var(--margins) / 2);
+  color: var(--primary);
 
-    span {
-      color: #777;
-      font-weight: 300;
-    }
+  span {
+    color: var(--highlight);
   }
 `;
 
 const Heading = ({ content, highlight }) => (
   <HeadingStyles>
-    <h2>
-      {content}
-      {highlight ? <span>{highlight}</span> : null}
-    </h2>
+    {content}
+    {highlight ? <span>{highlight}</span> : null}
   </HeadingStyles>
 );
 

@@ -1,34 +1,33 @@
 import React from "react";
 import styled from "styled-components";
-import Img from "gatsby-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { VscArrowRight as Arrow } from "react-icons/vsc";
 import FadeLink from "./FadeLink";
 
 const DevelopmentContainer = styled.section`
-  grid-column: 1 / 7;
-  margin-bottom: 50px;
+  margin-bottom: var(--gridGap);
   display: flex;
   flex-direction: column;
+  flex: 0 0 100%;
+
+  @media (min-width: 768px) {
+    flex: 0 0 calc(50% - var(--gridGap));
+    margin-bottom: 0;
+  }
 
   .project-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 0 var(--gridGap);
-    margin-bottom: 50px;
+    gap: 0 var(--gridGap);
+    margin-bottom: var(--gridGap);
   }
 
   .excerpt {
-    grid-column: 1 / 7;
     display: flex;
     flex-wrap: wrap;
 
     > p {
-      font-size: var(--paragraph);
-      line-height: var(--paragraphLineHeight);
       margin: 0;
-      margin-bottom: 50px;
+      margin-bottom: var(--gridGap);
       width: 100%;
-      color: #aaa;
     }
 
     .link__arrow {
@@ -38,32 +37,16 @@ const DevelopmentContainer = styled.section`
 
   h2 {
     font-size: var(--h2);
-    line-height: var(--paragraphLineHeight);
+    line-height: var(--h2LineHeight);
     margin-top: 0;
-    grid-column: 1 / 4;
-    letter-spacing: -0.5px;
-  }
-
-  @media (min-width: 414px) {
-    margin-bottom: 60px;
+    letter-spacing: var(--h2LetterSpacing);
+    margin-bottom: var(--gridGap);
   }
 
   @media (min-width: 768px) {
     .project-grid {
       grid-template-columns: 1fr 1fr 1fr;
     }
-
-    &:nth-child(odd) {
-      grid-column: 1 / 4;
-    }
-
-    &:nth-child(even) {
-      grid-column: 4 / 7;
-    }
-  }
-
-  @media (min-width: 834px) {
-    margin-bottom: var(--margins);
   }
 `;
 
@@ -75,38 +58,16 @@ const ProjectImage = styled.div`
     transition: transform 0.5s ease, opacity 500ms ease 0s !important;
   }
 
-  &::before,
-  &::after {
-    content: "";
-  }
-
-  &::before {
-    width: 1px;
-    margin-left: -1px;
-    float: left;
-    height: 0;
-    padding-top: calc((3 / 4) * 100%);
-  }
-
-  &::after {
-    display: table;
-    clear: both;
-  }
-
   &:hover {
     img {
       transform: scale(1.1);
     }
   }
-
-  @media (min-width: 768px) {
-    grid-column: 1 / 4;
-  }
 `;
 
 const Development = ({ project, noPrefix, base }) => {
   const { name, excerpt, slug, images } = project;
-  const projectImg = images[0].fluid;
+  const projectImg = getImage(images[0]);
 
   return (
     <DevelopmentContainer>
@@ -128,7 +89,7 @@ const Development = ({ project, noPrefix, base }) => {
       </div>
       <ProjectImage>
         <FadeLink linkTo={base ? `${base}/${slug}` : `${slug}`}>
-          <Img fluid={projectImg} />
+          <GatsbyImage image={projectImg} />
         </FadeLink>
       </ProjectImage>
     </DevelopmentContainer>

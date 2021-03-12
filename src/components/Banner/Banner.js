@@ -1,78 +1,75 @@
 import React from "react";
+import { Link } from "gatsby";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import Grid from "../Grid";
 
-const BannerStyles = styled(motion.div)`
-  padding: var(--margins) var(--gridGap);
-  max-width: 1600px;
-  margin-left: auto;
-  margin-right: auto;
+const BannerGridColumn = styled.section`
+  grid-column: 1 / 7;
 
-  section {
-    grid-column: 1 / 7;
+  @media (min-width: 768px) {
+    grid-column: 1 / 5;
   }
+`;
+
+const BannerStyles = styled(motion.div)`
+  padding: 0 var(--gridGap);
+  max-width: var(--maxContainer);
+  margin: var(--margins) auto;
 
   h1 {
     font-size: var(--titleLarge);
     line-height: var(--titleLargeLineHeight);
-    font-weight: 500;
     margin: 0;
     letter-spacing: var(--titleLargeLetterSpacing);
   }
 
   h1,
   h2 {
-    grid-column: 1 / 7;
+    span {
+      color: var(--highlight);
+    }
   }
 
   h2 {
-    font-weight: 300;
-    margin-bottom: 0;
-    color: var(--charcoal);
-    font-size: var(--h2);
-    letter-spacing: -1px;
+    margin-bottom: calc(var(--gridGap) * 2);
   }
 
-  @media (min-width: 768px) {
-    section {
-      grid-column: 1 / 5;
+  .btn {
+    &__inverse {
+      margin-left: var(--gridGap);
     }
   }
 `;
 
-const Banner = ({ description, excerpt, children }) => (
+const Banner = ({ heading }) => (
   <BannerStyles>
     <Grid>
-      <section>
-        {description && (
-          <h1>
-            {[...description].map((item, i) => (
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.75, delay: i * 0.02 }}
-              >
-                {item}
-              </motion.span>
-            ))}
-          </h1>
+      <BannerGridColumn>
+        {heading ? (
+          <h1>{heading}</h1>
+        ) : (
+          <>
+            <h1>
+              I'm a <span>web developer from Inverness</span> who believes
+              design should be purposeful, accessible, and long-lasting
+            </h1>
+            <h2>
+              Web design should not be complicated. It is about giving your user
+              the information they require in the most logical way possible. I
+              design and build applications that{" "}
+              <span>focus on user experience</span>, while keeping a clean
+              design ethos.
+            </h2>
+            <Link to="/projects" className="btn">
+              View All Projects
+            </Link>
+            <Link to="/contact" className="btn btn__inverse">
+              Get In Touch
+            </Link>
+          </>
         )}
-        {excerpt && (
-          <h2>
-            {[...excerpt].map((item, i) => (
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.75, delay: i * 0.02 }}
-              >
-                {item}
-              </motion.span>
-            ))}
-          </h2>
-        )}
-        {children}
-      </section>
+      </BannerGridColumn>
     </Grid>
   </BannerStyles>
 );

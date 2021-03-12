@@ -31,43 +31,9 @@ const menuVariants = {
     paddingLeft: "0",
     paddingRight: "0",
     transition: {
-      width: { duration: 0.4, delay: 1.5 },
-      paddingLeft: { delay: 1.5 },
-      paddingRight: { delay: 1.5 },
-    },
-  },
-};
-
-const menuListVariants = {
-  open: {
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.95,
-    },
-  },
-  closed: {
-    transition: {
-      staggerChildren: 0.15,
-      staggerDirection: -1,
-    },
-  },
-};
-
-const menuItemVariants = {
-  open: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      opacity: { duration: 0.15 },
-      y: { duration: 0.75 },
-    },
-  },
-  closed: {
-    y: 20,
-    opacity: 0,
-    transition: {
-      opacity: { duration: 0.15 },
-      y: { stiffness: 1000, velocity: -100, duration: 0.75 },
+      width: { duration: 0.4, delay: 0.5 },
+      paddingLeft: { delay: 0.5 },
+      paddingRight: { delay: 0.5 },
     },
   },
 };
@@ -84,27 +50,21 @@ const SideMenuStyles = styled(motion.div)`
   left: 0;
   padding: 0;
   overflow-x: hidden;
-  background-color: #fff;
+  background-color: var(--primary);
 
   ul {
     padding: 0;
     width: 100%;
     max-width: 1520px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 0 var(--gridGap);
   }
 
   li,
   li a {
     font-size: var(--titleLarge);
-    font-weight: 700;
-    font-variation-settings: "wght" 600;
     list-style: none;
     color: var(--background);
     letter-spacing: var(--titleLargeLetterSpacing);
-    grid-column: 1 / 7;
     padding-top: 20px;
     line-height: var(--titleLargeLineHeight);
     text-decoration: none;
@@ -131,20 +91,13 @@ const SideMenu = () => {
       animate={isOpen ? "open" : "closed"}
       variants={menuVariants}
     >
-      <motion.ul
-        animate={isOpen ? "open" : "closed"}
-        variants={menuListVariants}
-      >
+      <ul animate={isOpen ? "open" : "closed"}>
         {menuItems.map((item, index) => (
-          <motion.li
-            variants={menuItemVariants}
-            onClick={toggleNav}
-            key={index}
-          >
+          <li onClick={toggleNav} key={index}>
             <FadeLink linkTo={item.path}>{item.text}</FadeLink>
-          </motion.li>
+          </li>
         ))}
-      </motion.ul>
+      </ul>
     </SideMenuStyles>
   );
 };

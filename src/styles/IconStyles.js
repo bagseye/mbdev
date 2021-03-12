@@ -20,7 +20,7 @@ export const HeaderIcon = styled.div`
   }
 
   a {
-    color: var(--charcoal);
+    color: #000;
   }
 
   &:hover {

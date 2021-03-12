@@ -3,14 +3,16 @@ import { graphql } from "gatsby";
 import styled from "styled-components";
 import Banner from "../components/Banner/Banner";
 import Development from "../components/Development";
-import Grid from "../components/Grid";
-import Layout from "../components/Layout";
 
 const SplitContainerStyles = styled.div`
   padding: 0 var(--gridGap);
   max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--gridGap) * 2);
+  padding-bottom: var(--margins);
 `;
 
 export const getProjects = graphql`
@@ -22,9 +24,12 @@ export const getProjects = graphql`
           slug
           excerpt
           images {
-            fluid(quality: 90, maxWidth: 1000) {
-              ...GatsbyContentfulFluid_withWebp
-            }
+            gatsbyImageData(
+              layout: FULL_WIDTH
+              placeholder: TRACED_SVG
+              formats: [AUTO, WEBP]
+              quality: 90
+            )
           }
         }
       }
@@ -37,15 +42,15 @@ const projectsPage = ({ data }) => {
 
   return (
     <>
-      <Banner description="Projects" />
+      <Banner heading="Projects" />
       <SplitContainerStyles>
-        <Grid>
-          {developmentData.map(({ node }) =>
-            node.slug ? (
-              <Development key={node.name} noPrefix project={node} />
-            ) : null
-          )}
-        </Grid>
+        {/* <Grid> */}
+        {developmentData.map(({ node }) =>
+          node.slug ? (
+            <Development key={node.name} noPrefix project={node} />
+          ) : null
+        )}
+        {/* </Grid> */}
       </SplitContainerStyles>
     </>
   );

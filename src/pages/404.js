@@ -34,7 +34,7 @@ const MainContent = styled.div`
 const error = () => (
   <>
     <SEO title="Error" />
-    <Banner description="Page not found" />
+    <Banner heading="Page not found" />
     <BodyContainer>
       <Grid>
         <MainContent>

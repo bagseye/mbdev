@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
-import Image from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image";
 import Anim from "./Anim"
 
 const Container = styled.div`
@@ -39,47 +39,38 @@ const FlexCont = styled.div`
 `
 
 const StackList = () => {
-  const imgQuery = useStaticQuery(graphql`
-    query {
-      allFile(
-        filter: {
-          extension: { regex: "/(jpg)|(png)|(jpeg)/" }
-          relativeDirectory: { eq: "stack" }
-        }
-      ) {
-        edges {
-          node {
-            base
-            childImageSharp {
-              fluid(maxWidth: 500) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
+  const imgQuery = useStaticQuery(graphql`{
+  allFile(
+    filter: {extension: {regex: "/(jpg)|(png)|(jpeg)/"}, relativeDirectory: {eq: "stack"}}
+  ) {
+    edges {
+      node {
+        base
+        childImageSharp {
+          gatsbyImageData(width: 500, layout: CONSTRAINED)
         }
       }
     }
-  `)
+  }
+}
+`)
 
-  return (
-    <>
-      <Container>
-        <Title>Current Tech Stack</Title>
-        <Anim>
-          <FlexCont>
-            {imgQuery.allFile.edges.map(image => (
-              <Image
-                className="stack-img"
-                fluid={image.node.childImageSharp.fluid}
-                alt={image.node.base.split(".")[0]}
-                title={image.node.base.split(".")[0]}
-              />
-            ))}
-          </FlexCont>
-        </Anim>
-      </Container>
-    </>
-  )
+  return <>
+    <Container>
+      <Title>Current Tech Stack</Title>
+      <Anim>
+        <FlexCont>
+          {imgQuery.allFile.edges.map(image => (
+            <GatsbyImage
+              image={image.node.childImageSharp.gatsbyImageData}
+              className="stack-img"
+              alt={image.node.base.split(".")[0]}
+              title={image.node.base.split(".")[0]} />
+          ))}
+        </FlexCont>
+      </Anim>
+    </Container>
+  </>;
 }
 
 export default StackList

@@ -32,15 +32,14 @@ const MainContent = styled.div`
 const privacyPage = () => (
   <>
     <SEO title="Privacy & Your Data" />
-    <Banner description="Privacy & your data" />
+    <Banner heading="Privacy & your data" />
     <BodyContainer>
       <Grid>
         <MainContent>
           <p>
-            This site uses cookies, but only for the purpose of improving the
-            user experience. This site uses Google Analytics for the purpose of
-            understanding user behaviour and traffic numbers. Any data processed
-            by Google Analytics is anonymised.
+            This site does not use anything like Google Analytics, or other data
+            miners that look to steal every last bit of your soul and sell it
+            off to the highest bidder. I don't even care what traffic I get.
           </p>
           <p>
             Your email address will never be sent on to a marketing company and

@@ -22,16 +22,12 @@ module.exports = {
   /* Your site config here */
   plugins: [
     `gatsby-plugin-netlify`,
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sitemap`,
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: `gatsby-plugin-sitemap`,
       options: {
-        name: `posts`,
-        path: `${__dirname}/src/posts`,
+        createLinkInHead: true,
       },
     },
-    `gatsby-plugin-mdx`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -56,6 +52,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-transition-link`,
+    `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,

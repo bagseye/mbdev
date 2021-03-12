@@ -1,31 +1,23 @@
 import React from "react";
-import { graphql, useStaticQuery } from "gatsby";
 import { motion } from "framer-motion";
-import Img from "gatsby-image";
+import { StaticImage } from "gatsby-plugin-image";
 
-const FullWidthImg = () => {
-  const queryResponse = useStaticQuery(getImage);
+const FullWidthImage = () => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 15 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ ease: "easeOut", duration: 1.35, delay: 1.5 }}
     >
-      <Img fluid={queryResponse.fluid.childImageSharp.fluid} />
+      <StaticImage
+        src="../../images/bonneville-bag-mockup.jpg"
+        alt="Bonneville logo used on a bag"
+        placeholder="traced"
+        layout="fullWidth"
+        aspectRatio={4 / 3}
+      />
     </motion.div>
   );
 };
 
-export default FullWidthImg;
-
-const getImage = graphql`
-  query {
-    fluid: file(relativePath: { eq: "bonneville-bag-mockup.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 2000) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
-  }
-`;
+export default FullWidthImage;

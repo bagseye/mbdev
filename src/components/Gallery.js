@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { GalleryItem } from "../styles/GalleryStyles";
 
 const Gallery = ({ mainImage, projectImages }) => (
@@ -7,7 +7,7 @@ const Gallery = ({ mainImage, projectImages }) => (
     {/* If the main image prop is passed */}
     {mainImage && (
       <GalleryItem>
-        <Image className="feature" fluid={mainImage.fluid} />
+        <GatsbyImage image={mainImage.gatsbyImageData} className="feature" />
       </GalleryItem>
     )}
     {/* If the remaining project images are passed */}
@@ -25,7 +25,7 @@ const Gallery = ({ mainImage, projectImages }) => (
               </figure>
             </>
           )}
-          <Image className="standard" key={index} fluid={item.fluid} />
+          <GatsbyImage image={item.gatsbyImageData} className="standard" key={index} />
         </GalleryItem>
       ))}
   </>

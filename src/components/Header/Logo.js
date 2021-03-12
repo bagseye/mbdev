@@ -13,7 +13,6 @@ const LogoCont = styled.div`
 
   a {
     font-weight: 500;
-    font-variation-settings: "wght" 600;
     text-decoration: none;
     transition: opacity 0.5s ease;
   }
@@ -54,7 +53,7 @@ const Logo = () => {
       <FadeLink linkTo="/">
         <span
           style={{
-            color: isOpen ? "var(--background)" : "#fff",
+            color: isOpen ? "var(--background)" : "#000",
             transition: "color 0.5s ease",
             transitionDelay: isOpen ? "0.75s" : "1.5s",
           }}
@@ -62,10 +61,7 @@ const Logo = () => {
           Morgan Baker
         </span>
         <br />
-        <span
-          className="alt"
-          style={{ color: "var(--charcoal)", fontWeight: "300" }}
-        >
+        <span className="alt" style={{ color: "#df0000", fontWeight: "300" }}>
           Developer
         </span>
       </FadeLink>

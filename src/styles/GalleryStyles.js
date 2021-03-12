@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const GalleryItem = styled.div`
   margin: 0 0 var(--margins) 0;
@@ -12,7 +12,7 @@ export const GalleryItem = styled.div`
     font-size: 11px;
     line-height: 1.4;
     margin: 0 0 var(--margins) 0;
-    color: #aaa;
+    /* color: #aaa; */
   }
 
   h3 {

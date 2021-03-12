@@ -7,7 +7,6 @@ const Container = styled.button`
   transition: opacity 0.5s ease, color 0.5s ease;
   font-size: var(--menuBtn);
   font-weight: 500;
-  font-variation-settings: "wght" 600;
   letter-spacing: -1px;
   display: flex;
   align-items: center;
@@ -22,10 +21,10 @@ const Container = styled.button`
     span {
       width: 30px;
       height: 1px;
-      background-color: var(--charcoal);
+      background-color: #000;
       left: 0;
       transition: opacity 0.5s ease, transform 0.3s ease, top 0.3s ease,
-        bottom 0.3s ease;
+        background-color 0.3s 0.3s ease, bottom 0.3s ease;
 
       &:nth-child(1),
       &:nth-child(2),
@@ -50,6 +49,8 @@ const Container = styled.button`
 
     &.burger-open {
       span {
+        background-color: #fff;
+
         &:nth-child(1) {
           transform: rotate(45deg);
           top: 15px;
@@ -96,7 +97,7 @@ const MenuButton = () => {
         aria-label={isOpen ? "Close Menu" : "Open Menu"}
         type="button"
         style={{
-          color: isOpen ? "var(--background)" : "#fff",
+          color: isOpen ? "var(--background)" : "#000",
           transitionDelay: isOpen ? "0.75s" : "1.5s",
         }}
       >

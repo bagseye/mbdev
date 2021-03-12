@@ -4,65 +4,64 @@ import Heading from "./Heading";
 
 const ContactMethodsStyles = styled.section`
   grid-column: 1 / 7;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-gap: 0 var(--gridGap);
-  height: min-content;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 0px;
+  margin-bottom: var(--margins);
 
-  @media (min-width: 768px) {
-    grid-template-columns: 1fr 1fr 1fr;
-    padding-right: 0;
+  .title,
+  .para,
+  .contact-list {
+    flex: 0 0 100%;
   }
 
-  .title {
-    grid-column: 1 / 7;
-    margin-bottom: var(--margins);
+  .para,
+  .contact-list {
+    @media (min-width: 768px) {
+      flex-basis: 50%;
+    }
+  }
+
+  .para {
+    p {
+      margin-top: 0;
+      margin-bottom: calc(var(--gridGap) * 2);
+    }
 
     @media (min-width: 768px) {
-      grid-column: 1 / 4;
+      padding-right: var(--gridGap);
+      margin-bottom: 0;
     }
   }
 
   .contact-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-column: 1 / 7;
-    grid-gap: var(--gridGap);
-    margin-bottom: var(--margins);
+    @media (min-width: 768px) {
+      padding-left: var(--gridGap);
+    }
+  }
+
+  .contact-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    @media (min-width: 768px) {
+      flex-direction: column;
+    }
 
     > a {
       font-size: var(--h2);
-
-      :nth-child(1) {
-        grid-column: 1 / 4;
-      }
-
-      :nth-child(2) {
-        grid-column: 4 / 7;
-      }
-
-      :nth-child(3) {
-        grid-column: 1 / 4;
-      }
+      margin-right: var(--gridGap);
+      line-height: 1.1;
 
       @media (min-width: 768px) {
-        :nth-child(1) {
-          grid-column: 1 / 2;
-        }
+        margin-right: auto;
+        margin-bottom: var(--gridGap);
 
-        :nth-child(2) {
-          grid-column: 2 / 3;
-        }
-
-        :nth-child(3) {
-          grid-column: 3 / 4;
+        &:last-of-type {
+          margin-bottom: 0;
         }
       }
-    }
-
-    @media (min-width: 768px) {
-      grid-column: 1 / 4;
-      grid-template-columns: 1fr 1fr 1fr;
     }
   }
 `;
@@ -72,15 +71,14 @@ const ContactMethods = () => (
     <div className="title">
       <Heading content="Contact " highlight="Methods" />
     </div>
+    <div className="para">
+      <p>
+        If you would like to discuss potential freelance web development
+        projects using Wordpress or GatsbyJS please contact me through the
+        following methods.
+      </p>
+    </div>
     <div className="contact-list">
-      <a
-        className="link__std"
-        href="https://www.linkedin.com/in/morgan-baker-developer-inverness/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        LinkedIn
-      </a>
       <a className="link__std" href="mailto:hello@morganbaker.dev">
         Email
       </a>

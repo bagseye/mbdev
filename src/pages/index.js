@@ -2,23 +2,21 @@ import React from "react";
 import Banner from "../components/Banner/Banner";
 import About from "../components/About/About";
 import SEO from "../components/SEO";
-import FullWidthImage from "../components/FullWidthImage/FullWidthImage";
 import FeatureDevs from "../components/FeatureDevelopments";
-import Journal from "../components/Journal";
 import Grid from "../components/Grid";
 import ContactMethods from "../components/ContactMethods";
 import { SplitContainerStyles } from "../styles/SiteStyles";
+import FullWidthImage from "../components/FullWidthImage/FullWidthImage";
 
 const Index = () => (
   <>
     <SEO title="Home" />
-    <Banner description="I'm a web developer & designer from Inverness, working with WordPress & GatsbyJS" />
-    <FullWidthImage />
+    <Banner />
     <About id="about" />
+    <FullWidthImage />
     <FeatureDevs />
     <SplitContainerStyles>
       <Grid>
-        <Journal />
         <ContactMethods />
       </Grid>
     </SplitContainerStyles>

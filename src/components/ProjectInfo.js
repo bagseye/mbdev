@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const Built = styled.div`
   grid-column: 1 / 3;
@@ -12,7 +12,6 @@ const Built = styled.div`
 `;
 
 const Tech = styled.div`
-  color: #aaa;
   grid-column: 3 / 5;
   font-size: var(--paragraph);
 

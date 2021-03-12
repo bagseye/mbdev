@@ -8,10 +8,6 @@ export default [
     text: "about",
   },
   {
-    path: "/journal",
-    text: "journal",
-  },
-  {
     path: "/contact",
     text: "contact",
   },

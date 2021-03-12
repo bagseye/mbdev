@@ -23,7 +23,8 @@ const projectTemplate = ({ data }) => {
   const {
     name,
     excerpt,
-    richDescription: { json },
+    richDescription,
+    richDescription: { raw },
     images,
     technology,
     website,
@@ -31,17 +32,17 @@ const projectTemplate = ({ data }) => {
 
   const options = {
     // Pass in the node and dril down to the required data
-    renderNode: {
-      // Render the contentful rich content image
-      "embedded-asset-block": (node) => (
-        <div className="content-image">
-          <img
-            src={node.data.target.fields.file["en-US"].url}
-            alt={node.data.target.fields.title["en-US"]}
-          />
-        </div>
-      ),
-    },
+    // renderNode: {
+    //   // Render the contentful rich content image
+    //   "embedded-asset-block": (node) => (
+    //     <div className="content-image">
+    //       <img
+    //         src={node.data.target.fields.file["en-US"].url}
+    //         alt={node.data.target.fields.title["en-US"]}
+    //       />
+    //     </div>
+    //   ),
+    // },
   };
 
   const [mainImage, ...projectImages] = images;
@@ -49,7 +50,7 @@ const projectTemplate = ({ data }) => {
   return (
     <>
       <SEO title={name} description={excerpt} />
-      <Banner description={name} excerpt={excerpt} />
+      <Banner heading={name} excerpt={excerpt} />
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         animate={{ y: 0, opacity: 1 }}
@@ -60,7 +61,7 @@ const projectTemplate = ({ data }) => {
       <BodyContainer>
         <Grid>
           <ProjectInfo technology={technology} website={website} />
-          <ProjectContent json={json} options={options} />
+          <ProjectContent raw={richDescription} options={options} />
           <Gallery projectImages={projectImages} />
         </Grid>
         <FadeLink linkClass="link__arrow" linkTo="/projects">
@@ -80,12 +81,15 @@ export const query = graphql`
       website
       images {
         description
-        fluid(maxWidth: 2000) {
-          ...GatsbyContentfulFluid_tracedSVG
-        }
+        gatsbyImageData(
+          layout: FULL_WIDTH
+          placeholder: TRACED_SVG
+          formats: [AUTO, WEBP]
+          quality: 90
+        )
       }
       richDescription {
-        json
+        raw
       }
     }
   }

@@ -2,27 +2,28 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 import { VscArrowRight as Arrow } from "react-icons/vsc";
-import Grid from "./Grid";
 import Development from "./Development";
-import Heading from "./Heading";
 import FadeLink from "./FadeLink";
+import Heading from "./Heading";
 
 const FeaturedProjectsStyles = styled.section`
   padding: 0 var(--gridGap);
-  max-width: 1600px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: var(--maxContainer);
+  margin: var(--margins) auto 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 calc(var(--gridGap) * 2);
 
-  .title {
-    grid-column: 1 / 7;
-    margin: 0 0 var(--margins) 0;
+  .title,
+  .view-more {
+    flex: 0 0 100%;
   }
 
   .view-more {
     display: flex;
+    margin-top: var(--margins);
     justify-content: flex-end;
     margin-bottom: var(--margins);
-    font-size: var(--paragraph);
   }
 `;
 
@@ -36,9 +37,12 @@ const FeatureDevelopments = () => {
             slug
             excerpt
             images {
-              fluid(quality: 90, maxWidth: 1000) {
-                ...GatsbyContentfulFluid_withWebp
-              }
+              gatsbyImageData(
+                layout: FULL_WIDTH
+                placeholder: TRACED_SVG
+                formats: [AUTO, WEBP]
+                quality: 90
+              )
             }
           }
         }
@@ -50,18 +54,14 @@ const FeatureDevelopments = () => {
 
   return (
     <FeaturedProjectsStyles>
-      <Grid>
-        <div className="title">
-          <Heading content="Featured " highlight="Projects" />
-        </div>
-      </Grid>
-      <Grid>
-        {developmentData.map(({ node }) =>
-          node.slug ? (
-            <Development key={node.name} base="projects" project={node} />
-          ) : null
-        )}
-      </Grid>
+      <div className="title">
+        <Heading content="Recent " highlight="Projects" />
+      </div>
+      {developmentData.map(({ node }) =>
+        node.slug ? (
+          <Development key={node.name} base="projects" project={node} />
+        ) : null
+      )}
       <div className="view-more">
         <FadeLink linkClass="link__arrow" linkTo="/projects">
           View all projects <Arrow className="arrow" />
