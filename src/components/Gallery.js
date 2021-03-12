@@ -25,7 +25,11 @@ const Gallery = ({ mainImage, projectImages }) => (
               </figure>
             </>
           )}
-          <GatsbyImage image={item.gatsbyImageData} className="standard" key={index} />
+          <GatsbyImage
+            image={item.gatsbyImageData}
+            className="standard"
+            key={index}
+          />
         </GalleryItem>
       ))}
   </>
