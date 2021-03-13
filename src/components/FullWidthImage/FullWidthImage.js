@@ -1,13 +1,9 @@
 import React from "react";
-import { motion } from "framer-motion";
 import { StaticImage } from "gatsby-plugin-image";
 
 const FullWidthImage = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 15 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ ease: "easeOut", duration: 1.35, delay: 1.5 }}
+    <section
       style={{ contentVisibility: "auto", containIntrinsicSize: "600px" }}
     >
       <StaticImage
@@ -18,7 +14,7 @@ const FullWidthImage = () => {
         aspectRatio={4 / 3}
         loading="lazy"
       />
-    </motion.div>
+    </section>
   );
 };
 

@@ -90,7 +90,7 @@ const Development = ({ project, noPrefix, base }) => {
       <ProjectImage>
         <FadeLink linkTo={base ? `${base}/${slug}` : `${slug}`}>
           <span className="sr-only">{name}</span>
-          <GatsbyImage image={projectImg} />
+          <GatsbyImage loading="lazy" image={projectImg} />
         </FadeLink>
       </ProjectImage>
     </DevelopmentContainer>

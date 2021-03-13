@@ -44,6 +44,7 @@ const FeatureDevelopments = () => {
                 placeholder: TRACED_SVG
                 formats: [AUTO, WEBP]
                 quality: 90
+                aspectRatio: 1.333
               )
             }
           }
