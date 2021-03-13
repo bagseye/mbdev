@@ -19,7 +19,10 @@ module.exports = {
     image: "/yellow-metal-design-decoration.jpg",
     siteUrl: "https://www.morganbaker.dev",
   },
-  flags: { PRESERVE_WEBPACK_CACHE: true },
+  flags: {
+    PRESERVE_WEBPACK_CACHE: true,
+    PARALLEL_SOURCING: true,
+  },
   /* Your site config here */
   plugins: [
     `gatsby-plugin-netlify`,
