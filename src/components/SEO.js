@@ -52,7 +52,7 @@ const SEO = ({ title, description }) => {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             "@id": "${siteUrl}",
-            "name": "${siteTitle}",
+            "name": "${siteTitle}"
           }
         `}
       </script>
