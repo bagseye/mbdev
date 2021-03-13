@@ -8,6 +8,7 @@ const FullWidthImage = () => {
       initial={{ opacity: 0, y: 15 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ ease: "easeOut", duration: 1.35, delay: 1.5 }}
+      style={{ contentVisibility: "auto", containIntrinsicSize: "600px" }}
     >
       <StaticImage
         src="../../images/bonneville-bag-mockup.jpg"
@@ -15,6 +16,7 @@ const FullWidthImage = () => {
         placeholder="traced"
         layout="fullWidth"
         aspectRatio={4 / 3}
+        loading="lazy"
       />
     </motion.div>
   );

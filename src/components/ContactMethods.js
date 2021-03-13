@@ -9,6 +9,8 @@ const ContactMethodsStyles = styled.section`
   width: 100%;
   margin-top: 0px;
   margin-bottom: var(--margins);
+  content-visibility: auto;
+  contain-intrinsic-size: 600px;
 
   .title,
   .para,

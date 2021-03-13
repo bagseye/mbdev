@@ -13,6 +13,8 @@ const FeaturedProjectsStyles = styled.section`
   display: flex;
   flex-wrap: wrap;
   gap: 0 calc(var(--gridGap) * 2);
+  content-visibility: auto;
+  contain-intrinsic-size: 600px;
 
   .title,
   .view-more {

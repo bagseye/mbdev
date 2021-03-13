@@ -60,6 +60,7 @@ module.exports = {
         start_url: `/`,
         lang: `en`,
         background_color: `#1c1b1b`,
+        theme_color: `#6f6f6f`,
         icon: `src/images/icon.png`,
         display: `standalone`,
       },
