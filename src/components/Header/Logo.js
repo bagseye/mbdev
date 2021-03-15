@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
+import { Link } from "gatsby";
 import styled from "styled-components";
-import FadeLink from "../FadeLink";
 import MenuContext from "../MenuContext";
 import { motion } from "framer-motion";
 
@@ -66,7 +66,7 @@ const Logo = () => {
 
   return (
     <LogoCont>
-      <FadeLink linkTo="/">
+      <Link to="/">
         <motion.span
           variants={logoVariants}
           animate={isOpen ? "open" : "closed"}
@@ -84,7 +84,7 @@ const Logo = () => {
         >
           Developer
         </span>
-      </FadeLink>
+      </Link>
     </LogoCont>
   );
 };

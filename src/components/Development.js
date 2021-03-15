@@ -1,8 +1,8 @@
 import React from "react";
+import { Link } from "gatsby";
 import styled from "styled-components";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { VscArrowRight as Arrow } from "react-icons/vsc";
-import FadeLink from "./FadeLink";
 
 const DevelopmentContainer = styled.section`
   margin-bottom: var(--gridGap);
@@ -73,25 +73,23 @@ const Development = ({ project, noPrefix, base }) => {
     <DevelopmentContainer>
       <div className="project-grid">
         <h2>
-          <FadeLink linkTo={base ? `${base}/${slug}` : `${slug}`}>
-            {name}
-          </FadeLink>
+          <Link to={base ? `${base}/${slug}` : `${slug}`}>{name}</Link>
         </h2>
         <div className="excerpt">
           <p>{excerpt}</p>
-          <FadeLink
+          <Link
             linkClass="link__arrow"
-            linkTo={base ? `${base}/${slug}` : `${slug}`}
+            to={base ? `${base}/${slug}` : `${slug}`}
           >
             View Project <Arrow className="arrow" />
-          </FadeLink>
+          </Link>
         </div>
       </div>
       <ProjectImage>
-        <FadeLink linkTo={base ? `${base}/${slug}` : `${slug}`}>
+        <Link to={base ? `${base}/${slug}` : `${slug}`}>
           <span className="sr-only">{name}</span>
           <GatsbyImage loading="lazy" image={projectImg} />
-        </FadeLink>
+        </Link>
       </ProjectImage>
     </DevelopmentContainer>
   );

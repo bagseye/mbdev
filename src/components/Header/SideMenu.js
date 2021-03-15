@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
+import { Link } from "gatsby";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import menuItems from "../../constants/links";
 import MenuContext from "../MenuContext";
-import FadeLink from "../FadeLink";
 
 const menuVariants = {
   open: {
@@ -91,7 +91,7 @@ const SideMenu = () => {
       <motion.ul variants={listVariants} animate={isOpen ? "open" : "closed"}>
         {menuItems.map((item, index) => (
           <li onClick={toggleNav} key={index}>
-            <FadeLink linkTo={item.path}>{item.text}</FadeLink>
+            <Link to={item.path}>{item.text}</Link>
           </li>
         ))}
       </motion.ul>

@@ -1,7 +1,7 @@
 import React from "react";
+import { Link } from "gatsby";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
-import FadeLink from "./FadeLink";
 
 const Container = styled.div`
   max-width: var(--maxContainer);
@@ -47,7 +47,7 @@ const Footer = () => {
           </a>
         </Copyright>
         <Privacy>
-          <FadeLink linkTo="/privacy">Privacy & Your Data</FadeLink>
+          <Link to="/privacy">Privacy & Your Data</Link>
         </Privacy>
       </Container>
     </>

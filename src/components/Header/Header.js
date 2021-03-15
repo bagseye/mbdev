@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "gatsby";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import MenuContext from "../MenuContext";
@@ -7,7 +8,6 @@ import { BsEnvelope as MailIcon } from "react-icons/bs";
 import Logo from "./Logo";
 import SideMenu from "./SideMenu";
 import { HeaderIcon } from "../../styles/IconStyles";
-import FadeLink from "../FadeLink";
 
 const HeaderStyles = styled.header`
   padding: 0 var(--gridGap);
@@ -67,7 +67,7 @@ const Header = ({ children }) => {
           </motion.a>
         </HeaderIcon>
         <HeaderIcon>
-          <FadeLink linkTo="/contact">
+          <Link to="/contact">
             <motion.span
               variants={iconVariants}
               animate={isOpen ? "open" : "closed"}
@@ -75,7 +75,7 @@ const Header = ({ children }) => {
               <span className="sr-only">Contact</span>
               <MailIcon />
             </motion.span>
-          </FadeLink>
+          </Link>
         </HeaderIcon>
         {children}
       </HeaderStyles>

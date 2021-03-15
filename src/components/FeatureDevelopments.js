@@ -1,9 +1,9 @@
 import React from "react";
+import { Link } from "gatsby";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 import { VscArrowRight as Arrow } from "react-icons/vsc";
 import Development from "./Development";
-import FadeLink from "./FadeLink";
 import Heading from "./Heading";
 
 const FeaturedProjectsStyles = styled.section`
@@ -66,9 +66,9 @@ const FeatureDevelopments = () => {
         ) : null
       )}
       <div className="view-more">
-        <FadeLink linkClass="link__arrow" linkTo="/projects">
+        <Link linkClass="link__arrow" to="/projects">
           View all projects <Arrow className="arrow" />
-        </FadeLink>
+        </Link>
       </div>
     </FeaturedProjectsStyles>
   );
