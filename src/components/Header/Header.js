@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
+import MenuContext from "../MenuContext";
 import { VscGithub as GitIcon } from "react-icons/vsc";
 import { BsEnvelope as MailIcon } from "react-icons/bs";
 import Logo from "./Logo";
@@ -22,37 +24,64 @@ const HeaderStyles = styled.header`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  max-width: 1600px;
+  max-width: var(--maxContainer);
 
   @media (min-width: 768px) {
     height: 80px;
   }
 `;
 
-const Header = ({ children }) => (
-  <>
-    <HeaderStyles>
-      <Logo />
-      <HeaderIcon>
-        <a
-          href="https://github.com/bagseye"
-          target="_blank"
-          rel="noopener noreferrer nofollow"
-        >
-          <span className="sr-only">GitHub Profile</span>
-          <GitIcon />
-        </a>
-      </HeaderIcon>
-      <HeaderIcon>
-        <FadeLink linkTo="/contact">
-          <span className="sr-only">Contact</span>
-          <MailIcon />
-        </FadeLink>
-      </HeaderIcon>
-      {children}
-    </HeaderStyles>
-    <SideMenu />
-  </>
-);
+const iconVariants = {
+  open: {
+    color: "var(--background)",
+    transition: {
+      delay: 1,
+    },
+  },
+  closed: {
+    color: "var(--primary)",
+    transition: {
+      delay: 0.5,
+    },
+  },
+};
+
+const Header = ({ children }) => {
+  // Access state globally using context
+  const [isOpen] = useContext(MenuContext);
+
+  return (
+    <>
+      <HeaderStyles>
+        <Logo />
+        <HeaderIcon>
+          <motion.a
+            href="https://github.com/bagseye"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            variants={iconVariants}
+            animate={isOpen ? "open" : "closed"}
+          >
+            <span className="sr-only">GitHub Profile</span>
+            <GitIcon />
+          </motion.a>
+        </HeaderIcon>
+        <HeaderIcon>
+          <FadeLink linkTo="/contact">
+            <motion.span
+              variants={iconVariants}
+              animate={isOpen ? "open" : "closed"}
+            >
+              <span className="sr-only">Contact</span>
+              <MailIcon />
+            </motion.span>
+          </FadeLink>
+        </HeaderIcon>
+        {children}
+      </HeaderStyles>
+      <SideMenu />
+    </>
+  );
+};
 
 export default Header;

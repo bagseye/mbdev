@@ -8,33 +8,27 @@ import FadeLink from "../FadeLink";
 const menuVariants = {
   open: {
     width: "100%",
-    paddingLeft: "var(--gridGap)",
-    paddingRight: "var(--gridGap)",
     transition: {
       width: { duration: 0.4, delay: 0.75, velocity: -50, stiffness: 500 },
-      paddingLeft: {
-        duration: 0.4,
-        delay: 0.75,
-        velocity: -50,
-        stiffness: 500,
-      },
-      paddingRight: {
-        duration: 0.4,
-        delay: 0.75,
-        velocity: -50,
-        stiffness: 500,
-      },
     },
   },
   closed: {
     width: "0%",
-    paddingLeft: "0",
-    paddingRight: "0",
     transition: {
       width: { duration: 0.4, delay: 0.5 },
-      paddingLeft: { delay: 0.5 },
-      paddingRight: { delay: 0.5 },
     },
+  },
+};
+
+const listVariants = {
+  open: {
+    opacity: 1,
+    transition: {
+      delay: 1.25,
+    },
+  },
+  closed: {
+    opacity: 0,
   },
 };
 
@@ -57,6 +51,8 @@ const SideMenuStyles = styled(motion.div)`
     width: 100%;
     max-width: 1520px;
     margin: 0 auto;
+    flex-shrink: 0;
+    padding: 0 var(--gridGap);
   }
 
   li,
@@ -70,6 +66,7 @@ const SideMenuStyles = styled(motion.div)`
     text-decoration: none;
     text-transform: capitalize;
     transition: opacity 0.75s ease;
+    white-space: nowrap;
 
     &:hover {
       cursor: pointer;
@@ -91,13 +88,13 @@ const SideMenu = () => {
       animate={isOpen ? "open" : "closed"}
       variants={menuVariants}
     >
-      <ul animate={isOpen ? "open" : "closed"}>
+      <motion.ul variants={listVariants} animate={isOpen ? "open" : "closed"}>
         {menuItems.map((item, index) => (
           <li onClick={toggleNav} key={index}>
             <FadeLink linkTo={item.path}>{item.text}</FadeLink>
           </li>
         ))}
-      </ul>
+      </motion.ul>
     </SideMenuStyles>
   );
 };

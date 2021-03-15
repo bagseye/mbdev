@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import FadeLink from "../FadeLink";
 import MenuContext from "../MenuContext";
+import { motion } from "framer-motion";
 
 const LogoCont = styled.div`
   letter-spacing: -1px;
@@ -44,24 +45,43 @@ const LogoCont = styled.div`
   }
 `;
 
+const logoVariants = {
+  open: {
+    color: "var(--background)",
+    transition: {
+      delay: 0.75,
+    },
+  },
+  closed: {
+    color: "var(--primary)",
+    transition: {
+      delay: 0.65,
+    },
+  },
+};
+
 const Logo = () => {
   // Access state globally using context
-  const [isOpen, setNav] = useContext(MenuContext);
+  const [isOpen] = useContext(MenuContext);
 
   return (
     <LogoCont>
       <FadeLink linkTo="/">
-        <span
-          style={{
-            color: isOpen ? "var(--background)" : "#000",
-            transition: "color 0.5s ease",
-            transitionDelay: isOpen ? "0.75s" : "1.5s",
-          }}
+        <motion.span
+          variants={logoVariants}
+          animate={isOpen ? "open" : "closed"}
         >
           Morgan Baker
-        </span>
+        </motion.span>
         <br />
-        <span className="alt" style={{ color: "#df0000", fontWeight: "300" }}>
+        <span
+          className="alt"
+          style={{
+            color: "var(--highlight)",
+            fontStyle: "italic",
+            fontWeight: "600",
+          }}
+        >
           Developer
         </span>
       </FadeLink>

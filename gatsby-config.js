@@ -20,7 +20,6 @@ module.exports = {
     siteUrl: "https://www.morganbaker.dev",
   },
   flags: {
-    PRESERVE_WEBPACK_CACHE: true,
     PARALLEL_SOURCING: true,
   },
   /* Your site config here */
@@ -74,6 +73,5 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-styled-components`,
   ],
 };

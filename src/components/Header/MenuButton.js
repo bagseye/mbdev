@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import MenuContext from "../MenuContext";
+import { motion } from "framer-motion";
 
-const Container = styled.button`
+const Container = styled(motion.button)`
   border: none;
   transition: opacity 0.5s ease, color 0.5s ease;
   font-size: var(--menuBtn);
@@ -21,10 +22,9 @@ const Container = styled.button`
     span {
       width: 30px;
       height: 1px;
-      background-color: #000;
       left: 0;
       transition: opacity 0.5s ease, transform 0.3s ease, top 0.3s ease,
-        background-color 0.3s 0.3s ease, bottom 0.3s ease;
+        background-color 0.3s ease, bottom 0.3s ease;
 
       &:nth-child(1),
       &:nth-child(2),
@@ -49,8 +49,6 @@ const Container = styled.button`
 
     &.burger-open {
       span {
-        background-color: #fff;
-
         &:nth-child(1) {
           transform: rotate(45deg);
           top: 15px;
@@ -82,6 +80,36 @@ const Container = styled.button`
   }
 `;
 
+const menuButtonVariants = {
+  open: {
+    color: "var(--background)",
+    transition: {
+      delay: 0.5,
+    },
+  },
+  closed: {
+    color: "var(--primary)",
+    transition: {
+      delay: 0.25,
+    },
+  },
+};
+
+const burgerVariants = {
+  open: {
+    backgroundColor: "var(--background)",
+    transition: {
+      delay: 0.65,
+    },
+  },
+  closed: {
+    backgroundColor: "var(--primary)",
+    transition: {
+      delay: 0.25,
+    },
+  },
+};
+
 const MenuButton = () => {
   // Access state globally using context
   const [isOpen, setNav] = useContext(MenuContext);
@@ -95,17 +123,23 @@ const MenuButton = () => {
       <Container
         onClick={toggleNav}
         aria-label={isOpen ? "Close Menu" : "Open Menu"}
-        type="button"
-        style={{
-          color: isOpen ? "var(--background)" : "#000",
-          transitionDelay: isOpen ? "0.75s" : "1.5s",
-        }}
+        variants={menuButtonVariants}
+        animate={isOpen ? "open" : "closed"}
       >
         {isOpen ? "Close" : "Menu"}
         <div className={isOpen ? "burger burger-open" : "burger"}>
-          <span />
-          <span />
-          <span />
+          <motion.span
+            variants={burgerVariants}
+            animate={isOpen ? "open" : "closed"}
+          />
+          <motion.span
+            variants={burgerVariants}
+            animate={isOpen ? "open" : "closed"}
+          />
+          <motion.span
+            variants={burgerVariants}
+            animate={isOpen ? "open" : "closed"}
+          />
         </div>
       </Container>
     </>

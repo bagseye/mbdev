@@ -22,12 +22,15 @@ const BannerStyles = styled(motion.div)`
     line-height: var(--titleLargeLineHeight);
     margin: 0;
     letter-spacing: var(--titleLargeLetterSpacing);
+    color: var(--highlight);
   }
 
   h1,
   h2 {
     span {
-      color: var(--highlight);
+      font-weight: 600;
+      font-style: italic;
+      color: var(--primary);
     }
   }
 
@@ -52,7 +55,8 @@ const Banner = ({ heading }) => (
           <>
             <h1>
               I'm a <span>web developer from Inverness</span> who believes
-              design should be purposeful, accessible, and long-lasting
+              design should be <span>purposeful</span>, <span>accessible</span>,
+              and <span>long-lasting</span>
             </h1>
             <h2>
               Web design should not be complicated. It is about giving your user

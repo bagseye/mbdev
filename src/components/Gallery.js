@@ -1,6 +1,6 @@
 import React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
-import { GalleryItem } from "../styles/GalleryStyles";
+import { GalleryItem } from "../styles/GlobalStyles";
 
 const Gallery = ({ mainImage, projectImages }) => (
   <>

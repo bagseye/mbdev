@@ -1,11 +1,11 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
     :root {
         --background: #fff;
         --primary: #1c1b1b;
         --secondary: #6f6f6f;
-        --highlight: #df0000;
+        --highlight: #808080;
         --titleLarge: 2rem;
         --titleLargeLineHeight: 1.2;
         --titleLargeLetterSpacing: -2px;
@@ -69,11 +69,11 @@ const GlobalStyles = createGlobalStyle`
 }  
 body {
     overflow-x: hidden;
-    font-family: var(--sansSerif);
+    font-family: var(--serif);
     margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: var(--background);
+    /* background: var(--background); */
     color: var(--primary);
     font-size: 16px;
     min-height: 100vh;
@@ -101,7 +101,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--sansSerif);
+  font-family: var(--serif);
 }
 
 p {
@@ -113,7 +113,7 @@ p {
 
 p,
 button {
-  font-family: var(--sansSerif);
+  font-family: var(--serif);
 }
 
 h1 {
@@ -261,3 +261,90 @@ button.btn {
 `;
 
 export default GlobalStyles;
+
+export const SplitContainerStyles = styled.div`
+  padding: 0 var(--gridGap);
+  max-width: var(--maxContainer);
+  margin-left: auto;
+  margin-right: auto;
+`;
+
+export const GalleryItem = styled.div`
+  margin: 0 0 var(--margins) 0;
+  grid-column: 1 / 7;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 0 var(--gridGap);
+
+  h3,
+  figure {
+    font-size: 11px;
+    line-height: 1.4;
+    margin: 0 0 var(--margins) 0;
+  }
+
+  h3 {
+    font-weight: 300;
+    grid-column: 1 / 4;
+  }
+
+  figure {
+    grid-column: 4 / 7;
+    font-weight: 500;
+    text-align: right;
+  }
+
+  .feature,
+  .standard {
+    grid-column: 1 / 7;
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    grid-column: 1 / 4;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    h3 {
+      grid-column: 1 / 2;
+    }
+
+    figure {
+      grid-column: 3 / 4;
+    }
+
+    .standard {
+      grid-column: 1 / 4;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    grid-column: 1 / 7;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+
+    h3 {
+      grid-column: 5 / 6;
+    }
+
+    figure {
+      grid-column: 6 / 7;
+    }
+
+    .standard {
+      grid-column: 1 / 5;
+      grid-row: 1 / 2;
+    }
+
+    h3,
+    figure {
+      font-size: 12px;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    h3,
+    figure {
+      font-size: 14px;
+    }
+  }
+`;

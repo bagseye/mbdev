@@ -3,12 +3,9 @@ import { graphql } from "gatsby";
 import styled from "styled-components";
 import Banner from "../components/Banner/Banner";
 import Development from "../components/Development";
+import { SplitContainerStyles } from "../styles/GlobalStyles";
 
-const SplitContainerStyles = styled.div`
-  padding: 0 var(--gridGap);
-  max-width: 1600px;
-  margin-left: auto;
-  margin-right: auto;
+const ExtendedSplitContainerStyles = styled(SplitContainerStyles)`
   display: flex;
   flex-wrap: wrap;
   gap: calc(var(--gridGap) * 2);
@@ -43,15 +40,13 @@ const projectsPage = ({ data }) => {
   return (
     <>
       <Banner heading="Projects" />
-      <SplitContainerStyles>
-        {/* <Grid> */}
+      <ExtendedSplitContainerStyles>
         {developmentData.map(({ node }) =>
           node.slug ? (
             <Development key={node.name} noPrefix project={node} />
           ) : null
         )}
-        {/* </Grid> */}
-      </SplitContainerStyles>
+      </ExtendedSplitContainerStyles>
     </>
   );
 };

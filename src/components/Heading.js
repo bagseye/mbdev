@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const HeadingStyles = styled.h2`
-  border-top: 4px solid var(--secondary);
+  border-top: 1px solid var(--secondary);
   padding-top: var(--gridGap);
   margin: 0;
   font-size: var(--titleLarge);

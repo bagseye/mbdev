@@ -5,8 +5,8 @@ import SEO from "../components/SEO";
 import FeatureDevs from "../components/FeatureDevelopments";
 import Grid from "../components/Grid";
 import ContactMethods from "../components/ContactMethods";
-import { SplitContainerStyles } from "../styles/SiteStyles";
 import FullWidthImage from "../components/FullWidthImage/FullWidthImage";
+import { SplitContainerStyles } from "../styles/GlobalStyles";
 
 const Index = () => (
   <>

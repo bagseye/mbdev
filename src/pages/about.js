@@ -92,7 +92,6 @@ const aboutPage = () => (
         <Border />
         <ContentTitle>Qualifications</ContentTitle>
         <Para>HND in Interactive Media</Para>
-        <Para>BSc(hons) in Computing & IT (Software) - Currently studying</Para>
         <Border />
         <ContentTitle>Employment</ContentTitle>
         <Business>
