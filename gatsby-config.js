@@ -26,6 +26,15 @@ module.exports = {
   plugins: [
     `gatsby-plugin-netlify`,
     {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: ["G-GKN0KZEJW7"],
+        pluginConfig: {
+          head: false,
+        },
+      },
+    },
+    {
       resolve: `gatsby-plugin-sitemap`,
       options: {
         createLinkInHead: true,
