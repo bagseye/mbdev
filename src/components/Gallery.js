@@ -7,13 +7,19 @@ const Gallery = ({ mainImage, projectImages }) => (
     {/* If the main image prop is passed */}
     {mainImage && (
       <GalleryItem>
-        <GatsbyImage image={mainImage.gatsbyImageData} className="feature" />
+        <GatsbyImage
+          image={mainImage.gatsbyImageData}
+          className="feature"
+          alt={
+            mainImage.description ? mainImage.description : "Project Main Image"
+          }
+        />
       </GalleryItem>
     )}
     {/* If the remaining project images are passed */}
     {projectImages &&
       projectImages.map((item, index) => (
-        <GalleryItem className={`standard-image__${index}`}>
+        <GalleryItem key={index} className={`standard-image__${index}`}>
           {item.description && (
             <>
               {/* Only render the description if one is present */}
@@ -28,7 +34,7 @@ const Gallery = ({ mainImage, projectImages }) => (
           <GatsbyImage
             image={item.gatsbyImageData}
             className="standard"
-            key={index}
+            alt={item.description ? item.description : `Project Image ${index}`}
           />
         </GalleryItem>
       ))}

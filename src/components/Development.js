@@ -68,6 +68,7 @@ const ProjectImage = styled.div`
 const Development = ({ project, noPrefix, base }) => {
   const { name, excerpt, slug, images } = project;
   const projectImg = getImage(images[0]);
+  const projectImgAlt = images[0].description;
 
   return (
     <DevelopmentContainer>
@@ -78,7 +79,7 @@ const Development = ({ project, noPrefix, base }) => {
         <div className="excerpt">
           <p>{excerpt}</p>
           <Link
-            linkClass="link__arrow"
+            className="link__arrow"
             to={base ? `${base}/${slug}` : `${slug}`}
           >
             View Project <Arrow className="arrow" />
@@ -88,7 +89,11 @@ const Development = ({ project, noPrefix, base }) => {
       <ProjectImage>
         <Link to={base ? `${base}/${slug}` : `${slug}`}>
           <span className="sr-only">{name}</span>
-          <GatsbyImage loading="lazy" image={projectImg} />
+          <GatsbyImage
+            loading="lazy"
+            image={projectImg}
+            alt={projectImgAlt ? projectImgAlt : "Project Image"}
+          />
         </Link>
       </ProjectImage>
     </DevelopmentContainer>

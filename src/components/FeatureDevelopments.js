@@ -39,6 +39,7 @@ const FeatureDevelopments = () => {
             slug
             excerpt
             images {
+              description
               gatsbyImageData(
                 layout: FULL_WIDTH
                 placeholder: TRACED_SVG
@@ -66,7 +67,7 @@ const FeatureDevelopments = () => {
         ) : null
       )}
       <div className="view-more">
-        <Link linkClass="link__arrow" to="/projects">
+        <Link className="link__arrow" to="/projects">
           View all projects <Arrow className="arrow" />
         </Link>
       </div>

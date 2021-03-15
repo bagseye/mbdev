@@ -1,7 +1,6 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import styled from "styled-components";
-import { motion } from "framer-motion";
 import SEO from "../components/SEO";
 import Banner from "../components/Banner/Banner";
 import Grid from "../components/Grid";
@@ -50,20 +49,16 @@ const projectTemplate = ({ data }) => {
     <>
       <SEO title={name} description={excerpt} />
       <Banner heading={name} excerpt={excerpt} />
-      <motion.div
-        initial={{ opacity: 0, y: 15 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ ease: "easeOut", duration: 1.35, delay: 1.5 }}
-      >
+      <div>
         <Gallery mainImage={mainImage} />
-      </motion.div>
+      </div>
       <BodyContainer>
         <Grid>
           <ProjectInfo technology={technology} website={website} />
           <ProjectContent raw={richDescription} options={options} />
           <Gallery projectImages={projectImages} />
         </Grid>
-        <Link linkClass="link__arrow" to="/projects">
+        <Link className="link__arrow" to="/projects">
           <Arrow className="arrow" /> Back to all projects
         </Link>
       </BodyContainer>

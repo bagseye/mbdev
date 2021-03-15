@@ -1,17 +1,14 @@
 import React from "react";
+import GlobalStyles from "../styles/GlobalStyles";
+import Header from "./Header/Header";
 import MenuButton from "./Header/MenuButton";
 import Footer from "./Footer";
-import Header from "./Header/Header";
-// import MenuContext from "./MenuContext";
 import "@fontsource/cormorant/400.css";
+import "@fontsource/cormorant/400-italic.css";
 import "@fontsource/cormorant/600.css";
 import "@fontsource/cormorant/600-italic.css";
-import GlobalStyles from "../styles/GlobalStyles";
 
 const Layout = ({ children }) => {
-  // Access state globally using context
-  // const [isOpen] = useContext(MenuContext);
-
   return (
     <>
       <GlobalStyles />

@@ -73,7 +73,7 @@ body {
     margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* background: var(--background); */
+    background: var(--background);
     color: var(--primary);
     font-size: 16px;
     min-height: 100vh;

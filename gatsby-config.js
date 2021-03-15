@@ -25,15 +25,7 @@ module.exports = {
   /* Your site config here */
   plugins: [
     `gatsby-plugin-netlify`,
-    {
-      resolve: `gatsby-plugin-google-gtag`,
-      options: {
-        trackingIds: ["G-GKN0KZEJW7"],
-        pluginConfig: {
-          head: false,
-        },
-      },
-    },
+
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
@@ -61,6 +53,15 @@ module.exports = {
         host: "https://www.morganbaker.dev",
         sitemap: "https://www.morganbaker.dev/sitemap.xml",
         policy: [{ userAgent: "*", allow: "/" }],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [process.env.GOOGLE_ANALYTICS],
+        pluginConfig: {
+          head: false,
+        },
       },
     },
     {
