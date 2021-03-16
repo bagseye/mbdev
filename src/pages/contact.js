@@ -2,11 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import SEO from "../components/SEO";
 import Banner from "../components/Banner/Banner";
-import Grid from "../components/Grid";
 
 const BodyContainer = styled.div`
   padding: 0 var(--gridGap);
-  max-width: 1600px;
+  max-width: var(--maxContainer);
   margin-left: auto;
   margin-right: auto;
   margin-bottom: var(--margins);
@@ -71,7 +70,6 @@ const TextArea = styled.textarea`
   grid-column: 4 / 7;
   margin-bottom: 50px;
   font-size: 16px;
-  /* color: #aaa; */
   transition: border-bottom-color 0.5s ease;
 
   &:focus {
@@ -119,7 +117,7 @@ const Contact = () => (
     <SEO title="Contact the developer" />
     <Banner heading="Contact the developer" />
     <BodyContainer>
-      <Grid>
+      <div className="container-grid">
         <ContactForm name="contact" netlify>
           <Name>Your name </Name>
           <Field type="text" name="name" placeholder="Enter your name" />
@@ -138,7 +136,7 @@ const Contact = () => (
             </button>
           </ButtonArea>
         </ContactForm>
-      </Grid>
+      </div>
     </BodyContainer>
   </>
 );

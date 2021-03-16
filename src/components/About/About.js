@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Grid from "../Grid";
 
 const AboutStyles = styled.div`
   padding: 0 var(--gridGap);
@@ -32,7 +31,7 @@ const AboutStyles = styled.div`
 
 const About = () => (
   <AboutStyles>
-    <Grid>
+    <div className="container-grid">
       <section>
         <p>
           When I started in web development my initial thought was that great
@@ -52,7 +51,7 @@ const About = () => (
           content should be freely available to all.
         </p>
       </section>
-    </Grid>
+    </div>
   </AboutStyles>
 );
 

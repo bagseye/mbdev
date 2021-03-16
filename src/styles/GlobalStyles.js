@@ -233,6 +233,14 @@ button.btn {
     }
   }
 
+  .container-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: var(--gridGap);
+    grid-gap: 0 var(--gridGap);
+    width: 100%;
+  }
+
   .sr-only {
     position: absolute;
     width: 1px;

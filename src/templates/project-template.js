@@ -3,7 +3,6 @@ import { graphql, Link } from "gatsby";
 import styled from "styled-components";
 import SEO from "../components/SEO";
 import Banner from "../components/Banner/Banner";
-import Grid from "../components/Grid";
 import Gallery from "../components/Gallery";
 import ProjectInfo from "../components/ProjectInfo";
 import ProjectContent from "../components/ProjectContent";
@@ -11,7 +10,7 @@ import { VscArrowLeft as Arrow } from "react-icons/vsc";
 
 const BodyContainer = styled.div`
   padding: 0 var(--gridGap);
-  max-width: 1600px;
+  max-width: var(--maxContainer);
   margin-left: auto;
   margin-right: auto;
   margin-bottom: var(--margins);
@@ -53,11 +52,11 @@ const projectTemplate = ({ data }) => {
         <Gallery mainImage={mainImage} />
       </div>
       <BodyContainer>
-        <Grid>
+        <div className="container-grid">
           <ProjectInfo technology={technology} website={website} />
           <ProjectContent raw={richDescription} options={options} />
           <Gallery projectImages={projectImages} />
-        </Grid>
+        </div>
         <Link className="link__arrow" to="/projects">
           <Arrow className="arrow" /> Back to all projects
         </Link>

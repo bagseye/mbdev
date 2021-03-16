@@ -3,12 +3,10 @@ import styled from "styled-components";
 import { Link } from "gatsby";
 import SEO from "../components/SEO";
 import Banner from "../components/Banner/Banner";
-import Layout from "../components/Layout";
-import Grid from "../components/Grid";
 
 const BodyContainer = styled.div`
   padding: 0 var(--gridGap);
-  max-width: 1600px;
+  max-width: var(--maxContainer);
   margin-left: auto;
   margin-right: auto;
   margin-bottom: var(--margins);
@@ -20,7 +18,6 @@ const MainContent = styled.div`
   grid-column: 1 / 7;
   font-size: var(--paragraph);
   line-height: var(--paragraphLineHeight);
-  color: #aaa;
 
   > *:first-child {
     margin-top: 0;
@@ -36,7 +33,7 @@ const error = () => (
     <SEO title="Error" />
     <Banner heading="Page not found" />
     <BodyContainer>
-      <Grid>
+      <div className="container-grid">
         <MainContent>
           <p>This page has moved or no longer exists.</p>
           <p>
@@ -47,7 +44,7 @@ const error = () => (
             Return Home
           </Link>
         </MainContent>
-      </Grid>
+      </div>
     </BodyContainer>
   </>
 );

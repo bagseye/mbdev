@@ -19,9 +19,6 @@ module.exports = {
     image: "/yellow-metal-design-decoration.jpg",
     siteUrl: "https://www.morganbaker.dev",
   },
-  flags: {
-    PARALLEL_SOURCING: true,
-  },
   /* Your site config here */
   plugins: [
     `gatsby-plugin-netlify`,
@@ -78,7 +75,7 @@ module.exports = {
         display: `standalone`,
       },
     },
-    `gatsby-plugin-offline`,
+    // `gatsby-plugin-offline`,
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,

@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import Grid from "../Grid";
 
 const BannerGridColumn = styled.section`
   grid-column: 1 / 7;
@@ -47,7 +46,7 @@ const BannerStyles = styled(motion.div)`
 
 const Banner = ({ heading }) => (
   <BannerStyles>
-    <Grid>
+    <div className="container-grid">
       <BannerGridColumn>
         {heading ? (
           <h1>{heading}</h1>
@@ -74,7 +73,7 @@ const Banner = ({ heading }) => (
           </>
         )}
       </BannerGridColumn>
-    </Grid>
+    </div>
   </BannerStyles>
 );
 export default Banner;

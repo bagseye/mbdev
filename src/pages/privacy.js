@@ -1,13 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import Banner from "../components/Banner/Banner";
-import Grid from "../components/Grid";
 
 const BodyContainer = styled.div`
   padding: 0 var(--gridGap);
-  max-width: 1600px;
+  max-width: var(--maxContainer);
   margin-left: auto;
   margin-right: auto;
   margin-bottom: var(--margins);
@@ -34,7 +32,7 @@ const privacyPage = () => (
     <SEO title="Privacy & Your Data" />
     <Banner heading="Privacy & your data" />
     <BodyContainer>
-      <Grid>
+      <div className="container-grid">
         <MainContent>
           <p>
             This site does not use anything like Google Analytics, or other data
@@ -46,7 +44,7 @@ const privacyPage = () => (
             will only be used to reply to correspondence.
           </p>
         </MainContent>
-      </Grid>
+      </div>
     </BodyContainer>
   </>
 );

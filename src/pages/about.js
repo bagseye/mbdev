@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import SEO from "../components/SEO";
 import Banner from "../components/Banner/Banner";
-import Grid from "../components/Grid";
 
 const BodyContainer = styled.div`
   padding: 0 var(--gridGap);
@@ -73,7 +72,7 @@ const aboutPage = () => (
     <SEO title="About the developer" />
     <Banner heading="About the developer" />
     <BodyContainer>
-      <Grid>
+      <div className="container-grid">
         <Border />
         <ContentTitle>Early career</ContentTitle>
         <Para>
@@ -151,7 +150,7 @@ const aboutPage = () => (
           </a>
         </Business>
         <Role>Junior Designer</Role>
-      </Grid>
+      </div>
     </BodyContainer>
   </>
 );
