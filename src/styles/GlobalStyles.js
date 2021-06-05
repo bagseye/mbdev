@@ -118,7 +118,7 @@ button {
 
 h1 {
   margin-bottom: 1rem;
-  font-size: var(--h1);
+  font-size: var(--titleLarge);
   font-weight: 500;
   color: var(--primary);
 }
