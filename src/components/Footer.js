@@ -37,14 +37,7 @@ const Footer = () => {
       <Container>
         <Copyright>
           &copy; {new Date().getFullYear()}{" "}
-          <a
-            href="https://www.linkedin.com/in/morgan-baker-developer-inverness/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="link__std"
-          >
             {siteMetadata.author}
-          </a>
         </Copyright>
         <Privacy>
           <Link to="/privacy">Privacy & Your Data</Link>

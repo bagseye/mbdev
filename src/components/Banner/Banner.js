@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
-import { motion } from "framer-motion";
 
 const BannerGridColumn = styled.section`
   grid-column: 1 / 7;
@@ -11,7 +10,7 @@ const BannerGridColumn = styled.section`
   }
 `;
 
-const BannerStyles = styled(motion.div)`
+const BannerStyles = styled.div`
   padding: 0 var(--gridGap);
   max-width: var(--maxContainer);
   margin: var(--margins) auto;
