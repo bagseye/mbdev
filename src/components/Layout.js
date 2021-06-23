@@ -1,5 +1,5 @@
 import React from "react";
-import GlobalStyles from "../styles/GlobalStyles";
+import { GlobalStyles } from "../styles/GlobalStyles";
 import Header from "./Header/Header";
 import MenuButton from "./Header/MenuButton";
 import Footer from "./Footer";
