@@ -2,6 +2,7 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import styled from "styled-components";
 import SEO from "../components/SEO";
+import Layout from "../components/Layout";
 import Banner from "../components/Banner/Banner";
 import Gallery from "../components/Gallery";
 import ProjectInfo from "../components/ProjectInfo";
@@ -47,26 +48,28 @@ const projectTemplate = ({ data }) => {
   return (
     <>
       <SEO title={name} description={excerpt} />
-      <Banner heading={name} excerpt={excerpt} />
-      <div>
-        <Gallery mainImage={mainImage} />
-      </div>
-      <BodyContainer>
-        <div className="container-grid">
-          <ProjectInfo technology={technology} website={website} />
-          <ProjectContent raw={richDescription} options={options} />
-          <Gallery projectImages={projectImages} />
+      <Layout>
+        <Banner heading={name} excerpt={excerpt} />
+        <div>
+          <Gallery mainImage={mainImage} />
         </div>
-        <Link className="link__arrow" to="/projects">
-          <Arrow className="arrow" /> Back to all projects
-        </Link>
-      </BodyContainer>
+        <BodyContainer>
+          <div className="container-grid">
+            <ProjectInfo technology={technology} website={website} />
+            <ProjectContent raw={richDescription} options={options} />
+            <Gallery projectImages={projectImages} />
+          </div>
+          <Link className="link__arrow" to="/projects">
+            <Arrow className="arrow" /> Back to all projects
+          </Link>
+        </BodyContainer>
+      </Layout>
     </>
   );
 };
 
 export const query = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     project: contentfulProjects(slug: { eq: $slug }) {
       name
       excerpt
