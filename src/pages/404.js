@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "gatsby";
 import SEO from "../components/SEO";
+import Layout from "../components/Layout";
+import { Link } from "gatsby";
 import Banner from "../components/Banner/Banner";
 
 const BodyContainer = styled.div`
@@ -31,21 +32,23 @@ const MainContent = styled.div`
 const error = () => (
   <>
     <SEO title="Error" />
-    <Banner heading="Page not found" />
-    <BodyContainer>
-      <div className="container-grid">
-        <MainContent>
-          <p>This page has moved or no longer exists.</p>
-          <p>
-            Please choose another option from the menu above, or to return home,
-            press the button below.
-          </p>
-          <Link className="link__std" to="/">
-            Return Home
-          </Link>
-        </MainContent>
-      </div>
-    </BodyContainer>
+    <Layout>
+      <Banner heading="Page not found" />
+      <BodyContainer>
+        <div className="container-grid">
+          <MainContent>
+            <p>This page has moved or no longer exists.</p>
+            <p>
+              Please choose another option from the menu above, or to return
+              home, press the button below.
+            </p>
+            <Link className="link__std" to="/">
+              Return Home
+            </Link>
+          </MainContent>
+        </div>
+      </BodyContainer>
+    </Layout>
   </>
 );
 

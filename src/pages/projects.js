@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import styled from "styled-components";
+import Layout from "../components/Layout";
 import Banner from "../components/Banner/Banner";
 import Development from "../components/Development";
 import { SplitContainerStyles } from "../styles/GlobalStyles";
@@ -38,7 +39,7 @@ const projectsPage = ({ data }) => {
   const developmentData = data.allContentfulProjects.edges;
 
   return (
-    <>
+    <Layout>
       <Banner heading="Projects" />
       <ExtendedSplitContainerStyles>
         {developmentData.map(({ node }) =>
@@ -47,7 +48,7 @@ const projectsPage = ({ data }) => {
           ) : null
         )}
       </ExtendedSplitContainerStyles>
-    </>
+    </Layout>
   );
 };
 

@@ -1,6 +1,7 @@
 import React from "react";
-import styled from "styled-components";
 import SEO from "../components/SEO";
+import Layout from "../components/Layout";
+import styled from "styled-components";
 import Banner from "../components/Banner/Banner";
 
 const BodyContainer = styled.div`
@@ -115,29 +116,31 @@ const ButtonArea = styled.div`
 const Contact = () => (
   <>
     <SEO title="Contact the developer" />
-    <Banner heading="Contact the developer" />
-    <BodyContainer>
-      <div className="container-grid">
-        <ContactForm name="contact" netlify>
-          <Name>Your name </Name>
-          <Field type="text" name="name" placeholder="Enter your name" />
-          <Name>Email contact </Name>
-          <Field type="email" name="email" placeholder="Email address" />
-          <Name>Your message </Name>
-          <TextArea
-            type="text"
-            name="textarea"
-            placeholder="Write your message here"
-          />
+    <Layout>
+      <Banner heading="Contact the developer" />
+      <BodyContainer>
+        <div className="container-grid">
+          <ContactForm name="contact" netlify>
+            <Name>Your name </Name>
+            <Field type="text" name="name" placeholder="Enter your name" />
+            <Name>Email contact </Name>
+            <Field type="email" name="email" placeholder="Email address" />
+            <Name>Your message </Name>
+            <TextArea
+              type="text"
+              name="textarea"
+              placeholder="Write your message here"
+            />
 
-          <ButtonArea>
-            <button type="submit" className="link__std">
-              Send Message
-            </button>
-          </ButtonArea>
-        </ContactForm>
-      </div>
-    </BodyContainer>
+            <ButtonArea>
+              <button type="submit" className="link__std">
+                Send Message
+              </button>
+            </ButtonArea>
+          </ContactForm>
+        </div>
+      </BodyContainer>
+    </Layout>
   </>
 );
 

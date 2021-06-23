@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import SEO from "../components/SEO";
+import Layout from "../components/Layout";
 import Banner from "../components/Banner/Banner";
 
 const BodyContainer = styled.div`
@@ -30,22 +31,25 @@ const MainContent = styled.div`
 const privacyPage = () => (
   <>
     <SEO title="Privacy & Your Data" />
-    <Banner heading="Privacy & your data" />
-    <BodyContainer>
-      <div className="container-grid">
-        <MainContent>
-          <p>
-            This site does not use anything like Google Analytics, or other data
-            miners that look to steal every last bit of your soul and sell it
-            off to the highest bidder. I don't even care what traffic I get.
-          </p>
-          <p>
-            Your email address will never be sent on to a marketing company and
-            will only be used to reply to correspondence.
-          </p>
-        </MainContent>
-      </div>
-    </BodyContainer>
+    <Layout>
+      <Banner heading="Privacy & your data" />
+      <BodyContainer>
+        <div className="container-grid">
+          <MainContent>
+            <p>
+              This site does not use anything like Google Analytics, or other
+              data miners that look to steal every last bit of your soul and
+              sell it off to the highest bidder. I don't even care what traffic
+              I get.
+            </p>
+            <p>
+              Your email address will never be sent on to a marketing company
+              and will only be used to reply to correspondence.
+            </p>
+          </MainContent>
+        </div>
+      </BodyContainer>
+    </Layout>
   </>
 );
 
