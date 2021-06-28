@@ -4,7 +4,7 @@ import { QuoteStyles } from "./QuoteStyles.js";
 const Quote = () => {
   return (
     <QuoteStyles>
-      <form method="POST" name="quote" netlify>
+      <form name="quote" method="POST" data-netlify="true">
         <div className="area">
           <label>Your name </label>
           <input
