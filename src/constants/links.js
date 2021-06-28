@@ -1,7 +1,11 @@
 export default [
   {
     path: "/projects",
-    text: "side projects",
+    text: "projects",
+  },
+  {
+    path: "/request-quote",
+    text: "request a quote",
   },
   {
     path: "/about",
