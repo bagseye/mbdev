@@ -5,8 +5,8 @@ import SEO from "../components/SEO";
 import Layout from "../components/Layout";
 import Banner from "../components/Banner/Banner";
 import About from "../components/About/About";
-import Contact from "../components/Contact/Contact";
 import { VscArrowLeft as Arrow } from "react-icons/vsc";
+import Quote from "../components/Quote/Quote";
 
 const BodyContainer = styled.div`
   padding: 0 var(--gridGap);
@@ -40,7 +40,7 @@ const serviceTemplate = ({ data }) => {
         <Banner heading={title} excerpt={excerpt} />
         <About id="about" content={content} options={options} />
         <BodyContainer>
-          <Contact />
+          <Quote />
           <Link className="link__arrow" to="/">
             <Arrow className="arrow" /> Back to home
           </Link>

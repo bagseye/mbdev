@@ -261,6 +261,45 @@ export const GlobalStyles = createGlobalStyle`
     .section-padding--large {
       padding: var(--paddingLarge) var(--paddingBorder);
     }
+
+    .quote__request {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      width: 40px;
+      height: 200px;
+      background-color: #1565c0;
+      color: #fff;
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+      z-index: 100;
+      transition: background-color 0.3s ease;
+      box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.25);
+      text-transform: uppercase;
+
+      &:hover,
+      &:focus {
+        background-color: #2962ff;
+      }
+
+      @media(min-width: 768px) {
+        bottom: 50%;
+      }
+      
+
+      span {
+        position: absolute;
+        transform: rotate(90deg);
+        top: 80px;
+        right: -80px;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        height: 40px;
+      }
+    }
 `;
 
 export const SplitContainerStyles = styled.div`

@@ -57,16 +57,22 @@ const SideMenuStyles = styled(motion.div)`
 
   li,
   li a {
-    font-size: var(--titleLarge);
+    font-size: var(--h2);
     list-style: none;
     color: var(--background);
-    letter-spacing: var(--titleLargeLetterSpacing);
+    letter-spacing: var(--h2LetterSpacing);
     padding-top: 20px;
-    line-height: var(--titleLargeLineHeight);
+    line-height: var(--h2LineHeight);
     text-decoration: none;
     text-transform: capitalize;
     transition: opacity 0.75s ease;
     white-space: nowrap;
+
+    @media (min-width: 768px) {
+      font-size: var(--titleLarge);
+      letter-spacing: var(--titleLargeLetterSpacing);
+      line-height: var(--titleLargeLineHeight);
+    }
 
     &:hover {
       cursor: pointer;
