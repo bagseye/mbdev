@@ -4,7 +4,7 @@ import { QuoteStyles } from "./QuoteStyles.js";
 const Quote = () => {
   return (
     <QuoteStyles>
-      <form name="quote" method="POST" data-netlify="true">
+      <form name="quote" data-netlify="true">
         <div className="area">
           <label>Your name </label>
           <input
@@ -18,7 +18,7 @@ const Quote = () => {
           <label>Your business name </label>
           <input
             type="text"
-            name="name"
+            name="business"
             placeholder="Enter your business name"
           />
         </div>
@@ -47,7 +47,7 @@ const Quote = () => {
           <label>Any requirements needed for your new site? </label>
           <textarea
             type="text"
-            name="textarea"
+            name="requirements"
             placeholder="Write your requirements here"
           />
         </div>
