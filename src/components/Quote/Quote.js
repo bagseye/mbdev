@@ -1,5 +1,5 @@
-import { navigate } from "gatsby";
 import React from "react";
+import { navigate } from "gatsby-link";
 import { QuoteStyles } from "./QuoteStyles.js";
 
 function encode(data) {
@@ -9,6 +9,12 @@ function encode(data) {
 }
 
 const Quote = () => {
+  const [state, setState] = React.useState({});
+
+  const handleChange = (e) => {
+    setState({ ...state, [e.target.name]: e.target.value });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -17,6 +23,7 @@ const Quote = () => {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encodeURI({
         "form-name": form.getAttribute("name"),
+        ...state,
       }),
     })
       .then(() => navigate(form.getAttribute("action")))
@@ -39,7 +46,7 @@ const Quote = () => {
             type="text"
             name="name"
             placeholder="Enter your name"
-            required
+            onChange={handleChange}
           />
         </div>
         <div className="area">
@@ -48,6 +55,7 @@ const Quote = () => {
             type="text"
             name="business"
             placeholder="Enter your business name"
+            onChange={handleChange}
           />
         </div>
         <div className="area">
@@ -56,6 +64,7 @@ const Quote = () => {
             type="text"
             name="website"
             placeholder="Enter your web address"
+            onChange={handleChange}
           />
         </div>
         <div className="area">
@@ -64,12 +73,17 @@ const Quote = () => {
             type="email"
             name="email"
             placeholder="Email address"
-            required
+            onChange={handleChange}
           />
         </div>
         <div className="area">
           <label>Phone number </label>
-          <input type="number" name="phone" placeholder="Phone number" />
+          <input
+            type="number"
+            name="phone"
+            placeholder="Phone number"
+            onChange={handleChange}
+          />
         </div>
         <div className="area">
           <label>Any requirements needed for your new site? </label>
@@ -77,6 +91,7 @@ const Quote = () => {
             type="text"
             name="requirements"
             placeholder="Write your requirements here"
+            onChange={handleChange}
           />
         </div>
 
