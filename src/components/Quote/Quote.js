@@ -9,12 +9,13 @@ const Quote = () => {
         method="post"
         action="/thanks/"
         data-netlify="true"
-        netlify-honeypot="bot-field"
+        netlify-honeypot="quote-bot-field"
       >
         <input type="hidden" name="form-name" value="quote" />
         <div style={{ visibility: "hidden", height: "0px" }}>
           <label>
-            Don’t fill this out if you’re human: <input name="bot-field" />
+            Don’t fill this out if you’re human:{" "}
+            <input name="quote-bot-field" />
           </label>
         </div>
         <div className="area">
