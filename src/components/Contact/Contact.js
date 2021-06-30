@@ -108,7 +108,8 @@ const ButtonArea = styled.div`
 const ContactForm = () => {
   return (
     <div className="container-grid">
-      <ContactFormStyles name="contact" method="POST" data-netlify="true">
+      <ContactFormStyles name="contact" method="post" data-netlify="true">
+        <input type="hidden" name="form-name" value="contact" />
         <Name>Your name </Name>
         <Field type="text" name="name" placeholder="Enter your name" />
         <Name>Email contact </Name>
