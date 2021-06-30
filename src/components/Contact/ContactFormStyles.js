@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const QuoteStyles = styled.div`
+export const ContactFormStyles = styled.div`
   width: 100%;
   max-width: 800px;
   margin: 0 auto;

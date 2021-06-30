@@ -48,7 +48,9 @@ const Banner = ({ heading }) => (
     <div className="container-grid">
       <BannerGridColumn>
         {heading ? (
-          <h1>{heading}</h1>
+          <>
+            <h1>{heading}</h1>
+          </>
         ) : (
           <>
             <h1>

@@ -1,11 +1,23 @@
 import React from "react";
-import { QuoteStyles } from "./QuoteStyles.js";
+import { ContactFormStyles } from "../Contact/ContactFormStyles.js";
 
 const Quote = () => {
   return (
-    <QuoteStyles>
-      <form name="quote" method="post" action="/thanks/" data-netlify="true">
+    <ContactFormStyles>
+      <form
+        name="quote"
+        method="post"
+        action="/thanks/"
+        data-netlify="true"
+        netlify-honeypot="quote-bot-field"
+      >
         <input type="hidden" name="form-name" value="quote" />
+        <div style={{ visibility: "hidden", height: "0px" }}>
+          <label>
+            Don’t fill this out if you’re human:{" "}
+            <input name="quote-bot-field" />
+          </label>
+        </div>
         <div className="area">
           <label>Your name </label>
           <input type="text" name="name" placeholder="Enter your name" />
@@ -47,7 +59,7 @@ const Quote = () => {
           Request a quote
         </button>
       </form>
-    </QuoteStyles>
+    </ContactFormStyles>
   );
 };
 
