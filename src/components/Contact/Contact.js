@@ -6,15 +6,14 @@ const ContactForm = () => {
     <ContactFormStyles
       name="contact"
       method="post"
-      data-netlify="true"
       action="/thanks/"
-      netlify-honeypot="contact-bot-field"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
     >
       <input type="hidden" name="form-name" value="contact" />
       <div style={{ visibility: "hidden", height: "0px" }}>
         <label>
-          Don’t fill this out if you’re human:{" "}
-          <input name="contact-bot-field" />
+          Don’t fill this out if you’re human: <input name="bot-field" />
         </label>
       </div>
       <div className="area">
