@@ -11,28 +11,12 @@ const DevelopmentContainer = styled.section`
   flex: 0 0 100%;
 
   @media (min-width: 768px) {
-    flex: 0 0 calc(50% - var(--gridGap));
+    flex: 0 0 calc(50% - calc(var(--gridGap) / 2));
     margin-bottom: 0;
   }
 
-  .project-grid {
-    gap: 0 var(--gridGap);
-    margin-bottom: var(--gridGap);
-  }
-
-  .excerpt {
-    display: flex;
-    flex-wrap: wrap;
-
-    > p {
-      margin: 0;
-      margin-bottom: var(--gridGap);
-      width: 100%;
-    }
-
-    .link__arrow {
-      margin-top: auto;
-    }
+  .link__arrow {
+    margin-top: auto;
   }
 
   h2 {
@@ -40,13 +24,15 @@ const DevelopmentContainer = styled.section`
     line-height: var(--h2LineHeight);
     margin-top: 0;
     letter-spacing: var(--h2LetterSpacing);
-    margin-bottom: var(--gridGap);
+
+    .arrow {
+      font-size: 16px;
+      margin-left: 6px;
+    }
   }
 
-  @media (min-width: 768px) {
-    .project-grid {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
+  .project__img {
+    margin-bottom: var(--gridGap);
   }
 `;
 
@@ -66,26 +52,12 @@ const ProjectImage = styled.div`
 `;
 
 const Development = ({ project, noPrefix, base }) => {
-  const { name, excerpt, slug, images } = project;
+  const { name, slug, images } = project;
   const projectImg = getImage(images[0]);
   const projectImgAlt = images[0].description;
 
   return (
     <DevelopmentContainer>
-      <div className="project-grid">
-        <h2>
-          <Link to={base ? `${base}/${slug}` : `${slug}`}>{name}</Link>
-        </h2>
-        <div className="excerpt">
-          <p>{excerpt}</p>
-          <Link
-            className="link__arrow"
-            to={base ? `${base}/${slug}` : `${slug}`}
-          >
-            View Project <Arrow className="arrow" />
-          </Link>
-        </div>
-      </div>
       <ProjectImage>
         <Link to={base ? `${base}/${slug}` : `${slug}`}>
           <span className="sr-only">{name}</span>
@@ -93,7 +65,11 @@ const Development = ({ project, noPrefix, base }) => {
             loading="lazy"
             image={projectImg}
             alt={projectImgAlt ? projectImgAlt : "Project Image"}
+            className="project__img"
           />
+          <h2 className="link__arrow">
+            {name} <Arrow className="arrow" />
+          </h2>
         </Link>
       </ProjectImage>
     </DevelopmentContainer>

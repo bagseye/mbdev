@@ -2,15 +2,14 @@ import React from "react";
 import { graphql } from "gatsby";
 import styled from "styled-components";
 import Layout from "../components/Layout";
-import Banner from "../components/Banner/Banner";
 import Development from "../components/Development";
 import { SplitContainerStyles } from "../styles/GlobalStyles";
+import GeneralContent from "../components/GeneralContent/GeneralContent";
 
 const ExtendedSplitContainerStyles = styled(SplitContainerStyles)`
   display: flex;
   flex-wrap: wrap;
-  gap: calc(var(--gridGap) * 2);
-  padding-bottom: var(--margins);
+  gap: var(--gridGap);
 `;
 
 export const getProjects = graphql`
@@ -40,7 +39,9 @@ const projectsPage = ({ data }) => {
 
   return (
     <Layout>
-      <Banner heading="Projects" />
+      <div className="container__body">
+        <GeneralContent title="Projects" />
+      </div>
       <ExtendedSplitContainerStyles>
         {developmentData.map(({ node }) =>
           node.slug ? (

@@ -49,10 +49,11 @@ const SideMenuStyles = styled(motion.div)`
   ul {
     padding: 0;
     width: 100%;
-    max-width: 1520px;
+    max-width: 1500px;
     margin: 0 auto;
     flex-shrink: 0;
     padding: 0 var(--gridGap);
+    box-sizing: content-box;
   }
 
   li,

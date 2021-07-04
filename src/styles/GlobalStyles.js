@@ -15,7 +15,7 @@ export const GlobalStyles = createGlobalStyle`
         --paragraph: 1rem;
         --leadIn: 1.15rem;
         --btn: 1rem;
-        --maxContainer: 1600px;
+        --maxContainer: 1500px;
         --margins: 80px;
         --gridGap: 15px;
         
@@ -226,6 +226,27 @@ export const GlobalStyles = createGlobalStyle`
           color: var(--highlight);
         }
       }
+
+      &__white {
+        background-color: #fff;
+        border-color: #fff;
+        color: var(--primary);
+
+        &:hover {
+          background-color: transparent;
+          color: #fff;
+        }
+      }
+    }
+
+    .container {
+      max-width: 1500px;
+      margin-left: auto;
+      margin-right: auto;
+
+      &__body {
+        padding: calc(var(--gridGap) * 3) 0 0 0;
+      }
     }
 
     .container-grid {
@@ -245,13 +266,6 @@ export const GlobalStyles = createGlobalStyle`
       overflow: hidden;
       clip: rect(0,0,0,0);
       border: 0;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
-      width: 100%;
     }
 
     .section-padding {
@@ -300,6 +314,26 @@ export const GlobalStyles = createGlobalStyle`
         height: 40px;
       }
     }
+
+    .standard__images {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: var(--gridGap);
+      margin-bottom: calc(var(--gridGap) * 2);
+
+      @media(min-width: 600px) {
+          gap: var(--gridGap);
+      }
+    }
+
+    .standard__image {
+      flex: 0 0 100%;
+
+      @media(min-width: 600px) {
+          flex: 0 0 calc(50% - calc(var(--gridGap) / 2));
+      }
+    }
 `;
 
 export const SplitContainerStyles = styled.div`
@@ -307,84 +341,13 @@ export const SplitContainerStyles = styled.div`
   max-width: var(--maxContainer);
   margin-left: auto;
   margin-right: auto;
+  box-sizing: content-box;
 `;
 
 export const GalleryItem = styled.div`
-  margin: 0 0 var(--margins) 0;
-  grid-column: 1 / 7;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-gap: 0 var(--gridGap);
-
-  h3,
-  figure {
-    font-size: 11px;
-    line-height: 1.4;
-    margin: 0 0 var(--margins) 0;
-  }
-
-  h3 {
-    font-weight: 300;
-    grid-column: 1 / 4;
-  }
-
-  figure {
-    grid-column: 4 / 7;
-    font-weight: 500;
-    text-align: right;
-  }
-
-  .feature,
-  .standard {
-    grid-column: 1 / 7;
+  .feature {
     width: 100%;
-  }
-
-  @media (min-width: 768px) {
-    grid-column: 1 / 4;
-    grid-template-columns: 1fr 1fr 1fr;
-
-    h3 {
-      grid-column: 1 / 2;
-    }
-
-    figure {
-      grid-column: 3 / 4;
-    }
-
-    .standard {
-      grid-column: 1 / 4;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    grid-column: 1 / 7;
-
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-
-    h3 {
-      grid-column: 5 / 6;
-    }
-
-    figure {
-      grid-column: 6 / 7;
-    }
-
-    .standard {
-      grid-column: 1 / 5;
-      grid-row: 1 / 2;
-    }
-
-    h3,
-    figure {
-      font-size: 12px;
-    }
-  }
-
-  @media (min-width: 1440px) {
-    h3,
-    figure {
-      font-size: 14px;
-    }
+    margin-top: calc(var(--gridGap) * 2);
+    margin-bottom: calc(var(--gridGap) * 2);
   }
 `;

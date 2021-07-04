@@ -1,9 +1,8 @@
 import React from "react";
-import { Link } from "gatsby";
 import { GlobalStyles } from "../styles/GlobalStyles";
 import Header from "./Header/Header";
 import MenuButton from "./Header/MenuButton";
-import Footer from "./Footer";
+import Footer from "./Footer/Footer";
 import "@fontsource/cormorant/400.css";
 import "@fontsource/cormorant/400-italic.css";
 import "@fontsource/cormorant/600.css";
@@ -16,9 +15,6 @@ const Layout = ({ children }) => {
       <Header>
         <MenuButton />
       </Header>
-      <Link className="quote__request" to="/request-quote">
-        <span>Get a quote</span>
-      </Link>
       <div id="main">
         {children}
 

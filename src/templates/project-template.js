@@ -3,18 +3,16 @@ import { graphql, Link } from "gatsby";
 import styled from "styled-components";
 import SEO from "../components/SEO";
 import Layout from "../components/Layout";
-import Banner from "../components/Banner/Banner";
 import Gallery from "../components/Gallery";
-import ProjectInfo from "../components/ProjectInfo";
-import ProjectContent from "../components/ProjectContent";
-import { VscArrowLeft as Arrow } from "react-icons/vsc";
+import CallToAction from "../components/CallToAction/CallToAction";
+import GeneralContent from "../components/GeneralContent/GeneralContent";
 
-const BodyContainer = styled.div`
+const ViewWebsite = styled.div`
   padding: 0 var(--gridGap);
-  max-width: var(--maxContainer);
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: var(--margins);
+  margin-top: calc(var(--gridGap) * 2);
+  margin-bottom: calc(var(--gridGap) * 2);
+  display: flex;
+  justify-content: center;
 `;
 
 const projectTemplate = ({ data }) => {
@@ -49,20 +47,24 @@ const projectTemplate = ({ data }) => {
     <>
       <SEO title={name} description={excerpt} />
       <Layout>
-        <Banner heading={name} excerpt={excerpt} />
-        <div>
+        <div className="container__body">
+          <GeneralContent title={name} />
           <Gallery mainImage={mainImage} />
-        </div>
-        <BodyContainer>
-          <div className="container-grid">
-            <ProjectInfo technology={technology} website={website} />
-            <ProjectContent raw={richDescription} options={options} />
+
+          <GeneralContent title="Project Details" content={richDescription} />
+          <div className="standard__images">
             <Gallery projectImages={projectImages} />
           </div>
-          <Link className="link__arrow" to="/projects">
-            <Arrow className="arrow" /> Back to all projects
-          </Link>
-        </BodyContainer>
+          <ViewWebsite>
+            <Link className="btn" to={website}>
+              View the website
+            </Link>
+          </ViewWebsite>
+          <CallToAction
+            message="Looking to start a project?"
+            subMessage="Get in touch and request a quote for your next project"
+          />
+        </div>
       </Layout>
     </>
   );

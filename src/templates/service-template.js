@@ -1,20 +1,9 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
-import styled from "styled-components";
+import { graphql } from "gatsby";
 import SEO from "../components/SEO";
 import Layout from "../components/Layout";
-import Banner from "../components/Banner/Banner";
-import About from "../components/About/About";
-import { VscArrowLeft as Arrow } from "react-icons/vsc";
-import Quote from "../components/Quote/Quote";
-
-const BodyContainer = styled.div`
-  padding: 0 var(--gridGap);
-  max-width: var(--maxContainer);
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: var(--margins);
-`;
+import GeneralContent from "../components/GeneralContent/GeneralContent";
+import CallToAction from "../components/CallToAction/CallToAction";
 
 const options = {
   // Pass in the node and dril down to the required data
@@ -37,14 +26,13 @@ const serviceTemplate = ({ data }) => {
     <>
       <SEO title={title} description={excerpt} />
       <Layout>
-        <Banner heading={title} excerpt={excerpt} />
-        <About id="about" content={content} options={options} />
-        <BodyContainer>
-          <Quote />
-          <Link className="link__arrow" to="/">
-            <Arrow className="arrow" /> Back to home
-          </Link>
-        </BodyContainer>
+        <div className="container__body">
+          <GeneralContent title={title} content={content} />
+          <CallToAction
+            message="Looking to start a project?"
+            subMessage="Get in touch and request a quote for your next project"
+          />
+        </div>
       </Layout>
     </>
   );

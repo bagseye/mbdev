@@ -7,12 +7,13 @@ import Development from "./Development";
 import Heading from "./Heading";
 
 const FeaturedProjectsStyles = styled.section`
+  box-sizing: content-box;
   padding: 0 var(--gridGap);
   max-width: var(--maxContainer);
-  margin: var(--margins) auto 0 auto;
+  margin: calc(var(--gridGap) * 3) auto 0 auto;
   display: flex;
   flex-wrap: wrap;
-  gap: 0 calc(var(--gridGap) * 2);
+  gap: 0 var(--gridGap);
   content-visibility: auto;
   contain-intrinsic-size: 600px;
 
@@ -23,9 +24,9 @@ const FeaturedProjectsStyles = styled.section`
 
   .view-more {
     display: flex;
-    margin-top: var(--margins);
+    margin-top: calc(var(--gridGap) * 3);
     justify-content: flex-end;
-    margin-bottom: var(--margins);
+    margin-bottom: calc(var(--gridGap) * 3);
   }
 `;
 

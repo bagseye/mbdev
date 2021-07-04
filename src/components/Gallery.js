@@ -19,18 +19,10 @@ const Gallery = ({ mainImage, projectImages }) => (
     {/* If the remaining project images are passed */}
     {projectImages &&
       projectImages.map((item, index) => (
-        <GalleryItem key={index} className={`standard-image__${index}`}>
-          {item.description && (
-            <>
-              {/* Only render the description if one is present */}
-              <h3>{item.description}</h3>
-              <figure>
-                {/* if the count is less than 10, we want to render the leading 0 */}
-                Fig{index + 2 < 10 ? "0" : null}
-                {index + 2}
-              </figure>
-            </>
-          )}
+        <GalleryItem
+          key={index}
+          className={`standard__image standard-image__${index}`}
+        >
           <GatsbyImage
             image={item.gatsbyImageData}
             className="standard"

@@ -13,7 +13,7 @@ const BannerGridColumn = styled.section`
 const BannerStyles = styled.div`
   padding: 0 var(--gridGap);
   max-width: var(--maxContainer);
-  margin: var(--margins) auto;
+  margin: calc(var(--gridGap) * 2) auto;
 
   h1 {
     font-size: var(--titleLarge);
@@ -32,7 +32,7 @@ const BannerStyles = styled.div`
     }
   }
 
-  h2 {
+  /* h2 {
     margin-bottom: calc(var(--gridGap) * 2);
   }
 
@@ -40,7 +40,7 @@ const BannerStyles = styled.div`
     &__inverse {
       margin-left: var(--gridGap);
     }
-  }
+  } */
 `;
 
 const Banner = ({ heading }) => (
@@ -58,7 +58,7 @@ const Banner = ({ heading }) => (
               design should be <span>purposeful</span>, <span>accessible</span>,
               and <span>long-lasting</span>
             </h1>
-            <h2>
+            {/* <h2>
               Web design should not be complicated. It is about giving your user
               the information they require in the most logical way possible. I
               design and build applications that{" "}
@@ -70,7 +70,7 @@ const Banner = ({ heading }) => (
             </Link>
             <Link to="/contact" className="btn btn__inverse">
               Get In Touch
-            </Link>
+            </Link> */}
           </>
         )}
       </BannerGridColumn>

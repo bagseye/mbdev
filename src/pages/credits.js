@@ -1,28 +1,25 @@
 import React from "react";
 import SEO from "../components/SEO";
 import Layout from "../components/Layout";
-import { Link } from "gatsby";
 import { GeneralContentStyles } from "../components/GeneralContent/GeneralContentStyles";
 
-const error = () => (
+const credits = () => (
   <>
-    <SEO title="Error" />
+    <SEO title="Website Credits" />
     <Layout>
       <div className="container__body">
         <GeneralContentStyles>
           <div className="container">
             <div className="col">
-              <h2>Page not found</h2>
+              <h2>Website credits</h2>
             </div>
             <div className="col">
-              <p>This page has moved or no longer exists.</p>
               <p>
-                Please choose another option from the menu above, or to return
-                home, press the button below.
+                This site uses a number of stock images that may require
+                attribution. If one of your images has been used and I have not
+                added the correct attribution, please contact me so I can
+                resolve the issue.
               </p>
-              <Link className="link__std" to="/">
-                Return Home
-              </Link>
             </div>
           </div>
         </GeneralContentStyles>
@@ -31,4 +28,4 @@ const error = () => (
   </>
 );
 
-export default error;
+export default credits;
