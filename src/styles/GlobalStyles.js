@@ -240,6 +240,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     .container {
+      width: 100%;
       max-width: 1500px;
       margin-left: auto;
       margin-right: auto;

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import menuItems from "../../constants/links";
+import { mainLinks as menuItems, serviceLinks } from "../../constants/links";
 import MenuContext from "../MenuContext";
 
 const menuVariants = {
@@ -46,14 +46,21 @@ const SideMenuStyles = styled(motion.div)`
   overflow-x: hidden;
   background-color: var(--primary);
 
+  .container {
+    @media (min-width: 600px) {
+      display: flex;
+    }
+  }
+
   ul {
     padding: 0;
-    width: 100%;
-    max-width: 1500px;
     margin: 0 auto;
-    flex-shrink: 0;
     padding: 0 var(--gridGap);
     box-sizing: content-box;
+
+    @media (min-width: 600px) {
+      flex: 0 0 50%;
+    }
   }
 
   li,
@@ -95,13 +102,22 @@ const SideMenu = () => {
       animate={isOpen ? "open" : "closed"}
       variants={menuVariants}
     >
-      <motion.ul variants={listVariants} animate={isOpen ? "open" : "closed"}>
-        {menuItems.map((item, index) => (
-          <li onClick={toggleNav} key={index}>
-            <Link to={item.path}>{item.text}</Link>
-          </li>
-        ))}
-      </motion.ul>
+      <div className="container">
+        <motion.ul variants={listVariants} animate={isOpen ? "open" : "closed"}>
+          {serviceLinks.map((item, index) => (
+            <li onClick={toggleNav} key={index}>
+              <Link to={`services${item.path}`}>{item.text}</Link>
+            </li>
+          ))}
+        </motion.ul>
+        <motion.ul variants={listVariants} animate={isOpen ? "open" : "closed"}>
+          {menuItems.map((item, index) => (
+            <li onClick={toggleNav} key={index}>
+              <Link to={item.path}>{item.text}</Link>
+            </li>
+          ))}
+        </motion.ul>
+      </div>
     </SideMenuStyles>
   );
 };

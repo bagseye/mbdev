@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import { FooterStyles } from "./FooterStyles";
-import menuItems from "../../constants/links";
+import { mainLinks as menuItems, serviceLinks } from "../../constants/links";
 
 const Footer = () => {
   const {
@@ -18,6 +18,15 @@ const Footer = () => {
   return (
     <FooterStyles>
       <div className="container">
+        <div className="col">
+          <ul>
+            {serviceLinks.map((item, index) => (
+              <li key={index}>
+                <Link to={item.path}>{item.text}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
         <div className="col">
           <ul>
             {menuItems.map((item, index) => (

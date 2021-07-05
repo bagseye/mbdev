@@ -1,8 +1,4 @@
-export default [
-  {
-    path: "/projects",
-    text: "projects",
-  },
+export const mainLinks = [
   {
     path: "/request-quote",
     text: "request a quote",
@@ -14,5 +10,20 @@ export default [
   {
     path: "/contact",
     text: "contact",
+  },
+];
+
+export const serviceLinks = [
+  {
+    path: "/web-design",
+    text: "development",
+  },
+  {
+    path: "/brand-consultancy",
+    text: "brand consultancy",
+  },
+  {
+    path: "/projects",
+    text: "recent projects",
   },
 ];

@@ -25,7 +25,6 @@ const HeaderStyles = styled.header`
   align-items: center;
   justify-content: flex-end;
   max-width: var(--maxContainer);
-  box-sizing: content-box;
 
   @media (min-width: 768px) {
     height: 80px;
