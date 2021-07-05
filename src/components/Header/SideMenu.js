@@ -106,7 +106,7 @@ const SideMenu = () => {
         <motion.ul variants={listVariants} animate={isOpen ? "open" : "closed"}>
           {serviceLinks.map((item, index) => (
             <li onClick={toggleNav} key={index}>
-              <Link to={`services${item.path}`}>{item.text}</Link>
+              <Link to={item.path}>{item.text}</Link>
             </li>
           ))}
         </motion.ul>
