@@ -10,7 +10,9 @@ const CallToAction = ({ message, subMessage }) => {
         <div className="col">
           <h2>{message}</h2>
           <p>{subMessage}</p>
-          <Link className="btn btn__white">Get a quote</Link>
+          <Link className="btn btn__white" to="/request-quote">
+            Get a quote
+          </Link>
         </div>
       </div>
       <StaticImage
