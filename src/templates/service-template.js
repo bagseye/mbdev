@@ -4,6 +4,7 @@ import SEO from "../components/SEO";
 import Layout from "../components/Layout";
 import GeneralContent from "../components/GeneralContent/GeneralContent";
 import CallToAction from "../components/CallToAction/CallToAction";
+import Gallery from "../components/Gallery";
 
 const options = {
   // Pass in the node and dril down to the required data
@@ -21,13 +22,17 @@ const options = {
 };
 
 const serviceTemplate = ({ data }) => {
-  const { title, excerpt, content } = data.service;
+  const { title, excerpt, content, images } = data.service;
+
   return (
     <>
       <SEO title={title} description={excerpt} />
       <Layout>
         <div className="container__body">
           <GeneralContent title={title} content={content} />
+          <div className="standard__images">
+            <Gallery projectImages={images} />
+          </div>
           <CallToAction
             message="Looking to start a project?"
             subMessage="Get in touch and request a quote for your next project"
@@ -45,6 +50,15 @@ export const query = graphql`
       excerpt
       content {
         raw
+      }
+      images {
+        description
+        gatsbyImageData(
+          layout: FULL_WIDTH
+          placeholder: TRACED_SVG
+          formats: [AUTO, WEBP]
+          quality: 90
+        )
       }
     }
   }

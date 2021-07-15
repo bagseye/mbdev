@@ -15,11 +15,11 @@ export const mainLinks = [
 
 export const serviceLinks = [
   {
-    path: "services/web-design",
+    path: "/services/web-design",
     text: "development",
   },
   {
-    path: "services/brand-consultancy",
+    path: "/services/brand-consultancy",
     text: "brand consultancy",
   },
   {
