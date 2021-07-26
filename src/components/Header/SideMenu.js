@@ -2,7 +2,11 @@ import React, { useContext } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { mainLinks as menuItems, serviceLinks } from "../../constants/links";
+import {
+  mainLinks as menuItems,
+  serviceLinks,
+  freelanceLinks,
+} from "../../constants/links";
 import MenuContext from "../MenuContext";
 
 const menuVariants = {
@@ -47,7 +51,9 @@ const SideMenuStyles = styled(motion.div)`
   background-color: var(--primary);
 
   .container {
-    @media (min-width: 600px) {
+    padding: 0 var(--gridGap);
+
+    @media (min-width: 768px) {
       display: flex;
     }
   }
@@ -55,11 +61,14 @@ const SideMenuStyles = styled(motion.div)`
   ul {
     padding: 0;
     margin: 0 auto;
-    padding: 0 var(--gridGap);
+    padding: 0;
     box-sizing: content-box;
 
-    @media (min-width: 600px) {
-      flex: 0 0 50%;
+    @media (min-width: 768px) {
+      flex: 0 0 calc(100% / 3);
+      box-sizing: border-box;
+      border-left: 2px solid rgba(255, 255, 255, 0.1);
+      padding: 0 var(--gridGap);
     }
   }
 
@@ -77,9 +86,13 @@ const SideMenuStyles = styled(motion.div)`
     white-space: nowrap;
 
     @media (min-width: 768px) {
-      font-size: var(--titleLarge);
-      letter-spacing: var(--titleLargeLetterSpacing);
-      line-height: var(--titleLargeLineHeight);
+      font-size: var(--h2);
+      /* letter-spacing: var(--titleLargeLetterSpacing); */
+      /* line-height: var(--titleLargeLineHeight); */
+
+      &:first-child {
+        padding-top: 0;
+      }
     }
 
     &:hover {
@@ -110,6 +123,15 @@ const SideMenu = () => {
             </li>
           ))}
         </motion.ul>
+
+        <motion.ul variants={listVariants} animate={isOpen ? "open" : "closed"}>
+          {freelanceLinks.map((item, index) => (
+            <li onClick={toggleNav} key={index}>
+              <Link to={item.path}>{item.text}</Link>
+            </li>
+          ))}
+        </motion.ul>
+
         <motion.ul variants={listVariants} animate={isOpen ? "open" : "closed"}>
           {menuItems.map((item, index) => (
             <li onClick={toggleNav} key={index}>

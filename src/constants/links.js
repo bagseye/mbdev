@@ -27,3 +27,14 @@ export const serviceLinks = [
     text: "recent projects",
   },
 ];
+
+export const freelanceLinks = [
+  {
+    path: "/freelance/freelance-wordpress-development",
+    text: "wordpress development",
+  },
+  {
+    path: "/freelance/freelance-gatsby-development",
+    text: "gatsby development",
+  },
+];
