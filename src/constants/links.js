@@ -30,11 +30,11 @@ export const serviceLinks = [
 
 export const freelanceLinks = [
   {
-    path: "/freelance/freelance-wordpress-development",
+    path: "/freelance-wordpress-development",
     text: "wordpress development",
   },
-  {
-    path: "/freelance/freelance-gatsby-development",
-    text: "gatsby development",
-  },
+  // {
+  //   path: "/freelance-gatsby-development",
+  //   text: "gatsby development",
+  // },
 ];
