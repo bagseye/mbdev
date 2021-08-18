@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
-import { Link } from "gatsby";
+import { Link, navigate } from "gatsby";
+import { getUser, isLoggedIn, logout } from "../../services/auth";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import MenuContext from "../MenuContext";
@@ -50,10 +51,18 @@ const Header = ({ children }) => {
   // Access state globally using context
   const [isOpen] = useContext(MenuContext);
 
+  let greetingMessage = "";
+  if (isLoggedIn()) {
+    greetingMessage = `Hello ${getUser().name}`;
+  } else {
+    greetingMessage = "You are not logged in";
+  }
+
   return (
     <>
       <HeaderStyles>
         <Logo />
+        <span>{greetingMessage}</span>
         <HeaderIcon>
           <motion.a
             href="https://github.com/bagseye"

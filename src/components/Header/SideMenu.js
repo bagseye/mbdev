@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "gatsby";
+import { Link, navigate } from "gatsby";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import {
@@ -8,6 +8,7 @@ import {
   freelanceLinks,
 } from "../../constants/links";
 import MenuContext from "../MenuContext";
+import { isLoggedIn, logout } from "../../services/auth";
 
 const menuVariants = {
   open: {
@@ -122,6 +123,20 @@ const SideMenu = () => {
               <Link to={item.path}>{item.text}</Link>
             </li>
           ))}
+          <li>
+            <Link to="/dashboard/profile">Profile</Link>
+          </li>
+          {isLoggedIn() ? (
+            <a
+              href="/"
+              onClick={(event) => {
+                event.preventDefault();
+                logout(() => navigate(`/dashboard/login`));
+              }}
+            >
+              Logout
+            </a>
+          ) : null}
         </motion.ul>
 
         <motion.ul variants={listVariants} animate={isOpen ? "open" : "closed"}>

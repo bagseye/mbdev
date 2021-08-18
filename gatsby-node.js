@@ -19,6 +19,13 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      agency: allContentfulAgency {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
     }
   `);
   data.projects.edges.forEach(({ node }) => {
@@ -39,4 +46,23 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     });
   });
+  data.agency.edges.forEach(({ node }) => {
+    createPage({
+      path: `dashboard/${node.slug}`,
+      component: path.resolve("src/templates/agency-template.js"),
+      context: {
+        slug: node.slug,
+      },
+    });
+  });
+};
+
+exports.onCreatePage = async ({ page, actions }) => {
+  const { createPage } = actions;
+
+  if (page.path.match(/^\/dashboard/)) {
+    page.matchPath = "/dashboard/*";
+
+    createPage(page);
+  }
 };
