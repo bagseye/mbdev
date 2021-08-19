@@ -26,8 +26,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       excludes: [
-        "https://morganbaker.dev/agency/*",
-        "https://morganbaker.dev/agency",
+        "https://www.morganbaker.dev/agency/*",
+        "https://www.morganbaker.dev/agency",
       ],
       options: {
         createLinkInHead: true,
