@@ -1,13 +1,12 @@
 import React from "react";
 import SEO from "../components/SEO";
-import Layout from "../components/Layout";
 import { Link } from "gatsby";
 import { GeneralContentStyles } from "../components/GeneralContent/GeneralContentStyles";
 
 const error = () => (
   <>
     <SEO title="Error" />
-    <Layout>
+    <>
       <div className="container__body">
         <GeneralContentStyles>
           <div className="container">
@@ -27,7 +26,7 @@ const error = () => (
           </div>
         </GeneralContentStyles>
       </div>
-    </Layout>
+    </>
   </>
 );
 

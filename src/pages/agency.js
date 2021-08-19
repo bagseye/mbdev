@@ -1,7 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
 import styled from "styled-components";
-import Layout from "../components/Layout";
 import Development from "../components/Development";
 import { SplitContainerStyles } from "../styles/GlobalStyles";
 import GeneralContent from "../components/GeneralContent/GeneralContent";
@@ -38,7 +37,7 @@ const agencyPage = ({ data }) => {
   const developmentData = data.allContentfulAgency.edges;
 
   return (
-    <Layout>
+    <>
       <div className="container__body">
         <GeneralContent title="Agency Projects" />
       </div>
@@ -49,7 +48,7 @@ const agencyPage = ({ data }) => {
           ) : null
         )}
       </ExtendedSplitContainerStyles>
-    </Layout>
+    </>
   );
 };
 

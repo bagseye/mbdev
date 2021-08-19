@@ -1,7 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
 import SEO from "../components/SEO";
-import Layout from "../components/Layout";
 import GeneralContent from "../components/GeneralContent/GeneralContent";
 import CallToAction from "../components/CallToAction/CallToAction";
 import Gallery from "../components/Gallery";
@@ -27,7 +26,7 @@ const serviceTemplate = ({ data }) => {
   return (
     <>
       <SEO title={title} description={excerpt} />
-      <Layout>
+      <>
         <div className="container__body">
           <GeneralContent title={title} content={content} />
           <div className="standard__images">
@@ -38,7 +37,7 @@ const serviceTemplate = ({ data }) => {
             subMessage="Get in touch and request a quote for your next project"
           />
         </div>
-      </Layout>
+      </>
     </>
   );
 };

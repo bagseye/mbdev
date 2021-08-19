@@ -2,7 +2,6 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import styled from "styled-components";
 import SEO from "../components/SEO";
-import Layout from "../components/Layout";
 import Gallery from "../components/Gallery";
 
 import GeneralContent from "../components/GeneralContent/GeneralContent";
@@ -46,7 +45,7 @@ const agencyTemplate = ({ data }) => {
   return (
     <>
       <SEO title={name} description={excerpt} />
-      <Layout>
+      <>
         <div className="container__body">
           <GeneralContent title={name} />
           <Gallery mainImage={mainImage} />
@@ -61,7 +60,7 @@ const agencyTemplate = ({ data }) => {
             </Link>
           </ViewWebsite>
         </div>
-      </Layout>
+      </>
     </>
   );
 };

@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
-import Layout from "../components/Layout";
 import Banner from "../components/Banner/Banner";
 import { VscArrowLeft as Arrow } from "react-icons/vsc";
 
@@ -15,14 +14,14 @@ const BodyContainer = styled.div`
 
 const Thanks = () => {
   return (
-    <Layout>
+    <>
       <Banner heading="Thank you" />
       <BodyContainer>
         <Link className="link__arrow" to="/">
           <Arrow className="arrow" /> Return to home
         </Link>
       </BodyContainer>
-    </Layout>
+    </>
   );
 };
 

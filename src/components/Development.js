@@ -33,6 +33,27 @@ const DevelopmentContainer = styled.section`
 
   .project__img {
     margin-bottom: var(--gridGap);
+
+    > div {
+      padding-top: 0 !important;
+    }
+
+    &:before {
+      display: block;
+      content: "";
+      width: 100%;
+      padding-top: calc((3 / 4) * 100%);
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
 `;
 

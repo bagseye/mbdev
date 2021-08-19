@@ -8,7 +8,7 @@ import "@fontsource/cormorant/400-italic.css";
 import "@fontsource/cormorant/600.css";
 import "@fontsource/cormorant/600-italic.css";
 
-const Layout = ({ children }) => {
+const Layout = (props) => {
   return (
     <>
       <GlobalStyles />
@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
         <MenuButton />
       </Header>
       <div id="main">
-        {children}
+        {props.children}
 
         <Footer />
       </div>

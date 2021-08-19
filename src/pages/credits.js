@@ -1,12 +1,11 @@
 import React from "react";
 import SEO from "../components/SEO";
-import Layout from "../components/Layout";
 import { GeneralContentStyles } from "../components/GeneralContent/GeneralContentStyles";
 
 const credits = () => (
   <>
     <SEO title="Website Credits" />
-    <Layout>
+    <>
       <div className="container__body">
         <GeneralContentStyles>
           <div className="container">
@@ -24,7 +23,7 @@ const credits = () => (
           </div>
         </GeneralContentStyles>
       </div>
-    </Layout>
+    </>
   </>
 );
 
