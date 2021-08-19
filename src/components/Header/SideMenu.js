@@ -52,15 +52,17 @@ const SideMenuStyles = styled(motion.div)`
 
   .container {
     padding: 0 var(--gridGap);
+    max-width: 1580px;
 
     @media (min-width: 768px) {
       display: flex;
+      justify-content: flex-start;
     }
   }
 
   ul {
     padding: 0;
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
     box-sizing: content-box;
 
@@ -122,23 +124,28 @@ const SideMenu = () => {
               <Link to={item.path}>{item.text}</Link>
             </li>
           ))}
+          <li>
+            <Link to="/dashboard/profile">Profile</Link>
+          </li>
         </motion.ul>
 
         <motion.ul variants={listVariants} animate={isOpen ? "open" : "closed"}>
-          {freelanceLinks.map((item, index) => (
-            <li onClick={toggleNav} key={index}>
-              <Link to={item.path}>{item.text}</Link>
-            </li>
-          ))}
-        </motion.ul>
-
-        <motion.ul variants={listVariants} animate={isOpen ? "open" : "closed"}>
+          {/* {freelanceLinks.map((item, index) => ( */}
+          <li onClick={toggleNav}>
+            <Link to="/agency">Agency projects</Link>
+          </li>
+          {/* ))} */}
           {menuItems.map((item, index) => (
             <li onClick={toggleNav} key={index}>
               <Link to={item.path}>{item.text}</Link>
             </li>
           ))}
         </motion.ul>
+
+        {/* <motion.ul
+          variants={listVariants}
+          animate={isOpen ? "open" : "closed"}
+        ></motion.ul> */}
       </div>
     </SideMenuStyles>
   );

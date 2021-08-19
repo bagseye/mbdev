@@ -33,8 +33,4 @@ export const freelanceLinks = [
     path: "/freelance-wordpress-development",
     text: "wordpress development",
   },
-  // {
-  //   path: "/freelance-gatsby-development",
-  //   text: "gatsby development",
-  // },
 ];

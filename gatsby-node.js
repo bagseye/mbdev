@@ -19,6 +19,13 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      agency: allContentfulAgency {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
     }
   `);
   data.projects.edges.forEach(({ node }) => {
@@ -34,6 +41,15 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `services/${node.slug}`,
       component: path.resolve("src/templates/service-template.js"),
+      context: {
+        slug: node.slug,
+      },
+    });
+  });
+  data.agency.edges.forEach(({ node }) => {
+    createPage({
+      path: `agency/${node.slug}`,
+      component: path.resolve("src/templates/agency-template.js"),
       context: {
         slug: node.slug,
       },
