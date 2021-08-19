@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link, navigate } from "gatsby";
+import { Link } from "gatsby";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import {
@@ -8,7 +8,6 @@ import {
   freelanceLinks,
 } from "../../constants/links";
 import MenuContext from "../MenuContext";
-import { isLoggedIn, logout } from "../../services/auth";
 
 const menuVariants = {
   open: {
@@ -53,15 +52,17 @@ const SideMenuStyles = styled(motion.div)`
 
   .container {
     padding: 0 var(--gridGap);
+    max-width: 1580px;
 
     @media (min-width: 768px) {
       display: flex;
+      justify-content: flex-start;
     }
   }
 
   ul {
     padding: 0;
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
     box-sizing: content-box;
 
@@ -126,34 +127,25 @@ const SideMenu = () => {
           <li>
             <Link to="/dashboard/profile">Profile</Link>
           </li>
-          {isLoggedIn() ? (
-            <a
-              href="/"
-              onClick={(event) => {
-                event.preventDefault();
-                logout(() => navigate(`/dashboard/login`));
-              }}
-            >
-              Logout
-            </a>
-          ) : null}
         </motion.ul>
 
         <motion.ul variants={listVariants} animate={isOpen ? "open" : "closed"}>
-          {freelanceLinks.map((item, index) => (
-            <li onClick={toggleNav} key={index}>
-              <Link to={item.path}>{item.text}</Link>
-            </li>
-          ))}
-        </motion.ul>
-
-        <motion.ul variants={listVariants} animate={isOpen ? "open" : "closed"}>
+          {/* {freelanceLinks.map((item, index) => ( */}
+          <li onClick={toggleNav}>
+            <Link to="/agency">Agency projects</Link>
+          </li>
+          {/* ))} */}
           {menuItems.map((item, index) => (
             <li onClick={toggleNav} key={index}>
               <Link to={item.path}>{item.text}</Link>
             </li>
           ))}
         </motion.ul>
+
+        {/* <motion.ul
+          variants={listVariants}
+          animate={isOpen ? "open" : "closed"}
+        ></motion.ul> */}
       </div>
     </SideMenuStyles>
   );

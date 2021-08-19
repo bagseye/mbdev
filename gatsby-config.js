@@ -25,6 +25,7 @@ module.exports = {
 
     {
       resolve: `gatsby-plugin-sitemap`,
+      excludes: ["/agency/*", "/agency"],
       options: {
         createLinkInHead: true,
       },

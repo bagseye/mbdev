@@ -12,7 +12,7 @@ const BannerGridColumn = styled.section`
 
 const BannerStyles = styled.div`
   padding: 0 var(--gridGap);
-  max-width: var(--maxContainer);
+  max-width: 1580px;
   margin: calc(var(--gridGap) * 2) auto;
 
   h1 {

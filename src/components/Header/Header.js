@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
-import { Link, navigate } from "gatsby";
-import { getUser, isLoggedIn, logout } from "../../services/auth";
+import { Link } from "gatsby";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import MenuContext from "../MenuContext";
@@ -25,7 +24,7 @@ const HeaderStyles = styled.header`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  max-width: var(--maxContainer);
+  max-width: 1580px;
 
   @media (min-width: 768px) {
     height: 80px;
@@ -51,18 +50,10 @@ const Header = ({ children }) => {
   // Access state globally using context
   const [isOpen] = useContext(MenuContext);
 
-  let greetingMessage = "";
-  if (isLoggedIn()) {
-    greetingMessage = `Hello ${getUser().name}`;
-  } else {
-    greetingMessage = "You are not logged in";
-  }
-
   return (
     <>
       <HeaderStyles>
         <Logo />
-        <span>{greetingMessage}</span>
         <HeaderIcon>
           <motion.a
             href="https://github.com/bagseye"
