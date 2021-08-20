@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import styled from "styled-components";
+import SEO from "../components/SEO";
 import Development from "../components/Development";
 import { SplitContainerStyles } from "../styles/GlobalStyles";
 import GeneralContent from "../components/GeneralContent/GeneralContent";
@@ -38,6 +39,7 @@ const agencyPage = ({ data }) => {
 
   return (
     <>
+      <SEO title="Agency Projects" noIndex />
       <div className="container__body">
         <GeneralContent title="Agency Projects" />
       </div>

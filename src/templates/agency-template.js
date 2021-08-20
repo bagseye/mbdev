@@ -44,7 +44,7 @@ const agencyTemplate = ({ data }) => {
 
   return (
     <>
-      <SEO title={name} description={excerpt} />
+      <SEO title={name} description={excerpt} noIndex />
       <>
         <div className="container__body">
           <GeneralContent title={name} />
