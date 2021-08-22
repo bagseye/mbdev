@@ -9,23 +9,31 @@ export const GeneralContentStyles = styled.section`
 
     @media (min-width: 600px) {
       display: flex;
+      gap: var(--gridGap);
     }
   }
 
   .col {
     &:nth-of-type(1) {
-      padding-right: var(--gridGap);
-
       @media (min-width: 600px) {
-        width: 45%;
+        width: 50%;
         flex-grow: 1;
-        max-width: 55%;
+        max-width: 50%;
+      }
+
+      @media (min-width: 1080px) {
+        width: 30%;
+        max-width: 30%;
       }
     }
 
     &:nth-of-type(2) {
       @media (min-width: 600px) {
-        width: 55%;
+        width: 50%;
+      }
+
+      @media (min-width: 1080px) {
+        width: 70%;
       }
     }
   }
