@@ -2,11 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import {
-  mainLinks as menuItems,
-  serviceLinks,
-  freelanceLinks,
-} from "../../constants/links";
+import { mainLinks as menuItems, serviceLinks } from "../../constants/links";
 import MenuContext from "../MenuContext";
 
 const menuVariants = {
@@ -71,6 +67,10 @@ const SideMenuStyles = styled(motion.div)`
       box-sizing: border-box;
       border-left: 2px solid rgba(255, 255, 255, 0.1);
       padding: 0 var(--gridGap);
+
+      @media (prefers-color-scheme: dark) {
+        border-left-color: rgba(0, 0, 0, 0.1);
+      }
     }
   }
 
@@ -79,7 +79,7 @@ const SideMenuStyles = styled(motion.div)`
     font-size: var(--h2);
     list-style: none;
     color: var(--background);
-    letter-spacing: var(--h2LetterSpacing);
+    letter-spacing: -0.05rem;
     padding-top: 20px;
     line-height: var(--h2LineHeight);
     text-decoration: none;
@@ -89,8 +89,6 @@ const SideMenuStyles = styled(motion.div)`
 
     @media (min-width: 768px) {
       font-size: var(--h2);
-      /* letter-spacing: var(--titleLargeLetterSpacing); */
-      /* line-height: var(--titleLargeLineHeight); */
 
       &:first-child {
         padding-top: 0;
@@ -124,28 +122,15 @@ const SideMenu = () => {
               <Link to={item.path}>{item.text}</Link>
             </li>
           ))}
-          <li>
-            <Link to="/dashboard/profile">Profile</Link>
-          </li>
         </motion.ul>
 
         <motion.ul variants={listVariants} animate={isOpen ? "open" : "closed"}>
-          {/* {freelanceLinks.map((item, index) => ( */}
-          <li onClick={toggleNav}>
-            <Link to="/agency">Agency projects</Link>
-          </li>
-          {/* ))} */}
           {menuItems.map((item, index) => (
             <li onClick={toggleNav} key={index}>
               <Link to={item.path}>{item.text}</Link>
             </li>
           ))}
         </motion.ul>
-
-        {/* <motion.ul
-          variants={listVariants}
-          animate={isOpen ? "open" : "closed"}
-        ></motion.ul> */}
       </div>
     </SideMenuStyles>
   );

@@ -1,11 +1,11 @@
 export const mainLinks = [
   {
-    path: "/request-quote",
-    text: "request a quote",
+    path: "/about",
+    text: "developer profile",
   },
   {
-    path: "/about",
-    text: "about",
+    path: "/request-quote",
+    text: "request a quote",
   },
   {
     path: "/contact",
@@ -15,16 +15,20 @@ export const mainLinks = [
 
 export const serviceLinks = [
   {
+    path: "/projects",
+    text: "recent projects",
+  },
+  {
+    path: "/agency",
+    text: "agency projects",
+  },
+  {
     path: "/services/web-design",
-    text: "development",
+    text: "development services",
   },
   {
     path: "/services/brand-consultancy",
     text: "brand consultancy",
-  },
-  {
-    path: "/projects",
-    text: "recent projects",
   },
 ];
 

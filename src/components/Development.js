@@ -17,13 +17,17 @@ const DevelopmentContainer = styled.section`
 
   .link__arrow {
     margin-top: auto;
+
+    @media (prefers-color-scheme: dark) {
+      color: #fff;
+    }
   }
 
   h2 {
     font-size: var(--h2);
     line-height: var(--h2LineHeight);
     margin-top: 0;
-    letter-spacing: var(--h2LetterSpacing);
+    letter-spacing: -0.05rem;
 
     .arrow {
       font-size: 16px;

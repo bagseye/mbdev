@@ -19,6 +19,11 @@ export const ContactFormStyles = styled.div`
     font-size: var(--leadIn);
     padding: 10px var(--gridGap);
     font-family: var(--serif);
+
+    @media (prefers-color-scheme: dark) {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
   }
 
   textarea {
@@ -30,6 +35,11 @@ export const ContactFormStyles = styled.div`
     font-family: var(--serif);
     border: 1px solid rgba(0, 0, 0, 0.35);
     border-radius: 3px;
+
+    @media (prefers-color-scheme: dark) {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
   }
 
   .area {
