@@ -5,6 +5,7 @@ import SEO from "../components/SEO";
 import Gallery from "../components/Gallery";
 import CallToAction from "../components/CallToAction/CallToAction";
 import GeneralContent from "../components/GeneralContent/GeneralContent";
+import Layout from "../components/Layout";
 
 const ViewWebsite = styled.div`
   padding: 0 var(--gridGap);
@@ -45,7 +46,7 @@ const projectTemplate = ({ data }) => {
   return (
     <>
       <SEO title={name} description={excerpt} />
-      <>
+      <Layout>
         <div className="container__body">
           <GeneralContent title={name} />
           <Gallery mainImage={mainImage} />
@@ -64,7 +65,7 @@ const projectTemplate = ({ data }) => {
             subMessage="Get in touch and request a quote for your next project"
           />
         </div>
-      </>
+      </Layout>
     </>
   );
 };

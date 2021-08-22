@@ -2,11 +2,12 @@ import React from "react";
 import SEO from "../components/SEO";
 import QuoteForm from "../components/Quote/Quote";
 import { GeneralContentStyles } from "../components/GeneralContent/GeneralContentStyles";
+import Layout from "../components/Layout";
 
 const Contact = () => (
   <>
     <SEO title="Request a quote" />
-    <>
+    <Layout>
       <div className="container__body">
         <GeneralContentStyles>
           <div className="container">
@@ -19,7 +20,7 @@ const Contact = () => (
           </div>
         </GeneralContentStyles>
       </div>
-    </>
+    </Layout>
   </>
 );
 

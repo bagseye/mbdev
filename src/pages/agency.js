@@ -5,6 +5,7 @@ import SEO from "../components/SEO";
 import Development from "../components/Development";
 import { SplitContainerStyles } from "../styles/GlobalStyles";
 import GeneralContent from "../components/GeneralContent/GeneralContent";
+import Layout from "../components/Layout";
 
 const ExtendedSplitContainerStyles = styled(SplitContainerStyles)`
   display: flex;
@@ -40,16 +41,18 @@ const agencyPage = ({ data }) => {
   return (
     <>
       <SEO title="Agency Projects" noIndex />
-      <div className="container__body">
-        <GeneralContent title="Agency Projects" />
-      </div>
-      <ExtendedSplitContainerStyles>
-        {developmentData.map(({ node }) =>
-          node.slug ? (
-            <Development key={node.name} noPrefix project={node} />
-          ) : null
-        )}
-      </ExtendedSplitContainerStyles>
+      <Layout>
+        <div className="container__body">
+          <GeneralContent title="Agency Projects" />
+        </div>
+        <ExtendedSplitContainerStyles>
+          {developmentData.map(({ node }) =>
+            node.slug ? (
+              <Development key={node.name} noPrefix project={node} />
+            ) : null
+          )}
+        </ExtendedSplitContainerStyles>
+      </Layout>
     </>
   );
 };

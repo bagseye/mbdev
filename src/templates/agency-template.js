@@ -5,6 +5,7 @@ import SEO from "../components/SEO";
 import Gallery from "../components/Gallery";
 
 import GeneralContent from "../components/GeneralContent/GeneralContent";
+import Layout from "../components/Layout";
 
 const ViewWebsite = styled.div`
   padding: 0 var(--gridGap);
@@ -45,7 +46,7 @@ const agencyTemplate = ({ data }) => {
   return (
     <>
       <SEO title={name} description={excerpt} noIndex />
-      <>
+      <Layout>
         <div className="container__body">
           <GeneralContent title={name} />
           <Gallery mainImage={mainImage} />
@@ -60,7 +61,7 @@ const agencyTemplate = ({ data }) => {
             </Link>
           </ViewWebsite>
         </div>
-      </>
+      </Layout>
     </>
   );
 };

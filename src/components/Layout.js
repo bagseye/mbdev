@@ -1,5 +1,6 @@
 import React from "react";
 import { GlobalStyles } from "../styles/GlobalStyles";
+import { motion } from "framer-motion";
 import Header from "./Header/Header";
 import MenuButton from "./Header/MenuButton";
 import Footer from "./Footer/Footer";
@@ -12,14 +13,21 @@ const Layout = (props) => {
   return (
     <>
       <GlobalStyles />
-      <Header>
-        <MenuButton />
-      </Header>
-      <div id="main">
-        {props.children}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <Header>
+          <MenuButton />
+        </Header>
+        <div id="main">
+          {props.children}
 
-        <Footer />
-      </div>
+          <Footer />
+        </div>
+      </motion.div>
     </>
   );
 };

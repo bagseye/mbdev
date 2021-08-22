@@ -5,11 +5,12 @@ import { GeneralContentStyles } from "../components/GeneralContent/GeneralConten
 import FeatureDevs from "../components/FeatureDevelopments";
 import FullWidthImage from "../components/FullWidthImage/FullWidthImage";
 import CallToAction from "../components/CallToAction/CallToAction";
+import Layout from "../components/Layout";
 
 const Index = () => (
   <>
     <SEO title="Home" />
-    <>
+    <Layout>
       <div className="container__body">
         <Banner />
         <FullWidthImage />
@@ -44,7 +45,7 @@ const Index = () => (
           subMessage="Get in touch and request a quote for your next project"
         />
       </div>
-    </>
+    </Layout>
   </>
 );
 

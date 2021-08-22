@@ -1,11 +1,12 @@
 import React from "react";
 import SEO from "../components/SEO";
 import { GeneralContentStyles } from "../components/GeneralContent/GeneralContentStyles";
+import Layout from "../components/Layout";
 
 const privacyPage = () => (
   <>
     <SEO title="Privacy & Your Data" />
-    <>
+    <Layout>
       <div className="container__body">
         <GeneralContentStyles>
           <div className="container">
@@ -26,7 +27,7 @@ const privacyPage = () => (
           </div>
         </GeneralContentStyles>
       </div>
-    </>
+    </Layout>
   </>
 );
 
