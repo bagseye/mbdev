@@ -34,14 +34,14 @@ const Layout = (props) => {
           cookieName="morganBakerDevCookie"
           expires={150}
           style={{
-            background: "var(--primary)",
+            background: "#1c1b1b",
             padding: "calc(var(--gridGap) / 2)",
             fontSize: "1rem",
             boxShadow: "0px -5px 15px 1px rgba(0,0,0,0.45)",
           }}
           buttonStyle={{
             padding: "15px 20px",
-            color: "var(--primary)",
+            color: "#1c1b1b",
             backgroundColor: "#fff",
             fontSize: "1rem",
           }}
