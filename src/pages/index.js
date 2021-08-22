@@ -17,6 +17,9 @@ const Index = () => (
         <GeneralContentStyles>
           <div className="container">
             <div className="col">
+              <h2>A short introduction</h2>
+            </div>
+            <div className="col">
               <p>
                 When I started in web development my initial thought was that
                 great design came from animations and complex layouts. Over time

@@ -2,6 +2,7 @@ import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
     :root {
+      font-size: 18px;
         --background: #fff;
         --primary: #1c1b1b;
         --secondary: #6f6f6f;
@@ -72,7 +73,7 @@ export const GlobalStyles = createGlobalStyle`
       -moz-osx-font-smoothing: grayscale;
       background: var(--background);
       color: var(--primary);
-      font-size: 16px;
+      /* font-size: 16px; */
       min-height: 100vh;
     }
 
@@ -350,5 +351,26 @@ export const GalleryItem = styled.div`
     width: 100%;
     margin-top: calc(var(--gridGap) * 2);
     margin-bottom: calc(var(--gridGap) * 2);
+
+    > div {
+      padding-top: 0 !important;
+    }
+
+    &:before {
+      display: block;
+      content: "";
+      width: 100%;
+      padding-top: calc((3 / 4) * 100%);
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
 `;
