@@ -1,8 +1,8 @@
 import React from "react";
 import SEO from "../components/SEO";
-import Layout from "../components/Layout";
 import { GeneralContentStyles } from "../components/GeneralContent/GeneralContentStyles";
 import CallToAction from "../components/CallToAction/CallToAction";
+import Layout from "../components/Layout";
 
 const aboutPage = () => (
   <>

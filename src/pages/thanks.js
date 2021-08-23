@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
-import Layout from "../components/Layout";
 import Banner from "../components/Banner/Banner";
 import { VscArrowLeft as Arrow } from "react-icons/vsc";
+import Layout from "../components/Layout";
 
 const BodyContainer = styled.div`
   padding: 0 var(--gridGap);

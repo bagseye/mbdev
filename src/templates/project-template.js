@@ -2,10 +2,10 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import styled from "styled-components";
 import SEO from "../components/SEO";
-import Layout from "../components/Layout";
 import Gallery from "../components/Gallery";
 import CallToAction from "../components/CallToAction/CallToAction";
 import GeneralContent from "../components/GeneralContent/GeneralContent";
+import Layout from "../components/Layout";
 
 const ViewWebsite = styled.div`
   padding: 0 var(--gridGap);

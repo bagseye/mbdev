@@ -1,10 +1,10 @@
 import React from "react";
 import { graphql } from "gatsby";
 import SEO from "../components/SEO";
-import Layout from "../components/Layout";
 import GeneralContent from "../components/GeneralContent/GeneralContent";
 import CallToAction from "../components/CallToAction/CallToAction";
 import Gallery from "../components/Gallery";
+import Layout from "../components/Layout";
 
 const options = {
   // Pass in the node and dril down to the required data

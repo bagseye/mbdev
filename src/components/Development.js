@@ -17,13 +17,17 @@ const DevelopmentContainer = styled.section`
 
   .link__arrow {
     margin-top: auto;
+
+    @media (prefers-color-scheme: dark) {
+      color: #fff;
+    }
   }
 
   h2 {
     font-size: var(--h2);
     line-height: var(--h2LineHeight);
     margin-top: 0;
-    letter-spacing: var(--h2LetterSpacing);
+    letter-spacing: -0.05rem;
 
     .arrow {
       font-size: 16px;
@@ -33,6 +37,27 @@ const DevelopmentContainer = styled.section`
 
   .project__img {
     margin-bottom: var(--gridGap);
+
+    > div {
+      padding-top: 0 !important;
+    }
+
+    &:before {
+      display: block;
+      content: "";
+      width: 100%;
+      padding-top: calc((3 / 4) * 100%);
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
 `;
 

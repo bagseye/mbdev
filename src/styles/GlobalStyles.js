@@ -2,6 +2,7 @@ import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
     :root {
+      font-size: 16px;
         --background: #fff;
         --primary: #1c1b1b;
         --secondary: #6f6f6f;
@@ -11,7 +12,7 @@ export const GlobalStyles = createGlobalStyle`
         --titleLargeLetterSpacing: -2px;
         --h2: 1.3rem;
         --h2LineHeight: 1.25;
-        --h2LetterSpacing: -0.5px;
+        --h2LetterSpacing: -0.15rem;
         --paragraph: 1rem;
         --leadIn: 1.15rem;
         --btn: 1rem;
@@ -37,7 +38,6 @@ export const GlobalStyles = createGlobalStyle`
         @media(min-width:768px) {
             --titleLarge: 2.3rem;
             --h2: 1.4rem;
-            --h2LetterSpacing: -1px;
         }
 
         @media(min-width: 834px) {
@@ -58,8 +58,15 @@ export const GlobalStyles = createGlobalStyle`
           --leadIn: 1.3rem;
           --paragraph: 1.15rem;
         }
+
+        @media(prefers-color-scheme: dark) {
+          --background: #1c1b1b;
+          --primary: #fff;
+        }
+
     }
 
+    
     * {
       box-sizing: border-box;
     } 
@@ -72,7 +79,7 @@ export const GlobalStyles = createGlobalStyle`
       -moz-osx-font-smoothing: grayscale;
       background: var(--background);
       color: var(--primary);
-      font-size: 16px;
+      /* font-size: 16px; */
       min-height: 100vh;
     }
 
@@ -135,6 +142,10 @@ export const GlobalStyles = createGlobalStyle`
       text-decoration-color: rgba(255, 255, 255, 0.35);
       transition: text-decoration-color 0.75s ease;
 
+      @media (prefers-color-scheme: dark) {
+        color: #fff;
+      }
+
       &:hover {
         text-decoration-color: rgba(255, 255, 255, 1);
       }
@@ -162,6 +173,10 @@ export const GlobalStyles = createGlobalStyle`
         .arrow__left { 
           color: #808080;
           font-size: 22px;
+
+          @media (prefers-color-scheme: dark) {
+            color: #fff;
+          }
         }
 
         .arrow {
@@ -179,11 +194,6 @@ export const GlobalStyles = createGlobalStyle`
 
           .arrow {
             margin-left: 20px;
-          }
-
-          .arrow,
-          .arrow__left {
-            color: #df0000;
           }
 
           .arrow__left {
@@ -206,6 +216,10 @@ export const GlobalStyles = createGlobalStyle`
       text-decoration: none;
       transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 
+      @media (prefers-color-scheme: dark) {
+        color: var(--background);
+      }
+
       &:hover,
       &:focus {
         background-color: var(--secondary);
@@ -221,6 +235,8 @@ export const GlobalStyles = createGlobalStyle`
       &__inverse {
         color: var(--primary);
 
+        
+
         &:hover {
           border-color: var(--highlight);
           color: var(--highlight);
@@ -231,6 +247,10 @@ export const GlobalStyles = createGlobalStyle`
         background-color: #fff;
         border-color: #fff;
         color: var(--primary);
+
+        @media (prefers-color-scheme: dark) {
+          color: var(--background);
+        }
 
         &:hover {
           background-color: transparent;
@@ -277,45 +297,6 @@ export const GlobalStyles = createGlobalStyle`
       padding: var(--paddingLarge) var(--paddingBorder);
     }
 
-    .quote__request {
-      position: fixed;
-      right: 0;
-      bottom: 0;
-      width: 40px;
-      height: 200px;
-      background-color: #1565c0;
-      color: #fff;
-      border-top-left-radius: 3px;
-      border-bottom-left-radius: 3px;
-      z-index: 100;
-      transition: background-color 0.3s ease;
-      box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.25);
-      text-transform: uppercase;
-
-      &:hover,
-      &:focus {
-        background-color: #2962ff;
-      }
-
-      @media(min-width: 768px) {
-        bottom: 50%;
-      }
-      
-
-      span {
-        position: absolute;
-        transform: rotate(90deg);
-        top: 80px;
-        right: -80px;
-        z-index: 2;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 200px;
-        height: 40px;
-      }
-    }
-
     .standard__images {
       width: 100%;
       display: flex;
@@ -350,5 +331,26 @@ export const GalleryItem = styled.div`
     width: 100%;
     margin-top: calc(var(--gridGap) * 2);
     margin-bottom: calc(var(--gridGap) * 2);
+
+    > div {
+      padding-top: 0 !important;
+    }
+
+    &:before {
+      display: block;
+      content: "";
+      width: 100%;
+      padding-top: calc((3 / 4) * 100%);
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
 `;

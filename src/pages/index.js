@@ -1,13 +1,11 @@
 import React from "react";
 import SEO from "../components/SEO";
-import Layout from "../components/Layout";
 import Banner from "../components/Banner/Banner";
 import { GeneralContentStyles } from "../components/GeneralContent/GeneralContentStyles";
 import FeatureDevs from "../components/FeatureDevelopments";
 import FullWidthImage from "../components/FullWidthImage/FullWidthImage";
-import { SplitContainerStyles } from "../styles/GlobalStyles";
-import ContactMethods from "../components/ContactMethods";
 import CallToAction from "../components/CallToAction/CallToAction";
+import Layout from "../components/Layout";
 
 const Index = () => (
   <>
@@ -18,6 +16,9 @@ const Index = () => (
         <FullWidthImage />
         <GeneralContentStyles>
           <div className="container">
+            <div className="col">
+              <h2>A short introduction</h2>
+            </div>
             <div className="col">
               <p>
                 When I started in web development my initial thought was that
@@ -42,11 +43,6 @@ const Index = () => (
           </div>
         </GeneralContentStyles>
         <FeatureDevs />
-        {/* <SplitContainerStyles>
-          <div className="container-grid">
-            <ContactMethods />
-          </div>
-        </SplitContainerStyles> */}
         <CallToAction
           message="Looking to start a project?"
           subMessage="Get in touch and request a quote for your next project"

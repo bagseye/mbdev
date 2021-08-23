@@ -54,9 +54,9 @@ const Banner = ({ heading }) => (
         ) : (
           <>
             <h1>
-              I'm a <span>web developer from Inverness</span> who believes
-              design should be <span>purposeful</span>, <span>accessible</span>,
-              and <span>long-lasting</span>
+              I'm a <span>front-end developer from Inverness</span> working with
+              <span>Wordpress</span>, <span>React</span>, and{" "}
+              <span>GatsbyJS</span> on full-time and personal applications
             </h1>
             {/* <h2>
               Web design should not be complicated. It is about giving your user

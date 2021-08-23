@@ -1,10 +1,10 @@
 import React from "react";
 import { graphql } from "gatsby";
 import styled from "styled-components";
-import Layout from "../components/Layout";
 import Development from "../components/Development";
 import { SplitContainerStyles } from "../styles/GlobalStyles";
 import GeneralContent from "../components/GeneralContent/GeneralContent";
+import Layout from "../components/Layout";
 
 const ExtendedSplitContainerStyles = styled(SplitContainerStyles)`
   display: flex;

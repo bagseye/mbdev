@@ -1,8 +1,8 @@
 import React from "react";
 import SEO from "../components/SEO";
-import Layout from "../components/Layout";
 import QuoteForm from "../components/Quote/Quote";
 import { GeneralContentStyles } from "../components/GeneralContent/GeneralContentStyles";
+import Layout from "../components/Layout";
 
 const Contact = () => (
   <>
