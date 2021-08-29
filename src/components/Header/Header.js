@@ -54,7 +54,7 @@ const iconVariants = {
 
 const Header = ({ children }) => {
   // Access state globally using context
-  const [isOpen] = useContext(MenuContext);
+  const { isOpen } = useContext(MenuContext);
 
   return (
     <>
