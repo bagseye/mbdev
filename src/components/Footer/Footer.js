@@ -25,6 +25,9 @@ const Footer = () => {
                 <Link to={item.path}>{item.text}</Link>
               </li>
             ))}
+            <li>
+              <Link to="/dashboard">For Employers</Link>
+            </li>
           </ul>
         </div>
         <div className="col">

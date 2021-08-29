@@ -122,6 +122,9 @@ const SideMenu = () => {
               <Link to={item.path}>{item.text}</Link>
             </li>
           ))}
+          <li onClick={toggleNav}>
+            <Link to="/dashboard">For Employers</Link>
+          </li>
         </motion.ul>
 
         <motion.ul variants={listVariants} animate={isOpen ? "open" : "closed"}>
