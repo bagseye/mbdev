@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
+const defaultState = {
+  isOpen: false,
+};
 // Create the menu context
-const MenuContext = React.createContext();
+
+const MenuContext = React.createContext(defaultState);
 
 export function MenuProvider({ children }) {
   // Place state in here
