@@ -1,9 +1,7 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
 import styled from "styled-components";
 import SEO from "../components/SEO";
 import Gallery from "../components/Gallery";
-
 import GeneralContent from "../components/GeneralContent/GeneralContent";
 import Layout from "../components/Layout";
 
@@ -15,7 +13,7 @@ const ViewWebsite = styled.div`
   justify-content: center;
 `;
 
-const agencyTemplate = ({ data }) => {
+const Agency = ({ data }) => {
   const {
     name,
     excerpt,
@@ -24,22 +22,7 @@ const agencyTemplate = ({ data }) => {
     images,
     technology,
     website,
-  } = data.agency;
-
-  const options = {
-    // Pass in the node and dril down to the required data
-    // renderNode: {
-    //   // Render the contentful rich content image
-    //   "embedded-asset-block": (node) => (
-    //     <div className="content-image">
-    //       <img
-    //         src={node.data.target.fields.file["en-US"].url}
-    //         alt={node.data.target.fields.title["en-US"]}
-    //       />
-    //     </div>
-    //   ),
-    // },
-  };
+  } = data;
 
   const [mainImage, ...projectImages] = images;
 
@@ -56,9 +39,9 @@ const agencyTemplate = ({ data }) => {
             <Gallery projectImages={projectImages} />
           </div>
           <ViewWebsite>
-            <Link className="btn" to={website}>
+            <a className="btn" href={website} target="_blank">
               View the website
-            </Link>
+            </a>
           </ViewWebsite>
         </div>
       </Layout>
@@ -66,26 +49,4 @@ const agencyTemplate = ({ data }) => {
   );
 };
 
-export const query = graphql`
-  query ($slug: String!) {
-    agency: contentfulAgency(slug: { eq: $slug }) {
-      name
-      excerpt
-      technology
-      website
-      images {
-        description
-        gatsbyImageData(
-          layout: FULL_WIDTH
-          placeholder: TRACED_SVG
-          formats: [AUTO, WEBP]
-          quality: 90
-        )
-      }
-      richDescription {
-        raw
-      }
-    }
-  }
-`;
-export default agencyTemplate;
+export default Agency;

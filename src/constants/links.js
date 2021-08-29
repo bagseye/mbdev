@@ -19,10 +19,6 @@ export const serviceLinks = [
     text: "recent projects",
   },
   {
-    path: "/agency",
-    text: "agency projects",
-  },
-  {
     path: "/services/web-design",
     text: "development services",
   },

@@ -3,11 +3,17 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import MenuContext from "../MenuContext";
-import { VscGithub as GitIcon } from "react-icons/vsc";
+import {
+  VscAccount as ProfileIcon,
+  VscGithub as GitIcon,
+} from "react-icons/vsc";
 import { BsEnvelope as MailIcon } from "react-icons/bs";
+import { IoExitOutline as ExitIcon } from "react-icons/io5";
+
 import Logo from "./Logo";
 import SideMenu from "./SideMenu";
 import { HeaderIcon } from "../../styles/IconStyles";
+import { logout, isAuthenticated } from "../../utils/auth";
 
 const HeaderStyles = styled.header`
   padding: 0 var(--gridGap);
@@ -54,6 +60,35 @@ const Header = ({ children }) => {
     <>
       <HeaderStyles>
         <Logo />
+        {isAuthenticated() ? (
+          <>
+            <HeaderIcon>
+              <motion.a
+                variants={iconVariants}
+                animate={isOpen ? "open" : "closed"}
+                href="#logout"
+                onClick={(e) => {
+                  logout();
+                  e.preventDefault();
+                }}
+              >
+                <span className="sr-only">Log Out</span>
+                <ExitIcon style={{ transform: "rotate(180deg)" }} />
+              </motion.a>
+            </HeaderIcon>
+          </>
+        ) : null}
+        <HeaderIcon>
+          <Link to="/dashboard">
+            <motion.span
+              variants={iconVariants}
+              animate={isOpen ? "open" : "closed"}
+            >
+              <span className="sr-only">Dashboard</span>
+              <ProfileIcon />
+            </motion.span>
+          </Link>
+        </HeaderIcon>
         <HeaderIcon>
           <motion.a
             href="https://github.com/bagseye"
