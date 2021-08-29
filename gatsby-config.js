@@ -28,7 +28,7 @@ module.exports = {
 
       options: {
         createLinkInHead: true,
-        exclude: [`/agency/**`, `/agency`],
+        excludes: [`/agency/**`, `/agency`],
       },
     },
     {
