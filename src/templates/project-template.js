@@ -6,6 +6,7 @@ import Gallery from "../components/Gallery";
 import CallToAction from "../components/CallToAction/CallToAction";
 import GeneralContent from "../components/GeneralContent/GeneralContent";
 import Layout from "../components/Layout";
+import { StaticImage } from "gatsby-plugin-image";
 
 const ViewWebsite = styled.div`
   padding: 0 var(--gridGap);
@@ -63,7 +64,16 @@ const projectTemplate = ({ data }) => {
           <CallToAction
             message="Looking to start a project?"
             subMessage="Get in touch and request a quote for your next project"
-          />
+            orientation="left"
+          >
+            <StaticImage
+              className="cta__img"
+              objectFit="cover"
+              src="../images/apple-products.jpg"
+              alt="Apple Products"
+              placeholder="blurred"
+            />
+          </CallToAction>
         </div>
       </Layout>
     </>

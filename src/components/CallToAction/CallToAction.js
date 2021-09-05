@@ -1,27 +1,28 @@
 import React from "react";
 import { Link } from "gatsby";
 import { CallToActionStyles } from "./CallToActionStyles";
-import { StaticImage } from "gatsby-plugin-image";
 
-const CallToAction = ({ message, subMessage }) => {
+const CallToAction = ({
+  children,
+  message,
+  subMessage,
+  link,
+  linkText,
+  orientation,
+  noImage,
+}) => {
   return (
-    <CallToActionStyles>
-      <div className="container">
+    <CallToActionStyles noImage={noImage} orientation={orientation}>
+      <div className={`container align__${orientation ? orientation : "left"}`}>
         <div className="col">
           <h2>{message}</h2>
           <p>{subMessage}</p>
-          <Link className="btn btn__white" to="/request-quote">
-            Get a quote
+          <Link className="btn btn__white" to={link ? link : "/request-quote"}>
+            {linkText ? linkText : "Get a Quote"}
           </Link>
         </div>
       </div>
-      <StaticImage
-        className="cta__img"
-        objectFit="cover"
-        src="../../images/macbook-black-desk.jpg"
-        alt="Macbook on a black desk"
-        placeholder="blurred"
-      />
+      {!noImage ? children : null}
     </CallToActionStyles>
   );
 };

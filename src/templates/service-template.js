@@ -5,6 +5,7 @@ import GeneralContent from "../components/GeneralContent/GeneralContent";
 import CallToAction from "../components/CallToAction/CallToAction";
 import Gallery from "../components/Gallery";
 import Layout from "../components/Layout";
+import { StaticImage } from "gatsby-plugin-image";
 
 const options = {
   // Pass in the node and dril down to the required data
@@ -36,7 +37,16 @@ const serviceTemplate = ({ data }) => {
           <CallToAction
             message="Looking to start a project?"
             subMessage="Get in touch and request a quote for your next project"
-          />
+            orienation="left"
+          >
+            <StaticImage
+              className="cta__img"
+              objectFit="cover"
+              src="../images/macbook-keyboard.jpg"
+              alt="Macbook Keyboard closeup"
+              placeholder="blurred"
+            />
+          </CallToAction>
         </div>
       </Layout>
     </>

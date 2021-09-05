@@ -3,6 +3,7 @@ import SEO from "../components/SEO";
 import { GeneralContentStyles } from "../components/GeneralContent/GeneralContentStyles";
 import CallToAction from "../components/CallToAction/CallToAction";
 import Layout from "../components/Layout";
+import { StaticImage } from "gatsby-plugin-image";
 
 const aboutPage = () => (
   <>
@@ -37,7 +38,16 @@ const aboutPage = () => (
         <CallToAction
           message="Looking to start a project?"
           subMessage="Get in touch and request a quote for your next project"
-        />
+          orientation="left"
+        >
+          <StaticImage
+            className="cta__img"
+            objectFit="cover"
+            src="../images/macbook-keyboard.jpg"
+            alt="Macbook Keyboard closeup"
+            placeholder="blurred"
+          />
+        </CallToAction>
       </div>
     </Layout>
   </>

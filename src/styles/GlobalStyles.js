@@ -139,7 +139,7 @@ export const GlobalStyles = createGlobalStyle`
       color: var(--secondary);
       font-weight: 400;
       text-underline-position: under;
-      text-decoration-color: rgba(255, 255, 255, 0.35);
+      text-decoration-color: rgba(255, 255, 255, 0.15);
       transition: text-decoration-color 0.75s ease;
 
       @media (prefers-color-scheme: dark) {
@@ -147,7 +147,7 @@ export const GlobalStyles = createGlobalStyle`
       }
 
       &:hover {
-        text-decoration-color: rgba(255, 255, 255, 1);
+        text-decoration-color: rgba(142, 45, 226, 1);
       }
 
       &.link__std {

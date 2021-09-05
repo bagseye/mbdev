@@ -20,6 +20,26 @@ const credits = () => (
                 added the correct attribution, please contact me so I can
                 resolve the issue.
               </p>
+              <ul>
+                <li>
+                  <a
+                    href="https://unsplash.com/@currentspaces"
+                    rel="nofollow noreferrer"
+                    target="_blank"
+                  >
+                    Brandon Romanchuk
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://unsplash.com/@druks"
+                    rel="nofollow noreferrer"
+                    target="_blank"
+                  >
+                    Félix Besombes
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </GeneralContentStyles>
