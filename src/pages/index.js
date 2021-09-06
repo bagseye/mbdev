@@ -47,7 +47,7 @@ const Index = () => (
         <CallToAction
           message="Wordpress web development services"
           subMessage="With extensive knowledge and experience in Wordpress you can find all the reasons why you should consider it for your next project here."
-          link="/wordpress-development"
+          link="services/wordpress-development"
           linkText="Wordpress services"
           orientation="left"
         >
@@ -62,7 +62,7 @@ const Index = () => (
         <CallToAction
           message="GatbsyJs and Static-site developement"
           subMessage="Static sites offer some huge performance benefits. Your project may not require a content management system like Wordpress. Check out the reasons to use Gatsby for your next project here."
-          link="/gatbsy-development"
+          link="services/gatsby-development"
           linkText="Gatsby Development"
           orientation="right"
         >
