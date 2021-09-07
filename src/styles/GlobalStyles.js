@@ -3,8 +3,8 @@ import styled, { createGlobalStyle } from "styled-components";
 export const GlobalStyles = createGlobalStyle`
     :root {
       font-size: 16px;
-        --background: #fff;
-        --primary: #1c1b1b;
+        --background: #1c1b1b;
+        --primary: #fff;
         --secondary: #6f6f6f;
         --highlight: #808080;
         --titleLarge: 2rem;
@@ -58,12 +58,6 @@ export const GlobalStyles = createGlobalStyle`
           --leadIn: 1.3rem;
           --paragraph: 1.15rem;
         }
-
-        @media(prefers-color-scheme: dark) {
-          --background: #1c1b1b;
-          --primary: #fff;
-        }
-
     }
 
     
@@ -136,15 +130,11 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     a {
-      color: var(--secondary);
       font-weight: 400;
       text-underline-position: under;
       text-decoration-color: rgba(255, 255, 255, 0.15);
       transition: text-decoration-color 0.75s ease;
-
-      @media (prefers-color-scheme: dark) {
-        color: #fff;
-      }
+      color: #fff;
 
       &:hover {
         text-decoration-color: rgba(142, 45, 226, 1);
@@ -171,12 +161,8 @@ export const GlobalStyles = createGlobalStyle`
 
         .arrow,
         .arrow__left { 
-          color: #808080;
           font-size: 22px;
-
-          @media (prefers-color-scheme: dark) {
-            color: #fff;
-          }
+          color: #fff;
         }
 
         .arrow {
@@ -207,7 +193,6 @@ export const GlobalStyles = createGlobalStyle`
     a.btn,
     button.btn {
       cursor: pointer;
-      color: #fff;
       background-color: var(--primary);
       border: 2px solid var(--primary);
       font-size: var(--btn);
@@ -215,10 +200,7 @@ export const GlobalStyles = createGlobalStyle`
       display: inline-block;
       text-decoration: none;
       transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
-
-      @media (prefers-color-scheme: dark) {
-        color: var(--background);
-      }
+      color: var(--background);
 
       &:hover,
       &:focus {
@@ -246,11 +228,7 @@ export const GlobalStyles = createGlobalStyle`
       &__white {
         background-color: #fff;
         border-color: #fff;
-        color: var(--primary);
-
-        @media (prefers-color-scheme: dark) {
-          color: var(--background);
-        }
+        color: var(--background);
 
         &:hover {
           background-color: transparent;

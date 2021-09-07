@@ -67,10 +67,7 @@ const SideMenuStyles = styled(motion.div)`
       box-sizing: border-box;
       border-left: 2px solid rgba(255, 255, 255, 0.1);
       padding: 0 var(--gridGap);
-
-      @media (prefers-color-scheme: dark) {
-        border-left-color: rgba(0, 0, 0, 0.1);
-      }
+      border-left-color: rgba(0, 0, 0, 0.1);
     }
   }
 

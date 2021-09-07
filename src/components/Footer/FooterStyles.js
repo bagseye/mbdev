@@ -18,10 +18,8 @@ export const FooterStyles = styled.footer`
     .col__full {
       flex: 0 0 100%;
 
-      @media (prefers-color-scheme: dark) {
-        a {
-          color: #fff;
-        }
+      a {
+        color: #fff;
       }
     }
   }
@@ -33,19 +31,14 @@ export const FooterStyles = styled.footer`
     list-style: none;
     text-transform: capitalize;
     border-left: 1px solid rgba(0, 0, 0, 0.1);
-
-    @media (prefers-color-scheme: dark) {
-      border-left-color: rgba(255, 255, 255, 0.1);
-    }
+    border-left-color: rgba(255, 255, 255, 0.1);
 
     li {
       padding: 5px 0;
       font-size: 1.4rem;
 
-      @media (prefers-color-scheme: dark) {
-        a {
-          color: #fff;
-        }
+      a {
+        color: #fff;
       }
     }
   }

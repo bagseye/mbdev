@@ -16,10 +16,7 @@ const LogoCont = styled.div`
     font-weight: 500;
     text-decoration: none;
     transition: opacity 0.5s ease;
-
-    @media (prefers-color-scheme: dark) {
-      color: #fff;
-    }
+    color: #fff;
   }
 
   @media (min-width: 768px) {

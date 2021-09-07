@@ -17,10 +17,7 @@ const DevelopmentContainer = styled.section`
 
   .link__arrow {
     margin-top: auto;
-
-    @media (prefers-color-scheme: dark) {
-      color: #fff;
-    }
+    color: #fff;
   }
 
   h2 {
