@@ -54,9 +54,9 @@ const Banner = ({ heading }) => (
         ) : (
           <>
             <h1>
-              I'm a <span>front-end developer from Inverness</span> working with
-              <span>Wordpress</span>, <span>React</span>, and{" "}
-              <span>GatsbyJS</span> on full-time and personal applications
+              Bespoke web <span>design & development</span> in Inverness.
+              Creating <span>modern, user-friendly</span> experiences using{" "}
+              <span>Wordpress</span>.
             </h1>
             {/* <h2>
               Web design should not be complicated. It is about giving your user

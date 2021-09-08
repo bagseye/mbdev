@@ -13,6 +13,17 @@ export const FooterStyles = styled.footer`
     .col {
       flex-grow: 0;
       padding-right: var(--gridGap);
+
+      &__contact {
+        padding-left: var(--gridGap);
+        border-left: 1px solid rgba(0, 0, 0, 0.1);
+        border-left-color: rgba(255, 255, 255, 0.1);
+
+        @media (min-width: 1024px) {
+          margin-left: auto;
+          margin-right: 0;
+        }
+      }
     }
 
     .col__full {
@@ -41,5 +52,11 @@ export const FooterStyles = styled.footer`
         color: #fff;
       }
     }
+  }
+
+  address {
+    font-style: normal;
+    font-size: 1.4rem;
+    line-height: 1.4;
   }
 `;

@@ -7,6 +7,7 @@ import FullWidthImage from "../components/FullWidthImage/FullWidthImage";
 import CallToAction from "../components/CallToAction/CallToAction";
 import Layout from "../components/Layout";
 import { StaticImage } from "gatsby-plugin-image";
+import ContactMethods from "../components/ContactMethods";
 
 const Index = () => (
   <>
@@ -22,23 +23,25 @@ const Index = () => (
             </div>
             <div className="col">
               <p>
-                When I started in web development my initial thought was that
-                great design came from animations and complex layouts. Over time
-                my thoughts around this idea have changed. The approach to
-                design the people such as Dieter Rams have, that design is for
-                everyone, has become an idea that I have ultimately begun to
-                follow.
+                Great web design is about more than the look. It’s about
+                creating experiences your customer finds easy to use.
               </p>
               <p>
-                That is not to say that an accessible site lacks any form of
-                design. That is far from the truth. Great design comes from a
-                great user experience, not from flashy animations, and it is my
-                responsibility as a web developer to create inclusive
-                experiences.
+                By not only focussing on the visuals, but also the path users
+                are going to take during their visit you’ll have a website that
+                not only looks great but is fit for purpose.
               </p>
               <p>
-                Access to knowledge is vital for everyone in society, the web
-                and it's content should be freely available to all.
+                All sites include a content management system, such as
+                Wordpress, that gives you the tools needed to maintain and grow
+                your website content. You might compose regular blog content, or
+                have a rapidly-expanding business that needs steady content
+                changes, a CMS will enable this.
+              </p>
+              <p>
+                However, you may just be here for a look around, and that's cool
+                too. Just take a look at the recent projects for any inspiration
+                you might need.
               </p>
             </div>
           </div>
@@ -74,27 +77,7 @@ const Index = () => (
             placeholder="blurred"
           />
         </CallToAction>
-        <CallToAction
-          message="Are you an employer or a recruiter?"
-          subMessage="If you are an employer or a recruiter there is a dashboard area where you can get all the information you require. Find it here..."
-          link="/dashboard"
-          linkText="Dashboard Login"
-          orientation="center"
-          noImage={true}
-        />
-        <CallToAction
-          message="Looking to start a project?"
-          subMessage="Get in touch and request a quote for your next project"
-          orientation="left"
-        >
-          <StaticImage
-            className="cta__img"
-            objectFit="cover"
-            src="../images/macbook-black-desk.jpg"
-            alt="Macbook on a black desk"
-            placeholder="blurred"
-          />
-        </CallToAction>
+        <ContactMethods />
       </div>
     </Layout>
   </>

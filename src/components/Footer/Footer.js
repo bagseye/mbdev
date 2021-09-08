@@ -39,6 +39,15 @@ const Footer = () => {
             ))}
           </ul>
         </div>
+        <div className="col col__contact">
+          <address>
+            Morgan Baker Developer,
+            <br />
+            Inverness,
+            <br />
+            <a href="mailto:hello@morganbaker.dev">hello@morganbaker.dev</a>
+          </address>
+        </div>
         <div className="col__full">
           &copy; {new Date().getFullYear()} {siteMetadata.author} |{" "}
           <Link to="/privacy">Privacy & Your Data</Link> |{" "}
