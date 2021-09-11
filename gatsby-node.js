@@ -34,6 +34,13 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      journal: allContentfulStories {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
     }
   `);
   data.projects.edges.forEach(({ node }) => {
@@ -49,6 +56,15 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `services/${node.slug}`,
       component: path.resolve("src/templates/service-template.js"),
+      context: {
+        slug: node.slug,
+      },
+    });
+  });
+  data.journal.edges.forEach(({ node }) => {
+    createPage({
+      path: `journal/${node.slug}`,
+      component: path.resolve("src/templates/stories-template.js"),
       context: {
         slug: node.slug,
       },
