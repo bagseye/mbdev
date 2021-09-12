@@ -11,6 +11,19 @@ const StoryContent = styled.article`
   margin-left: auto;
   margin-right: auto;
   padding: var(--gridGap);
+
+  .meta {
+    margin-top: var(--gridGap);
+    margin-bottom: var(--gridGap);
+    padding-top: var(--gridGap);
+    padding-bottom: var(--gridGap);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    p {
+      margin: 0;
+    }
+  }
 `;
 
 const IframeContainer = styled.span`
@@ -31,7 +44,9 @@ const IframeContainer = styled.span`
 const StoriesTemplate = ({ data }) => {
   const {
     title,
+    createdAt,
     mainContent,
+    updatedAt,
     mainContent: { raw },
   } = data.story;
 
@@ -86,10 +101,14 @@ const StoriesTemplate = ({ data }) => {
 
   return (
     <>
-      <Seo />
+      <Seo title={title} description={title} />
       <Layout>
         <StoryContent>
           <h1>{title}</h1>
+          <div className="meta">
+            <p className="published">First published: {createdAt}</p>
+            {updatedAt && <p className="updated">Last update: {updatedAt}</p>}
+          </div>
           {renderRichText(mainContent, options)}
         </StoryContent>
       </Layout>
@@ -101,6 +120,8 @@ export const query = graphql`
   query ($slug: String!) {
     story: contentfulStories(slug: { eq: $slug }) {
       title
+      createdAt(formatString: "MMMM DD, YYYY")
+      updatedAt(formatString: "MMMM DD, YYYY")
       mainContent {
         raw
       }
