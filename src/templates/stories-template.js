@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../components/Layout";
 import Seo from "../components/SEO";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import { INLINES } from "@contentful/rich-text-types";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import styled from "styled-components";
@@ -23,6 +23,12 @@ const StoryContent = styled.article`
     p {
       margin: 0;
     }
+  }
+
+  .return {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: var(--gridGap);
+    padding: var(--gridGap) 0;
   }
 `;
 
@@ -50,6 +56,7 @@ const StoriesTemplate = ({ data }) => {
     mainContent: { raw },
   } = data.story;
 
+  console.log(data.story.mainContent);
   const options = {
     renderNode: {
       [INLINES.HYPERLINK]: (node) => {
@@ -110,6 +117,9 @@ const StoriesTemplate = ({ data }) => {
             {updatedAt && <p className="updated">Last update: {updatedAt}</p>}
           </div>
           {renderRichText(mainContent, options)}
+          <div className="return">
+            <Link to="/journal">Back to journal home</Link>
+          </div>
         </StoryContent>
       </Layout>
     </>
