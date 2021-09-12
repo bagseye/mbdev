@@ -4,6 +4,10 @@ export const mainLinks = [
     text: "developer profile",
   },
   {
+    path: "/journal",
+    text: "journal",
+  },
+  {
     path: "/request-quote",
     text: "request a quote",
   },
