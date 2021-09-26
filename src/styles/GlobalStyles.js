@@ -75,6 +75,7 @@ export const GlobalStyles = createGlobalStyle`
       color: var(--primary);
       /* font-size: 16px; */
       min-height: 100vh;
+      letter-spacing: -0.05em;
     }
 
     #main {

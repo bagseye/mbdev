@@ -13,8 +13,14 @@ const Container = styled(motion.button)`
   background-color: transparent;
   padding-left: 0;
   order: 2;
-  /* margin-left: var(--gridGap); */
   justify-content: flex-end;
+  flex: 0 0 30%;
+
+  @media (min-width: 1024px) {
+    flex-basis: auto;
+    order: 4;
+    margin-left: var(--gridGap);
+  }
 
   .burger {
     position: relative;

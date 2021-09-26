@@ -21,16 +21,15 @@ const HeaderStyles = styled.header`
   margin-right: auto;
   width: 100%;
   z-index: 20;
-  /* height: 60px; */
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-start;
   max-width: 1580px;
+  font-size: 13px;
 
-  > * {
-    flex: 0 0 50%;
-    font-size: 12px;
+  @media (min-width: 1024px) {
+    font-size: 16px;
   }
 
   &:after {
@@ -50,12 +49,26 @@ const HeaderStyles = styled.header`
 
   .email__link {
     order: 3;
-    /* margin-left: var(--gridGap); */
+    flex: 0 0 70%;
+    font-weight: 300;
+
+    @media (min-width: 1024px) {
+      order: 3;
+      flex-basis: auto;
+      margin-left: var(--gridGap);
+    }
   }
 
   .quote__link {
     order: 4;
     display: none;
+    font-weight: 300;
+
+    @media (min-width: 1024px) {
+      display: inline-flex;
+      order: 2;
+      flex: 0 0 auto;
+    }
   }
 `;
 

@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
+import { BsChevronDown as Scroller } from "react-icons/bs";
+import { motion } from "framer-motion";
 
 const BannerGridColumn = styled.section`
   grid-column: 1 / 7;
@@ -16,7 +18,9 @@ const BannerStyles = styled.div`
   margin: 0 auto;
   height: 100vh;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
 
   h1 {
     font-size: var(--titleLarge);
@@ -24,6 +28,14 @@ const BannerStyles = styled.div`
     margin: 0;
     letter-spacing: var(--titleLargeLetterSpacing);
     color: #fff;
+  }
+
+  .scroll__to {
+    position: absolute;
+    bottom: calc(var(--gridGap) * 2);
+    left: var(--gridGap);
+    font-size: 1rem;
+    font-weight: 300;
   }
 `;
 
@@ -46,7 +58,25 @@ const Banner = ({ heading }) => (
         )}
       </BannerGridColumn>
     </div>
-    <p>Scroll for recent projects</p>
+    <p className="scroll__to">
+      Scroll for recent projects{" "}
+      <motion.div
+        style={{
+          display: "inline-flex",
+          marginLeft: "10px",
+          fontSize: "20px",
+        }}
+        animate={{ translateY: [-15, 0, 15], opacity: [0, 1, 0] }}
+        transition={{
+          duration: 2,
+          ease: "easeInOut",
+          loop: Infinity,
+          repeatDelay: 0.25,
+        }}
+      >
+        <Scroller />
+      </motion.div>
+    </p>
   </BannerStyles>
 );
 export default Banner;

@@ -11,6 +11,12 @@ const LogoCont = styled.div`
   z-index: 5;
   margin-right: auto;
   order: 1;
+  flex: 1 0 65%;
+  letter-spacing: -0.05em;
+
+  @media (min-width: 1024px) {
+    flex: 0 0 auto;
+  }
 
   a {
     font-weight: 700;
