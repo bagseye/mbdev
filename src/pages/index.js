@@ -13,8 +13,8 @@ const Index = () => (
   <>
     <SEO title="Home" />
     <Layout>
+      <Banner />
       <div className="container__body">
-        <Banner />
         <FullWidthImage />
         <GeneralContentStyles>
           <div className="container">

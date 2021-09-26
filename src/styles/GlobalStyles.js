@@ -7,7 +7,7 @@ export const GlobalStyles = createGlobalStyle`
         --primary: #fff;
         --secondary: #6f6f6f;
         --highlight: #808080;
-        --titleLarge: 2rem;
+        --titleLarge: 1.75rem;
         --titleLargeLineHeight: 1.2;
         --titleLargeLetterSpacing: -2px;
         --h2: 1.3rem;
@@ -67,7 +67,7 @@ export const GlobalStyles = createGlobalStyle`
 
     body {
       overflow-x: hidden;
-      font-family: var(--serif);
+      font-family: var(--sansSerif);
       margin: 0;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -79,14 +79,13 @@ export const GlobalStyles = createGlobalStyle`
 
     #main {
       width: 100%;
-      padding-top: 80px;
+      /* padding-top: 80px; */
     }
 
 
     h1,
     h2 {
       font-weight: 700;
-      font-variation-settings: 'wght' 600;
 
       @media(min-width: 1200px) {
         margin-bottom: 1.5rem;
@@ -99,7 +98,7 @@ export const GlobalStyles = createGlobalStyle`
     h4,
     h5,
     h6 {
-      font-family: var(--serif);
+      font-family: var(--sansSerif);
     }
 
     p {
@@ -111,23 +110,21 @@ export const GlobalStyles = createGlobalStyle`
 
     p,
     button {
-      font-family: var(--serif);
+      font-family: var(--sansSerif);
     }
 
-    h1 {
+    /* h1 {
       margin-bottom: 1rem;
       font-size: var(--titleLarge);
-      font-weight: 500;
       color: var(--primary);
     }
 
     h2 {
       font-size: var(--h2);
       line-height: var(--h2LineHeight);
-      font-weight: 400;
       color: var(--secondary);
       letter-spacing: var(--h2LetterSpacing);
-    }
+    } */
 
     a {
       font-weight: 400;

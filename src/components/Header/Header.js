@@ -3,11 +3,6 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import MenuContext from "../MenuContext";
-import {
-  VscAccount as ProfileIcon,
-  VscGithub as GitIcon,
-} from "react-icons/vsc";
-import { BsEnvelope as MailIcon } from "react-icons/bs";
 import { IoExitOutline as ExitIcon } from "react-icons/io5";
 
 import Logo from "./Logo";
@@ -16,7 +11,7 @@ import { HeaderIcon } from "../../styles/IconStyles";
 import { logout, isAuthenticated } from "../../utils/auth";
 
 const HeaderStyles = styled.header`
-  padding: 0 var(--gridGap);
+  padding: 10px var(--gridGap);
   z-index: 100;
   position: fixed;
   top: 0;
@@ -26,14 +21,41 @@ const HeaderStyles = styled.header`
   margin-right: auto;
   width: 100%;
   z-index: 20;
-  height: 60px;
+  /* height: 60px; */
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   max-width: 1580px;
+
+  > * {
+    flex: 0 0 50%;
+    font-size: 12px;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: var(--gridGap);
+    width: calc(100% - (var(--gridGap) * 2));
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
 
   @media (min-width: 768px) {
     height: 80px;
+  }
+
+  .email__link {
+    order: 3;
+    /* margin-left: var(--gridGap); */
+  }
+
+  .quote__link {
+    order: 4;
+    display: none;
   }
 `;
 
@@ -59,7 +81,7 @@ const Header = ({ children }) => {
   return (
     <>
       <HeaderStyles>
-        <Logo />
+        <Logo className="logo__link" />
         {isAuthenticated() ? (
           <>
             <HeaderIcon>
@@ -78,40 +100,14 @@ const Header = ({ children }) => {
             </HeaderIcon>
           </>
         ) : null}
-        <HeaderIcon>
-          <Link to="/dashboard">
-            <motion.span
-              variants={iconVariants}
-              animate={isOpen ? "open" : "closed"}
-            >
-              <span className="sr-only">Dashboard</span>
-              <ProfileIcon />
-            </motion.span>
-          </Link>
-        </HeaderIcon>
-        <HeaderIcon>
-          <motion.a
-            href="https://github.com/bagseye"
-            target="_blank"
-            rel="noopener noreferrer nofollow"
-            variants={iconVariants}
-            animate={isOpen ? "open" : "closed"}
-          >
-            <span className="sr-only">GitHub Profile</span>
-            <GitIcon />
-          </motion.a>
-        </HeaderIcon>
-        <HeaderIcon>
-          <Link to="/contact">
-            <motion.span
-              variants={iconVariants}
-              animate={isOpen ? "open" : "closed"}
-            >
-              <span className="sr-only">Contact</span>
-              <MailIcon />
-            </motion.span>
-          </Link>
-        </HeaderIcon>
+
+        <Link className="quote__link" to="/contact">
+          Request a quote
+        </Link>
+        <a className="email__link" href="mailto:hello@morganbaker.dev">
+          hello@morganbaker.dev
+        </a>
+
         {children}
       </HeaderStyles>
       <SideMenu />
