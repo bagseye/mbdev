@@ -14,6 +14,7 @@ const Index = () => (
     <SEO title="Home" />
     <Layout>
       <Banner />
+      <FeatureDevs />
       <div className="container__body">
         <FullWidthImage />
         <GeneralContentStyles>
@@ -46,7 +47,7 @@ const Index = () => (
             </div>
           </div>
         </GeneralContentStyles>
-        <FeatureDevs />
+
         <CallToAction
           message="Wordpress web development services"
           subMessage="With extensive knowledge and experience in Wordpress you can find all the reasons why you should consider it for your next project here."

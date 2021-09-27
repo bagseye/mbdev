@@ -39,23 +39,18 @@ const BannerStyles = styled.div`
   }
 `;
 
-const Banner = ({ heading }) => (
+const Banner = () => (
   <BannerStyles>
     <div className="container-grid">
       <BannerGridColumn>
-        {heading ? (
-          <>
-            <h1>{heading}</h1>
-          </>
-        ) : (
-          <>
-            <h1>
-              Bespoke web <span>design & development</span> in Inverness.
-              Creating <span>modern, user-friendly</span> experiences using{" "}
-              <span>Wordpress</span>.
-            </h1>
-          </>
-        )}
+        <motion.h1
+          animate={{ opacity: [0, 1] }}
+          transition={{ duration: 0.75, delay: 0.5 }}
+        >
+          Bespoke web <span>design & development</span> in Inverness. Creating{" "}
+          <span>modern, user-friendly</span> experiences using{" "}
+          <span>Wordpress</span>.
+        </motion.h1>
       </BannerGridColumn>
     </div>
     <p className="scroll__to">
