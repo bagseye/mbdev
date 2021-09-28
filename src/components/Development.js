@@ -41,6 +41,11 @@ const DevelopmentContainer = styled.section`
     line-height: var(--titleLargeLineHeight);
     margin: 0;
     letter-spacing: var(--titleLargeLetterSpacing);
+    text-decoration-thickness: 0.2rem;
+
+    @media (min-width: 768px) {
+      text-decoration-thickness: 0.35rem;
+    }
   }
 
   .project__img {
@@ -97,14 +102,12 @@ const Development = ({ project, noPrefix, base }) => {
   return (
     <DevelopmentContainer>
       <ProjectImage>
-        <Link to={base ? `${base}/${slug}` : `${slug}`}>
-          <GatsbyImage
-            loading="lazy"
-            image={projectImg}
-            alt={projectImgAlt ? projectImgAlt : "Project Image"}
-            className="project__img"
-          />
-        </Link>
+        <GatsbyImage
+          loading="lazy"
+          image={projectImg}
+          alt={projectImgAlt ? projectImgAlt : "Project Image"}
+          className="project__img"
+        />
       </ProjectImage>
 
       <div className="project__containter">

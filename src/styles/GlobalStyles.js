@@ -130,7 +130,8 @@ export const GlobalStyles = createGlobalStyle`
     a {
       font-weight: 400;
       text-underline-position: under;
-      text-decoration-color: rgba(255, 255, 255, 0.15);
+      text-decoration-color: rgba(255, 255, 255, 1);
+      text-decoration-thickness: 0.125rem;
       transition: text-decoration-color 0.75s ease;
       color: #fff;
 
