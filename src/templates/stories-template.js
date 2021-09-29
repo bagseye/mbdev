@@ -30,6 +30,15 @@ const StoryContent = styled.article`
     margin-top: var(--gridGap);
     padding: var(--gridGap) 0;
   }
+
+  h1 {
+    font-size: var(--titleLarge);
+    line-height: var(--titleLargeLineHeight);
+    margin: 0;
+    letter-spacing: var(--titleLargeLetterSpacing);
+    color: #fff;
+    font-weight: 700;
+  }
 `;
 
 const IframeContainer = styled.span`
@@ -112,10 +121,10 @@ const StoriesTemplate = ({ data }) => {
       <Layout>
         <StoryContent>
           <h1>{title}</h1>
-          <div className="meta">
-            <p className="published">First published: {createdAt}</p>
+          <p className="published">Posted on {createdAt}</p>
+          {/* <div className="meta">
             {updatedAt && <p className="updated">Last update: {updatedAt}</p>}
-          </div>
+          </div> */}
           {renderRichText(mainContent, options)}
           <div className="return">
             <Link to="/journal">Back to journal home</Link>
