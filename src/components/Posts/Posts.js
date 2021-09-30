@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 
 const PostsStyles = styled.section`
   padding: 0 var(--gridGap);
@@ -40,6 +40,30 @@ const PostsStyles = styled.section`
 `;
 
 const Posts = () => {
+  const ref = useRef();
+  const controls = useAnimation();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          controls.start({
+            opacity: 1,
+            transition: { duration: 0.75, delay: 0.75 },
+          });
+        }
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1,
+      }
+    );
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+  }, [ref]);
+
   const data = useStaticQuery(graphql`
     query PostsQuery {
       allContentfulStories {
@@ -53,13 +77,10 @@ const Posts = () => {
     }
   `);
   return (
-    <PostsStyles>
+    <PostsStyles ref={ref}>
       <div className="container-grid">
         <div className="posts__content">
-          <motion.h2
-            animate={{ opacity: [0, 1] }}
-            transition={{ duration: 0.75, delay: 0.5 }}
-          >
+          <motion.h2 initial={{ opacity: 0 }} animate={controls}>
             Read my recent entry -{" "}
             <Link to={data.allContentfulStories.edges[0].node.slug}>
               {data.allContentfulStories.edges[0].node.title}

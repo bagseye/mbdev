@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 
 const ContactMethodsStyles = styled.section`
   padding: 0 var(--gridGap);
@@ -38,20 +38,43 @@ const ContactMethodsStyles = styled.section`
   }
 `;
 
-const ContactMethods = () => (
-  <ContactMethodsStyles>
-    <div className="container-grid">
-      <div className="contact__content">
-        <motion.h2
-          animate={{ opacity: [0, 1] }}
-          transition={{ duration: 0.75, delay: 0.5 }}
-        >
-          You can contact me directly with any questions or requests at{" "}
-          <a href="mailto:hello@morganbaker.dev">hello@morganbaker.dev</a>.
-        </motion.h2>
+const ContactMethods = () => {
+  const controls = useAnimation();
+  const ref = useRef();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          controls.start({
+            opacity: 1,
+            transition: { duration: 0.75, delay: 0.75 },
+          });
+        }
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1,
+      }
+    );
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+  }, [ref]);
+
+  return (
+    <ContactMethodsStyles ref={ref}>
+      <div className="container-grid">
+        <div className="contact__content">
+          <motion.h2 initial={{ opacity: 0 }} animate={controls}>
+            You can contact me directly with any questions or requests at{" "}
+            <a href="mailto:hello@morganbaker.dev">hello@morganbaker.dev</a>.
+          </motion.h2>
+        </div>
       </div>
-    </div>
-  </ContactMethodsStyles>
-);
+    </ContactMethodsStyles>
+  );
+};
 
 export default ContactMethods;

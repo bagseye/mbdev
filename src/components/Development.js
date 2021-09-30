@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { motion, useAnimation } from "framer-motion";
 
 const DevelopmentContainer = styled.section`
   height: 100vh;
@@ -86,21 +87,40 @@ const ProjectImage = styled.div`
   img {
     transition: transform 0.5s ease, opacity 500ms ease 0s !important;
   }
-
-  &:hover {
-    img {
-      transform: scale(1.1);
-    }
-  }
 `;
 
 const Development = ({ project, noPrefix, base }) => {
-  const { name, slug, images, excerpt } = project;
+  const { slug, images, excerpt } = project;
   const projectImg = getImage(images[0]);
   const projectImgAlt = images[0].description;
 
+  const controls = useAnimation();
+
+  const ref = useRef();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          controls.start({
+            opacity: 1,
+            transition: { duration: 0.75, delay: 0.75 },
+          });
+        }
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1,
+      }
+    );
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+  }, [ref]);
+
   return (
-    <DevelopmentContainer>
+    <DevelopmentContainer ref={ref}>
       <ProjectImage>
         <GatsbyImage
           loading="lazy"
@@ -112,7 +132,11 @@ const Development = ({ project, noPrefix, base }) => {
 
       <div className="project__containter">
         <div className="container-grid">
-          <div className="project__content">
+          <motion.div
+            className="project__content"
+            initial={{ opacity: 0 }}
+            animate={controls}
+          >
             <h2>{excerpt}</h2>
             <Link
               className="project__link"
@@ -120,7 +144,7 @@ const Development = ({ project, noPrefix, base }) => {
             >
               View the project
             </Link>
-          </div>
+          </motion.div>
         </div>
       </div>
     </DevelopmentContainer>
