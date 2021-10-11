@@ -23,6 +23,7 @@ exports.createPages = async ({ graphql, actions }) => {
       projects: allContentfulProjects {
         edges {
           node {
+            name
             slug
           }
         }
@@ -43,12 +44,18 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `);
-  data.projects.edges.forEach(({ node }) => {
+
+  const allProjects = data.projects.edges;
+  const allJournals = data.journal.edges;
+
+  data.projects.edges.forEach(({ node }, index) => {
     createPage({
       path: `projects/${node.slug}`,
       component: path.resolve("src/templates/project-template.js"),
       context: {
         slug: node.slug,
+        next:
+          index === allProjects.length - 1 ? null : allProjects[index + 1].node,
       },
     });
   });
@@ -67,6 +74,8 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve("src/templates/stories-template.js"),
       context: {
         slug: node.slug,
+        next:
+          index === allJournals.length - 1 ? null : allJournals[index + 1].node,
       },
     });
   });

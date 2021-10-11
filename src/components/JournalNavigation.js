@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import { motion, useAnimation } from "framer-motion";
 
-const ProjectNavigationStyles = styled.section`
+const JournalNavigationStyles = styled.section`
   padding: 0 var(--gridGap);
   max-width: 1580px;
   margin: 0 auto;
@@ -39,7 +39,7 @@ const ProjectNavigationStyles = styled.section`
   }
 `;
 
-const ProjectNavigation = ({ next }) => {
+const JournalNavigation = ({ next }) => {
   const controls = useAnimation();
   const ref = useRef();
 
@@ -65,14 +65,14 @@ const ProjectNavigation = ({ next }) => {
   }, [ref]);
 
   return (
-    <ProjectNavigationStyles ref={ref}>
+    <JournalNavigationStyles ref={ref}>
       <div className="container-grid">
         <div className="contact__content">
           <motion.h2 initial={{ opacity: 0 }} animate={controls}>
             {next !== null && (
               <>
-                Take a look at the next project -{" "}
-                <Link to={`/projects/${next.slug}`}>{next.name}</Link> -{" "}
+                Read the next entry -{" "}
+                <Link to={`/journal/${next.slug}`}>{next.name}</Link> -{" "}
               </>
             )}
             Contact me for a quote using{" "}
@@ -81,8 +81,8 @@ const ProjectNavigation = ({ next }) => {
           </motion.h2>
         </div>
       </div>
-    </ProjectNavigationStyles>
+    </JournalNavigationStyles>
   );
 };
 
-export default ProjectNavigation;
+export default JournalNavigation;

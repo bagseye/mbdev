@@ -1,6 +1,5 @@
 import React from "react";
 import { graphql } from "gatsby";
-import styled from "styled-components";
 import SEO from "../components/SEO";
 import Gallery from "../components/Gallery";
 import GeneralContent from "../components/GeneralContent/GeneralContent";
@@ -8,7 +7,9 @@ import Layout from "../components/Layout";
 import BannerStandard from "../components/BannerStandard/BannerStandard";
 import ProjectNavigation from "../components/ProjectNavigation";
 
-const projectTemplate = ({ data }) => {
+const projectTemplate = ({ data, pageContext }) => {
+  const nextProject = pageContext.next;
+
   const {
     name,
     excerpt,
@@ -43,7 +44,7 @@ const projectTemplate = ({ data }) => {
         <BannerStandard title={excerpt} />
         <GeneralContent title="Project Details" content={richDescription} />
         <Gallery projectImages={projectImages} />
-        <ProjectNavigation />
+        <ProjectNavigation next={nextProject} />
       </Layout>
     </>
   );

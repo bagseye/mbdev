@@ -5,6 +5,7 @@ import { graphql, Link } from "gatsby";
 import { INLINES } from "@contentful/rich-text-types";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import styled from "styled-components";
+import JournalNavigation from "../components/JournalNavigation";
 
 const StoryContent = styled.article`
   max-width: 900px;
@@ -56,7 +57,9 @@ const IframeContainer = styled.span`
   }
 `;
 
-const StoriesTemplate = ({ data }) => {
+const StoriesTemplate = ({ data, pageContext }) => {
+  const nextJournal = pageContext.next;
+
   const {
     title,
     createdAt,
