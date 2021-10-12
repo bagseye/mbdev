@@ -8,10 +8,26 @@ import styled from "styled-components";
 import JournalNavigation from "../components/JournalNavigation";
 
 const StoryContent = styled.article`
-  max-width: 900px;
+  width: 100%;
+  max-width: 1580px;
   margin-left: auto;
   margin-right: auto;
   padding: var(--gridGap);
+  padding-top: 150px;
+
+  @media (min-width: 768px) {
+    padding-top: 300px;
+  }
+
+  .container-grid {
+    > * {
+      grid-column: 1 / 7;
+
+      @media (min-width: 768px) {
+        grid-column: 2 / 6;
+      }
+    }
+  }
 
   .meta {
     margin-top: var(--gridGap);
@@ -32,13 +48,22 @@ const StoryContent = styled.article`
     padding: var(--gridGap) 0;
   }
 
-  h1 {
+  h1,
+  .published {
     font-size: var(--titleLarge);
     line-height: var(--titleLargeLineHeight);
     margin: 0;
     letter-spacing: var(--titleLargeLetterSpacing);
     color: #fff;
     font-weight: 700;
+  }
+
+  .published {
+    margin-bottom: 50px;
+
+    @media (min-width: 768px) {
+      margin-bottom: 100px;
+    }
   }
 `;
 
@@ -57,9 +82,7 @@ const IframeContainer = styled.span`
   }
 `;
 
-const StoriesTemplate = ({ data, pageContext }) => {
-  const nextJournal = pageContext.next;
-
+const StoriesTemplate = ({ data }) => {
   const {
     title,
     createdAt,
@@ -123,14 +146,16 @@ const StoriesTemplate = ({ data, pageContext }) => {
       <Seo title={title} description={title} />
       <Layout>
         <StoryContent>
-          <h1>{title}</h1>
-          <p className="published">Posted on {createdAt}</p>
-          {/* <div className="meta">
+          <div className="container-grid">
+            <h1>{title}</h1>
+            <p className="published">Posted on {createdAt}</p>
+            {/* <div className="meta">
             {updatedAt && <p className="updated">Last update: {updatedAt}</p>}
           </div> */}
-          {renderRichText(mainContent, options)}
-          <div className="return">
-            <Link to="/journal">Back to journal home</Link>
+            {renderRichText(mainContent, options)}
+            <div className="return">
+              <Link to="/journal">Back to journal home</Link>
+            </div>
           </div>
         </StoryContent>
       </Layout>

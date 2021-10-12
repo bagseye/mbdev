@@ -82,7 +82,9 @@ const Posts = () => {
         <div className="posts__content">
           <motion.h2 initial={{ opacity: 0 }} animate={controls}>
             Read my recent entry -{" "}
-            <Link to={data.allContentfulStories.edges[0].node.slug}>
+            <Link
+              to={`/journal/${data.allContentfulStories.edges[0].node.slug}`}
+            >
               {data.allContentfulStories.edges[0].node.title}
             </Link>
             . Or, you can see past entries <Link to="/journal">here</Link>.

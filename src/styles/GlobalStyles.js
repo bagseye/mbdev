@@ -114,19 +114,6 @@ export const GlobalStyles = createGlobalStyle`
       font-family: var(--sansSerif);
     }
 
-    /* h1 {
-      margin-bottom: 1rem;
-      font-size: var(--titleLarge);
-      color: var(--primary);
-    }
-
-    h2 {
-      font-size: var(--h2);
-      line-height: var(--h2LineHeight);
-      color: var(--secondary);
-      letter-spacing: var(--h2LetterSpacing);
-    } */
-
     a {
       font-weight: 400;
       text-underline-position: under;
@@ -250,7 +237,6 @@ export const GlobalStyles = createGlobalStyle`
     .container-grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-      grid-gap: var(--gridGap);
       grid-gap: 0 var(--gridGap);
       width: 100%;
     }
@@ -306,8 +292,6 @@ export const SplitContainerStyles = styled.div`
 export const GalleryItem = styled.div`
   .feature {
     width: 100%;
-    margin-top: calc(var(--gridGap) * 2);
-    margin-bottom: calc(var(--gridGap) * 2);
 
     > div {
       padding-top: 0 !important;

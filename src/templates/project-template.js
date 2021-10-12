@@ -41,8 +41,8 @@ const projectTemplate = ({ data, pageContext }) => {
     <>
       <SEO title={name} description={excerpt} />
       <Layout>
-        <BannerStandard title={excerpt} />
-        <GeneralContent title="Project Details" content={richDescription} />
+        <BannerStandard title={excerpt} image={mainImage} />
+        <GeneralContent content={richDescription} />
         <Gallery projectImages={projectImages} />
         <ProjectNavigation next={nextProject} />
       </Layout>
