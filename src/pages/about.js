@@ -8,7 +8,10 @@ const aboutPage = () => (
     <SEO title="About the developer" />
     <Layout>
       <GeneralContentStyles>
-        <div className="container container-grid">
+        <div
+          style={{ paddingTop: "150px" }}
+          className="container container-grid"
+        >
           <div className="col">
             <h1>About the developer</h1>
             <p>

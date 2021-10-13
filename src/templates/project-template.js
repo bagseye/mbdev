@@ -44,7 +44,7 @@ const projectTemplate = ({ data, pageContext }) => {
         <BannerStandard title={excerpt} image={mainImage} />
         <GeneralContent content={richDescription} />
         <Gallery projectImages={projectImages} />
-        <ProjectNavigation next={nextProject} />
+        <ProjectNavigation next={nextProject} prefix="projects" />
       </Layout>
     </>
   );

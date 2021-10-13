@@ -39,7 +39,7 @@ const ProjectNavigationStyles = styled.section`
   }
 `;
 
-const ProjectNavigation = ({ next }) => {
+const ProjectNavigation = ({ next, prefix }) => {
   const controls = useAnimation();
   const ref = useRef();
 
@@ -72,7 +72,7 @@ const ProjectNavigation = ({ next }) => {
             {next !== null && (
               <>
                 Take a look at the next project -{" "}
-                <Link to={`/projects/${next.slug}`}>{next.name}</Link> -{" "}
+                <Link to={`/${prefix}/${next.slug}`}>{next.name}</Link> -{" "}
               </>
             )}
             Contact me for a quote using{" "}
