@@ -1,16 +1,8 @@
 import React from "react";
 import { graphql } from "gatsby";
-import styled from "styled-components";
 import Development from "../components/Development";
-import { SplitContainerStyles } from "../styles/GlobalStyles";
-import GeneralContent from "../components/GeneralContent/GeneralContent";
 import Layout from "../components/Layout";
-
-const ExtendedSplitContainerStyles = styled(SplitContainerStyles)`
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--gridGap);
-`;
+import ContactMethods from "../components/ContactMethods";
 
 export const getProjects = graphql`
   query {
@@ -39,16 +31,12 @@ const projectsPage = ({ data }) => {
 
   return (
     <Layout>
-      <div className="container__body">
-        <GeneralContent title="Projects" />
-      </div>
-      <ExtendedSplitContainerStyles>
-        {developmentData.map(({ node }) =>
-          node.slug ? (
-            <Development key={node.name} noPrefix project={node} />
-          ) : null
-        )}
-      </ExtendedSplitContainerStyles>
+      {developmentData.map(({ node }) =>
+        node.slug ? (
+          <Development key={node.name} noPrefix project={node} />
+        ) : null
+      )}
+      <ContactMethods />
     </Layout>
   );
 };

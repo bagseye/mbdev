@@ -102,6 +102,13 @@ export const GlobalStyles = createGlobalStyle`
       font-family: var(--sansSerif);
     }
 
+    h1 {
+      font-size: var(--titleLarge);
+      line-height: var(--titleLargeLineHeight);
+      letter-spacing: var(--titleLargeLetterSpacing);
+      font-weight: 700;
+    }
+
     p {
       margin-top: 0.5rem;
       margin-bottom: 1.5rem;

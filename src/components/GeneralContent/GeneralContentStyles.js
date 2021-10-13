@@ -15,5 +15,15 @@ export const GeneralContentStyles = styled.section`
     @media (min-width: 768px) {
       grid-column: 1 / 5;
     }
+
+    > * {
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 `;
