@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../components/Layout";
 import Seo from "../components/SEO";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import { INLINES } from "@contentful/rich-text-types";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import styled from "styled-components";
@@ -82,7 +82,8 @@ const IframeContainer = styled.span`
   }
 `;
 
-const StoriesTemplate = ({ data }) => {
+const StoriesTemplate = ({ data, pageContext }) => {
+  const nextProject = pageContext.next;
   const {
     title,
     createdAt,
@@ -149,15 +150,10 @@ const StoriesTemplate = ({ data }) => {
           <div className="container-grid">
             <h1>{title}</h1>
             <p className="published">Posted on {createdAt}</p>
-            {/* <div className="meta">
-            {updatedAt && <p className="updated">Last update: {updatedAt}</p>}
-          </div> */}
             {renderRichText(mainContent, options)}
-            <div className="return">
-              <Link to="/journal">Back to journal home</Link>
-            </div>
           </div>
         </StoryContent>
+        <JournalNavigation next={nextProject} />
       </Layout>
     </>
   );

@@ -8,18 +8,20 @@ const Contact = () => (
   <>
     <SEO title="Contact the developer" />
     <Layout>
-      <div className="container__body">
-        <GeneralContentStyles>
-          <div className="container">
-            <div className="col">
-              <h2>Contact the developer</h2>
-            </div>
-            <div className="col">
-              <ContactForm />
-            </div>
+      <GeneralContentStyles>
+        <div
+          style={{ paddingTop: "150px" }}
+          className="container container-grid"
+        >
+          <div className="col">
+            <h1>
+              Get in touch by completing the fields below. All fields are
+              required
+            </h1>
+            <ContactForm />
           </div>
-        </GeneralContentStyles>
-      </div>
+        </div>
+      </GeneralContentStyles>
     </Layout>
   </>
 );

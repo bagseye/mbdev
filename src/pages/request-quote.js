@@ -8,18 +8,20 @@ const Contact = () => (
   <>
     <SEO title="Request a quote" />
     <Layout>
-      <div className="container__body">
-        <GeneralContentStyles>
-          <div className="container">
-            <div className="col">
-              <h2>Request a quote</h2>
-            </div>
-            <div className="col">
-              <QuoteForm />
-            </div>
+      <GeneralContentStyles>
+        <div
+          style={{ paddingTop: "150px" }}
+          className="container container-grid"
+        >
+          <div className="col">
+            <h1>
+              Request a quote by completing the fields below. All fields are
+              required
+            </h1>
+            <QuoteForm />
           </div>
-        </GeneralContentStyles>
-      </div>
+        </div>
+      </GeneralContentStyles>
     </Layout>
   </>
 );

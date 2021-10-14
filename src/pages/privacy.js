@@ -7,26 +7,25 @@ const privacyPage = () => (
   <>
     <SEO title="Privacy & Your Data" />
     <Layout>
-      <div className="container__body">
-        <GeneralContentStyles>
-          <div className="container">
-            <div className="col">
-              <h2>Privacy & your data</h2>
-            </div>
-            <div className="col">
-              <p>
-                This website uses Google Analytics to monitor site traffic and
-                help improve user experiences.
-              </p>
-              <p>
-                When contacting the website your details will only be used for a
-                method of comunicating and will not be used for marketing or
-                passed on to third parties.
-              </p>
-            </div>
+      <GeneralContentStyles>
+        <div
+          style={{ paddingTop: "150px" }}
+          className="container container-grid"
+        >
+          <div className="col">
+            <h1>Privacy & your data</h1>
+            <p>
+              This website uses Google Analytics to monitor site traffic and
+              help improve user experiences.
+            </p>
+            <p>
+              When contacting the website your details will only be used for a
+              method of comunicating and will not be used for marketing or
+              passed on to third parties.
+            </p>
           </div>
-        </GeneralContentStyles>
-      </div>
+        </div>
+      </GeneralContentStyles>
     </Layout>
   </>
 );

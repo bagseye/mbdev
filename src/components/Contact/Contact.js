@@ -20,27 +20,39 @@ const ContactForm = () => {
         </div>
         <div className="area">
           <label>Your name </label>
-          <input type="text" name="name" placeholder="Enter your name" />
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter your name here..."
+          />
         </div>
         <div className="area">
           <label>Email contact </label>
-          <input type="email" name="email" placeholder="Email address" />
+          <input
+            type="email"
+            name="email"
+            placeholder="And your email address..."
+          />
         </div>
         <div className="area">
           <label>Phone number </label>
-          <input type="number" name="phone" placeholder="Phone number" />
+          <input
+            type="number"
+            name="phone"
+            placeholder="Next, your phone number..."
+          />
         </div>
         <div className="area">
           <label>Your message </label>
           <textarea
             type="text"
             name="contact-message"
-            placeholder="Write your message here..."
+            placeholder="Use this field to give a brief description of what you are looking for. For example a website with branding..."
           />
         </div>
 
         <button type="submit" className="btn">
-          Get in touch
+          Send this request
         </button>
       </form>
     </ContactFormStyles>

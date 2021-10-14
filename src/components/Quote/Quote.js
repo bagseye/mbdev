@@ -20,14 +20,18 @@ const Quote = () => {
         </div>
         <div className="area">
           <label>Your name </label>
-          <input type="text" name="name" placeholder="Enter your name" />
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter your name here..."
+          />
         </div>
         <div className="area">
           <label>Your business name </label>
           <input
             type="text"
             name="business"
-            placeholder="Enter your business name"
+            placeholder="And then enter your business name..."
           />
         </div>
         <div className="area">
@@ -35,28 +39,36 @@ const Quote = () => {
           <input
             type="text"
             name="website"
-            placeholder="Enter your web address"
+            placeholder="Next, enter your web address..."
           />
         </div>
         <div className="area">
           <label>Email contact </label>
-          <input type="email" name="email" placeholder="Email address" />
+          <input
+            type="email"
+            name="email"
+            placeholder="An email address to contact you on..."
+          />
         </div>
         <div className="area">
           <label>Phone number </label>
-          <input type="number" name="phone" placeholder="Phone number" />
+          <input
+            type="number"
+            name="phone"
+            placeholder="And a phone hone number to use..."
+          />
         </div>
         <div className="area">
           <label>Any requirements needed for your new site? </label>
           <textarea
             type="text"
             name="requirements"
-            placeholder="Write your requirements here"
+            placeholder="Use this field to give a brief description of what you are looking for. For example a website with branding..."
           />
         </div>
 
         <button type="submit" className="btn">
-          Request a quote
+          Send this request
         </button>
       </form>
     </ContactFormStyles>

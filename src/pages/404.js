@@ -10,11 +10,9 @@ const error = () => (
     <Layout>
       <div className="container__body">
         <GeneralContentStyles>
-          <div className="container">
+          <div className="container container-grid">
             <div className="col">
-              <h2>Page not found</h2>
-            </div>
-            <div className="col">
+              <h1>Page not found</h1>
               <p>This page has moved or no longer exists.</p>
               <p>
                 Please choose another option from the menu above, or to return
