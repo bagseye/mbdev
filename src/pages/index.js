@@ -63,7 +63,7 @@ const Index = () => (
           />
         </CallToAction>
         <CallToAction
-          message="GatbsyJs and Static-site developement"
+          message="GatbsyJs and Static-site development"
           subMessage="Static sites offer some huge performance benefits. Your project may not require a content management system like Wordpress. Check out the reasons to use Gatsby for your next project here."
           link="services/gatsby-development"
           linkText="Gatsby Development"
