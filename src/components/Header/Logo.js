@@ -11,7 +11,7 @@ const LogoCont = styled.div`
   z-index: 5;
   margin-right: auto;
   order: 1;
-  flex: 1 0 65%;
+  flex: 1 0 70%;
   letter-spacing: -0.05em;
 
   @media (min-width: 1024px) {
@@ -25,16 +25,12 @@ const LogoCont = styled.div`
     color: #fff;
   }
 
+  span:nth-child(1) {
+    margin-right: 5px;
+  }
+
   @media (min-width: 768px) {
     font-size: 18px;
-
-    br {
-      display: none;
-    }
-
-    span:nth-child(1) {
-      margin-right: 5px;
-    }
   }
 
   @media (min-width: 834px) {

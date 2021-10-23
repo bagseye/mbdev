@@ -3,11 +3,9 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import MenuContext from "../MenuContext";
-import { IoExitOutline as ExitIcon } from "react-icons/io5";
 
 import Logo from "./Logo";
 import SideMenu from "./SideMenu";
-import { HeaderIcon } from "../../styles/IconStyles";
 import { logout, isAuthenticated } from "../../utils/auth";
 
 const HeaderStyles = styled.header`
@@ -47,27 +45,40 @@ const HeaderStyles = styled.header`
     height: 80px;
   }
 
-  .email__link {
-    order: 3;
-    flex: 0 0 70%;
+  .dash__link {
+    order: 4;
+    flex: 0 0 auto;
+    margin-left: 10px;
+    margin-right: 10px;
     font-weight: 300;
 
     @media (min-width: 1024px) {
-      order: 3;
       flex-basis: auto;
+      margin-right: var(--gridGap);
       margin-left: var(--gridGap);
     }
   }
 
+  .email__link {
+    order: 5;
+    flex: 0 0 auto;
+    font-weight: 300;
+
+    @media (min-width: 1024px) {
+      flex-basis: auto;
+      /* margin-left: var(--gridGap); */
+    }
+  }
+
   .quote__link {
-    order: 4;
     display: none;
     font-weight: 300;
 
     @media (min-width: 1024px) {
       display: inline-flex;
-      order: 2;
+      order: 6;
       flex: 0 0 auto;
+      margin-left: var(--gridGap);
     }
   }
 `;
@@ -97,20 +108,21 @@ const Header = ({ children }) => {
         <Logo className="logo__link" />
         {isAuthenticated() ? (
           <>
-            <HeaderIcon>
-              <motion.a
-                variants={iconVariants}
-                animate={isOpen ? "open" : "closed"}
-                href="#logout"
-                onClick={(e) => {
-                  logout();
-                  e.preventDefault();
-                }}
-              >
-                <span className="sr-only">Log Out</span>
-                <ExitIcon style={{ transform: "rotate(180deg)" }} />
-              </motion.a>
-            </HeaderIcon>
+            <Link className="dash__link" to="/dashboard">
+              Dashboard
+            </Link>
+            <motion.a
+              variants={iconVariants}
+              animate={isOpen ? "open" : "closed"}
+              href="#logout"
+              onClick={(e) => {
+                logout();
+                e.preventDefault();
+              }}
+              style={{ order: "3" }}
+            >
+              Log Out
+            </motion.a>
           </>
         ) : null}
 

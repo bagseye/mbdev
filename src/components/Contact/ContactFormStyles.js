@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ContactFormStyles = styled.div`
   width: 100%;
-  max-width: 800px;
+  /* max-width: 800px; */
   margin: 0 auto;
 
   label {
@@ -23,6 +23,13 @@ export const ContactFormStyles = styled.div`
     line-height: var(--titleLargeLineHeight);
     letter-spacing: var(--titleLargeLetterSpacing);
     font-weight: 700;
+    border-bottom: 5px solid transparent;
+    transition: border-bottom 0.3s;
+
+    &:focus {
+      outline: none !important;
+      border-bottom: 5px solid #fff;
+    }
   }
 
   textarea {
@@ -37,6 +44,13 @@ export const ContactFormStyles = styled.div`
     letter-spacing: var(--titleLargeLetterSpacing);
     font-weight: 700;
     font-family: var(--sansSerif);
+    border-bottom: 5px solid transparent;
+    transition: border-bottom 0.3s;
+
+    &:focus {
+      outline: none !important;
+      border-bottom: 5px solid #fff;
+    }
   }
 
   .area {

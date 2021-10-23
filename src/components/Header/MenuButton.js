@@ -18,7 +18,7 @@ const Container = styled(motion.button)`
 
   @media (min-width: 1024px) {
     flex-basis: auto;
-    order: 4;
+    order: 7;
     margin-left: var(--gridGap);
   }
 
