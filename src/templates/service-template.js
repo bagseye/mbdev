@@ -1,11 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
 import SEO from "../components/SEO";
-import GeneralContent from "../components/GeneralContent/GeneralContent";
-import CallToAction from "../components/CallToAction/CallToAction";
-import Gallery from "../components/Gallery";
 import Layout from "../components/Layout";
-import { StaticImage } from "gatsby-plugin-image";
+import { renderRichText } from "gatsby-source-contentful/rich-text";
+import { GeneralContentStyles } from "../components/GeneralContent/GeneralContentStyles";
 
 const options = {
   // Pass in the node and dril down to the required data
@@ -29,25 +27,17 @@ const serviceTemplate = ({ data }) => {
     <>
       <SEO title={title} description={excerpt} />
       <Layout>
-        <div className="container__body">
-          <GeneralContent title={title} content={content} />
-          <div className="standard__images">
-            <Gallery projectImages={images} />
-          </div>
-          <CallToAction
-            message="Looking to start a project?"
-            subMessage="Get in touch and request a quote for your next project"
-            orienation="left"
+        <GeneralContentStyles>
+          <div
+            style={{ paddingTop: "150px" }}
+            className="container container-grid"
           >
-            <StaticImage
-              className="cta__img"
-              objectFit="cover"
-              src="../images/macbook-keyboard.jpg"
-              alt="Macbook Keyboard closeup"
-              placeholder="blurred"
-            />
-          </CallToAction>
-        </div>
+            <div className="col">
+              <h1>{title}</h1>
+              {renderRichText(content, options)}
+            </div>
+          </div>
+        </GeneralContentStyles>
       </Layout>
     </>
   );

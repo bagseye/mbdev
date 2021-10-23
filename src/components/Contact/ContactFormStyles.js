@@ -2,38 +2,55 @@ import styled from "styled-components";
 
 export const ContactFormStyles = styled.div`
   width: 100%;
-  max-width: 800px;
+  /* max-width: 800px; */
   margin: 0 auto;
 
   label {
     flex: 0 0 100%;
     font-size: var(--leadIn);
     margin-bottom: calc(var(--gridGap) / 2);
+    visibility: hidden;
+    height: 0;
   }
 
   input {
-    height: 60px;
-    border: 1px solid rgba(0, 0, 0, 0.35);
-    border-radius: 3px;
     flex: 0 0 100%;
-    font-size: var(--leadIn);
-    padding: 10px var(--gridGap);
-    font-family: var(--serif);
-    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px 0;
+    background-color: transparent;
+    border: none;
     color: #fff;
+    font-size: var(--titleLarge);
+    line-height: var(--titleLargeLineHeight);
+    letter-spacing: var(--titleLargeLetterSpacing);
+    font-weight: 700;
+    border-bottom: 5px solid transparent;
+    transition: border-bottom 0.3s;
+
+    &:focus {
+      outline: none !important;
+      border-bottom: 5px solid #fff;
+    }
   }
 
   textarea {
     flex: 0 0 100%;
     min-height: 300px;
-    padding: 10px var(--gridGap);
-    font-size: var(--leadIn);
-    padding: 10px var(--gridGap);
-    font-family: var(--serif);
-    border: 1px solid rgba(0, 0, 0, 0.35);
-    border-radius: 3px;
-    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px 0;
+    border: none;
+    background-color: transparent;
     color: #fff;
+    font-size: var(--titleLarge);
+    line-height: var(--titleLargeLineHeight);
+    letter-spacing: var(--titleLargeLetterSpacing);
+    font-weight: 700;
+    font-family: var(--sansSerif);
+    border-bottom: 5px solid transparent;
+    transition: border-bottom 0.3s;
+
+    &:focus {
+      outline: none !important;
+      border-bottom: 5px solid #fff;
+    }
   }
 
   .area {

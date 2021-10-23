@@ -5,30 +5,32 @@ import MenuContext from "../MenuContext";
 import { motion } from "framer-motion";
 
 const LogoCont = styled.div`
-  letter-spacing: -1px;
   margin: 0;
   font-size: 14px;
   line-height: 18px;
   z-index: 5;
   margin-right: auto;
+  order: 1;
+  flex: 1 0 70%;
+  letter-spacing: -0.05em;
+
+  @media (min-width: 1024px) {
+    flex: 0 0 auto;
+  }
 
   a {
-    font-weight: 500;
+    font-weight: 700;
     text-decoration: none;
     transition: opacity 0.5s ease;
     color: #fff;
   }
 
+  span:nth-child(1) {
+    margin-right: 5px;
+  }
+
   @media (min-width: 768px) {
     font-size: 18px;
-
-    br {
-      display: none;
-    }
-
-    span:nth-child(1) {
-      margin-right: 5px;
-    }
   }
 
   @media (min-width: 834px) {
@@ -74,13 +76,11 @@ const Logo = () => {
         >
           Morgan Baker
         </motion.span>
-        <br />
         <span
           className="alt"
           style={{
             color: "var(--highlight)",
-            fontStyle: "italic",
-            fontWeight: "600",
+            fontWeight: "300",
           }}
         >
           Developer

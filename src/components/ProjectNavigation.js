@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from "react";
+import { Link } from "gatsby";
 import styled from "styled-components";
 import { motion, useAnimation } from "framer-motion";
 
-const ContactMethodsStyles = styled.section`
+const ProjectNavigationStyles = styled.section`
   padding: 0 var(--gridGap);
   max-width: 1580px;
   margin: 0 auto;
@@ -38,7 +39,7 @@ const ContactMethodsStyles = styled.section`
   }
 `;
 
-const ContactMethods = () => {
+const ProjectNavigation = ({ next, prefix }) => {
   const controls = useAnimation();
   const ref = useRef();
 
@@ -64,17 +65,24 @@ const ContactMethods = () => {
   }, [ref]);
 
   return (
-    <ContactMethodsStyles ref={ref}>
+    <ProjectNavigationStyles ref={ref}>
       <div className="container-grid">
         <div className="contact__content">
           <motion.h2 initial={{ opacity: 0 }} animate={controls}>
-            You can contact me directly with any questions or requests at{" "}
-            <a href="mailto:hello@morganbaker.dev">hello@morganbaker.dev</a>.
+            {next !== null && (
+              <>
+                Take a look at the next project -{" "}
+                <Link to={`/${prefix}/${next.slug}`}>{next.name}</Link> -{" "}
+              </>
+            )}
+            Contact me for a quote using{" "}
+            <a href="mailto:hello@morganbaker.dev">hello@morganbaker.dev</a> -
+            or return <Link to="/">home</Link>.
           </motion.h2>
         </div>
       </div>
-    </ContactMethodsStyles>
+    </ProjectNavigationStyles>
   );
 };
 
-export default ContactMethods;
+export default ProjectNavigation;

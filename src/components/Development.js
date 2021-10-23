@@ -1,40 +1,56 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { VscArrowRight as Arrow } from "react-icons/vsc";
+import { motion, useAnimation } from "framer-motion";
 
 const DevelopmentContainer = styled.section`
-  margin-bottom: var(--gridGap);
+  height: 100vh;
+  width: 100%;
+  position: relative;
   display: flex;
-  flex-direction: column;
-  flex: 0 0 100%;
+  align-items: center;
+  background-color: #000;
 
-  @media (min-width: 768px) {
-    flex: 0 0 calc(50% - calc(var(--gridGap) / 2));
-    margin-bottom: 0;
+  .project__content {
+    grid-column: 1 / 7;
+
+    @media (min-width: 768px) {
+      grid-column: 1 / 5;
+    }
   }
 
-  .link__arrow {
-    margin-top: auto;
-    color: #fff;
+  .project__containter {
+    position: relative;
+    width: 100%;
+    max-width: 1580px;
+    margin: 0 auto;
+    padding: 0 var(--gridGap);
   }
 
   h2 {
-    font-size: var(--h2);
-    line-height: var(--h2LineHeight);
-    margin-top: 0;
-    letter-spacing: -0.05rem;
+    font-size: var(--titleLarge);
+    line-height: var(--titleLargeLineHeight);
+    margin: 0;
+    letter-spacing: var(--titleLargeLetterSpacing);
+    color: #fff;
+  }
 
-    .arrow {
-      font-size: 16px;
-      margin-left: 6px;
+  .project__link {
+    font-weight: 700;
+    font-size: var(--titleLarge);
+    line-height: var(--titleLargeLineHeight);
+    margin: 0;
+    letter-spacing: var(--titleLargeLetterSpacing);
+    text-decoration-thickness: 0.2rem;
+
+    @media (min-width: 768px) {
+      text-decoration-thickness: 0.35rem;
     }
   }
 
   .project__img {
-    margin-bottom: var(--gridGap);
-
+    height: 100%;
     > div {
       padding-top: 0 !important;
     }
@@ -54,46 +70,83 @@ const DevelopmentContainer = styled.section`
       left: 0;
       width: 100%;
       height: 100%;
+      object-fit: cover;
+      object-position: center;
     }
   }
 `;
 
 const ProjectImage = styled.div`
-  margin-top: auto;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.5;
 
   img {
     transition: transform 0.5s ease, opacity 500ms ease 0s !important;
   }
-
-  &:hover {
-    img {
-      transform: scale(1.1);
-    }
-  }
 `;
 
 const Development = ({ project, noPrefix, base }) => {
-  const { name, slug, images } = project;
+  const { slug, images, excerpt } = project;
   const projectImg = getImage(images[0]);
   const projectImgAlt = images[0].description;
 
+  const controls = useAnimation();
+
+  const ref = useRef();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          controls.start({
+            opacity: 1,
+            transition: { duration: 0.75, delay: 0.75 },
+          });
+        }
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1,
+      }
+    );
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+  }, [ref]);
+
   return (
-    <DevelopmentContainer>
+    <DevelopmentContainer ref={ref}>
       <ProjectImage>
-        <Link to={base ? `${base}/${slug}` : `${slug}`}>
-          <span className="sr-only">{name}</span>
-          <GatsbyImage
-            loading="lazy"
-            image={projectImg}
-            alt={projectImgAlt ? projectImgAlt : "Project Image"}
-            className="project__img"
-          />
-          <h2 className="link__arrow">
-            {name} <Arrow className="arrow" />
-          </h2>
-        </Link>
+        <GatsbyImage
+          loading="lazy"
+          image={projectImg}
+          alt={projectImgAlt ? projectImgAlt : "Project Image"}
+          className="project__img"
+        />
       </ProjectImage>
+
+      <div className="project__containter">
+        <div className="container-grid">
+          <motion.div
+            className="project__content"
+            initial={{ opacity: 0 }}
+            animate={controls}
+          >
+            <h2>{excerpt}</h2>
+            <Link
+              className="project__link"
+              to={base ? `${base}/${slug}` : `${slug}`}
+            >
+              View the project
+            </Link>
+          </motion.div>
+        </div>
+      </div>
     </DevelopmentContainer>
   );
 };

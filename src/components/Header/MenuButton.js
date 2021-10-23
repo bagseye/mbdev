@@ -7,11 +7,20 @@ const Container = styled(motion.button)`
   border: none;
   transition: opacity 0.5s ease, color 0.5s ease;
   font-size: var(--menuBtn);
-  font-weight: 500;
   letter-spacing: -1px;
   display: flex;
   align-items: center;
   background-color: transparent;
+  padding-left: 0;
+  order: 2;
+  justify-content: flex-end;
+  flex: 0 0 30%;
+
+  @media (min-width: 1024px) {
+    flex-basis: auto;
+    order: 7;
+    margin-left: var(--gridGap);
+  }
 
   .burger {
     position: relative;

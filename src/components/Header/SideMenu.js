@@ -65,15 +65,15 @@ const SideMenuStyles = styled(motion.div)`
     @media (min-width: 768px) {
       flex: 0 0 calc(100% / 3);
       box-sizing: border-box;
-      border-left: 2px solid rgba(255, 255, 255, 0.1);
-      padding: 0 var(--gridGap);
-      border-left-color: rgba(0, 0, 0, 0.1);
+      gap: var(--gridGap);
     }
   }
 
   li,
   li a {
     font-size: var(--h2);
+    letter-spacing: var(--h2LetterSpacing);
+    font-weight: 700;
     list-style: none;
     color: var(--background);
     letter-spacing: -0.05rem;

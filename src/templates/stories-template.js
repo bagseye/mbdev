@@ -1,16 +1,33 @@
 import React from "react";
 import Layout from "../components/Layout";
 import Seo from "../components/SEO";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import { INLINES } from "@contentful/rich-text-types";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import styled from "styled-components";
+import JournalNavigation from "../components/JournalNavigation";
 
 const StoryContent = styled.article`
-  max-width: 900px;
+  width: 100%;
+  max-width: 1580px;
   margin-left: auto;
   margin-right: auto;
   padding: var(--gridGap);
+  padding-top: 150px;
+
+  @media (min-width: 768px) {
+    padding-top: 300px;
+  }
+
+  .container-grid {
+    > * {
+      grid-column: 1 / 7;
+
+      @media (min-width: 768px) {
+        grid-column: 2 / 6;
+      }
+    }
+  }
 
   .meta {
     margin-top: var(--gridGap);
@@ -30,6 +47,24 @@ const StoryContent = styled.article`
     margin-top: var(--gridGap);
     padding: var(--gridGap) 0;
   }
+
+  h1,
+  .published {
+    font-size: var(--titleLarge);
+    line-height: var(--titleLargeLineHeight);
+    margin: 0;
+    letter-spacing: var(--titleLargeLetterSpacing);
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .published {
+    margin-bottom: 50px;
+
+    @media (min-width: 768px) {
+      margin-bottom: 100px;
+    }
+  }
 `;
 
 const IframeContainer = styled.span`
@@ -47,7 +82,8 @@ const IframeContainer = styled.span`
   }
 `;
 
-const StoriesTemplate = ({ data }) => {
+const StoriesTemplate = ({ data, pageContext }) => {
+  const nextProject = pageContext.next;
   const {
     title,
     createdAt,
@@ -111,16 +147,13 @@ const StoriesTemplate = ({ data }) => {
       <Seo title={title} description={title} />
       <Layout>
         <StoryContent>
-          <h1>{title}</h1>
-          <div className="meta">
-            <p className="published">First published: {createdAt}</p>
-            {updatedAt && <p className="updated">Last update: {updatedAt}</p>}
-          </div>
-          {renderRichText(mainContent, options)}
-          <div className="return">
-            <Link to="/journal">Back to journal home</Link>
+          <div className="container-grid">
+            <h1>{title}</h1>
+            <p className="published">Posted on {createdAt}</p>
+            {renderRichText(mainContent, options)}
           </div>
         </StoryContent>
+        <JournalNavigation next={nextProject} />
       </Layout>
     </>
   );

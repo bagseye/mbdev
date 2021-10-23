@@ -1,23 +1,46 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import styled from "styled-components";
-import { SplitContainerStyles } from "../styles/GlobalStyles";
 import GeneralContent from "../components/GeneralContent/GeneralContent";
 import Layout from "../components/Layout";
 
-const ExtendedSplitContainerStyles = styled(SplitContainerStyles)`
+const JournalListStyles = styled.div`
+  padding: 0 var(--gridGap);
+  max-width: 1580px;
+  margin: 0 auto;
+  height: 100vh;
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--gridGap);
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+
+  .journal__content {
+    grid-column: 1 / 7;
+
+    @media (min-width: 768px) {
+      grid-column: 1 / 5;
+    }
+  }
 `;
 
 const JournalItem = styled(Link)`
-  padding-top: var(--gridGap);
-  padding-bottom: var(--gridGap);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-
-  h2 {
+  h2,
+  p {
+    font-size: var(--titleLarge);
+    line-height: var(--titleLargeLineHeight);
+    margin: 0;
+    letter-spacing: var(--titleLargeLetterSpacing);
     color: #fff;
+    font-weight: 700;
+
+    a {
+      font-weight: 700;
+      text-decoration-thickness: 0.2rem;
+
+      @media (min-width: 768px) {
+        text-decoration-thickness: 0.35rem;
+      }
+    }
   }
 `;
 
@@ -40,19 +63,22 @@ const journalsPage = ({ data }) => {
 
   return (
     <Layout>
-      <div className="container__body">
-        <GeneralContent title="Journal" />
-      </div>
-      <ExtendedSplitContainerStyles>
-        {journalData.map(({ node }) => {
-          return (
-            <JournalItem to={`/journal/${node.slug}`}>
-              <h2>{node.title}</h2>
-              <p>First published - {node.createdAt}</p>
-            </JournalItem>
-          );
-        })}
-      </ExtendedSplitContainerStyles>
+      <JournalListStyles>
+        <div className="container-grid">
+          <div className="journal__content">
+            {journalData.map(({ node }) => {
+              return (
+                <JournalItem>
+                  <h2>
+                    <Link to={`/journal/${node.slug}`}>{node.title}</Link>
+                  </h2>
+                  <p>Posted on - {node.createdAt}</p>
+                </JournalItem>
+              );
+            })}
+          </div>
+        </div>
+      </JournalListStyles>
     </Layout>
   );
 };

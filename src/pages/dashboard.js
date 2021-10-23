@@ -51,7 +51,12 @@ const Dashboard = () => {
         <DashboardArea path="/dashboard/" user={user} />
         {agencyData.map(({ node }, index) =>
           node.slug ? (
-            <Agency key={index} data={node} path={`/dashboard/${node.slug}`} />
+            <Agency
+              key={index}
+              data={node}
+              next={agencyData[index + 1]}
+              path={`/dashboard/${node.slug}`}
+            />
           ) : null
         )}
       </Router>

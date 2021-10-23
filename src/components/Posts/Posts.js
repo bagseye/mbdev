@@ -1,8 +1,9 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef, useEffect } from "react";
+import { Link, useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 import { motion, useAnimation } from "framer-motion";
 
-const ContactMethodsStyles = styled.section`
+const PostsStyles = styled.section`
   padding: 0 var(--gridGap);
   max-width: 1580px;
   margin: 0 auto;
@@ -12,7 +13,7 @@ const ContactMethodsStyles = styled.section`
   justify-content: center;
   position: relative;
 
-  .contact__content {
+  .posts__content {
     grid-column: 1 / 7;
 
     @media (min-width: 768px) {
@@ -38,9 +39,9 @@ const ContactMethodsStyles = styled.section`
   }
 `;
 
-const ContactMethods = () => {
-  const controls = useAnimation();
+const Posts = () => {
   const ref = useRef();
+  const controls = useAnimation();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -63,18 +64,35 @@ const ContactMethods = () => {
     }
   }, [ref]);
 
+  const data = useStaticQuery(graphql`
+    query PostsQuery {
+      allContentfulStories {
+        edges {
+          node {
+            title
+            slug
+          }
+        }
+      }
+    }
+  `);
   return (
-    <ContactMethodsStyles ref={ref}>
+    <PostsStyles ref={ref}>
       <div className="container-grid">
-        <div className="contact__content">
+        <div className="posts__content">
           <motion.h2 initial={{ opacity: 0 }} animate={controls}>
-            You can contact me directly with any questions or requests at{" "}
-            <a href="mailto:hello@morganbaker.dev">hello@morganbaker.dev</a>.
+            Read my recent entry -{" "}
+            <Link
+              to={`/journal/${data.allContentfulStories.edges[0].node.slug}`}
+            >
+              {data.allContentfulStories.edges[0].node.title}
+            </Link>
+            . Or, you can see past entries <Link to="/journal">here</Link>.
           </motion.h2>
         </div>
       </div>
-    </ContactMethodsStyles>
+    </PostsStyles>
   );
 };
 
-export default ContactMethods;
+export default Posts;

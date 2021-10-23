@@ -3,20 +3,13 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import MenuContext from "../MenuContext";
-import {
-  VscAccount as ProfileIcon,
-  VscGithub as GitIcon,
-} from "react-icons/vsc";
-import { BsEnvelope as MailIcon } from "react-icons/bs";
-import { IoExitOutline as ExitIcon } from "react-icons/io5";
 
 import Logo from "./Logo";
 import SideMenu from "./SideMenu";
-import { HeaderIcon } from "../../styles/IconStyles";
 import { logout, isAuthenticated } from "../../utils/auth";
 
 const HeaderStyles = styled.header`
-  padding: 0 var(--gridGap);
+  padding: 10px var(--gridGap);
   z-index: 100;
   position: fixed;
   top: 0;
@@ -26,14 +19,67 @@ const HeaderStyles = styled.header`
   margin-right: auto;
   width: 100%;
   z-index: 20;
-  height: 60px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   max-width: 1580px;
+  font-size: 13px;
+
+  @media (min-width: 1024px) {
+    font-size: 16px;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: var(--gridGap);
+    width: calc(100% - (var(--gridGap) * 2));
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
 
   @media (min-width: 768px) {
     height: 80px;
+  }
+
+  .dash__link {
+    order: 4;
+    flex: 0 0 auto;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-weight: 300;
+
+    @media (min-width: 1024px) {
+      flex-basis: auto;
+      margin-right: var(--gridGap);
+      margin-left: var(--gridGap);
+    }
+  }
+
+  .email__link {
+    order: 5;
+    flex: 0 0 auto;
+    font-weight: 300;
+
+    @media (min-width: 1024px) {
+      flex-basis: auto;
+      /* margin-left: var(--gridGap); */
+    }
+  }
+
+  .quote__link {
+    display: none;
+    font-weight: 300;
+
+    @media (min-width: 1024px) {
+      display: inline-flex;
+      order: 6;
+      flex: 0 0 auto;
+      margin-left: var(--gridGap);
+    }
   }
 `;
 
@@ -59,59 +105,34 @@ const Header = ({ children }) => {
   return (
     <>
       <HeaderStyles>
-        <Logo />
+        <Logo className="logo__link" />
         {isAuthenticated() ? (
           <>
-            <HeaderIcon>
-              <motion.a
-                variants={iconVariants}
-                animate={isOpen ? "open" : "closed"}
-                href="#logout"
-                onClick={(e) => {
-                  logout();
-                  e.preventDefault();
-                }}
-              >
-                <span className="sr-only">Log Out</span>
-                <ExitIcon style={{ transform: "rotate(180deg)" }} />
-              </motion.a>
-            </HeaderIcon>
+            <Link className="dash__link" to="/dashboard">
+              Dashboard
+            </Link>
+            <motion.a
+              variants={iconVariants}
+              animate={isOpen ? "open" : "closed"}
+              href="#logout"
+              onClick={(e) => {
+                logout();
+                e.preventDefault();
+              }}
+              style={{ order: "3" }}
+            >
+              Log Out
+            </motion.a>
           </>
         ) : null}
-        <HeaderIcon>
-          <Link to="/dashboard">
-            <motion.span
-              variants={iconVariants}
-              animate={isOpen ? "open" : "closed"}
-            >
-              <span className="sr-only">Dashboard</span>
-              <ProfileIcon />
-            </motion.span>
-          </Link>
-        </HeaderIcon>
-        <HeaderIcon>
-          <motion.a
-            href="https://github.com/bagseye"
-            target="_blank"
-            rel="noopener noreferrer nofollow"
-            variants={iconVariants}
-            animate={isOpen ? "open" : "closed"}
-          >
-            <span className="sr-only">GitHub Profile</span>
-            <GitIcon />
-          </motion.a>
-        </HeaderIcon>
-        <HeaderIcon>
-          <Link to="/contact">
-            <motion.span
-              variants={iconVariants}
-              animate={isOpen ? "open" : "closed"}
-            >
-              <span className="sr-only">Contact</span>
-              <MailIcon />
-            </motion.span>
-          </Link>
-        </HeaderIcon>
+
+        <Link className="quote__link" to="/contact">
+          Request a quote
+        </Link>
+        <a className="email__link" href="mailto:hello@morganbaker.dev">
+          hello@morganbaker.dev
+        </a>
+
         {children}
       </HeaderStyles>
       <SideMenu />

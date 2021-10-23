@@ -15,10 +15,6 @@ export const FooterStyles = styled.footer`
       padding-right: var(--gridGap);
 
       &__contact {
-        padding-left: var(--gridGap);
-        border-left: 1px solid rgba(0, 0, 0, 0.1);
-        border-left-color: rgba(255, 255, 255, 0.1);
-
         @media (min-width: 1024px) {
           margin-left: auto;
           margin-right: 0;
@@ -38,25 +34,28 @@ export const FooterStyles = styled.footer`
   ul {
     margin: 0 0 var(--gridGap) 0;
     padding: 0;
-    padding-left: var(--gridGap);
     list-style: none;
     text-transform: capitalize;
-    border-left: 1px solid rgba(0, 0, 0, 0.1);
-    border-left-color: rgba(255, 255, 255, 0.1);
 
     li {
       padding: 5px 0;
-      font-size: 1.4rem;
 
       a {
         color: #fff;
+        font-weight: 700;
       }
     }
   }
 
   address {
     font-style: normal;
-    font-size: 1.4rem;
+    margin-top: calc(var(--gridGap) * 4);
+    margin-bottom: calc(var(--gridGap) * 4);
     line-height: 1.4;
+
+    @media (min-width: 768px) {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
   }
 `;

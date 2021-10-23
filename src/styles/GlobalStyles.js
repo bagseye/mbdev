@@ -7,7 +7,7 @@ export const GlobalStyles = createGlobalStyle`
         --primary: #fff;
         --secondary: #6f6f6f;
         --highlight: #808080;
-        --titleLarge: 2rem;
+        --titleLarge: 1.75rem;
         --titleLargeLineHeight: 1.2;
         --titleLargeLetterSpacing: -2px;
         --h2: 1.3rem;
@@ -67,7 +67,7 @@ export const GlobalStyles = createGlobalStyle`
 
     body {
       overflow-x: hidden;
-      font-family: var(--serif);
+      font-family: var(--sansSerif);
       margin: 0;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -75,18 +75,18 @@ export const GlobalStyles = createGlobalStyle`
       color: var(--primary);
       /* font-size: 16px; */
       min-height: 100vh;
+      letter-spacing: -0.05em;
     }
 
     #main {
       width: 100%;
-      padding-top: 80px;
+      /* padding-top: 80px; */
     }
 
 
     h1,
     h2 {
       font-weight: 700;
-      font-variation-settings: 'wght' 600;
 
       @media(min-width: 1200px) {
         margin-bottom: 1.5rem;
@@ -99,7 +99,14 @@ export const GlobalStyles = createGlobalStyle`
     h4,
     h5,
     h6 {
-      font-family: var(--serif);
+      font-family: var(--sansSerif);
+    }
+
+    h1 {
+      font-size: var(--titleLarge);
+      line-height: var(--titleLargeLineHeight);
+      letter-spacing: var(--titleLargeLetterSpacing);
+      font-weight: 700;
     }
 
     p {
@@ -111,28 +118,14 @@ export const GlobalStyles = createGlobalStyle`
 
     p,
     button {
-      font-family: var(--serif);
-    }
-
-    h1 {
-      margin-bottom: 1rem;
-      font-size: var(--titleLarge);
-      font-weight: 500;
-      color: var(--primary);
-    }
-
-    h2 {
-      font-size: var(--h2);
-      line-height: var(--h2LineHeight);
-      font-weight: 400;
-      color: var(--secondary);
-      letter-spacing: var(--h2LetterSpacing);
+      font-family: var(--sansSerif);
     }
 
     a {
       font-weight: 400;
       text-underline-position: under;
-      text-decoration-color: rgba(255, 255, 255, 0.15);
+      text-decoration-color: rgba(255, 255, 255, 1);
+      text-decoration-thickness: 0.125rem;
       transition: text-decoration-color 0.75s ease;
       color: #fff;
 
@@ -251,7 +244,6 @@ export const GlobalStyles = createGlobalStyle`
     .container-grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-      grid-gap: var(--gridGap);
       grid-gap: 0 var(--gridGap);
       width: 100%;
     }
@@ -307,8 +299,6 @@ export const SplitContainerStyles = styled.div`
 export const GalleryItem = styled.div`
   .feature {
     width: 100%;
-    margin-top: calc(var(--gridGap) * 2);
-    margin-bottom: calc(var(--gridGap) * 2);
 
     > div {
       padding-top: 0 !important;
