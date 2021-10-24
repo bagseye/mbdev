@@ -8,7 +8,7 @@ export const GlobalStyles = createGlobalStyle`
         --secondary: #6f6f6f;
         --highlight: #808080;
         --titleLarge: 1.75rem;
-        --titleLargeLineHeight: 1.2;
+        --titleLargeLineHeight: 1.45;
         --titleLargeLetterSpacing: -2px;
         --h2: 1.3rem;
         --h2LineHeight: 1.25;
@@ -32,7 +32,7 @@ export const GlobalStyles = createGlobalStyle`
             --leadIn: 1.2rem;
             --gridGap: 20px;
             --margins: 100px;
-            --titleLargeLineHeight: 1.25;
+            --titleLargeLineHeight: 1.35;
         }
 
         @media(min-width:768px) {
@@ -51,7 +51,6 @@ export const GlobalStyles = createGlobalStyle`
         @media(min-width: 1600px) {
           --titleLarge: 3rem;
           --margins: 225px;
-          --titleLargeLineHeight: 1.35;
           --h2: 1.6rem;
           --h2LineHeight: 1.45;
           --gridGap: 40px;
@@ -73,14 +72,12 @@ export const GlobalStyles = createGlobalStyle`
       -moz-osx-font-smoothing: grayscale;
       background: var(--background);
       color: var(--primary);
-      /* font-size: 16px; */
       min-height: 100vh;
       letter-spacing: -0.05em;
     }
 
     #main {
       width: 100%;
-      /* padding-top: 80px; */
     }
 
 

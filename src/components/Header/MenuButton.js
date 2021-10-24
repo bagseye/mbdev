@@ -11,7 +11,7 @@ const Container = styled(motion.button)`
   display: flex;
   align-items: center;
   background-color: transparent;
-  padding-left: 0;
+  padding: 0;
   order: 2;
   justify-content: flex-end;
   flex: 0 0 30%;

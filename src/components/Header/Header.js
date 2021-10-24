@@ -3,7 +3,6 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import MenuContext from "../MenuContext";
-
 import Logo from "./Logo";
 import SideMenu from "./SideMenu";
 import { logout, isAuthenticated } from "../../utils/auth";
@@ -45,15 +44,19 @@ const HeaderStyles = styled.header`
     height: 80px;
   }
 
+  .dash__link,
+  .quote__link,
+  .email__link {
+    font-weight: 300;
+    flex: 0 0 auto;
+  }
+
   .dash__link {
     order: 4;
-    flex: 0 0 auto;
     margin-left: 10px;
     margin-right: 10px;
-    font-weight: 300;
 
     @media (min-width: 1024px) {
-      flex-basis: auto;
       margin-right: var(--gridGap);
       margin-left: var(--gridGap);
     }
@@ -61,23 +64,14 @@ const HeaderStyles = styled.header`
 
   .email__link {
     order: 5;
-    flex: 0 0 auto;
-    font-weight: 300;
-
-    @media (min-width: 1024px) {
-      flex-basis: auto;
-      /* margin-left: var(--gridGap); */
-    }
   }
 
   .quote__link {
     display: none;
-    font-weight: 300;
 
     @media (min-width: 1024px) {
       display: inline-flex;
       order: 6;
-      flex: 0 0 auto;
       margin-left: var(--gridGap);
     }
   }
