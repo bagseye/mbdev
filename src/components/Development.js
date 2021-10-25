@@ -7,8 +7,6 @@ import { motion, useAnimation } from "framer-motion";
 const DevelopmentContainer = styled.section`
   height: 100vh;
   width: 100%;
-  max-width: 1500px;
-  margin: 100px auto;
   position: relative;
   display: flex;
   align-items: center;

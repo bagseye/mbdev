@@ -4,8 +4,8 @@ import SEO from "../components/SEO";
 import Gallery from "../components/Gallery";
 import GeneralContent from "../components/GeneralContent/GeneralContent";
 import Layout from "../components/Layout";
-import BannerStandard from "../components/BannerStandard/BannerStandard";
 import ProjectNavigation from "../components/ProjectNavigation";
+import Banner from "../components/Banner/Banner";
 
 const projectTemplate = ({ data, pageContext }) => {
   const nextProject = pageContext.next;
@@ -41,7 +41,11 @@ const projectTemplate = ({ data, pageContext }) => {
     <>
       <SEO title={name} description={excerpt} />
       <Layout>
-        <BannerStandard title={excerpt} image={mainImage} />
+        <Banner
+          bannerContent={excerpt}
+          image={mainImage}
+          scrollerText="Scroll to view this project"
+        />
         <GeneralContent content={richDescription} />
         <Gallery projectImages={projectImages} />
         <ProjectNavigation next={nextProject} prefix="projects" />

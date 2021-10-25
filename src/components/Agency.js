@@ -3,8 +3,8 @@ import SEO from "../components/SEO";
 import Gallery from "../components/Gallery";
 import GeneralContent from "../components/GeneralContent/GeneralContent";
 import Layout from "../components/Layout";
-import BannerStandard from "./BannerStandard/BannerStandard";
 import ProjectNavigation from "./ProjectNavigation";
+import Banner from "./Banner/Banner";
 
 const Agency = ({ data, next }) => {
   let nextItem = next !== undefined ? next.node : null;
@@ -24,7 +24,11 @@ const Agency = ({ data, next }) => {
     <>
       <SEO title={name} description={excerpt} noIndex />
       <Layout>
-        <BannerStandard title={excerpt} image={mainImage} />
+        <Banner
+          bannerContent={excerpt}
+          image={mainImage}
+          scrollerText="Scroll to view this project"
+        />
         <GeneralContent content={richDescription} />
         <Gallery projectImages={projectImages} />
         <ProjectNavigation next={nextItem} prefix="dashboard" />

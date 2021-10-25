@@ -10,7 +10,11 @@ const Index = () => (
   <>
     <SEO title="Home" />
     <Layout>
-      <Banner />
+      <Banner
+        bannerContent="Bespoke web design & development in Inverness. Creating modern,
+          user-friendly experiences using Wordpress."
+        scrollerText="Scroll for recent projects"
+      />
       <FeatureDevs />
       <ContactMethods />
       <Posts />
