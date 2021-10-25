@@ -3,6 +3,17 @@ import { useStaticQuery, graphql } from "gatsby";
 import Development from "./Development";
 import Layout from "./Layout";
 import SEO from "./SEO";
+import styled from "styled-components";
+
+const ProjectsAreaTitle = styled.div`
+  max-width: 1580px;
+  padding: 0 var(--gridGap);
+  margin: 150px auto;
+
+  h1 {
+    grid-column: 1 / 7;
+  }
+`;
 
 const DashboardArea = () => {
   const data = useStaticQuery(graphql`
@@ -34,6 +45,12 @@ const DashboardArea = () => {
     <>
       <SEO title="Agency Projects" noIndex />
       <Layout>
+        <ProjectsAreaTitle>
+          <div className="container-grid">
+            <h1>Agency Projects</h1>
+          </div>
+        </ProjectsAreaTitle>
+
         {agencyData.map(({ node }) =>
           node.slug ? (
             <Development key={node.name} noPrefix project={node} />

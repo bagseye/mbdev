@@ -7,10 +7,15 @@ import { motion, useAnimation } from "framer-motion";
 const DevelopmentContainer = styled.section`
   height: 100vh;
   width: 100%;
+  max-width: 1500px;
+  margin: 100px auto;
   position: relative;
   display: flex;
   align-items: center;
   background-color: #000;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0px 5px 15px 5px rgba(0, 0, 0, 0.4);
 
   .project__content {
     grid-column: 1 / 7;

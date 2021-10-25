@@ -6,12 +6,15 @@ import { motion, useAnimation } from "framer-motion";
 const ProjectNavigationStyles = styled.section`
   padding: 0 var(--gridGap);
   max-width: 1580px;
-  margin: 0 auto;
-  height: 100vh;
+  margin: 200px auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
+
+  @media (min-width: 768px) {
+    margin: 300px auto;
+  }
 
   .contact__content {
     grid-column: 1 / 7;
