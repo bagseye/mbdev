@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 import { motion } from "framer-motion";
@@ -7,7 +7,7 @@ import Logo from "./Logo";
 import SideMenu from "./SideMenu";
 import { logout, isAuthenticated } from "../../utils/auth";
 
-const HeaderStyles = styled.header`
+const HeaderStyles = styled(motion.header)`
   padding: 10px var(--gridGap);
   z-index: 100;
   position: fixed;
@@ -24,6 +24,12 @@ const HeaderStyles = styled.header`
   justify-content: flex-start;
   max-width: 1580px;
   font-size: 13px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+  &.nav__scrolled {
+    background-color: var(--background);
+    box-shadow: -1px 5px 11px 0px rgba(0, 0, 0, 0.1);
+  }
 
   @media (min-width: 1024px) {
     font-size: 16px;
@@ -77,37 +83,48 @@ const HeaderStyles = styled.header`
   }
 `;
 
-const iconVariants = {
+const headerVariants = {
   open: {
-    color: "var(--background)",
+    backgroundColor: "transparent",
+    boxShadow: "none",
     transition: {
-      delay: 1,
+      delay: 0.75,
     },
   },
   closed: {
-    color: "var(--primary)",
+    color: "var(--background)",
     transition: {
-      delay: 0.5,
+      delay: 0.65,
     },
   },
 };
 
 const Header = ({ children }) => {
   // Access state globally using context
-  const { isOpen } = useContext(MenuContext);
+  const [isOpen, setNav] = useContext(MenuContext);
+
+  const [scroll, setScroll] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setScroll(window.scrollY > 50);
+    });
+  }, []);
 
   return (
     <>
-      <HeaderStyles>
+      <HeaderStyles
+        variants={headerVariants}
+        animate={isOpen ? "open" : "closed"}
+        className={scroll ? "nav__scrolled" : null}
+      >
         <Logo className="logo__link" />
         {isAuthenticated() ? (
           <>
             <Link className="dash__link" to="/dashboard">
               Dashboard
             </Link>
-            <motion.a
-              variants={iconVariants}
-              animate={isOpen ? "open" : "closed"}
+            <a
               href="#logout"
               onClick={(e) => {
                 logout();
@@ -116,7 +133,7 @@ const Header = ({ children }) => {
               style={{ order: "3" }}
             >
               Log Out
-            </motion.a>
+            </a>
           </>
         ) : null}
 

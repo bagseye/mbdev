@@ -107,7 +107,7 @@ const Development = ({ project, noPrefix, base }) => {
         if (entry.isIntersecting) {
           controls.start({
             opacity: 1,
-            transition: { duration: 0.75, delay: 0.75 },
+            transition: { duration: 0.75, delay: 0.35 },
           });
         }
       },
