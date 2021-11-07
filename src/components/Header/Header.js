@@ -16,7 +16,6 @@ const HeaderStyles = styled(motion.header)`
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
   z-index: 20;
   display: flex;
   flex-wrap: wrap;
@@ -24,11 +23,19 @@ const HeaderStyles = styled(motion.header)`
   justify-content: flex-start;
   max-width: 1580px;
   font-size: 13px;
+  height: 75px;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 
-  &.nav__scrolled {
-    background-color: var(--background);
-    box-shadow: -1px 5px 11px 0px rgba(0, 0, 0, 0.1);
+  .header__links {
+    flex: 0 0 100%;
+    display: flex;
+    gap: 8px;
+
+    @media (min-width: 1024px) {
+      padding-right: 100px;
+      flex-basis: auto;
+      gap: var(--gridGap);
+    }
   }
 
   @media (min-width: 1024px) {
@@ -57,28 +64,11 @@ const HeaderStyles = styled(motion.header)`
     flex: 0 0 auto;
   }
 
-  .dash__link {
-    order: 4;
-    margin-left: 10px;
-    margin-right: 10px;
-
-    @media (min-width: 1024px) {
-      margin-right: var(--gridGap);
-      margin-left: var(--gridGap);
-    }
-  }
-
-  .email__link {
-    order: 5;
-  }
-
   .quote__link {
     display: none;
 
     @media (min-width: 1024px) {
       display: inline-flex;
-      order: 6;
-      margin-left: var(--gridGap);
     }
   }
 `;
@@ -119,30 +109,31 @@ const Header = ({ children }) => {
         className={scroll ? "nav__scrolled" : null}
       >
         <Logo className="logo__link" />
-        {isAuthenticated() ? (
-          <>
-            <Link className="dash__link" to="/dashboard">
-              Dashboard
-            </Link>
-            <a
-              href="#logout"
-              onClick={(e) => {
-                logout();
-                e.preventDefault();
-              }}
-              style={{ order: "3" }}
-            >
-              Log Out
-            </a>
-          </>
-        ) : null}
+        <div className="header__links">
+          {isAuthenticated() ? (
+            <>
+              <Link className="dash__link" to="/dashboard">
+                Dashboard
+              </Link>
+              <a
+                href="#logout"
+                onClick={(e) => {
+                  logout();
+                  e.preventDefault();
+                }}
+              >
+                Log Out
+              </a>
+            </>
+          ) : null}
 
-        <Link className="quote__link" to="/contact">
-          Request a quote
-        </Link>
-        <a className="email__link" href="mailto:hello@morganbaker.dev">
-          hello@morganbaker.dev
-        </a>
+          <Link className="quote__link" to="/contact">
+            Request a quote
+          </Link>
+          <a className="email__link" href="mailto:hello@morganbaker.dev">
+            hello@morganbaker.dev
+          </a>
+        </div>
 
         {children}
       </HeaderStyles>
