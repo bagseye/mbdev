@@ -1,17 +1,11 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import styled from "styled-components";
 import Development from "./Development";
-
-// const FeaturedProjectsStyles = styled.section`
-// max-widt
-
-// `;
 
 const FeatureDevelopments = () => {
   const data = useStaticQuery(graphql`
     query {
-      allContentfulProjects(limit: 2, filter: { featured: { eq: true } }) {
+      allContentfulProjects(limit: 4, filter: { featured: { eq: true } }) {
         edges {
           node {
             name

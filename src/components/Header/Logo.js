@@ -83,7 +83,7 @@ const Logo = () => {
             fontWeight: "300",
           }}
         >
-          Developer
+          Development
         </span>
       </Link>
     </LogoCont>

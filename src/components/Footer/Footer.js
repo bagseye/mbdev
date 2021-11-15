@@ -41,7 +41,7 @@ const Footer = () => {
         </div>
         <div className="col col__contact">
           <address>
-            Morgan Baker Developer,
+            Morgan Baker Development,
             <br />
             Inverness,
             <br />
