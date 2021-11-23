@@ -4,6 +4,7 @@ import SEO from "../components/SEO";
 import Layout from "../components/Layout";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { GeneralContentStyles } from "../components/GeneralContent/GeneralContentStyles";
+import QuoteCta from "../components/QuoteCta/QuoteCta";
 
 const options = {
   // Pass in the node and dril down to the required data
@@ -37,6 +38,7 @@ const serviceTemplate = ({ data }) => {
               {renderRichText(content, options)}
             </div>
           </div>
+          <QuoteCta />
         </GeneralContentStyles>
       </Layout>
     </>
