@@ -15,8 +15,11 @@ const Contact = () => (
         >
           <div className="col">
             <h1>
-              Get in touch by completing the fields below. All fields are
-              required
+              Get in touch by completing the fields below, or call{" "}
+              <a style={{ fontWeight: 700 }} href="tel:00447369256509">
+                07369 256 509
+              </a>
+              . All fields are required
             </h1>
             <ContactForm />
           </div>

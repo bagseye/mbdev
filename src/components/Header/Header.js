@@ -127,7 +127,7 @@ const Header = ({ children }) => {
             </>
           ) : null}
 
-          <Link className="quote__link" to="/contact">
+          <Link className="quote__link" to="/request-quote">
             Request a quote
           </Link>
           <a className="email__link" href="mailto:hello@morganbaker.dev">

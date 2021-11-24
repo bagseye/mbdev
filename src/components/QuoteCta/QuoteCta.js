@@ -7,8 +7,12 @@ const QuoteCta = () => {
   return (
     <QuoteCtaStyles>
       <div className="cont">
-        <h2>Looking for a quote?</h2>
-        <p>Get in touch today with details of your project.</p>
+        <h2>Looking for a quote, or have a project in mind?</h2>
+        <p>
+          Get in touch today with details of your project. Or call{" "}
+          <a href="tel:00447369256509">07369 256 509</a> to discuss your
+          requirements.
+        </p>
         <Link className="btn" to="/contact">
           Get in touch
         </Link>

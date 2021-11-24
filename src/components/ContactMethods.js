@@ -73,6 +73,8 @@ const ContactMethods = () => {
           <motion.h2 initial={{ opacity: 0 }} animate={controls}>
             You can contact me directly with any questions or requests at{" "}
             <a href="mailto:hello@morganbaker.dev">hello@morganbaker.dev</a>.
+            <br />
+            Alternatively, call <a href="tel:00447369256509">07369 256 509</a>.
           </motion.h2>
         </div>
       </div>

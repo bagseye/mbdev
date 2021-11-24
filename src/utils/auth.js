@@ -41,7 +41,7 @@ const setSession =
   (cb = () => {}) =>
   (err, authResult) => {
     if (err) {
-      navigate("/");
+      // navigate("/contact");
       cb();
       return;
     }

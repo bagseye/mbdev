@@ -8,6 +8,9 @@ export const QuoteCtaStyles = styled.section`
   margin-top: calc(var(--gridGap) * 1.5);
   padding: calc(var(--gridGap) * 1.5);
   position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 1px 15px 36px 0px rgba(0, 0, 0, 0.75);
 
   @media (min-width: 768px) {
     margin-top: calc(var(--gridGap) * 3);
