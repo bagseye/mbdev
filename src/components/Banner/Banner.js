@@ -111,6 +111,8 @@ const Banner = ({ bannerContent, scrollerText, image }) => {
     setIsVideoLoaded(true);
   };
 
+  let vidSrc;
+
   if (isBrowser) {
     const getVidSrc = (width) => {
       if (width >= 1080) return desktopVideo;
@@ -118,7 +120,7 @@ const Banner = ({ bannerContent, scrollerText, image }) => {
       return mobileVideo;
     };
 
-    const vidSrc = getVidSrc(window.innerWidth);
+    vidSrc = getVidSrc(window.innerWidth);
   }
 
   return (
