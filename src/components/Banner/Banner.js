@@ -103,19 +103,23 @@ const Banner = ({ bannerContent, scrollerText, image }) => {
   const bannerImage = getImage(image);
   const placeholderImage = getImage(videoPlaceholder);
 
+  const isBrowser = typeof window !== "undefined";
+
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   const onLoadedData = () => {
     setIsVideoLoaded(true);
   };
 
-  const getVidSrc = (width) => {
-    if (width >= 1080) return desktopVideo;
-    if (width >= 720) return tabletVideo;
-    return mobileVideo;
-  };
+  if (isBrowser) {
+    const getVidSrc = (width) => {
+      if (width >= 1080) return desktopVideo;
+      if (width >= 720) return tabletVideo;
+      return mobileVideo;
+    };
 
-  const vidSrc = getVidSrc(window.innerWidth);
+    const vidSrc = getVidSrc(window.innerWidth);
+  }
 
   return (
     <BannerStyles styles={{ backgroundColor: image ? "#000" : "" }}>
