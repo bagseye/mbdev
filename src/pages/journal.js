@@ -24,6 +24,8 @@ const JournalListStyles = styled.div`
 `;
 
 const JournalItem = styled(Link)`
+  margin-bottom: var(--gridGap);
+  display: block;
   h2,
   p {
     font-size: var(--titleLarge);
