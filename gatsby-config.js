@@ -21,16 +21,13 @@ module.exports = {
   },
   /* Your site config here */
   plugins: [
-    `gatsby-plugin-netlify`,
-
-    {
-      resolve: `gatsby-plugin-sitemap`,
-
-      options: {
-        createLinkInHead: true,
-        excludes: [`/agency/**`, `/agency`],
-      },
-    },
+    // `gatsby-plugin-netlify`,
+    // {
+    //   resolve: `gatsby-plugin-sitemap`,
+    //   options: {
+    //     output: "/",
+    //   },
+    // },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -46,14 +43,14 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
-    {
-      resolve: "gatsby-plugin-robots-txt",
-      options: {
-        host: "https://www.morganbaker.dev",
-        sitemap: "https://www.morganbaker.dev/sitemap.xml",
-        policy: [{ userAgent: "*", allow: "/" }],
-      },
-    },
+    // {
+    //   resolve: "gatsby-plugin-robots-txt",
+    //   options: {
+    //     host: "https://www.morganbaker.dev",
+    //     sitemap: "https://www.morganbaker.dev/sitemap.xml",
+    //     policy: [{ userAgent: "*", allow: "/" }],
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
@@ -69,20 +66,20 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Morgan Baker Developer`,
-        short_name: `MBDev`,
-        description: `I'm a web developer & designer from Inverness, building fast, stylish websites using WordPress & GatsbyJS`,
-        start_url: `/`,
-        lang: `en`,
-        background_color: `#1c1b1b`,
-        theme_color: `#6f6f6f`,
-        icon: `src/images/icon.png`,
-        display: `standalone`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-manifest`,
+    //   options: {
+    //     name: `Morgan Baker Developer`,
+    //     short_name: `MBDev`,
+    //     description: `I'm a web developer & designer from Inverness, building fast, stylish websites using WordPress & GatsbyJS`,
+    //     start_url: `/`,
+    //     lang: `en`,
+    //     background_color: `#1c1b1b`,
+    //     theme_color: `#6f6f6f`,
+    //     icon: `src/images/icon.png`,
+    //     display: `standalone`,
+    //   },
+    // },
     // `gatsby-plugin-offline`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-image`,

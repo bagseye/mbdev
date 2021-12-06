@@ -9,7 +9,6 @@ import Banner from "./Banner/Banner";
 const Agency = ({ data, next }) => {
   let nextItem = next !== undefined ? next.node : null;
 
-  console.log(nextItem);
   const {
     name,
     excerpt,

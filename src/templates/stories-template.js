@@ -92,7 +92,6 @@ const StoriesTemplate = ({ data, pageContext }) => {
     mainContent: { raw },
   } = data.story;
 
-  console.log(data.story.mainContent);
   const options = {
     renderNode: {
       [INLINES.HYPERLINK]: (node) => {
