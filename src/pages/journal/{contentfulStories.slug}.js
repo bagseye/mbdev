@@ -1,11 +1,11 @@
 import React from "react";
-import Layout from "../components/Layout";
-import Seo from "../components/SEO";
+import Layout from "../../components/Layout";
+import Seo from "../../components/SEO";
 import { graphql } from "gatsby";
 import { INLINES } from "@contentful/rich-text-types";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import styled from "styled-components";
-import JournalNavigation from "../components/JournalNavigation";
+import JournalNavigation from "../../components/JournalNavigation";
 
 const StoryContent = styled.article`
   width: 100%;
@@ -82,15 +82,14 @@ const IframeContainer = styled.span`
   }
 `;
 
-const StoriesTemplate = ({ data, pageContext }) => {
-  const nextProject = pageContext.next;
+const StoriesTemplate = ({ data }) => {
   const {
     title,
     createdAt,
     mainContent,
     updatedAt,
     mainContent: { raw },
-  } = data.story;
+  } = data.storiesPage;
 
   const options = {
     renderNode: {
@@ -127,18 +126,6 @@ const StoriesTemplate = ({ data, pageContext }) => {
         }
       },
     },
-    // Pass in the node and dril down to the required data
-    // renderNode: {
-    //   // Render the contentful rich content image
-    //   "embedded-asset-block": (node) => (
-    //     <div className="content-image">
-    //       <img
-    //         src={node.data.target.fields.file["en-US"].url}
-    //         alt={node.data.target.fields.title["en-US"]}
-    //       />
-    //     </div>
-    //   ),
-    // },
   };
 
   return (
@@ -152,16 +139,17 @@ const StoriesTemplate = ({ data, pageContext }) => {
             {renderRichText(mainContent, options)}
           </div>
         </StoryContent>
-        <JournalNavigation next={nextProject} />
+        {/* <JournalNavigation next={nextProject} /> */}
       </Layout>
     </>
   );
 };
 
-export const query = graphql`
-  query ($slug: String!) {
-    story: contentfulStories(slug: { eq: $slug }) {
+export const data = graphql`
+  query StoriesPageQuery($id: String) {
+    storiesPage: contentfulStories(id: { eq: $id }) {
       title
+      slug
       createdAt(formatString: "MMMM DD, YYYY")
       updatedAt(formatString: "MMMM DD, YYYY")
       mainContent {

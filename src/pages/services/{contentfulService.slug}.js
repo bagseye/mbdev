@@ -1,28 +1,13 @@
 import React from "react";
 import { graphql } from "gatsby";
-import SEO from "../components/SEO";
-import Layout from "../components/Layout";
+import Seo from "../../components/SEO";
+import Layout from "../../components/Layout";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
-import { GeneralContentStyles } from "../components/GeneralContent/GeneralContentStyles";
-import CMSContact from "../components/CMS/CMSContact/CMSContact";
-import CMSBanner from "../components/CMS/CMSBanner/CMSBanner";
+import { GeneralContentStyles } from "../../components/GeneralContent/GeneralContentStyles";
+import CMSContact from "../../components/CMS/CMSContact/CMSContact";
+import CMSBanner from "../../components/CMS/CMSBanner/CMSBanner";
 
-const options = {
-  // Pass in the node and dril down to the required data
-  // renderNode: {
-  //   // Render the contentful rich content image
-  //   "embedded-asset-block": (node) => (
-  //     <div className="content-image">
-  //       <img
-  //         src={node.data.target.fields.file["en-US"].url}
-  //         alt={node.data.target.fields.title["en-US"]}
-  //       />
-  //     </div>
-  //   ),
-  // },
-};
-
-const serviceTemplate = ({ data }) => {
+const ServicePage = ({ data }) => {
   const {
     bannerImage,
     title,
@@ -33,11 +18,11 @@ const serviceTemplate = ({ data }) => {
     contactBlockTitle,
     contactBlockContent: { contactBlockContent },
     contactBlockBackground,
-  } = data.service;
+  } = data.servicePage;
 
   return (
     <>
-      <SEO title={title} description={excerpt} />
+      <Seo title={title} description={excerpt} />
       <Layout>
         <CMSBanner bannerContent={title} image={bannerImage} />
         <GeneralContentStyles>
@@ -46,9 +31,7 @@ const serviceTemplate = ({ data }) => {
               style={{ marginTop: "50px", marginBottom: "50px" }}
               className="container container-grid"
             >
-              <div className="col">
-                {renderRichText(contentAreaOne, options)}
-              </div>
+              <div className="col">{renderRichText(contentAreaOne)}</div>
             </div>
           )}
           {contentAreaTwo && (
@@ -56,9 +39,7 @@ const serviceTemplate = ({ data }) => {
               style={{ marginTop: "50px", marginBottom: "50px" }}
               className="container container-grid"
             >
-              <div className="col">
-                {renderRichText(contentAreaTwo, options)}
-              </div>
+              <div className="col">{renderRichText(contentAreaTwo)}</div>
             </div>
           )}
           {contentAreaThree && (
@@ -66,9 +47,7 @@ const serviceTemplate = ({ data }) => {
               style={{ marginTop: "50px", marginBottom: "50px" }}
               className="container container-grid"
             >
-              <div className="col">
-                {renderRichText(contentAreaThree, options)}
-              </div>
+              <div className="col">{renderRichText(contentAreaThree)}</div>
             </div>
           )}
         </GeneralContentStyles>
@@ -84,14 +63,15 @@ const serviceTemplate = ({ data }) => {
   );
 };
 
-export const query = graphql`
-  query ($slug: String!) {
-    service: contentfulService(slug: { eq: $slug }) {
+export const data = graphql`
+  query ServicePageQuery($id: String) {
+    servicePage: contentfulService(id: { eq: $id }) {
+      slug
+      title
+      excerpt
       bannerImage {
         gatsbyImageData(layout: FULL_WIDTH, formats: [AUTO, WEBP], quality: 90)
       }
-      title
-      excerpt
       contentAreaOne {
         raw
       }
@@ -111,5 +91,4 @@ export const query = graphql`
     }
   }
 `;
-
-export default serviceTemplate;
+export default ServicePage;

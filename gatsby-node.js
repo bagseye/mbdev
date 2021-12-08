@@ -28,26 +28,10 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-      service: allContentfulService {
-        edges {
-          node {
-            slug
-          }
-        }
-      }
-      journal: allContentfulStories {
-        edges {
-          node {
-            title
-            slug
-          }
-        }
-      }
     }
   `);
 
   const allProjects = data.projects.edges;
-  const allStories = data.journal.edges;
 
   data.projects.edges.forEach(({ node }, index) => {
     createPage({
@@ -57,26 +41,6 @@ exports.createPages = async ({ graphql, actions }) => {
         slug: node.slug,
         next:
           index === allProjects.length - 1 ? null : allProjects[index + 1].node,
-      },
-    });
-  });
-  data.service.edges.forEach(({ node }) => {
-    createPage({
-      path: `services/${node.slug}`,
-      component: path.resolve("src/templates/service-template.js"),
-      context: {
-        slug: node.slug,
-      },
-    });
-  });
-  data.journal.edges.forEach(({ node }, index) => {
-    createPage({
-      path: `journal/${node.slug}`,
-      component: path.resolve("src/templates/stories-template.js"),
-      context: {
-        slug: node.slug,
-        next:
-          index === allStories.length - 1 ? null : allStories[index + 1].node,
       },
     });
   });
