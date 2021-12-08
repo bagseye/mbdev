@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../../components/Layout";
 import Seo from "../../components/SEO";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import { INLINES } from "@contentful/rich-text-types";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import styled from "styled-components";
@@ -65,6 +65,19 @@ const StoryContent = styled.article`
       margin-bottom: 100px;
     }
   }
+
+  .story__author {
+    max-width: 400px;
+  }
+
+  hr {
+    width: 100%;
+    border: none;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-top: var(--gridGap);
+    margin-bottom: calc(var(--gridGap) * 2);
+  }
 `;
 
 const IframeContainer = styled.span`
@@ -82,7 +95,7 @@ const IframeContainer = styled.span`
   }
 `;
 
-const StoriesTemplate = ({ data }) => {
+const StoriesTemplate = ({ data, pageContext }) => {
   const {
     title,
     createdAt,
@@ -137,6 +150,16 @@ const StoriesTemplate = ({ data }) => {
             <h1>{title}</h1>
             <p className="published">Posted on {createdAt}</p>
             {renderRichText(mainContent, options)}
+            <hr />
+            <aside className="story__author">
+              <h3>Written by Morgan Baker</h3>
+              <h4>First posted on {createdAt}</h4>
+              <p>
+                I'm a front end developer from Inverness, working with WordPress
+                and Gatsby. Take a look at my recent projects{" "}
+                <Link to="/projects">here</Link>.
+              </p>
+            </aside>
           </div>
         </StoryContent>
         {/* <JournalNavigation next={nextProject} /> */}
