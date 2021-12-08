@@ -4,7 +4,8 @@ import SEO from "../components/SEO";
 import Layout from "../components/Layout";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { GeneralContentStyles } from "../components/GeneralContent/GeneralContentStyles";
-import QuoteCta from "../components/QuoteCta/QuoteCta";
+import CMSContact from "../components/CMS/CMSContact/CMSContact";
+import CMSBanner from "../components/CMS/CMSBanner/CMSBanner";
 
 const options = {
   // Pass in the node and dril down to the required data
@@ -22,24 +23,62 @@ const options = {
 };
 
 const serviceTemplate = ({ data }) => {
-  const { title, excerpt, content, images } = data.service;
+  const {
+    bannerImage,
+    title,
+    excerpt,
+    contentAreaOne,
+    contentAreaTwo,
+    contentAreaThree,
+    contactBlockTitle,
+    contactBlockContent: { contactBlockContent },
+    contactBlockBackground,
+  } = data.service;
 
   return (
     <>
       <SEO title={title} description={excerpt} />
       <Layout>
+        <CMSBanner bannerContent={title} image={bannerImage} />
         <GeneralContentStyles>
-          <div
-            style={{ paddingTop: "150px" }}
-            className="container container-grid"
-          >
-            <div className="col">
-              <h1>{title}</h1>
-              {renderRichText(content, options)}
+          {contentAreaOne && (
+            <div
+              style={{ marginTop: "50px", marginBottom: "50px" }}
+              className="container container-grid"
+            >
+              <div className="col">
+                {renderRichText(contentAreaOne, options)}
+              </div>
             </div>
-          </div>
-          <QuoteCta />
+          )}
+          {contentAreaTwo && (
+            <div
+              style={{ marginTop: "50px", marginBottom: "50px" }}
+              className="container container-grid"
+            >
+              <div className="col">
+                {renderRichText(contentAreaTwo, options)}
+              </div>
+            </div>
+          )}
+          {contentAreaThree && (
+            <div
+              style={{ marginTop: "50px", marginBottom: "50px" }}
+              className="container container-grid"
+            >
+              <div className="col">
+                {renderRichText(contentAreaThree, options)}
+              </div>
+            </div>
+          )}
         </GeneralContentStyles>
+        {contactBlockTitle && contactBlockContent && (
+          <CMSContact
+            title={contactBlockTitle}
+            content={contactBlockContent}
+            media={contactBlockBackground}
+          />
+        )}
       </Layout>
     </>
   );
@@ -48,19 +87,26 @@ const serviceTemplate = ({ data }) => {
 export const query = graphql`
   query ($slug: String!) {
     service: contentfulService(slug: { eq: $slug }) {
+      bannerImage {
+        gatsbyImageData(layout: FULL_WIDTH, formats: [AUTO, WEBP], quality: 90)
+      }
       title
       excerpt
-      content {
+      contentAreaOne {
         raw
       }
-      images {
-        description
-        gatsbyImageData(
-          layout: FULL_WIDTH
-          placeholder: TRACED_SVG
-          formats: [AUTO, WEBP]
-          quality: 90
-        )
+      contentAreaTwo {
+        raw
+      }
+      contentAreaThree {
+        raw
+      }
+      contactBlockTitle
+      contactBlockContent {
+        contactBlockContent
+      }
+      contactBlockBackground {
+        gatsbyImageData(layout: FULL_WIDTH, formats: [AUTO, WEBP], quality: 90)
       }
     }
   }
