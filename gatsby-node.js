@@ -15,37 +15,6 @@ exports.onCreatePage = async ({ page, actions }) => {
   }
 };
 
-exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
-
-  const { data } = await graphql(`
-    query {
-      projects: allContentfulProjects {
-        edges {
-          node {
-            name
-            slug
-          }
-        }
-      }
-    }
-  `);
-
-  const allProjects = data.projects.edges;
-
-  data.projects.edges.forEach(({ node }, index) => {
-    createPage({
-      path: `projects/${node.slug}`,
-      component: path.resolve("src/templates/project-template.js"),
-      context: {
-        slug: node.slug,
-        next:
-          index === allProjects.length - 1 ? null : allProjects[index + 1].node,
-      },
-    });
-  });
-};
-
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   if (stage === "build-html") {
     /*

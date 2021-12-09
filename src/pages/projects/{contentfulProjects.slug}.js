@@ -1,11 +1,10 @@
 import React from "react";
 import { graphql } from "gatsby";
-import SEO from "../components/SEO";
-import Gallery from "../components/Gallery";
-import GeneralContent from "../components/GeneralContent/GeneralContent";
-import Layout from "../components/Layout";
-import ProjectNavigation from "../components/ProjectNavigation";
-import Banner from "../components/Banner/Banner";
+import SEO from "../../components/SEO";
+import Gallery from "../../components/Gallery";
+import GeneralContent from "../../components/GeneralContent/GeneralContent";
+import Layout from "../../components/Layout";
+import Banner from "../../components/Banner/Banner";
 import styled from "styled-components";
 
 const TechUsed = styled.div`
@@ -32,9 +31,7 @@ const TechUsed = styled.div`
   }
 `;
 
-const projectTemplate = ({ data, pageContext }) => {
-  const nextProject = pageContext.next;
-
+const projectTemplate = ({ data }) => {
   const {
     name,
     excerpt,
@@ -43,7 +40,7 @@ const projectTemplate = ({ data, pageContext }) => {
     images,
     technology,
     website,
-  } = data.project;
+  } = data.projectPage;
 
   const options = {
     // Pass in the node and dril down to the required data
@@ -99,15 +96,14 @@ const projectTemplate = ({ data, pageContext }) => {
 
         <GeneralContent content={richDescription} />
         <Gallery projectImages={projectImages} />
-        <ProjectNavigation next={nextProject} prefix="projects" />
       </Layout>
     </>
   );
 };
 
-export const query = graphql`
-  query ($slug: String!) {
-    project: contentfulProjects(slug: { eq: $slug }) {
+export const data = graphql`
+  query ProjectsPageQuery($id: String) {
+    projectPage: contentfulProjects(id: { eq: $id }) {
       name
       excerpt
       technology
@@ -127,4 +123,5 @@ export const query = graphql`
     }
   }
 `;
+
 export default projectTemplate;
