@@ -6,6 +6,31 @@ import GeneralContent from "../components/GeneralContent/GeneralContent";
 import Layout from "../components/Layout";
 import ProjectNavigation from "../components/ProjectNavigation";
 import Banner from "../components/Banner/Banner";
+import styled from "styled-components";
+
+const TechUsed = styled.div`
+  padding: 0 var(--gridGap);
+  margin-top: calc(var(--gridGap) * 3);
+  margin-bottom: calc(var(--gridGap) * 3);
+
+  .col {
+    &:nth-child(1) {
+      grid-column: 1 / 7;
+
+      @media (min-width: 834px) {
+        grid-column: 1 / 3;
+      }
+    }
+
+    &:nth-child(2) {
+      grid-column: 1 / 7;
+
+      @media (min-width: 834px) {
+        grid-column: 3 / 5;
+      }
+    }
+  }
+`;
 
 const projectTemplate = ({ data, pageContext }) => {
   const nextProject = pageContext.next;
@@ -46,6 +71,32 @@ const projectTemplate = ({ data, pageContext }) => {
           image={mainImage}
           scrollerText="Scroll to view this project"
         />
+        {technology || website ? (
+          <TechUsed>
+            <div className="container container-grid">
+              {technology && (
+                <div className="col">
+                  <p>
+                    <strong>Built using: </strong>
+                    {technology}
+                  </p>
+                </div>
+              )}
+
+              {website && (
+                <div className="col">
+                  <p>
+                    <strong>Website: </strong>
+                    <a href={`https://${website}`} target="_blank">
+                      {website}
+                    </a>
+                  </p>
+                </div>
+              )}
+            </div>
+          </TechUsed>
+        ) : null}
+
         <GeneralContent content={richDescription} />
         <Gallery projectImages={projectImages} />
         <ProjectNavigation next={nextProject} prefix="projects" />

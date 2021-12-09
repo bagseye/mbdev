@@ -184,45 +184,31 @@ export const GlobalStyles = createGlobalStyle`
     button.btn {
       cursor: pointer;
       background-color: var(--primary);
-      border: 2px solid var(--primary);
+      border: 1px solid var(--primary);
       font-size: var(--btn);
-      padding: 15px 20px;
+      padding: 10px 14px;
       display: inline-block;
       text-decoration: none;
       transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
       color: var(--background);
+      border-radius: 3px;
+
+      @media(min-width: 600px) {
+        padding: 15px 20px;
+      }
 
       &:hover,
       &:focus {
-        background-color: var(--secondary);
-        border-color: var(--secondary);
-      }
-
-      &__inverse,
-      &__inverse:hover,
-      &__inverse:focus {
-        background-color: transparent;
+        color: #fff;
+        background-color: rgba(255,255,255, 0.15);
       }
 
       &__inverse {
         color: var(--primary);
-
-        
-
-        &:hover {
-          border-color: var(--highlight);
-          color: var(--highlight);
-        }
-      }
-
-      &__white {
-        background-color: #fff;
-        border-color: #fff;
-        color: var(--background);
+        background-color: transparent;
 
         &:hover {
-          background-color: transparent;
-          color: #fff;
+          background-color: rgba(255,255,255, 0.15);
         }
       }
     }

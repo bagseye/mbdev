@@ -14,6 +14,10 @@ const Index = () => (
         bannerContent="Bespoke web design & development in Inverness. Creating modern,
           user-friendly experiences using Wordpress."
         scrollerText="Scroll for recent projects"
+        ctaOneText="Get in touch"
+        ctaOneLink="contact"
+        ctaTwoText="View projects"
+        ctaTwoLink="projects"
       />
       <FeatureDevs />
       <ContactMethods />
