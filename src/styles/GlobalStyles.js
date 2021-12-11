@@ -231,6 +231,33 @@ export const GlobalStyles = createGlobalStyle`
       width: 100%;
     }
 
+    .splitstyle {
+      gap: var(--gridGap);
+      margin-top: var(--margins);
+      margin-bottom: var(--margins);
+      >.col {
+        &:nth-child(1) {
+
+          @media(min-width: 768px) {
+            grid-column: 1 / 4;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+          }
+
+
+        }
+
+        &:nth-child(2) {
+
+          @media(min-width: 768px) {
+            grid-column: 4 / 7;
+          }
+        }
+      }
+    }
+
     .sr-only {
       position: absolute;
       width: 1px;
