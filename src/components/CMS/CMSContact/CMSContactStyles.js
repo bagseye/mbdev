@@ -26,14 +26,6 @@ export const CMSContactStyles = styled.section`
       }
     }
   }
-
-  h2 {
-    font-size: var(--titleLarge);
-  }
-
-  p {
-    font-size: var(--leadIn);
-  }
 `;
 
 export const CMSContactMediaStyles = styled.div`

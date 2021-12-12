@@ -17,9 +17,7 @@ const ServicePage = ({ data }) => {
     contentAreaTwo,
     contentAreaThree,
     contentAreaThreeImage,
-    contactBlockTitle,
-    contactBlockContent: { contactBlockContent },
-    contactBlockBackground,
+    includeContactCta,
   } = data.servicePage;
 
   const contThreeMedia = getImage(contentAreaThreeImage);
@@ -31,44 +29,35 @@ const ServicePage = ({ data }) => {
         <CMSBanner bannerContent={title} image={bannerImage} />
         <GeneralContentStyles>
           {contentAreaOne && (
-            <div
-              style={{ marginTop: "50px", marginBottom: "50px" }}
-              className="container container-grid"
-            >
-              <div className="col">{renderRichText(contentAreaOne)}</div>
-            </div>
+            <>
+              <div className="container container-grid sectiongap">
+                <div className="col">{renderRichText(contentAreaOne)}</div>
+              </div>
+            </>
           )}
           {contentAreaTwo && (
-            <div
-              style={{ marginTop: "50px", marginBottom: "50px" }}
-              className="container container-grid"
-            >
-              <div className="col">{renderRichText(contentAreaTwo)}</div>
-            </div>
+            <>
+              <hr />
+              <div className="container container-grid sectiongap">
+                <div className="col">{renderRichText(contentAreaTwo)}</div>
+              </div>
+            </>
           )}
           {contentAreaThree && (
-            <div className="container container-grid splitstyle">
-              <div className="col">
-                {renderRichText(contentAreaThree)}
-                <Link className="btn" to="/content">
-                  Get in touch
-                </Link>
-              </div>
-              {contThreeMedia && (
+            <>
+              <hr />
+              <div className="container container-grid sectiongap">
                 <div className="col">
-                  <GatsbyImage image={contThreeMedia} />
+                  {renderRichText(contentAreaThree)}
+                  <Link className="btn" to="/content">
+                    Get in touch
+                  </Link>
                 </div>
-              )}
-            </div>
+              </div>
+            </>
           )}
         </GeneralContentStyles>
-        {contactBlockTitle && contactBlockContent && (
-          <CMSContact
-            title={contactBlockTitle}
-            content={contactBlockContent}
-            media={contactBlockBackground}
-          />
-        )}
+        {includeContactCta && <CMSContact />}
       </Layout>
     </>
   );
@@ -92,16 +81,7 @@ export const data = graphql`
       contentAreaThree {
         raw
       }
-      contentAreaThreeImage {
-        gatsbyImageData(layout: FULL_WIDTH, formats: [AUTO, WEBP], quality: 90)
-      }
-      contactBlockTitle
-      contactBlockContent {
-        contactBlockContent
-      }
-      contactBlockBackground {
-        gatsbyImageData(layout: FULL_WIDTH, formats: [AUTO, WEBP], quality: 90)
-      }
+      includeContactCta
     }
   }
 `;

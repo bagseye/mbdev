@@ -1,16 +1,14 @@
 import React from "react";
 import { Link } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { StaticImage } from "gatsby-plugin-image";
 import { CMSContactStyles, CMSContactMediaStyles } from "./CMSContactStyles";
-import PropTypes from "prop-types";
 
-const CMSContact = ({ title, content, media }) => {
-  const image = getImage(media);
+const CMSContact = () => {
   return (
     <>
       <CMSContactMediaStyles>
         <div className="media">
-          <GatsbyImage image={image} />
+          <StaticImage src="../../../images/apple-products.jpg" />
         </div>
       </CMSContactMediaStyles>
       <CMSContactStyles>
@@ -22,8 +20,14 @@ const CMSContact = ({ title, content, media }) => {
           }}
         >
           <div className="cont">
-            <h2>{title}</h2>
-            <p>{content}</p>
+            <h4>Get in touch today</h4>
+            <h2>Are you ready to get started?</h2>
+            <p>
+              If you’re ready to give your company website an overhaul, or
+              looking for a quote, or even just looking for some help and
+              guidance as you take the next step, get in touch today. Moving
+              your business to the next stage starts today!
+            </p>
             <Link className="btn" to="/contact">
               Get in touch
             </Link>
@@ -35,8 +39,3 @@ const CMSContact = ({ title, content, media }) => {
 };
 
 export default CMSContact;
-
-CMSContact.propTypes = {
-  title: PropTypes.string,
-  image: PropTypes.object,
-};

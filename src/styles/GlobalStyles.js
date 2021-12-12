@@ -19,6 +19,7 @@ export const GlobalStyles = createGlobalStyle`
         --maxContainer: 1500px;
         --margins: 80px;
         --gridGap: 15px;
+        --sectionGap: calc(var(--gridGap) * 3);
         
 
         --sansSerif: 'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
@@ -106,6 +107,13 @@ export const GlobalStyles = createGlobalStyle`
       font-weight: 700;
     }
 
+    h4 {
+      font-weight: 500;
+      color: #888;
+      line-height: 1.4;
+      font-size: var(--paragraph);
+    }
+
     p {
       margin-top: 0.5rem;
       margin-bottom: 1.5rem;
@@ -116,6 +124,13 @@ export const GlobalStyles = createGlobalStyle`
     p,
     button {
       font-family: var(--sansSerif);
+    }
+
+    hr {
+      border: none;
+      height: 1px;
+      background-color: rgba(255,255,255,0.1);
+      max-width: var(--maxContainer);
     }
 
     a {
@@ -231,32 +246,11 @@ export const GlobalStyles = createGlobalStyle`
       width: 100%;
     }
 
-    .splitstyle {
-      gap: var(--gridGap);
-      margin-top: var(--margins);
-      margin-bottom: var(--margins);
-      >.col {
-        &:nth-child(1) {
-
-          @media(min-width: 768px) {
-            grid-column: 1 / 4;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-          }
-
-
-        }
-
-        &:nth-child(2) {
-
-          @media(min-width: 768px) {
-            grid-column: 4 / 7;
-          }
-        }
-      }
+    .sectiongap {
+      margin-top: var(--sectionGap);
+      margin-bottom: var(--sectionGap);
     }
+
 
     .sr-only {
       position: absolute;
