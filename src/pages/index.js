@@ -12,7 +12,7 @@ const Index = () => (
     <Layout>
       <Banner
         bannerContent="Bespoke web design & development in Inverness. Creating modern,
-          user-friendly experiences using Wordpress."
+          user-friendly experiences using Wordpress and GatsbyJS."
         scrollerText="Scroll for recent projects"
         ctaOneText="Get in touch"
         ctaOneLink="contact"

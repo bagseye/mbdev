@@ -4,13 +4,9 @@ export const CMSContactStyles = styled.section`
   background-color: #282828;
   margin-left: auto;
   margin-right: auto;
-  padding: calc(var(--gridGap) * 1.5) var(--gridGap);
+  padding: calc(var(--sectionGap)) var(--gridGap);
   position: relative;
   overflow: hidden;
-
-  @media (min-width: 768px) {
-    padding: calc(var(--gridGap) * 3) var(--gridGap);
-  }
 
   .cont {
     position: relative;

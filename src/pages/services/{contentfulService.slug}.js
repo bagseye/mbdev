@@ -6,7 +6,6 @@ import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { GeneralContentStyles } from "../../components/GeneralContent/GeneralContentStyles";
 import CMSContact from "../../components/CMS/CMSContact/CMSContact";
 import CMSBanner from "../../components/CMS/CMSBanner/CMSBanner";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const ServicePage = ({ data }) => {
   const {
@@ -16,11 +15,8 @@ const ServicePage = ({ data }) => {
     contentAreaOne,
     contentAreaTwo,
     contentAreaThree,
-    contentAreaThreeImage,
     includeContactCta,
   } = data.servicePage;
-
-  const contThreeMedia = getImage(contentAreaThreeImage);
 
   return (
     <>
