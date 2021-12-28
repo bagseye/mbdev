@@ -18,6 +18,17 @@ const JournalListStyles = styled.div`
 
   .intro__area {
     max-width: 500px;
+    margin-bottom: var(--sectionGap);
+
+    > * {
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
 
     @media (min-width: 768px) {
       max-width: 750px;
@@ -32,31 +43,44 @@ const JournalListStyles = styled.div`
 
 const JournalItem = styled(Link)`
   padding-top: var(--sectionGap);
-  margin-top: var(--sectionGap);
-  margin-bottom: var(--sectionGap);
+  padding-bottom: var(--sectionGap);
   display: block;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   max-width: 500px;
+  text-decoration: none;
 
   @media (min-width: 768px) {
     max-width: 750px;
   }
 
+  > * {
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
   h2 {
     font-size: var(--titleLarge);
-    line-height: var(--titleLargeLineHeight);
     margin: 0;
     letter-spacing: var(--titleLargeLetterSpacing);
-    color: #fff;
-    font-weight: 700;
+    line-height: var(--titleLargeLineHeight);
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.2);
+    text-decoration-thickness: 0.2rem;
+    transition: text-decoration-color 0.3s ease;
 
-    a {
-      font-weight: 700;
-      text-decoration-thickness: 0.2rem;
+    @media (min-width: 768px) {
+      text-decoration-thickness: 0.35rem;
+    }
+  }
 
-      @media (min-width: 768px) {
-        text-decoration-thickness: 0.35rem;
-      }
+  &:hover {
+    h2 {
+      text-decoration-color: rgba(142, 45, 226, 1);
     }
   }
 `;
@@ -78,10 +102,8 @@ const journalsPage = () => {
           <div className="journal__content">
             {allStories.map((node, index) => {
               return (
-                <JournalItem key={index}>
-                  <h2>
-                    <Link to={node.gatsbyPath}>{node.title}</Link>
-                  </h2>
+                <JournalItem to={node.gatsbyPath} key={index}>
+                  <h2>{node.title}</h2>
                   <h4>Posted on - {node.createdAt}</h4>
                 </JournalItem>
               );
