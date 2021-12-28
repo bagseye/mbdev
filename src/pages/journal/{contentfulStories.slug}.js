@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "../../components/Layout";
 import Seo from "../../components/SEO";
 import { graphql, Link } from "gatsby";
-import { INLINES } from "@contentful/rich-text-types";
+import { INLINES, MARKS } from "@contentful/rich-text-types";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import styled from "styled-components";
 
@@ -57,6 +57,18 @@ const StoriesTemplate = ({ data }) => {
   } = data.storiesPage;
 
   const options = {
+    renderMark: {
+      [MARKS.ITALIC]: (text) => <em>{text}</em>,
+    },
+    renderMark: {
+      [MARKS.BOLD]: (text) => <strong>{text}</strong>,
+    },
+    renderMark: {
+      [MARKS.CODE]: (text) => <code>{text}</code>,
+    },
+    renderMark: {
+      [MARKS.UNDERLINE]: (text) => <span className="underline">{text}</span>,
+    },
     renderNode: {
       [INLINES.HYPERLINK]: (node) => {
         if (node.data.uri.includes("player.vimeo.com/video")) {
