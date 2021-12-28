@@ -2,6 +2,10 @@ import React from "react";
 import { MenuProvider } from "./src/components/MenuContext";
 import { AnimatePresence } from "framer-motion";
 import { silentAuth } from "./src/utils/auth";
+import "@fontsource/inter/300.css";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/700.css";
 
 class SessionCheck extends React.Component {
   constructor(props) {
