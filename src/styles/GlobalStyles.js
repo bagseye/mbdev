@@ -23,7 +23,6 @@ export const GlobalStyles = createGlobalStyle`
         
 
         --sansSerif: 'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-        --serif: 'Cormorant', serif;
         
         @media(min-width:414px) {
             --titleLarge: 2.1rem;
@@ -85,6 +84,7 @@ export const GlobalStyles = createGlobalStyle`
     h1,
     h2 {
       font-weight: 700;
+      margin-top: 0.25rem;
 
       @media(min-width: 1200px) {
         margin-bottom: 1.5rem;

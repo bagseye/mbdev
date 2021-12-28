@@ -1,80 +1,110 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
+import { Link } from "gatsby";
 import styled from "styled-components";
-import GeneralContent from "../components/GeneralContent/GeneralContent";
 import Layout from "../components/Layout";
+import useAllStories from "../hooks/use-all-stories";
 
 const JournalListStyles = styled.div`
-  padding: 0 var(--gridGap);
+  padding: 150px var(--gridGap) 0 var(--gridGap);
   max-width: 1580px;
   margin: 0 auto;
-  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   position: relative;
 
-  .journal__content {
-    grid-column: 1 / 7;
+  @media (min-width: 768px) {
+    padding-top: 180px;
+  }
+
+  .intro__area {
+    max-width: 500px;
+    margin-bottom: var(--sectionGap);
+
+    > * {
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
 
     @media (min-width: 768px) {
-      grid-column: 1 / 5;
+      max-width: 750px;
+    }
+
+    > h1,
+    > h4 {
+      margin-top: 0;
     }
   }
 `;
 
 const JournalItem = styled(Link)`
-  margin-bottom: var(--gridGap);
+  padding-top: var(--sectionGap);
+  padding-bottom: var(--sectionGap);
   display: block;
-  h2,
-  p {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  max-width: 500px;
+  text-decoration: none;
+
+  @media (min-width: 768px) {
+    max-width: 750px;
+  }
+
+  > * {
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  h2 {
     font-size: var(--titleLarge);
-    line-height: var(--titleLargeLineHeight);
     margin: 0;
     letter-spacing: var(--titleLargeLetterSpacing);
-    color: #fff;
-    font-weight: 700;
+    line-height: var(--titleLargeLineHeight);
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.2);
+    text-decoration-thickness: 0.2rem;
+    transition: text-decoration-color 0.3s ease;
 
-    a {
-      font-weight: 700;
-      text-decoration-thickness: 0.2rem;
+    @media (min-width: 768px) {
+      text-decoration-thickness: 0.35rem;
+    }
+  }
 
-      @media (min-width: 768px) {
-        text-decoration-thickness: 0.35rem;
-      }
+  &:hover {
+    h2 {
+      text-decoration-color: rgba(142, 45, 226, 1);
     }
   }
 `;
 
-export const getJournals = graphql`
-  query {
-    allContentfulStories {
-      edges {
-        node {
-          title
-          slug
-          createdAt(formatString: "MMMM DD, YYYY")
-        }
-      }
-    }
-  }
-`;
-
-const journalsPage = ({ data }) => {
-  const journalData = data.allContentfulStories.edges;
+const journalsPage = () => {
+  const allStories = useAllStories();
 
   return (
     <Layout>
       <JournalListStyles>
-        <div className="container-grid">
+        <div className="container">
+          <div className="intro__area">
+            <h1>Web development journal and open-source project updates</h1>
+            <h4>
+              A deep-dive into my progress in web development, with a focus on
+              WordPress, React, Gatsby and open-source.
+            </h4>
+          </div>
           <div className="journal__content">
-            {journalData.map(({ node }) => {
+            {allStories.map((node, index) => {
               return (
-                <JournalItem>
-                  <h2>
-                    <Link to={`/journal/${node.slug}`}>{node.title}</Link>
-                  </h2>
-                  <p>Posted on - {node.createdAt}</p>
+                <JournalItem to={node.gatsbyPath} key={index}>
+                  <h2>{node.title}</h2>
+                  <h4>Posted on - {node.createdAt}</h4>
                 </JournalItem>
               );
             })}
