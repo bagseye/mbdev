@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image";
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 
@@ -43,7 +43,7 @@ const BannerStyles = styled.div`
   }
 `;
 
-const CMSBanner = ({ bannerContent, image }) => {
+const CMSBanner = ({ bannerContent, image, staticImage }) => {
   const bannerImage = getImage(image);
 
   return (
@@ -58,6 +58,12 @@ const CMSBanner = ({ bannerContent, image }) => {
       </div>
       {bannerImage && (
         <GatsbyImage className="banner__bg" image={bannerImage} />
+      )}
+      {staticImage && (
+        <StaticImage
+          className="banner__bg"
+          src="../../../../static/gatsby-services-banner.jpg"
+        />
       )}
     </BannerStyles>
   );

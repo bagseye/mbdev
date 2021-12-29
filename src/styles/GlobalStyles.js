@@ -104,7 +104,11 @@ export const GlobalStyles = createGlobalStyle`
       font-size: var(--titleLarge);
       line-height: var(--titleLargeLineHeight);
       letter-spacing: var(--titleLargeLetterSpacing);
-      font-weight: 700;
+    }
+
+    h2 {
+      font-size: var(--h2);
+      line-height: 1.35;
     }
 
     h4 {
