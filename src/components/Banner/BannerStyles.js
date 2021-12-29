@@ -13,24 +13,6 @@ export const BannerGlobalStyles = styled.section`
     @media (min-width: 768px) {
       padding-top: calc(var(--gridGap) * 7);
     }
-
-    .content__area {
-      max-width: 500px;
-
-      @media (min-width: 768px) {
-        max-width: 750px;
-      }
-
-      > * {
-        &:first-child {
-          margin-top: 0;
-        }
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-      }
-    }
   }
 
   .banner__bg {

@@ -53,7 +53,7 @@ const BannerSimple = ({ title, subTitle, children }) => {
           </motion.div>
         </div>
       )}
-      {children && children}
+      {children}
     </BannerGlobalStyles>
   );
 };

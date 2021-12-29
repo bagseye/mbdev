@@ -100,7 +100,8 @@ export const GlobalStyles = createGlobalStyle`
       font-family: var(--sansSerif);
     }
 
-    h1 {
+    h1,
+    .as__h1 {
       font-size: var(--titleLarge);
       line-height: var(--titleLargeLineHeight);
       letter-spacing: var(--titleLargeLetterSpacing);
@@ -267,6 +268,24 @@ export const GlobalStyles = createGlobalStyle`
       }
     }
 
+    .content__area {
+      max-width: 500px;
+
+      @media (min-width: 768px) {
+        max-width: 750px;
+      }
+
+      > * {
+        &:first-child {
+          margin-top: 0;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
     .container-grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -274,9 +293,19 @@ export const GlobalStyles = createGlobalStyle`
       width: 100%;
     }
 
+    .section {
+      padding-left: var(--gridGap);
+      padding-right: var(--gridGap);
+    }
+
     .sectiongap {
       margin-top: var(--sectionGap);
       margin-bottom: var(--sectionGap);
+    }
+
+    .paddinggap {
+      padding-top: var(--sectionGap);
+      padding-bottom: var(--sectionGap);
     }
 
 
