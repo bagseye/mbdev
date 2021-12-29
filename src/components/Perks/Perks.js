@@ -1,6 +1,7 @@
 import React from "react";
 import { PerksGlobalStyles } from "./PerksStyles";
 import PropTypes from "prop-types";
+import Button from "../Button/Button";
 
 const Perks = ({ children, title, cta }) => {
   return (
@@ -15,9 +16,7 @@ const Perks = ({ children, title, cta }) => {
         {cta && (
           <div className="content__area">
             <h2 className="as__h1">{cta}</h2>
-            <button type="button" className="btn">
-              Get in touch
-            </button>
+            <Button to="/contact" />
           </div>
         )}
       </div>

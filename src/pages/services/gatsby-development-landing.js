@@ -13,6 +13,7 @@ import {
 import { IoIosInfinite as Dynamic } from "react-icons/io";
 import Slide from "../../components/Slide/Slide";
 import ContactForm from "../../components/Contact/Contact";
+import Button from "../../components/Button/Button";
 
 const GatsbyDevelopment = () => {
   return (
@@ -75,11 +76,46 @@ const GatsbyDevelopment = () => {
         </Slide>
         <section className="section sectiongap">
           <div className="container">
+            <div className="columns">
+              <div className="column">
+                <h2 className="as__h1">
+                  Its time to go headless...
+                  <br />
+                  By de-coupling your CMS.
+                </h2>
+              </div>
+              <div className="column">
+                <p>
+                  A Gatsby-powered site uses a headless CMS, meaning your site
+                  and your content is decoupled. This means that in the unlikely
+                  event where your CMS is accessed, the front-end will be
+                  unaffected because it uses a completely different
+                  architecture.
+                </p>
+                <p>
+                  Gatsby sites offer superb app-like experiences to users with
+                  seamless transitions between pages and ultra-fast loading
+                  times. By switching to the Jamstack you’ll benefit from
+                  reduced user issues such as servers not responding to requests
+                  and slooooooow page loads.
+                </p>
+                <Button to="/contact" />
+              </div>
+            </div>
+          </div>
+        </section>
+        <hr />
+        <section className="section sectiongap">
+          <div className="container">
             <div className="content__area">
               <h2 className="as__h1">
                 Get in touch today to discuss your next project, or find out
                 more about the Jamstack and Gatsby.
               </h2>
+              <p className="leadin">
+                Just enter a few of your details and what you are looking for in
+                terms of web development.
+              </p>
               <ContactForm />
             </div>
           </div>

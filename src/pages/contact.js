@@ -8,23 +8,21 @@ const Contact = () => (
   <>
     <SEO title="Contact the developer" />
     <Layout>
-      <GeneralContentStyles>
-        <div
-          style={{ paddingTop: "150px" }}
-          className="container container-grid"
-        >
-          <div className="col">
-            <h1>
-              Get in touch by completing the fields below, or call{" "}
-              <a style={{ fontWeight: 700 }} href="tel:00447369256509">
-                07369 256 509
-              </a>
-              . All fields are required
-            </h1>
+      <section className="section sectiongap topgap">
+        <div className="container">
+          <div className="content__area">
+            <h2 className="as__h1">
+              Get in touch today to discuss your next project, or find out more
+              about the Jamstack and Gatsby.
+            </h2>
+            <p className="leadin">
+              Just enter a few of your details and what you are looking for in
+              terms of web development.
+            </p>
             <ContactForm />
           </div>
         </div>
-      </GeneralContentStyles>
+      </section>
     </Layout>
   </>
 );

@@ -12,9 +12,9 @@ export const GlobalStyles = createGlobalStyle`
         --titleLargeLetterSpacing: -2px;
         --h2: 1.3rem;
         --h2LineHeight: 1.25;
-        --h2LetterSpacing: -0.15rem;
+        --h2LetterSpacing: -0.05rem;
         --paragraph: 1rem;
-        --leadIn: 1.15rem;
+        --leadIn: 1.2rem;
         --btn: 1rem;
         --maxContainer: 1500px;
         --margins: 80px;
@@ -29,7 +29,7 @@ export const GlobalStyles = createGlobalStyle`
             --h2: 1.35rem;
             --h2LineHeight: 1.35;
             --paragraph: 1.05rem;
-            --leadIn: 1.2rem;
+            --leadIn: 1.25rem;
             --gridGap: 20px;
             --margins: 100px;
             --titleLargeLineHeight: 1.35;
@@ -45,6 +45,7 @@ export const GlobalStyles = createGlobalStyle`
           --margins: 150px;
           --titleLargeLineHeight: 1.3;
           --h2: 1.45rem;
+          --leadIn: 1.35rem;
           --gridGap: 30px;
         }
 
@@ -54,7 +55,7 @@ export const GlobalStyles = createGlobalStyle`
           --h2: 1.6rem;
           --h2LineHeight: 1.45;
           --gridGap: 40px;
-          --leadIn: 1.3rem;
+          --leadIn: 1.45rem;
           --paragraph: 1.15rem;
         }
     }
@@ -124,6 +125,11 @@ export const GlobalStyles = createGlobalStyle`
       margin-bottom: 1.5rem;
       line-height: 1.4;
       font-size: var(--paragraph);
+    }
+
+    .leadin {
+      font-size: var(--leadIn);
+      font-weight: 500;
     }
 
     p,
@@ -306,6 +312,38 @@ export const GlobalStyles = createGlobalStyle`
     .paddinggap {
       padding-top: var(--sectionGap);
       padding-bottom: var(--sectionGap);
+    }
+
+    .topgap {
+      padding-top: 150px;
+
+      @media (min-width: 768px) {
+        padding-top: 180px;
+      }
+    }
+
+    .columns {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gridGap);
+
+      @media(min-width: 768px) {
+        flex-direction: row;
+      }
+
+      .column {
+        flex: 1 1 50%;
+
+      > * {
+        &:first-child {
+          margin-top: 0;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+      }
     }
 
 

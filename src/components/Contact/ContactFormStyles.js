@@ -2,55 +2,45 @@ import styled from "styled-components";
 
 export const ContactFormStyles = styled.div`
   width: 100%;
-  /* max-width: 800px; */
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #262626;
+  padding: calc(var(--gridGap) * 2) var(--gridGap);
+  border-radius: 10px;
+  box-shadow: 0px 8px 15px 6px rgba(0, 0, 0, 0.2);
 
-  label {
+  label,
+  input,
+  textarea {
     flex: 0 0 100%;
-    font-size: var(--leadIn);
-    margin-bottom: calc(var(--gridGap) / 2);
-    visibility: hidden;
-    height: 0;
+    font-weight: 700;
   }
 
-  input {
-    flex: 0 0 100%;
+  label {
+    margin-bottom: var(--gridGap);
+  }
+
+  input,
+  textarea {
     padding: 10px 0;
     background-color: transparent;
     border: none;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.2);
     color: #fff;
-    font-size: var(--titleLarge);
-    line-height: var(--titleLargeLineHeight);
-    letter-spacing: var(--titleLargeLetterSpacing);
-    font-weight: 700;
-    border-bottom: 5px solid transparent;
+    font-size: var(--h2);
+    font-family: var(--sansSerif);
+    line-height: var(--h2LineHeight);
+    letter-spacing: var(--h2LetterSpacing);
     transition: border-bottom 0.3s;
 
     &:focus {
       outline: none !important;
-      border-bottom: 5px solid #fff;
+      border-bottom: 3px solid #fff;
     }
   }
 
   textarea {
-    flex: 0 0 100%;
     min-height: 300px;
-    padding: 10px 0;
-    border: none;
-    background-color: transparent;
-    color: #fff;
-    font-size: var(--titleLarge);
-    line-height: var(--titleLargeLineHeight);
-    letter-spacing: var(--titleLargeLetterSpacing);
-    font-weight: 700;
-    font-family: var(--sansSerif);
-    border-bottom: 5px solid transparent;
-    transition: border-bottom 0.3s;
-
-    &:focus {
-      outline: none !important;
-      border-bottom: 5px solid #fff;
-    }
   }
 
   .area {
