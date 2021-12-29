@@ -133,6 +133,30 @@ export const GlobalStyles = createGlobalStyle`
       max-width: var(--maxContainer);
     }
 
+    code {
+      font-family: monospace;
+      background-color: #525252;
+      font-size: 14px;
+      padding: 1px 4px;
+      border-radius: 4px;
+      font-weight: 400;
+
+      @media(min-width:768px) {
+        font-size: 15px;
+      }
+
+      @media(min-width:1024px) {
+        font-size: 16px;
+      }
+    }
+
+    .underline {
+      text-decoration: underline;
+      text-underline-position: under;
+      text-decoration-color: rgba(255, 255, 255, 1);
+      text-decoration-thickness: 0.125rem;
+    }
+
     a {
       font-weight: 400;
       text-underline-position: under;
