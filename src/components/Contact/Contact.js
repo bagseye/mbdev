@@ -48,7 +48,7 @@ const ContactForm = () => {
           <textarea
             type="text"
             name="contact-message"
-            placeholder="Use this field to give a brief description of what you are looking for. For example a website with branding..."
+            placeholder="Just enter a short description of what you are looking for, or what you would like to know..."
           />
         </div>
         <Button as="button" type="submit" text="Send this request" />

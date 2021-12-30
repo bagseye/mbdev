@@ -39,6 +39,24 @@ const credits = () => (
                   Félix Besombes
                 </a>
               </li>
+              <li>
+                <a
+                  href="https://www.pexels.com/@nick-demou-365778"
+                  rel="nofollow noreferrer"
+                  target="_blank"
+                >
+                  Nick Demou
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.pexels.com/@mateusz-dach-99805"
+                  rel="nofollow noreferrer"
+                  target="_blank"
+                >
+                  Mateusz Dach
+                </a>
+              </li>
             </ul>
           </div>
         </div>

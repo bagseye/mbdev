@@ -3,7 +3,7 @@ import { PerksGlobalStyles } from "./PerksStyles";
 import PropTypes from "prop-types";
 import Button from "../Button/Button";
 
-const Perks = ({ children, title, cta }) => {
+const Perks = ({ children, title, cta, ctaSub }) => {
   return (
     <PerksGlobalStyles className="sectiongap">
       <div className="container">
@@ -16,6 +16,7 @@ const Perks = ({ children, title, cta }) => {
         {cta && (
           <div className="content__area">
             <h2 className="as__h1">{cta}</h2>
+            {ctaSub && <p className="leadin">{ctaSub}</p>}
             <Button to="/contact" />
           </div>
         )}
@@ -29,5 +30,6 @@ export default Perks;
 Perks.propTypes = {
   title: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
+  cta: PropTypes.string,
   cta: PropTypes.string,
 };

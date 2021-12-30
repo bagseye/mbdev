@@ -16,4 +16,5 @@ Button.propTypes = {
   text: PropTypes.string,
   as: PropTypes.string,
   to: PropTypes.string,
+  type: PropTypes.string,
 };

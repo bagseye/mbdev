@@ -19,7 +19,7 @@ export const GlobalStyles = createGlobalStyle`
         --maxContainer: 1500px;
         --margins: 80px;
         --gridGap: 15px;
-        --sectionGap: calc(var(--gridGap) * 3);
+        --sectionGap: calc(var(--gridGap) * 4);
         
 
         --sansSerif: 'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
