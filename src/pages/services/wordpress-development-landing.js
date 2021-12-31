@@ -29,7 +29,7 @@ const GatsbyDevelopment = () => {
         >
           <StaticImage
             className="banner__bg"
-            src="../../../static/gatsby-services-banner.jpg"
+            src="../../../static/wordpress-development-banner.jpg"
             placeholder="blurred"
             transformOptions={{ fit: "cover" }}
             formats={["auto", "webp"]}
@@ -38,8 +38,8 @@ const GatsbyDevelopment = () => {
         </BannerSimple>
         <Perks
           title="What are the benefits of using WordPress for your next business website?"
-          cta="Get in touch today to find out how switching to the Jamstack can benefit your future growth."
-          ctaSub="With packages to suit all business needs, you can trust Morgan Baker Development with your next project. You'll be working with a developer experienced in delivering fast, SEO-friendly websites using Gatsby and the Jamstack."
+          cta="A WordPress powered website gives you all the tools you'll need for future growth."
+          ctaSub="Get in touch with Morgan Baker Development today and benefit from bespoke web design using WordPress. By making that choice, you're working with a developer with years of experience in developing fast, scalable websites using the popular CMS."
         >
           <Perk
             icon={<Zero />}
@@ -73,17 +73,17 @@ const GatsbyDevelopment = () => {
           />
         </Perks>
         <Slide
-          title="Become the RoadRunner. Leave the Coyotes behind."
-          subTitle="The modern web is all about speed. Delivering your content faster than your competitors and increasing the chance of converting your customers."
-          content="Attention spans on the web are short, and it is vital your website delivers on performance. Gatsby sites benefit from industry leading performance because of their pre-rendered nature. This means your customers can experience app-like transitions when moving through your pages. Reduce user frustration and focus on delivering the best user experience possible by switching to a Gatsby-powered site."
+          title="The power to build exactly what you want."
+          subTitle="WordPress has changed so much over the years. What started out as a simple blogging platform is now one of the most flexible CMS available."
+          content="With the Block Editor you now have the power to edit every part of your content. And because each content area is a block, that means they are interchangeable with each other. Don't like the position of your current call to action? Then change it. Just a simple click and drag operation makes your content extremely flexible."
         >
           <StaticImage
             className="slide__bg"
-            src="../../../static/gatsby-services-speed.jpg"
+            src="../../../static/wordpress-power-banner.jpg"
             placeholder="blurred"
             transformOptions={{ fit: "cover" }}
             formats={["auto", "webp"]}
-            alt="Gatsby Development Services"
+            alt="WordPress Development Services"
           />
         </Slide>
         <section className="section sectiongap">
@@ -91,25 +91,22 @@ const GatsbyDevelopment = () => {
             <div className="columns">
               <div className="column">
                 <h2 className="as__h1">
-                  It's time to go headless...
-                  <br />
-                  By decoupling your CMS.
+                  All the tools your business needs to succeed.
                 </h2>
               </div>
               <div className="column">
                 <p>
-                  Gatsby-powered sites use a headless CMS to deliver and edit
-                  your content. This means your site is decoupled from it's
-                  data, so there is no direct access to your information through
-                  the website. All content and data is stored on a different
-                  system, drastically reducing the chances of being hacked
-                  through traditional means, such as brute-force.
+                  Your business may just be starting out, or it may be
+                  established and looking to move into new areas of success.
+                  Whatever your goals, WordPress can handle everything that is
+                  thrown at it.
                 </p>
                 <p>
-                  You have a huge number of options for a headless CMS, such as
-                  Contentful or Sanity to name just a couple. WordPress is even
-                  available as a headless CMS giving you and your team the
-                  opportunity to use a CMS you are all familiar with.
+                  You'll have all the tools you need in place, so if you are
+                  starting to grow your business the CMS and website can match
+                  your ambitions. It's extensive plugin library means there are
+                  countless options available to you, such as ecommerce
+                  platforms, as you pursue success.
                 </p>
                 <Button to="/contact" />
               </div>
@@ -120,8 +117,8 @@ const GatsbyDevelopment = () => {
           <div className="container">
             <div className="content__area">
               <h2 className="as__h1">
-                Get in touch today to discuss your next project, or find out
-                more about the Jamstack and Gatsby.
+                Take the next step by getting in touch today to find out more
+                about the power of WordPress.
               </h2>
               <p className="leadin">
                 Just enter a few of your details and what you are looking for in
