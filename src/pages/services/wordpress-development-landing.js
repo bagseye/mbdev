@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "../../components/Layout";
 import { StaticImage } from "gatsby-plugin-image";
 import Seo from "../../components/SEO";
-import BannerSimple from "../../components/Banner/BannerSimple";
+import Banner from "../../components/Banner/Banner";
 import Perks from "../../components/Perks/Perks";
 import Perk from "../../components/Perks/Perk";
 import { SiZeromq as Zero } from "react-icons/si";
@@ -23,7 +23,7 @@ const GatsbyDevelopment = () => {
         description="Bespoke web design & development using the world's favourite CMS"
       />
       <Layout>
-        <BannerSimple
+        <Banner
           title="Bespoke WordPress Development"
           subTitle="Web design and development using the world's most popular content management system. The ideal partner for content-rich websites."
         >
@@ -35,7 +35,7 @@ const GatsbyDevelopment = () => {
             formats={["auto", "webp"]}
             alt="WordPress Development Services Banner Image"
           />
-        </BannerSimple>
+        </Banner>
         <Perks
           title="What are the benefits of using WordPress for your next business website?"
           cta="A WordPress powered website gives you all the tools you'll need for future growth."

@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "../../components/Layout";
 import { StaticImage } from "gatsby-plugin-image";
 import Seo from "../../components/SEO";
-import BannerSimple from "../../components/Banner/BannerSimple";
+import Banner from "../../components/Banner/Banner";
 import Perks from "../../components/Perks/Perks";
 import Perk from "../../components/Perks/Perk";
 import { BsSpeedometer2 as Speed } from "react-icons/bs";
@@ -27,7 +27,7 @@ const GatsbyDevelopment = () => {
         description="Super-fast sites using GatsbyJS and pre-rendered content"
       />
       <Layout>
-        <BannerSimple
+        <Banner
           title="Gatsby Development Services"
           subTitle="Transform your business website by using Gatsby, the super-fast Jamstack powered static-site generator. A website built for performance and security."
         >
@@ -39,7 +39,7 @@ const GatsbyDevelopment = () => {
             formats={["auto", "webp"]}
             alt="Gatsby Development Services Banner Image"
           />
-        </BannerSimple>
+        </Banner>
         <Perks
           title="How can a Gatsby-powered website and the Jamstack transform your business?"
           cta="Get in touch today to find out how switching to the Jamstack can benefit your future growth."

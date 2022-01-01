@@ -30,4 +30,41 @@ export const BannerGlobalStyles = styled.section`
       object-position: center;
     }
   }
+
+  .scroll__to {
+    position: absolute;
+    bottom: calc(var(--gridGap) * 2);
+    left: 0;
+    font-size: 1rem;
+    font-weight: 300;
+    margin: 0 auto;
+    max-width: 1580px;
+  }
+
+  .banner__ctas {
+    display: flex;
+    justify-content: flex-start;
+    gap: var(--gridGap);
+  }
 `;
+
+export const contentAreaVariant = {
+  visible: {
+    opacity: 1,
+    transition: {
+      when: "beforeChildren",
+      staggerChildren: 0.35,
+    },
+  },
+  hidden: {
+    opacity: 0,
+    transition: {
+      when: "afterChildren",
+    },
+  },
+};
+
+export const titleVariants = {
+  visible: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: 25 },
+};
