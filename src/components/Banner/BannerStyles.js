@@ -33,18 +33,39 @@ export const BannerGlobalStyles = styled.section`
 
   .scroll__to {
     position: absolute;
-    bottom: calc(var(--gridGap) * 2);
+    bottom: calc(var(--gridGap) * 1.5);
     left: 0;
-    font-size: 1rem;
-    font-weight: 300;
-    margin: 0 auto;
-    max-width: 1580px;
+    font-size: 0.813rem;
+    font-weight: 500;
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+    margin: 0;
+
+    svg {
+      margin-left: 5px;
+    }
+
+    @media (min-width: 834px) {
+      font-size: 0.9rem;
+    }
   }
 
   .banner__ctas {
     display: flex;
-    justify-content: flex-start;
-    gap: var(--gridGap);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--gridGap) 0;
+    margin-top: var(--gridGap);
+    margin-bottom: calc(var(--gridGap) * 2);
+
+    > * {
+      margin: 0;
+    }
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      gap: 0 var(--gridGap);
+    }
   }
 `;
 

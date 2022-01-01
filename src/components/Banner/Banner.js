@@ -70,8 +70,6 @@ const Banner = ({
                 <motion.div
                   style={{
                     display: "inline-flex",
-                    marginLeft: "10px",
-                    fontSize: "20px",
                   }}
                   animate={{ translateY: [-15, 0, 15], opacity: [0, 1, 0] }}
                   transition={{

@@ -14,10 +14,10 @@ const Index = () => {
         <Banner
           title="Bespoke web design & development in Inverness."
           subTitle="Creating modern, user-friendly experiences using Wordpress and GatsbyJS."
-          scrollerText="Find out more"
-          ctaOneText="Discover Services"
+          scrollerText="Scroll"
+          ctaOneText="Current Services"
           ctaOneLink="/services"
-          ctaTwoText="View Projects"
+          ctaTwoText="All Projects"
           ctaTwoLink="/projects"
         />
 

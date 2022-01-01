@@ -7,6 +7,8 @@ export const GlobalStyles = createGlobalStyle`
         --primary: #fff;
         --secondary: #6f6f6f;
         --highlight: #808080;
+        --accent: rgb(142, 45, 226);
+        --accentHover: rgba(142,45,226, 0.25);
         --titleLarge: 1.75rem;
         --titleLargeLineHeight: 1.45;
         --titleLargeLetterSpacing: -2px;
