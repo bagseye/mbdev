@@ -7,7 +7,7 @@ export const ContactFormStyles = styled.div`
   background-color: #262626;
   padding: calc(var(--gridGap) * 2) var(--gridGap);
   border-radius: 10px;
-  box-shadow: 0px 8px 15px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--boxShadow);
 
   label,
   input,

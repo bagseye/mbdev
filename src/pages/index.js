@@ -1,6 +1,6 @@
 import React from "react";
 import SEO from "../components/SEO";
-import FeatureDevs from "../components/FeatureDevelopments";
+import ProjectsFeatured from "../components/Projects/ProjectsFeatured";
 import Layout from "../components/Layout";
 import ContactMethods from "../components/ContactMethods";
 import Posts from "../components/Posts/Posts";
@@ -21,7 +21,7 @@ const Index = () => {
           ctaTwoLink="/projects"
         />
 
-        <FeatureDevs />
+        <ProjectsFeatured />
         <ContactMethods />
         <Posts />
       </Layout>

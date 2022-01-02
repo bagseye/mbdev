@@ -16,6 +16,11 @@ const DevelopmentContainer = styled.section`
   .content__area {
     position: relative;
     z-index: 1;
+    max-width: calc(500px - var(--gridGap));
+
+    @media (min-width: 768px) {
+      max-width: calc(750px - var(--gridGap));
+    }
   }
 
   .project__img {
@@ -99,20 +104,15 @@ const Development = ({ project, noPrefix, base }) => {
         />
       </ProjectImage>
 
-      <div className="content__area">
-        <motion.div
-          className="project__content"
-          initial={{ opacity: 0 }}
-          animate={controls}
-        >
-          <h2 className="as__h1">{name}</h2>
-          <h2>{excerpt}</h2>
-          <Button
-            to={base ? `${base}/${slug}` : `${slug}`}
-            text="View project"
-          />
-        </motion.div>
-      </div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={controls}
+        className="content__area"
+      >
+        <h2 className="as__h1">{name}</h2>
+        <h2>{excerpt}</h2>
+        <Button to={base ? `${base}/${slug}` : `${slug}`} text="View project" />
+      </motion.div>
     </DevelopmentContainer>
   );
 };

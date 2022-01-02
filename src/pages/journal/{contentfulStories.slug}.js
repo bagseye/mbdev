@@ -5,6 +5,7 @@ import { graphql, Link } from "gatsby";
 import { INLINES, MARKS } from "@contentful/rich-text-types";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import styled from "styled-components";
+import Button from "../../components/Button/Button";
 
 const StoryContent = styled.article`
   width: 100%;
@@ -125,9 +126,7 @@ const StoriesTemplate = ({ data }) => {
               </p>
             </aside>
 
-            <Link className="btn" to="/journal">
-              Return to Journal Home
-            </Link>
+            <Button to="/journal" text="To journal home" />
           </div>
         </StoryContent>
       </Layout>

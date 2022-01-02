@@ -67,7 +67,7 @@ const Banner = ({
             {scrollerText && (
               <p className="scroll__to">
                 {scrollerText}{" "}
-                <motion.div
+                <motion.span
                   style={{
                     display: "inline-flex",
                   }}
@@ -80,7 +80,7 @@ const Banner = ({
                   }}
                 >
                   <Scroller />
-                </motion.div>
+                </motion.span>
               </p>
             )}
             {/* End scroller */}
@@ -97,7 +97,7 @@ export default Banner;
 Banner.propTypes = {
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   subTitle: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  children: PropTypes.element.isRequired,
+  children: PropTypes.element,
   scrollerText: PropTypes.string,
   ctaOneText: PropTypes.string,
   ctaOneLink: PropTypes.string,

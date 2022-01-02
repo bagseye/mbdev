@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 import Layout from "../components/Layout";
+import Button from "../components/Button/Button";
 import useAllStories from "../hooks/use-all-stories";
 
 const JournalListStyles = styled.div`
@@ -105,6 +106,7 @@ const journalsPage = () => {
                 <JournalItem to={node.gatsbyPath} key={index}>
                   <h2>{node.title}</h2>
                   <h4>Posted on - {node.createdAt}</h4>
+                  <Button as="span" text="Read Article" />
                 </JournalItem>
               );
             })}

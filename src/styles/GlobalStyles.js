@@ -22,6 +22,7 @@ export const GlobalStyles = createGlobalStyle`
         --margins: 80px;
         --gridGap: 15px;
         --sectionGap: calc(var(--gridGap) * 4);
+        --boxShadow: 0px 8px 15px 6px rgba(0, 0, 0, 0.2);
         
 
         --sansSerif: 'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
