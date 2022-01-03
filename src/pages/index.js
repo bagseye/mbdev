@@ -1,29 +1,32 @@
 import React from "react";
 import SEO from "../components/SEO";
-import Banner from "../components/Banner/Banner";
-import FeatureDevs from "../components/FeatureDevelopments";
+import ProjectsFeatured from "../components/Projects/ProjectsFeatured";
 import Layout from "../components/Layout";
 import ContactMethods from "../components/ContactMethods";
 import Posts from "../components/Posts/Posts";
+import Banner from "../components/Banner/Banner";
 
-const Index = () => (
-  <>
-    <SEO title="Home" />
-    <Layout>
-      <Banner
-        bannerContent="Bespoke web design & development in Inverness. Creating modern,
-          user-friendly experiences using Wordpress and GatsbyJS."
-        scrollerText="Scroll for recent projects"
-        ctaOneText="Get in touch"
-        ctaOneLink="contact"
-        ctaTwoText="View projects"
-        ctaTwoLink="projects"
-      />
-      <FeatureDevs />
-      <ContactMethods />
-      <Posts />
-    </Layout>
-  </>
-);
+const Index = () => {
+  return (
+    <>
+      <SEO title="Home" />
+      <Layout>
+        <Banner
+          title="Bespoke web design & development in Inverness."
+          subTitle="Creating modern, user-friendly experiences using Wordpress and GatsbyJS."
+          scrollerText="Scroll"
+          ctaOneText="Current Services"
+          ctaOneLink="/services"
+          ctaTwoText="All Projects"
+          ctaTwoLink="/projects"
+        />
+
+        <ProjectsFeatured />
+        <ContactMethods />
+        <Posts />
+      </Layout>
+    </>
+  );
+};
 
 export default Index;

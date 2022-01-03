@@ -1,9 +1,9 @@
 import React from "react";
-import { Link } from "gatsby";
-import styled from "styled-components";
 import Layout from "../components/Layout";
+import { Link } from "gatsby";
+import ContactMethods from "../components/ContactMethods";
+import styled from "styled-components";
 import Button from "../components/Button/Button";
-import useAllStories from "../hooks/use-all-stories";
 
 const JournalListStyles = styled.div`
   padding: 150px var(--gridGap) 0 var(--gridGap);
@@ -86,30 +86,35 @@ const JournalItem = styled(Link)`
   }
 `;
 
-const journalsPage = () => {
-  const allStories = useAllStories();
-
+const servicesPage = () => {
   return (
     <Layout>
       <JournalListStyles>
         <div className="container">
           <div className="intro__area">
-            <h1>Web development journal and open-source project updates</h1>
-            <h4>
-              A deep-dive into my progress in web development, with a focus on
-              WordPress, React, Gatsby and open-source.
-            </h4>
+            <h1>All Services</h1>
+            <h2>
+              Take a look at some of the services offered by Morgan Baker
+              Development
+            </h2>
           </div>
           <div className="journal__content">
-            {allStories.map((node, index) => {
-              return (
-                <JournalItem to={node.gatsbyPath} key={index}>
-                  <h2>{node.title}</h2>
-                  <h4>Posted on - {node.createdAt}</h4>
-                  <Button as="span" text="Read Article" />
-                </JournalItem>
-              );
-            })}
+            <JournalItem to="/services/gatsby-development">
+              <h2>Gatsby Development</h2>
+              <Button as="span" text="View Service" />
+            </JournalItem>
+            <JournalItem to="/services/wordpress-development">
+              <h2>WordPress Development</h2>
+              <Button as="span" text="View Service" />
+            </JournalItem>
+            <JournalItem to="/services/web-design">
+              <h2>Web Design</h2>
+              <Button as="span" text="View Service" />
+            </JournalItem>
+            <JournalItem to="/services/brand-consultancy">
+              <h2>Brand Consultancy</h2>
+              <Button as="span" text="View Service" />
+            </JournalItem>
           </div>
         </div>
       </JournalListStyles>
@@ -117,4 +122,4 @@ const journalsPage = () => {
   );
 };
 
-export default journalsPage;
+export default servicesPage;

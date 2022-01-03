@@ -1,41 +1,28 @@
 import React from "react";
-import { graphql } from "gatsby";
-import Development from "../components/Development";
 import Layout from "../components/Layout";
 import ContactMethods from "../components/ContactMethods";
+import Project from "../components/Projects/Project";
+import useAllProjects from "../hooks/use-all-projects";
 
-export const getProjects = graphql`
-  query {
-    allContentfulProjects {
-      edges {
-        node {
-          name
-          slug
-          excerpt
-          images {
-            gatsbyImageData(
-              layout: FULL_WIDTH
-              placeholder: TRACED_SVG
-              formats: [AUTO, WEBP]
-              quality: 90
-            )
-          }
-        }
-      }
-    }
-  }
-`;
-
-const projectsPage = ({ data }) => {
-  const developmentData = data.allContentfulProjects.edges;
+const projectsPage = () => {
+  const allProjects = useAllProjects();
 
   return (
     <Layout>
-      {developmentData.map(({ node }) =>
-        node.slug ? (
-          <Development key={node.name} noPrefix project={node} />
-        ) : null
-      )}
+      <section className="section topgap">
+        <div className="container">
+          <div className="content__area">
+            <h1>All Projects</h1>
+            <h2>
+              View current and past web development projects using WordPress or
+              Gatsby.
+            </h2>
+          </div>
+        </div>
+        {allProjects.map((node, index) => {
+          return <Project key={index} project={node} />;
+        })}
+      </section>
       <ContactMethods />
     </Layout>
   );

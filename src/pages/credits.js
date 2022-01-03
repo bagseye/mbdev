@@ -13,7 +13,7 @@ const credits = () => (
           className="container container-grid"
         >
           <div className="col">
-            <h1>Website credits</h1>
+            <h1>Website credits.</h1>
             <p>
               This site uses a number of stock images that may require
               attribution. If one of your images has been used and I have not
@@ -37,6 +37,42 @@ const credits = () => (
                   target="_blank"
                 >
                   Félix Besombes
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.pexels.com/@nick-demou-365778"
+                  rel="nofollow noreferrer"
+                  target="_blank"
+                >
+                  Nick Demou
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.pexels.com/@mateusz-dach-99805"
+                  rel="nofollow noreferrer"
+                  target="_blank"
+                >
+                  Mateusz Dach
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.pexels.com/@junior-teixeira-1064069"
+                  rel="nofollow noreferrer"
+                  target="_blank"
+                >
+                  Junior Teixeira
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.pexels.com/@sean-whang-25006"
+                  rel="nofollow noreferrer"
+                  target="_blank"
+                >
+                  Sean Whang
                 </a>
               </li>
             </ul>

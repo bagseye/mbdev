@@ -1,54 +1,25 @@
 import React, { useEffect, useRef } from "react";
-import { Link } from "gatsby";
 import styled from "styled-components";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { motion, useAnimation } from "framer-motion";
+import Button from "./Button/Button";
 
 const DevelopmentContainer = styled.section`
-  height: 100vh;
-  width: 100%;
   position: relative;
-  display: flex;
-  align-items: center;
   background-color: #000;
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0px 5px 15px 5px rgba(0, 0, 0, 0.4);
+  padding-left: var(--gridGap);
+  padding-right: var(--gridGap);
 
-  .project__content {
-    grid-column: 1 / 7;
-
-    @media (min-width: 768px) {
-      grid-column: 1 / 5;
-    }
-  }
-
-  .project__containter {
+  .content__area {
     position: relative;
-    width: 100%;
-    max-width: 1580px;
-    margin: 0 auto;
-    padding: 0 var(--gridGap);
-  }
-
-  h2 {
-    font-size: var(--titleLarge);
-    line-height: var(--titleLargeLineHeight);
-    margin: 0;
-    letter-spacing: var(--titleLargeLetterSpacing);
-    color: #fff;
-  }
-
-  .project__link {
-    font-weight: 700;
-    font-size: var(--titleLarge);
-    line-height: var(--titleLargeLineHeight);
-    margin: 0;
-    letter-spacing: var(--titleLargeLetterSpacing);
-    text-decoration-thickness: 0.2rem;
+    z-index: 1;
+    max-width: calc(500px - var(--gridGap));
 
     @media (min-width: 768px) {
-      text-decoration-thickness: 0.35rem;
+      max-width: calc(750px - var(--gridGap));
     }
   }
 
@@ -93,7 +64,7 @@ const ProjectImage = styled.div`
 `;
 
 const Development = ({ project, noPrefix, base }) => {
-  const { slug, images, excerpt } = project;
+  const { slug, images, excerpt, name } = project;
   const projectImg = getImage(images[0]);
   const projectImgAlt = images[0].description;
 
@@ -123,7 +94,7 @@ const Development = ({ project, noPrefix, base }) => {
   }, [ref]);
 
   return (
-    <DevelopmentContainer ref={ref}>
+    <DevelopmentContainer className="container sectiongap paddinggap" ref={ref}>
       <ProjectImage>
         <GatsbyImage
           loading="lazy"
@@ -133,23 +104,15 @@ const Development = ({ project, noPrefix, base }) => {
         />
       </ProjectImage>
 
-      <div className="project__containter">
-        <div className="container-grid">
-          <motion.div
-            className="project__content"
-            initial={{ opacity: 0 }}
-            animate={controls}
-          >
-            <h2>{excerpt}</h2>
-            <Link
-              className="project__link"
-              to={base ? `${base}/${slug}` : `${slug}`}
-            >
-              View the project
-            </Link>
-          </motion.div>
-        </div>
-      </div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={controls}
+        className="content__area"
+      >
+        <h2 className="as__h1">{name}</h2>
+        <h2>{excerpt}</h2>
+        <Button to={base ? `${base}/${slug}` : `${slug}`} text="View project" />
+      </motion.div>
     </DevelopmentContainer>
   );
 };
