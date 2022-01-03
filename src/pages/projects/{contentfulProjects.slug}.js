@@ -6,6 +6,7 @@ import GeneralContent from "../../components/GeneralContent/GeneralContent";
 import Layout from "../../components/Layout";
 import Banner from "../../components/Banner/Banner";
 import styled from "styled-components";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const TechUsed = styled.div`
   padding: 0 var(--gridGap);
@@ -42,32 +43,25 @@ const projectTemplate = ({ data }) => {
     website,
   } = data.projectPage;
 
-  const options = {
-    // Pass in the node and dril down to the required data
-    // renderNode: {
-    //   // Render the contentful rich content image
-    //   "embedded-asset-block": (node) => (
-    //     <div className="content-image">
-    //       <img
-    //         src={node.data.target.fields.file["en-US"].url}
-    //         alt={node.data.target.fields.title["en-US"]}
-    //       />
-    //     </div>
-    //   ),
-    // },
-  };
+  let [mainImage, ...projectImages] = images;
 
-  const [mainImage, ...projectImages] = images;
+  mainImage = getImage(mainImage);
 
   return (
     <>
       <SEO title={name} description={excerpt} />
       <Layout>
         <Banner
-          bannerContent={excerpt}
-          image={mainImage}
-          scrollerText="Scroll to view this project"
-        />
+          title={name}
+          subTitle={excerpt}
+          scrollerText="View this project"
+        >
+          <GatsbyImage
+            className="banner__bg"
+            image={mainImage}
+            alt="Project Image"
+          />
+        </Banner>
         {technology || website ? (
           <TechUsed>
             <div className="container container-grid">

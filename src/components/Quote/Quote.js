@@ -1,9 +1,10 @@
 import React from "react";
 import { ContactFormStyles } from "../Contact/ContactFormStyles.js";
+import Button from "../Button/Button";
 
 const Quote = () => {
   return (
-    <ContactFormStyles>
+    <ContactFormStyles className="sectiongap">
       <form
         name="quote"
         method="post"
@@ -66,10 +67,7 @@ const Quote = () => {
             placeholder="Use this field to give a brief description of what you are looking for. For example a website with branding..."
           />
         </div>
-
-        <button type="submit" className="btn">
-          Send this request
-        </button>
+        <Button type="submit" text="Send Request" />
       </form>
     </ContactFormStyles>
   );

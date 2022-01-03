@@ -9,21 +9,21 @@ const Contact = () => (
     <SEO title="Request a quote" />
     <Layout>
       <GeneralContentStyles>
-        <div
-          style={{ paddingTop: "150px" }}
-          className="container container-grid"
-        >
-          <div className="col">
-            <h1>
-              Request a quote by completing the fields below or call{" "}
-              <a style={{ fontWeight: 700 }} href="tel:00447369256509">
-                07369 256 509
-              </a>
-              . All fields are required
-            </h1>
-            <QuoteForm />
+        <section className="section sectiongap topgap">
+          <div className="container">
+            <div className="content__area">
+              <h1>Request a quote by completing the fields below</h1>
+              <h2>
+                Or, call{" "}
+                <a style={{ fontWeight: 700 }} href="tel:00447369256509">
+                  07369 256 509
+                </a>
+                . All fields are required
+              </h2>
+              <QuoteForm />
+            </div>
           </div>
-        </div>
+        </section>
       </GeneralContentStyles>
     </Layout>
   </>

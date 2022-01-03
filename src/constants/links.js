@@ -23,6 +23,14 @@ export const serviceLinks = [
     text: "recent projects",
   },
   {
+    path: "/services/gatsby-development",
+    text: "gatsby development",
+  },
+  {
+    path: "/services/wordpress-development",
+    text: "wordpress development",
+  },
+  {
     path: "/services/web-design",
     text: "development services",
   },

@@ -1,11 +1,11 @@
 import { graphql, useStaticQuery } from "gatsby";
 
-const useFeaturedProjects = () => {
+const useAllProjects = () => {
   const {
     allContentfulProjects: { nodes },
   } = useStaticQuery(graphql`
-    query allFeaturedProjectsLinkQuery {
-      allContentfulProjects(limit: 4, filter: { featured: { eq: true } }) {
+    query allProjectsLinkQuery {
+      allContentfulProjects {
         nodes {
           name
           gatsbyPath(filePath: "/projects/{contentfulProjects.slug}")
@@ -21,4 +21,4 @@ const useFeaturedProjects = () => {
   return nodes;
 };
 
-export default useFeaturedProjects;
+export default useAllProjects;
