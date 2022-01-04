@@ -7,21 +7,21 @@ export const mainLinks = [
     path: "/journal",
     text: "journal",
   },
-  {
-    path: "/request-quote",
-    text: "request a quote",
-  },
-  {
-    path: "/contact",
-    text: "contact",
-  },
+  // {
+  //   path: "/request-quote",
+  //   text: "request a quote",
+  // },
+  // {
+  //   path: "/contact",
+  //   text: "contact",
+  // },
 ];
 
 export const serviceLinks = [
-  {
-    path: "/projects",
-    text: "recent projects",
-  },
+  // {
+  //   path: "/projects",
+  //   text: "recent projects",
+  // },
   {
     path: "/services/gatsby-development",
     text: "gatsby development",

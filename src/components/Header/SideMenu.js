@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { mainLinks as menuItems, serviceLinks } from "../../constants/links";
 import MenuContext from "../MenuContext";
+import useFeaturedProjects from "../../hooks/use-featured-projects";
 
 const menuVariants = {
   open: {
@@ -36,15 +37,20 @@ const SideMenuStyles = styled(motion.div)`
   height: 100%;
   width: 0%;
   position: fixed;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   z-index: 4;
   top: 0;
   left: 0;
-  padding: 0;
-  overflow-x: hidden;
+  padding: 70px 0;
   background-color: var(--primary);
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    padding-top: 140px;
+  }
 
   .container {
     padding: 0 var(--gridGap);
@@ -53,7 +59,21 @@ const SideMenuStyles = styled(motion.div)`
     @media (min-width: 768px) {
       display: flex;
       justify-content: flex-start;
+      gap: calc(var(--gridGap) * 2);
     }
+  }
+
+  .menu__title {
+    text-transform: uppercase;
+    font-size: 0.813rem;
+    color: rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    padding-top: var(--gridGap);
+    padding-bottom: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15rem;
+    font-family: var(--sansSerif);
+    list-style: none;
   }
 
   ul {
@@ -69,32 +89,26 @@ const SideMenuStyles = styled(motion.div)`
     }
   }
 
-  li,
   li a {
-    font-size: var(--h2);
-    letter-spacing: var(--h2LetterSpacing);
+    display: inline-block;
+    font-size: var(--paragraph);
     font-weight: 700;
     list-style: none;
     color: var(--background);
     letter-spacing: -0.05rem;
     padding-top: 20px;
-    line-height: var(--h2LineHeight);
     text-decoration: none;
     text-transform: capitalize;
-    transition: opacity 0.75s ease;
+    transition: color 0.75s ease;
     white-space: nowrap;
 
     @media (min-width: 768px) {
       font-size: var(--h2);
-
-      &:first-child {
-        padding-top: 0;
-      }
     }
 
     &:hover {
       cursor: pointer;
-      opacity: 0.5;
+      color: var(--accent);
     }
   }
 `;
@@ -107,6 +121,8 @@ const SideMenu = () => {
     setNav((isOpen) => !isOpen);
   };
 
+  const featuredProjects = useFeaturedProjects();
+
   return (
     <SideMenuStyles
       animate={isOpen ? "open" : "closed"}
@@ -114,22 +130,43 @@ const SideMenu = () => {
     >
       <div className="container">
         <motion.ul variants={listVariants} animate={isOpen ? "open" : "closed"}>
+          <li className="menu__title">Services</li>
           {serviceLinks.map((item, index) => (
             <li onClick={toggleNav} key={index}>
               <Link to={item.path}>{item.text}</Link>
             </li>
           ))}
+          <li className="menu__title">Completed Projects</li>
           <li onClick={toggleNav}>
-            <Link to="/dashboard">For Employers</Link>
+            <Link to="/projects">All Projects</Link>
           </li>
+          {featuredProjects.map((node, index) => {
+            return (
+              <li onClick={toggleNav} key={index}>
+                <Link to={node.gatsbyPath}>{node.name}</Link>
+              </li>
+            );
+          })}
         </motion.ul>
 
         <motion.ul variants={listVariants} animate={isOpen ? "open" : "closed"}>
+          <li className="menu__title">Get in touch</li>
+          <li onClick={toggleNav}>
+            <Link to="/contact">Contact</Link>
+          </li>
+          <li onClick={toggleNav}>
+            <Link to="/request-quote">Request a Quote</Link>
+          </li>
+          <li className="menu__title">About the Developer</li>
           {menuItems.map((item, index) => (
             <li onClick={toggleNav} key={index}>
               <Link to={item.path}>{item.text}</Link>
             </li>
           ))}
+          <li className="menu__title">For Employers</li>
+          <li onClick={toggleNav}>
+            <Link to="/dashboard">Dashboard Login</Link>
+          </li>
         </motion.ul>
       </div>
     </SideMenuStyles>
