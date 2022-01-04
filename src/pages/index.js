@@ -5,6 +5,7 @@ import Layout from "../components/Layout";
 import ContactMethods from "../components/ContactMethods";
 import Posts from "../components/Posts/Posts";
 import Banner from "../components/Banner/Banner";
+import TechList from "../components/Tech/TechList";
 
 const Index = () => {
   return (
@@ -20,13 +21,13 @@ const Index = () => {
           ctaTwoText="All Projects"
           ctaTwoLink="/projects"
         />
-
         <ProjectsFeatured
           title="Featured web development projects"
           subTitle="A selection of applications completed by Morgan Baker Development. Using a mixture of WordPress and Gatsby."
         />
         <ContactMethods />
         <Posts />
+        <TechList />
       </Layout>
     </>
   );
