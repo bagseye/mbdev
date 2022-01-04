@@ -26,5 +26,14 @@ export const ProjectGlobalStyles = styled.section`
     width: 100%;
     height: 100%;
     opacity: 0.5;
+
+    .gatsby-image-wrapper {
+      height: 100%;
+    }
+
+    img {
+      object-fit: cover;
+      object-position: center;
+    }
   }
 `;
