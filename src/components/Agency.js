@@ -5,6 +5,7 @@ import GeneralContent from "../components/GeneralContent/GeneralContent";
 import Layout from "../components/Layout";
 import ProjectNavigation from "./ProjectNavigation";
 import Banner from "./Banner/Banner";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const Agency = ({ data, next }) => {
   let nextItem = next !== undefined ? next.node : null;
@@ -17,17 +18,21 @@ const Agency = ({ data, next }) => {
     images,
   } = data;
 
-  const [mainImage, ...projectImages] = images;
+  let [mainImage, ...projectImages] = images;
+
+  mainImage = getImage(mainImage);
 
   return (
     <>
       <SEO title={name} description={excerpt} noIndex />
       <Layout>
         <Banner
-          bannerContent={excerpt}
-          image={mainImage}
-          scrollerText="Scroll to view this project"
-        />
+          title={name}
+          subTitle={excerpt}
+          scrollerText="View this project"
+        >
+          <GatsbyImage className="banner__bg" image={mainImage} />
+        </Banner>
         <GeneralContent content={richDescription} />
         <Gallery projectImages={projectImages} />
         <ProjectNavigation next={nextItem} prefix="dashboard" />
