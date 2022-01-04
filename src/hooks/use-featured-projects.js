@@ -11,7 +11,12 @@ const useFeaturedProjects = () => {
           gatsbyPath(filePath: "/projects/{contentfulProjects.slug}")
           excerpt
           images {
-            gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+            gatsbyImageData(
+              placeholder: TRACED_SVG
+              quality: 90
+              layout: FULL_WIDTH
+              formats: [AUTO, WEBP, AVIF]
+            )
           }
         }
       }
