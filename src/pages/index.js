@@ -20,7 +20,6 @@ const Index = () => {
           ctaTwoText="All Projects"
           ctaTwoLink="/projects"
         />
-
         <ProjectsFeatured
           title="Featured web development projects"
           subTitle="A selection of applications completed by Morgan Baker Development. Using a mixture of WordPress and Gatsby."
