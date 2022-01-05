@@ -8,10 +8,12 @@ const TechList = () => {
   const techItems = useAllTechItems();
   return (
     <TechListGlobalStyles className="sectiongap">
-      <hr />
       <div className="container">
         <div className="content__area">
-          <p className="leadin">Websites & Applications powered using</p>
+          <h2 className="as__h1">
+            During my career I have gained experience using the following
+            technologies
+          </h2>
         </div>
       </div>
       <div className="container">
@@ -26,7 +28,6 @@ const TechList = () => {
           );
         })}
       </div>
-      <hr />
     </TechListGlobalStyles>
   );
 };

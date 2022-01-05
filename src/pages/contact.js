@@ -1,7 +1,6 @@
 import React from "react";
 import SEO from "../components/SEO";
 import ContactForm from "../components/Contact/Contact";
-import { GeneralContentStyles } from "../components/GeneralContent/GeneralContentStyles";
 import Layout from "../components/Layout";
 
 const Contact = () => (

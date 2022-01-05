@@ -5,7 +5,6 @@ import Layout from "../components/Layout";
 import ContactMethods from "../components/ContactMethods";
 import Posts from "../components/Posts/Posts";
 import Banner from "../components/Banner/Banner";
-import TechList from "../components/Tech/TechList";
 
 const Index = () => {
   return (
@@ -27,7 +26,6 @@ const Index = () => {
         />
         <ContactMethods />
         <Posts />
-        <TechList />
       </Layout>
     </>
   );
