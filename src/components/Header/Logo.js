@@ -23,6 +23,8 @@ const LogoCont = styled.div`
     text-decoration: none;
     transition: opacity 0.5s ease;
     color: #fff;
+    display: flex;
+    flex-direction: column;
   }
 
   span:nth-child(1) {

@@ -15,7 +15,6 @@ const Container = styled(motion.button)`
   order: 2;
   justify-content: flex-end;
   position: absolute;
-  width: 80px;
   top: 12px;
   right: var(--gridGap);
   z-index: 101;
@@ -26,13 +25,18 @@ const Container = styled(motion.button)`
 
   .burger {
     position: relative;
-    height: 30px;
-    width: 30px;
+    text-transform: uppercase;
+    height: 50px;
+    width: 40px;
     margin-left: 15px;
+    font-size: 11px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
 
     span {
-      width: 30px;
-      height: 1px;
+      width: 100%;
+      height: 2px;
       left: 0;
       transition: opacity 0.5s ease, transform 0.3s ease, top 0.3s ease,
         background-color 0.3s ease, bottom 0.3s ease;
@@ -45,16 +49,16 @@ const Container = styled(motion.button)`
 
       &:nth-child(1) {
         transform: rotate(0);
-        top: 20%;
+        top: 6px;
       }
 
       &:nth-child(2) {
-        top: 50%;
-        transform: translateY(-50%);
+        top: 7px;
+        transform: translateY(7px);
       }
 
       &:nth-child(3) {
-        bottom: 20%;
+        bottom: 25px;
       }
     }
 
@@ -69,7 +73,7 @@ const Container = styled(motion.button)`
         }
         &:nth-child(3) {
           transform: rotate(-45deg);
-          bottom: 15px;
+          bottom: 33px;
         }
       }
     }
@@ -137,7 +141,6 @@ const MenuButton = () => {
         variants={menuButtonVariants}
         animate={isOpen ? "open" : "closed"}
       >
-        {isOpen ? "Close" : "Menu"}
         <div className={isOpen ? "burger burger-open" : "burger"}>
           <motion.span
             variants={burgerVariants}
@@ -151,6 +154,7 @@ const MenuButton = () => {
             variants={burgerVariants}
             animate={isOpen ? "open" : "closed"}
           />
+          {isOpen ? "Close" : "Menu"}
         </div>
       </Container>
     </>

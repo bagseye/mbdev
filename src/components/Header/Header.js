@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import MenuContext from "../MenuContext";
 import Logo from "./Logo";
 import SideMenu from "./SideMenu";
+import { VscMail as Mail } from "react-icons/vsc";
+import { RiUserLine as User } from "react-icons/ri";
 import { logout, isAuthenticated } from "../../utils/auth";
 
 const HeaderStyles = styled(motion.header)`
@@ -18,24 +20,19 @@ const HeaderStyles = styled(motion.header)`
   margin-right: auto;
   z-index: 20;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: flex-start;
   max-width: 1580px;
   font-size: 13px;
   height: 75px;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 
   .header__links {
-    flex: 0 0 100%;
+    position: absolute;
+    height: 50px;
+    top: 12px;
+    right: 75px;
     display: flex;
-    gap: 8px;
-
-    @media (min-width: 1024px) {
-      padding-right: 100px;
-      flex-basis: auto;
-      gap: var(--gridGap);
-    }
+    gap: 0 15px;
   }
 
   @media (min-width: 1024px) {
@@ -57,18 +54,19 @@ const HeaderStyles = styled(motion.header)`
     height: 80px;
   }
 
-  .dash__link,
-  .quote__link,
-  .email__link {
-    font-weight: 300;
-    flex: 0 0 auto;
-  }
+  .headerlink {
+    min-width: 40px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    text-transform: uppercase;
+    text-decoration: none;
 
-  .quote__link {
-    display: none;
-
-    @media (min-width: 1024px) {
-      display: inline-flex;
+    svg {
+      font-size: 30px;
     }
   }
 `;
@@ -110,7 +108,7 @@ const Header = ({ children }) => {
       >
         <Logo className="logo__link" />
         <div className="header__links">
-          {isAuthenticated() ? (
+          {/* {isAuthenticated() ? (
             <>
               <Link className="dash__link" to="/dashboard">
                 Dashboard
@@ -125,14 +123,15 @@ const Header = ({ children }) => {
                 Log Out
               </a>
             </>
-          ) : null}
-
-          <Link className="quote__link" to="/request-quote">
-            Request a quote
+          ) : null} */}
+          <Link className="headerlink" to="/dashboard">
+            <User />
+            <span>Dash</span>
           </Link>
-          <a className="email__link" href="mailto:hello@morganbaker.dev">
-            hello@morganbaker.dev
-          </a>
+          <Link className="headerlink" to="/contact">
+            <Mail />
+            <span>Contact</span>
+          </Link>
         </div>
 
         {children}
