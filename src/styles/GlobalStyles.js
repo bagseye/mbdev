@@ -325,6 +325,11 @@ export const GlobalStyles = createGlobalStyle`
       }
     }
 
+    .contentimg {
+      margin-top: var(--gridGap);
+      margin-bottom: var(--gridGap);
+    }
+
     .columns {
       display: flex;
       flex-direction: column;

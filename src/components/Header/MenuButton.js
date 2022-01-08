@@ -1,37 +1,11 @@
 import React, { useContext } from "react";
 import MenuContext from "../MenuContext";
 import { motion } from "framer-motion";
-import { MenuButtonGlobalStyles } from "./HeaderStyles";
-
-const menuButtonVariants = {
-  open: {
-    color: "var(--background)",
-    transition: {
-      delay: 0.5,
-    },
-  },
-  closed: {
-    color: "var(--primary)",
-    transition: {
-      delay: 0.25,
-    },
-  },
-};
-
-const burgerVariants = {
-  open: {
-    backgroundColor: "var(--background)",
-    transition: {
-      delay: 0.65,
-    },
-  },
-  closed: {
-    backgroundColor: "var(--primary)",
-    transition: {
-      delay: 0.25,
-    },
-  },
-};
+import {
+  MenuButtonGlobalStyles,
+  menuButtonVariants,
+  burgerVariants,
+} from "./HeaderStyles";
 
 const MenuButton = () => {
   // Access state globally using context
