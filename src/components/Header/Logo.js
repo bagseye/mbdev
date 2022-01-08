@@ -1,52 +1,8 @@
 import React, { useContext } from "react";
 import { Link } from "gatsby";
-import styled from "styled-components";
 import MenuContext from "../MenuContext";
 import { motion } from "framer-motion";
-
-const LogoCont = styled.div`
-  margin: 0;
-  font-size: 14px;
-  line-height: 18px;
-  z-index: 5;
-  margin-right: auto;
-  /* order: 1; */
-  flex: 0 1 auto;
-  letter-spacing: -0.05em;
-
-  @media (min-width: 1024px) {
-    flex: 0 0 auto;
-  }
-
-  a {
-    font-weight: 700;
-    text-decoration: none;
-    transition: opacity 0.5s ease;
-    color: #fff;
-  }
-
-  span:nth-child(1) {
-    margin-right: 5px;
-  }
-
-  @media (min-width: 768px) {
-    font-size: 18px;
-  }
-
-  @media (min-width: 834px) {
-    font-size: 20px;
-  }
-
-  @media (min-width: 1600px) {
-    font-size: 22px;
-  }
-
-  &:hover {
-    a {
-      opacity: 0.5;
-    }
-  }
-`;
+import { LogoGlobalStyles } from "./HeaderStyles";
 
 const logoVariants = {
   open: {
@@ -68,7 +24,7 @@ const Logo = () => {
   const [isOpen] = useContext(MenuContext);
 
   return (
-    <LogoCont>
+    <LogoGlobalStyles>
       <Link to="/">
         <motion.span
           variants={logoVariants}
@@ -86,7 +42,7 @@ const Logo = () => {
           Development
         </span>
       </Link>
-    </LogoCont>
+    </LogoGlobalStyles>
   );
 };
 

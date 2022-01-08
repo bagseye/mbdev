@@ -6,6 +6,7 @@ import Header from "./Header/Header";
 import MenuButton from "./Header/MenuButton";
 import Footer from "./Footer/Footer";
 import CookieConsent from "react-cookie-consent";
+import QuickLinks from "./Header/QuickLinks";
 
 const Layout = (props) => {
   return (
@@ -18,6 +19,7 @@ const Layout = (props) => {
         transition={{ duration: 0.5, delay: 0.25 }}
       >
         <Header>
+          <QuickLinks />
           <MenuButton />
         </Header>
         <div id="main">
