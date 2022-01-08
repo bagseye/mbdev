@@ -1,11 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Link } from "gatsby";
 import MenuContext from "../MenuContext";
 import Logo from "./Logo";
 import SideMenu from "./SideMenu";
-import { VscMail as Mail } from "react-icons/vsc";
-import { RiUserLine as User } from "react-icons/ri";
-import { logout, isAuthenticated } from "../../utils/auth";
 import { HeaderGlobalStyles } from "./HeaderStyles";
 
 const headerVariants = {
@@ -44,33 +40,6 @@ const Header = ({ children }) => {
         className={scroll ? "nav__scrolled" : null}
       >
         <Logo className="logo__link" />
-        <div className="header__links">
-          {/* {isAuthenticated() ? (
-            <>
-              <Link className="dash__link" to="/dashboard">
-                Dashboard
-              </Link>
-              <a
-                href="#logout"
-                onClick={(e) => {
-                  logout();
-                  e.preventDefault();
-                }}
-              >
-                Log Out
-              </a>
-            </>
-          ) : null} */}
-          <Link className="headerlink" to="/dashboard">
-            <User />
-            <span>Dash</span>
-          </Link>
-          <Link className="headerlink" to="/contact">
-            <Mail />
-            <span>Contact</span>
-          </Link>
-        </div>
-
         {children}
       </HeaderGlobalStyles>
       <SideMenu />

@@ -18,23 +18,6 @@ export const HeaderGlobalStyles = styled(motion.header)`
   height: 75px;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 
-  .header__links {
-    position: absolute;
-    height: 50px;
-    top: 12px;
-    right: 70px;
-    display: flex;
-    gap: 0 15px;
-
-    @media (min-width: 834px) {
-      right: 85px;
-    }
-
-    @media (min-width: 1600px) {
-      right: 95px;
-    }
-  }
-
   @media (min-width: 1024px) {
     font-size: 16px;
   }
@@ -53,8 +36,36 @@ export const HeaderGlobalStyles = styled(motion.header)`
   @media (min-width: 768px) {
     height: 80px;
   }
+`;
+
+export const QuickLinksGlobalStyles = styled.div`
+  position: absolute;
+  height: 50px;
+  top: 12px;
+  right: 70px;
+  display: flex;
+  gap: 0 15px;
+
+  @media (max-width: 374px) {
+    gap: 0 9px;
+    right: 64px;
+  }
+
+  @media (min-width: 768px) {
+    right: 95px;
+    gap: 0 35px;
+  }
+
+  @media (min-width: 834px) {
+    right: 105px;
+  }
+
+  @media (min-width: 1600px) {
+    right: 115px;
+  }
 
   .headerlink {
+    flex-shrink: 0;
     min-width: 40px;
     height: 50px;
     display: flex;
@@ -64,6 +75,10 @@ export const HeaderGlobalStyles = styled(motion.header)`
     font-size: 11px;
     text-transform: uppercase;
     text-decoration: none;
+
+    @media (max-width: 374px) {
+      font-size: 10px;
+    }
 
     svg {
       font-size: 30px;
@@ -132,34 +147,33 @@ export const LogoGlobalStyles = styled.div`
 export const MenuButtonGlobalStyles = styled(motion.button)`
   border: none;
   transition: opacity 0.5s ease, color 0.5s ease;
-  font-size: var(--menuBtn);
-  letter-spacing: -1px;
-  display: flex;
-  align-items: center;
   background-color: transparent;
   padding: 0;
-  order: 2;
-  justify-content: flex-end;
   position: absolute;
   top: 12px;
   right: var(--gridGap);
   z-index: 101;
+  width: 40px;
+  height: 50px;
 
   .burger {
     position: relative;
     text-transform: uppercase;
-    height: 50px;
     width: 40px;
-    margin-left: 15px;
+    height: 100%;
     font-size: 11px;
     display: flex;
-    align-items: flex-end;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 36px;
+
+    @media (max-width: 374px) {
+      font-size: 10px;
+    }
 
     span {
       width: 26px;
       height: 2px;
-      /* left: 0; */
       transition: opacity 0.5s ease, transform 0.3s ease, top 0.3s ease,
         background-color 0.3s ease, bottom 0.3s ease;
 
