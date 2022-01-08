@@ -2,10 +2,11 @@ import React from "react";
 import Layout from "../../components/Layout";
 import Seo from "../../components/SEO";
 import { graphql, Link } from "gatsby";
-import { INLINES, MARKS } from "@contentful/rich-text-types";
+import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import styled from "styled-components";
 import Button from "../../components/Button/Button";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const StoryContent = styled.article`
   width: 100%;
@@ -50,27 +51,26 @@ const IframeContainer = styled.span`
 `;
 
 const StoriesTemplate = ({ data }) => {
-  const {
-    title,
-    createdAt,
-    mainContent,
-    mainContent: { raw },
-  } = data.storiesPage;
+  const { title, createdAt, mainContent } = data.storiesPage;
 
   const options = {
     renderMark: {
+      [MARKS.UNDERLINE]: (text) => <span className="underline">{text}</span>,
       [MARKS.ITALIC]: (text) => <em>{text}</em>,
-    },
-    renderMark: {
       [MARKS.BOLD]: (text) => <strong>{text}</strong>,
-    },
-    renderMark: {
       [MARKS.CODE]: (text) => <code>{text}</code>,
     },
-    renderMark: {
-      [MARKS.UNDERLINE]: (text) => <span className="underline">{text}</span>,
-    },
+
     renderNode: {
+      [BLOCKS.EMBEDDED_ASSET]: (node) => {
+        const { gatsbyImageData } = node.data.target;
+        return (
+          <GatsbyImage
+            className="contentimg"
+            image={getImage(gatsbyImageData)}
+          />
+        );
+      },
       [INLINES.HYPERLINK]: (node) => {
         if (node.data.uri.includes("player.vimeo.com/video")) {
           return (
@@ -143,6 +143,17 @@ export const data = graphql`
       updatedAt(formatString: "MMMM DD, YYYY")
       mainContent {
         raw
+        references {
+          ... on ContentfulAsset {
+            contentful_id
+            gatsbyImageData(
+              width: 750
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+            __typename
+          }
+        }
       }
     }
   }

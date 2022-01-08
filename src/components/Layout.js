@@ -7,8 +7,12 @@ import MenuButton from "./Header/MenuButton";
 import Footer from "./Footer/Footer";
 import CookieConsent from "react-cookie-consent";
 import QuickLinks from "./Header/QuickLinks";
+import Logo from "./Header/Logo";
+import SideMenu from "./Header/SideMenu";
+import PropTypes from "prop-types";
 
 const Layout = (props) => {
+  const { children } = props;
   return (
     <>
       <GlobalStyles />
@@ -19,11 +23,13 @@ const Layout = (props) => {
         transition={{ duration: 0.5, delay: 0.25 }}
       >
         <Header>
+          <Logo className="logo__link" />
           <QuickLinks />
           <MenuButton />
+          <SideMenu />
         </Header>
         <div id="main">
-          {props.children}
+          {children}
           <Footer />
         </div>
         <CookieConsent
@@ -57,3 +63,7 @@ const Layout = (props) => {
 };
 
 export default Layout;
+
+Layout.propTypes = {
+  children: PropTypes.node,
+};

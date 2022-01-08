@@ -119,6 +119,13 @@ export const LogoGlobalStyles = styled.div`
     @media (min-width: 768px) {
       flex-direction: row;
     }
+
+    span {
+      &.alt {
+        color: var(--highlight);
+        font-weight: 300;
+      }
+    }
   }
 
   span:nth-child(1) {
@@ -230,3 +237,33 @@ export const MenuButtonGlobalStyles = styled(motion.button)`
     }
   }
 `;
+
+export const menuButtonVariants = {
+  open: {
+    color: "var(--background)",
+    transition: {
+      delay: 0.5,
+    },
+  },
+  closed: {
+    color: "var(--primary)",
+    transition: {
+      delay: 0.25,
+    },
+  },
+};
+
+export const burgerVariants = {
+  open: {
+    backgroundColor: "var(--background)",
+    transition: {
+      delay: 0.65,
+    },
+  },
+  closed: {
+    backgroundColor: "var(--primary)",
+    transition: {
+      delay: 0.25,
+    },
+  },
+};

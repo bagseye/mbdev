@@ -32,15 +32,7 @@ const Logo = () => {
         >
           Morgan Baker
         </motion.span>
-        <span
-          className="alt"
-          style={{
-            color: "var(--highlight)",
-            fontWeight: "300",
-          }}
-        >
-          Development
-        </span>
+        <span className="alt">Development</span>
       </Link>
     </LogoGlobalStyles>
   );

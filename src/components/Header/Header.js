@@ -1,8 +1,7 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 import MenuContext from "../MenuContext";
-import Logo from "./Logo";
-import SideMenu from "./SideMenu";
 import { HeaderGlobalStyles } from "./HeaderStyles";
+import PropTypes from "prop-types";
 
 const headerVariants = {
   open: {
@@ -24,27 +23,23 @@ const Header = ({ children }) => {
   // Access state globally using context
   const [isOpen, setNav] = useContext(MenuContext);
 
-  const [scroll, setScroll] = useState(false);
-
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      setScroll(window.scrollY > 50);
-    });
-  }, []);
-
   return (
     <>
       <HeaderGlobalStyles
         variants={headerVariants}
         animate={isOpen ? "open" : "closed"}
-        className={scroll ? "nav__scrolled" : null}
       >
-        <Logo className="logo__link" />
         {children}
       </HeaderGlobalStyles>
-      <SideMenu />
     </>
   );
 };
 
 export default Header;
+
+Header.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.arrayOf(PropTypes.object),
+  ]),
+};
