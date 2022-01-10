@@ -1,13 +1,15 @@
 import React from "react";
 import { GeneralContentStyles } from "./GeneralContentStyles";
-import { renderRichText } from "gatsby-source-contentful/rich-text";
+import RichText from "../RichText";
 
-const GeneralContent = ({ content, options }) => {
+const GeneralContent = ({ content }) => {
   return (
     <GeneralContentStyles>
       <div className="container container-grid">
         {content && (
-          <div className="col">{renderRichText(content, options)}</div>
+          <div className="col">
+            <RichText richText={content} />
+          </div>
         )}
       </div>
     </GeneralContentStyles>

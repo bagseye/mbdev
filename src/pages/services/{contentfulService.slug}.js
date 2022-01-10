@@ -2,10 +2,10 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import Seo from "../../components/SEO";
 import Layout from "../../components/Layout";
-import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { GeneralContentStyles } from "../../components/GeneralContent/GeneralContentStyles";
 import CMSContact from "../../components/CMS/CMSContact/CMSContact";
 import CMSBanner from "../../components/CMS/CMSBanner/CMSBanner";
+import RichText from "../../components/RichText";
 
 const ServicePage = ({ data }) => {
   const {
@@ -27,7 +27,9 @@ const ServicePage = ({ data }) => {
           {contentAreaOne && (
             <>
               <div className="container container-grid sectiongap">
-                <div className="col">{renderRichText(contentAreaOne)}</div>
+                <div className="col">
+                  <RichText richText={contentAreaOne} />
+                </div>
               </div>
             </>
           )}
@@ -35,7 +37,9 @@ const ServicePage = ({ data }) => {
             <>
               <hr />
               <div className="container container-grid sectiongap">
-                <div className="col">{renderRichText(contentAreaTwo)}</div>
+                <div className="col">
+                  <RichText richText={contentAreaTwo} />
+                </div>
               </div>
             </>
           )}
@@ -44,7 +48,9 @@ const ServicePage = ({ data }) => {
               <hr />
               <div className="container container-grid sectiongap">
                 <div className="col">
-                  {renderRichText(contentAreaThree)}
+                  <div className="col">
+                    <RichText richText={contentAreaThree} />
+                  </div>
                   <Link className="btn" to="/content">
                     Get in touch
                   </Link>
