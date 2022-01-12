@@ -354,6 +354,21 @@ export const GlobalStyles = createGlobalStyle`
       }
     }
 
+    .iframe__ratio {
+      padding-bottom: 56.25%;
+      position: relative;
+      display: block;
+      width: 100%;
+
+      > iframe {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+
 
     .sr-only {
       position: absolute;

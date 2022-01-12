@@ -76,6 +76,7 @@ export const data = graphql`
         references {
           ... on ContentfulAsset {
             contentful_id
+            description
             gatsbyImageData(
               width: 750
               placeholder: BLURRED

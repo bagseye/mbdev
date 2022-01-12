@@ -3,22 +3,6 @@ import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import PropTypes from "prop-types";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import styled from "styled-components";
-
-const IframeContainer = styled.span`
-  padding-bottom: 56.25%;
-  position: relative;
-  display: block;
-  width: 100%;
-
-  > iframe {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-`;
 
 const options = {
   renderMark: {
@@ -32,30 +16,34 @@ const options = {
     [BLOCKS.EMBEDDED_ASSET]: (node) => {
       const { gatsbyImageData } = node.data.target;
       return (
-        <GatsbyImage className="contentimg" image={getImage(gatsbyImageData)} />
+        <GatsbyImage
+          className="contentimg"
+          image={getImage(gatsbyImageData)}
+          alt={description ? description : null}
+        />
       );
     },
     [INLINES.HYPERLINK]: (node) => {
       if (node.data.uri.includes("player.vimeo.com/video")) {
         return (
-          <IframeContainer>
+          <span className="iframe__ratio">
             <iframe
               src={node.data.uri}
               frameBorder="0"
               allowFullScreen
             ></iframe>
-          </IframeContainer>
+          </span>
         );
       } else if (node.data.uri.includes("youtube.com/embed")) {
         return (
-          <IframeContainer>
+          <span className="iframe__ratio">
             <iframe
               src={node.data.uri}
               allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
               frameBorder="0"
               allowFullScreen
             ></iframe>
-          </IframeContainer>
+          </span>
         );
       } else if (node.data.uri.includes("giphy.com/embed")) {
         return (
