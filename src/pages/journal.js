@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Layout from "../components/Layout";
 import Button from "../components/Button/Button";
 import useAllStories from "../hooks/use-all-stories";
+import TagFilter from "../components/TagFilter";
 
 const JournalListStyles = styled.div`
   padding: 150px var(--gridGap) 0 var(--gridGap);
@@ -100,6 +101,7 @@ const journalsPage = () => {
               WordPress, React, Gatsby and open-source.
             </h4>
           </div>
+          <TagFilter />
           <div className="journal__content">
             {allStories.map((node, index) => {
               return (
