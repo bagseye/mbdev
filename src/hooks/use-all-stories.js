@@ -10,6 +10,12 @@ const useAllStories = () => {
           title
           gatsbyPath(filePath: "/journal/{contentfulStories.slug}")
           createdAt(formatString: "MMMM DD, YYYY")
+          metadata {
+            tags {
+              name
+              contentful_id
+            }
+          }
         }
       }
     }
