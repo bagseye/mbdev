@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Layout from "../components/Layout";
 import Button from "../components/Button/Button";
 import useAllStories from "../hooks/use-all-stories";
-import TagFilter from "../components/TagFilter";
+import TagFilter from "../components/TagFilter/TagFilter";
 
 const JournalListStyles = styled.div`
   padding: 150px var(--gridGap) 0 var(--gridGap);

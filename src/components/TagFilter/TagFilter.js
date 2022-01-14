@@ -1,5 +1,7 @@
 import React from "react";
-import useAllStories from "../hooks/use-all-stories";
+import useAllStories from "../../hooks/use-all-stories";
+import { Link } from "gatsby";
+import { TagFilterGlobalStyles } from "./TagFilterStyles";
 
 const TagFilter = () => {
   const allStories = useAllStories();
@@ -26,26 +28,19 @@ const TagFilter = () => {
       return acc;
     }, {});
 
-  Object.keys(tagMeta).forEach((key) => {
-    console.log(key);
-  });
-  //   console.log(tagMeta);
-
   return (
-    <div>
-      <div>
-        {/* {tagMeta.forEach((item) => {
-          item.map((itm) => {
-            <p>{itm.name}</p>;
-          });
-        })} */}
+    <TagFilterGlobalStyles>
+      <div className="tagfilter__container">
+        {Object.values(tagMeta).map((item) => {
+          return (
+            <Link className="tagfilter__item" key={item.id} to={item.id}>
+              {item.name}
+              <span className="tagfilter__count">{item.count}</span>
+            </Link>
+          );
+        })}
       </div>
-      <p>
-        {/* {allTags.map((item) => {
-          return <h2>{item.name}</h2>;
-        })} */}
-      </p>
-    </div>
+    </TagFilterGlobalStyles>
   );
 };
 
