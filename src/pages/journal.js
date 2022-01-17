@@ -80,6 +80,25 @@ const JournalItem = styled(Link)`
     }
   }
 
+  .journal__category--title {
+    font-size: 0.813rem;
+    margin-top: 0;
+    color: var(--secondary);
+    margin-bottom: 10px;
+  }
+
+  .journal__category--list {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: calc(var(--gridGap) / 2);
+
+    li {
+      list-style: none;
+      font-size: 0.813rem;
+    }
+  }
+
   &:hover {
     h2 {
       text-decoration-color: rgba(142, 45, 226, 1);
@@ -104,10 +123,24 @@ const journalsPage = () => {
           <TagFilter />
           <div className="journal__content">
             {allStories.map((node, index) => {
+              const tagsMeta = node.metadata.tags;
               return (
                 <JournalItem to={node.gatsbyPath} key={index}>
                   <h2>{node.title}</h2>
                   <h4>Posted on - {node.createdAt}</h4>
+                  {tagsMeta.length > 0 && (
+                    <>
+                      <p className="journal__category--title">
+                        Categorised under:{" "}
+                      </p>
+                      <ul className="journal__category--list">
+                        {node.metadata.tags.map((item, index) => {
+                          return <li key={index}>{item.name}</li>;
+                        })}
+                      </ul>
+                    </>
+                  )}
+
                   <Button as="span" text="Read Article" />
                 </JournalItem>
               );

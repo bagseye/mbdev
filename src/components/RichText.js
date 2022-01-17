@@ -14,12 +14,16 @@ const options = {
 
   renderNode: {
     [BLOCKS.EMBEDDED_ASSET]: (node) => {
-      const { gatsbyImageData } = node.data.target;
+      const { gatsbyImageData, description } = node.data.target;
       return (
         <GatsbyImage
           className="contentimg"
           image={getImage(gatsbyImageData)}
-          alt={description ? description : null}
+          alt={
+            description
+              ? description
+              : "Image content for Morgan Baker Development"
+          }
         />
       );
     },
