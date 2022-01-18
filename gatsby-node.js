@@ -1,5 +1,35 @@
 const path = require("path");
 
+async function turnTagsIntoPages({ graphql, actions }) {
+  // Get a template for the page
+  const tagTemplate = path.resolve("./src/templates/Tags.js");
+
+  // Query all tags
+  const { data } = await graphql(`
+    query {
+      tags: allContentfulTag {
+        nodes {
+          name
+          contentful_id
+        }
+      }
+    }
+  `);
+
+  data.tags.nodes.forEach((tag) => {
+    actions.createPage({
+      path: `category/${tag.contentful_id}`,
+      component: tagTemplate,
+      context: {
+        slug: tag.contentful_id,
+      },
+    });
+  });
+}
+exports.createPages = async (params) => {
+  await turnTagsIntoPages(params);
+};
+
 // Implement the Gatsby API “onCreatePage”. This is
 // called after every page is created.
 exports.onCreatePage = async ({ page, actions }) => {
