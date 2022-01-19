@@ -32,8 +32,16 @@ const TagFilter = () => {
     <TagFilterGlobalStyles>
       <div className="tagfilter__container">
         {Object.values(tagMeta).map((item) => {
+          let slugifyName = item.id.replace(
+            /[A-Z]/g,
+            (m) => "-" + m.toLowerCase()
+          );
           return (
-            <Link className="tagfilter__item" key={item.id} to={item.id}>
+            <Link
+              className="tagfilter__item"
+              key={item.id}
+              to={`/category/${slugifyName}`}
+            >
               {item.name}
               <span className="tagfilter__count">{item.count}</span>
             </Link>

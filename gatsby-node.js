@@ -17,11 +17,16 @@ async function turnTagsIntoPages({ graphql, actions }) {
   `);
 
   data.tags.nodes.forEach((tag) => {
+    let slugifyName = tag.contentful_id.replace(
+      /[A-Z]/g,
+      (m) => "-" + m.toLowerCase()
+    );
     actions.createPage({
-      path: `category/${tag.contentful_id}`,
+      path: `category/${slugifyName}`,
       component: tagTemplate,
       context: {
-        slug: tag.contentful_id,
+        name: tag.name,
+        id: tag.contentful_id,
       },
     });
   });
