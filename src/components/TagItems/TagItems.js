@@ -1,7 +1,7 @@
 import React from "react";
 import useAllStories from "../../hooks/use-all-stories";
-import { Link } from "gatsby";
-import { TagFilterGlobalStyles } from "./TagFilterStyles";
+import { TagItemsGlobalStyles } from "./TagItemsStyles";
+import TagItem from "./TagItem";
 
 const TagFilter = () => {
   const allStories = useAllStories();
@@ -29,26 +29,20 @@ const TagFilter = () => {
     }, {});
 
   return (
-    <TagFilterGlobalStyles>
+    <TagItemsGlobalStyles>
       <div className="tagfilter__container">
         {Object.values(tagMeta).map((item) => {
-          let slugifyName = item.id.replace(
-            /[A-Z]/g,
-            (m) => "-" + m.toLowerCase()
-          );
           return (
-            <Link
-              className="tagfilter__item"
+            <TagItem
               key={item.id}
-              to={`/category/${slugifyName}`}
-            >
-              {item.name}
-              <span className="tagfilter__count">{item.count}</span>
-            </Link>
+              id={item.id}
+              name={item.name}
+              count={item.count}
+            />
           );
         })}
       </div>
-    </TagFilterGlobalStyles>
+    </TagItemsGlobalStyles>
   );
 };
 

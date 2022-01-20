@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../components/Layout";
 import useAllStories from "../hooks/use-all-stories";
-import TagFilter from "../components/TagFilter/TagFilter";
+import TagItems from "../components/TagItems/TagItems";
 import { JournalListStyles } from "../components/Journal/JournalGlobalStyles";
 import JournalItem from "../components/Journal/JournalItem";
 
@@ -19,7 +19,7 @@ const journalsPage = () => {
               WordPress, React, Gatsby and open-source.
             </h4>
           </div>
-          <TagFilter />
+          <TagItems />
           <div className="journal__content">
             {allStories.map((node, index) => {
               return (
