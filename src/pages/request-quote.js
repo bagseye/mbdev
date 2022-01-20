@@ -9,7 +9,7 @@ const Contact = () => (
     <SEO title="Request a quote" />
     <Layout>
       <GeneralContentStyles>
-        <section className="section sectiongap topgap">
+        <section className="sectiongap topgap">
           <div className="container">
             <div className="content__area">
               <h1>Request a quote by completing the fields below</h1>

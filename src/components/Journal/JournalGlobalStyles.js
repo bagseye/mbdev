@@ -2,16 +2,9 @@ import styled from "styled-components";
 import { Link } from "gatsby";
 
 export const JournalListStyles = styled.div`
-  padding: 150px var(--gridGap) 0 var(--gridGap);
-  max-width: 1580px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   position: relative;
-
-  @media (min-width: 768px) {
-    padding-top: 180px;
-  }
 
   .intro__area {
     max-width: 500px;

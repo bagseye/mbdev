@@ -9,7 +9,6 @@ import styled from "styled-components";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const TechUsed = styled.div`
-  padding: 0 var(--gridGap);
   margin-top: calc(var(--gridGap) * 3);
   margin-bottom: calc(var(--gridGap) * 3);
 

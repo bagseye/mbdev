@@ -9,7 +9,7 @@ const projectsPage = () => {
 
   return (
     <Layout>
-      <section className="section topgap">
+      <section className="topgap">
         <div className="container">
           <div className="content__area">
             <h1>All Projects</h1>

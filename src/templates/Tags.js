@@ -9,7 +9,7 @@ const SingleTagPage = ({ data, pageContext }) => {
 
   return (
     <Layout>
-      <JournalListStyles>
+      <JournalListStyles className="topgap">
         <div className="container">
           <div className="intro__area">
             <h1>{pageContext.name} Categorised Journal Items</h1>

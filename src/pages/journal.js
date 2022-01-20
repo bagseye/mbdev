@@ -10,7 +10,7 @@ const journalsPage = () => {
 
   return (
     <Layout>
-      <JournalListStyles>
+      <JournalListStyles className="topgap">
         <div className="container">
           <div className="intro__area">
             <h1>Web development journal and open-source project updates</h1>

@@ -1,39 +1,12 @@
 import React from "react";
 import Layout from "../../components/Layout";
 import Seo from "../../components/SEO";
-import { graphql, Link } from "gatsby";
-import styled from "styled-components";
+import { graphql } from "gatsby";
 import Button from "../../components/Button/Button";
 import RichText from "../../components/RichText";
 import TagItem from "../../components/TagItems/TagItem";
 import { TagItemsGlobalStyles } from "../../components/TagItems/TagItemsStyles";
-
-const StoryContent = styled.article`
-  width: 100%;
-  max-width: 1580px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 150px var(--gridGap) var(--gridGap) var(--gridGap);
-
-  @media (min-width: 768px) {
-    padding-top: 180px;
-  }
-
-  .container {
-    max-width: 500px;
-    margin-left: 0;
-
-    @media (min-width: 768px) {
-      max-width: 750px;
-    }
-  }
-
-  .story__author,
-  hr {
-    margin-top: calc(var(--gridGap) * 2);
-    margin-bottom: calc(var(--gridGap) * 2);
-  }
-`;
+import Author from "../../components/Author/Author";
 
 const StoriesTemplate = ({ data }) => {
   const { title, createdAt, mainContent, metadata } = data.storiesPage;
@@ -43,8 +16,8 @@ const StoriesTemplate = ({ data }) => {
     <>
       <Seo title={title} description={title} />
       <Layout>
-        <StoryContent>
-          <div className="container">
+        <div className="container topgap">
+          <div className="container__blog">
             <h4 className="published">Posted on {createdAt}</h4>
             <h1>{title}</h1>
             <hr />
@@ -60,18 +33,10 @@ const StoriesTemplate = ({ data }) => {
                 </div>
               </TagItemsGlobalStyles>
             </div>
-            <aside className="story__author">
-              <h3>Written by Morgan Baker</h3>
-              <p>
-                I'm a front end developer from Inverness, working with WordPress
-                and Gatsby. Take a look at my recent projects{" "}
-                <Link to="/projects">here</Link>.
-              </p>
-            </aside>
-
+            <Author />
             <Button to="/journal" text="To journal home" />
           </div>
-        </StoryContent>
+        </div>
       </Layout>
     </>
   );

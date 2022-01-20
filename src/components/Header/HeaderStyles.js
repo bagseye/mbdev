@@ -13,7 +13,7 @@ export const HeaderGlobalStyles = styled(motion.header)`
   z-index: 20;
   display: flex;
   align-items: center;
-  max-width: 1580px;
+  max-width: 1500px;
   font-size: 13px;
   height: 75px;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;

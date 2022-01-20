@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 export const SlideGlobalStyles = styled.section`
-  padding-left: var(--gridGap);
-  padding-right: var(--gridGap);
   position: relative;
 
   > .container {

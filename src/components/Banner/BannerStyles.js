@@ -9,6 +9,7 @@ export const BannerGlobalStyles = styled.section`
     position: relative;
     padding: calc(var(--gridGap) * 8) 0 calc(var(--gridGap) * 5) 0;
     z-index: 1;
+    max-width: calc(1500px - (var(--gridGap) * 2));
 
     @media (min-width: 768px) {
       padding-top: calc(var(--gridGap) * 7);

@@ -8,7 +8,7 @@ const aboutPage = () => (
   <>
     <SEO title="About the developer" />
     <Layout>
-      <section className="section sectiongap topgap">
+      <section className="sectiongap topgap">
         <div className="container">
           <div className="content__area">
             <h1>
