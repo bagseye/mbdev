@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const FooterStyles = styled.footer`
-  padding: calc(var(--gridGap) * 2) var(--gridGap);
+  padding: calc(var(--gridGap) * 2) 0;
 
   .container {
     @media (min-width: 600px) {

@@ -3,8 +3,6 @@ import styled from "styled-components";
 import { motion, useAnimation } from "framer-motion";
 
 const ContactMethodsStyles = styled.section`
-  padding: 0 var(--gridGap);
-  max-width: 1580px;
   margin: 200px auto;
   display: flex;
   flex-direction: column;
@@ -67,7 +65,7 @@ const ContactMethods = () => {
   }, [ref]);
 
   return (
-    <ContactMethodsStyles ref={ref}>
+    <ContactMethodsStyles className="container" ref={ref}>
       <div className="container-grid">
         <div className="contact__content">
           <motion.h2 initial={{ opacity: 0 }} animate={controls}>

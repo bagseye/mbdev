@@ -90,7 +90,7 @@ const GatsbyDevelopment = () => {
             alt="Gatsby Development Services"
           />
         </Slide>
-        <section className="section sectiongap">
+        <section className="sectiongap">
           <div className="container">
             <div className="columns">
               <div className="column">
@@ -120,7 +120,7 @@ const GatsbyDevelopment = () => {
             </div>
           </div>
         </section>
-        <section className="section sectiongap">
+        <section className="sectiongap">
           <div className="container">
             <div className="content__area">
               <h2 className="as__h1">

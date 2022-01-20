@@ -7,7 +7,7 @@ const Contact = () => (
   <>
     <SEO title="Contact the developer" />
     <Layout>
-      <section className="section sectiongap topgap">
+      <section className="sectiongap topgap">
         <div className="container">
           <div className="content__area">
             <h2 className="as__h1">

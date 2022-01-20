@@ -4,8 +4,6 @@ import styled from "styled-components";
 import { motion, useAnimation } from "framer-motion";
 
 const PostsStyles = styled.section`
-  padding: 0 var(--gridGap);
-  max-width: 1580px;
   margin: 200px auto;
   display: flex;
   flex-direction: column;
@@ -80,7 +78,7 @@ const Posts = () => {
     }
   `);
   return (
-    <PostsStyles ref={ref}>
+    <PostsStyles className="container" ref={ref}>
       <div className="container-grid">
         <div className="posts__content">
           <motion.h2 initial={{ opacity: 0 }} animate={controls}>

@@ -89,7 +89,7 @@ const JournalItem = styled(Link)`
 const servicesPage = () => {
   return (
     <Layout>
-      <JournalListStyles>
+      <JournalListStyles className="topgap">
         <div className="container">
           <div className="intro__area">
             <h1>All Services</h1>

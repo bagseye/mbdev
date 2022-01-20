@@ -1,9 +1,6 @@
 import styled from "styled-components";
 
 export const PerksGlobalStyles = styled.section`
-  padding-left: var(--gridGap);
-  padding-right: var(--gridGap);
-
   .perks__container {
     margin-bottom: calc(var(--gridGap) * 2);
     margin-top: calc(var(--gridGap) * 2);

@@ -20,7 +20,7 @@ const BannerStyles = styled.div`
   .cmsbanner__cont {
     position: relative;
     z-index: 1;
-    max-width: 1580px;
+    max-width: 1500px;
     margin: 0 auto;
     height: 100%;
     padding: calc(var(--gridGap) * 5) var(--gridGap);

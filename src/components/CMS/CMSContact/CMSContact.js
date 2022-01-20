@@ -14,7 +14,7 @@ const CMSContact = () => {
       <CMSContactStyles>
         <div
           style={{
-            maxWidth: "1500px",
+            maxWidth: "calc(1500px - (var(--gridGap) * 2))",
             marginLeft: "auto",
             marginRight: "auto",
           }}

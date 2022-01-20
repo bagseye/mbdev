@@ -145,6 +145,8 @@ export const GlobalStyles = createGlobalStyle`
       height: 1px;
       background-color: rgba(255,255,255,0.1);
       max-width: var(--maxContainer);
+      margin-top: calc(var(--gridGap) * 2);
+      margin-bottom: calc(var(--gridGap) * 2);
     }
 
     code {
@@ -271,9 +273,20 @@ export const GlobalStyles = createGlobalStyle`
       max-width: 1500px;
       margin-left: auto;
       margin-right: auto;
+      padding-left: var(--gridGap);
+      padding-right: var(--gridGap);
 
       &__body {
         padding: calc(var(--gridGap) * 3) 0 0 0;
+      }
+
+      &__blog {
+        max-width: 500px;
+        margin-left: 0;
+
+        @media (min-width: 768px) {
+          max-width: 750px;
+        }
       }
     }
 
