@@ -5,6 +5,8 @@ import { graphql, Link } from "gatsby";
 import styled from "styled-components";
 import Button from "../../components/Button/Button";
 import RichText from "../../components/RichText";
+import TagItem from "../../components/TagItems/TagItem";
+import { TagItemsGlobalStyles } from "../../components/TagItems/TagItemsStyles";
 
 const StoryContent = styled.article`
   width: 100%;
@@ -34,7 +36,8 @@ const StoryContent = styled.article`
 `;
 
 const StoriesTemplate = ({ data }) => {
-  const { title, createdAt, mainContent } = data.storiesPage;
+  const { title, createdAt, mainContent, metadata } = data.storiesPage;
+  const { tags } = metadata;
 
   return (
     <>
@@ -47,6 +50,16 @@ const StoriesTemplate = ({ data }) => {
             <hr />
             <RichText richText={mainContent} />
             <hr />
+            <div>
+              <h3>Categorised under</h3>
+              <TagItemsGlobalStyles>
+                <div className="tagfilter__container">
+                  {tags.map((item) => {
+                    return <TagItem id={item.contentful_id} name={item.name} />;
+                  })}
+                </div>
+              </TagItemsGlobalStyles>
+            </div>
             <aside className="story__author">
               <h3>Written by Morgan Baker</h3>
               <p>
@@ -84,6 +97,12 @@ export const data = graphql`
             )
             __typename
           }
+        }
+      }
+      metadata {
+        tags {
+          contentful_id
+          name
         }
       }
     }
