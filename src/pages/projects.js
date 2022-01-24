@@ -1,8 +1,9 @@
 import React from "react";
 import Layout from "../components/Layout";
 import ContactMethods from "../components/ContactMethods";
-import Project from "../components/Projects/Project";
 import useAllProjects from "../hooks/use-all-projects";
+import CardContainer from "../components/Cards/CardContainer";
+import Card from "../components/Cards/Card";
 
 const projectsPage = () => {
   const allProjects = useAllProjects();
@@ -19,9 +20,18 @@ const projectsPage = () => {
             </h2>
           </div>
         </div>
-        {allProjects.map((node, index) => {
-          return <Project key={index} project={node} />;
-        })}
+        <CardContainer>
+          {allProjects.map((node, index) => {
+            return (
+              <Card
+                route="/projects"
+                key={index}
+                to={node.gatsbyPath}
+                node={node}
+              />
+            );
+          })}
+        </CardContainer>
       </section>
       <ContactMethods />
     </Layout>
