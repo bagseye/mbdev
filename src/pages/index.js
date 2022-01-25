@@ -2,14 +2,17 @@ import React from "react";
 import SEO from "../components/SEO";
 import Layout from "../components/Layout";
 import ContactMethods from "../components/ContactMethods";
-import Posts from "../components/Posts/Posts";
 import Banner from "../components/Banner/Banner";
 import CardContainer from "../components/Cards/CardContainer";
 import Card from "../components/Cards/Card";
 import useFeaturedProjects from "../hooks/use-featured-projects";
+import PostContainer from "../components/Posts/PostContainer";
+import Post from "../components/Posts/Post";
+import useFeaturedStories from "../hooks/use-featured-stories";
 
 const Index = () => {
   const projects = useFeaturedProjects();
+  const stories = useFeaturedStories();
 
   return (
     <>
@@ -47,7 +50,16 @@ const Index = () => {
           })}
         </CardContainer>
         <ContactMethods />
-        <Posts />
+        <div className="container sectiongap">
+          <div className="content__area">
+            <h2 className="as__h1">Recent journal entries</h2>
+          </div>
+        </div>
+        <PostContainer>
+          {stories.map((node) => {
+            return <Post node={node} />;
+          })}
+        </PostContainer>
       </Layout>
     </>
   );
