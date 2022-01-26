@@ -3,10 +3,12 @@ import { Link } from "gatsby";
 
 export const CardContainerGlobalStyles = styled.section`
   display: flex;
-  gap: calc(var(--gridGap) * 2) 0;
+  gap: calc(var(--gridGap) * 2) var(--gridGap);
   flex-wrap: wrap;
+  max-width: 600px;
 
-  @media (min-width: 768px) {
+  @media (min-width: 992px) {
+    max-width: 1500px;
     gap: calc(var(--gridGap) * 2);
   }
 `;
@@ -21,7 +23,7 @@ export const CardGlobalStyles = styled(Link)`
   text-decoration: none;
   transition: background-color 0.5s ease;
 
-  @media (min-width: 768px) {
+  @media (min-width: 992px) {
     width: calc(50% - var(--gridGap));
   }
 
@@ -47,8 +49,13 @@ export const CardGlobalStyles = styled(Link)`
   .route {
     position: absolute;
     left: var(--gridGap);
-    top: var(--gridGap);
+    top: calc(var(--gridGap) * 2);
     margin: 0;
+
+    @media (min-width: 1200px) {
+      top: calc(var(--gridGap) * 1.5);
+      left: calc(var(--gridGap) * 1.5);
+    }
   }
 
   .content__area {
@@ -57,7 +64,11 @@ export const CardGlobalStyles = styled(Link)`
     bottom: 0;
     width: 100%;
     z-index: 1;
-    padding: var(--gridGap);
+    padding: 0 var(--gridGap) calc(var(--gridGap) * 1.5) var(--gridGap);
+
+    @media (min-width: 1200px) {
+      padding: calc(var(--gridGap) * 1.5);
+    }
 
     h4 {
       color: #fff;

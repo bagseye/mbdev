@@ -54,7 +54,7 @@ const SideMenuStyles = styled(motion.div)`
 
   .container {
     padding: 0 var(--gridGap);
-    max-width: 1580px;
+    max-width: 1500px;
 
     @media (min-width: 768px) {
       display: flex;

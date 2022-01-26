@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { CardGlobalStyles } from "./CardsGlobalStyles";
-import Button from "../Button/Button";
 import { motion, useAnimation } from "framer-motion";
 import PropTypes from "prop-types";
 
@@ -51,7 +50,7 @@ const Card = ({ node, route, to }) => {
       >
         <h2 className="as__h1">{name}</h2>
         <h4>{excerpt}</h4>
-        <Button text="View Project" />
+        <span className="btn">View Project</span>
       </motion.div>
     </CardGlobalStyles>
   );

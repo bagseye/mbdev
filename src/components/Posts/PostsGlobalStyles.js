@@ -35,6 +35,10 @@ export const PostContainerGlobalStyles = styled.div`
       @media (min-width: 834px) {
         width: calc(33.333% - 20px);
       }
+
+      @media (min-width: 1600px) {
+        width: calc(33.333% - 27px);
+      }
     }
   }
 `;
@@ -44,7 +48,7 @@ export const PostGlobalStyles = styled(Link)`
   border-radius: 5px;
   width: calc(100% - 50px);
   flex-shrink: 0;
-  padding: var(--gridGap);
+  padding: calc(var(--gridGap) * 2) var(--gridGap);
   text-decoration: none;
   display: flex;
   flex-direction: column;
@@ -57,7 +61,8 @@ export const PostGlobalStyles = styled(Link)`
     flex-shrink: 1;
   }
 
-  .route {
+  .route,
+  .date {
     color: var(--secondary);
   }
 

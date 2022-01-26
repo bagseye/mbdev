@@ -9,6 +9,7 @@ import useFeaturedProjects from "../hooks/use-featured-projects";
 import PostContainer from "../components/Posts/PostContainer";
 import Post from "../components/Posts/Post";
 import useFeaturedStories from "../hooks/use-featured-stories";
+import Button from "../components/Button/Button";
 
 const Index = () => {
   const projects = useFeaturedProjects();
@@ -49,17 +50,25 @@ const Index = () => {
             );
           })}
         </CardContainer>
-        <ContactMethods />
+
         <div className="container sectiongap">
           <div className="content__area">
             <h2 className="as__h1">Recent journal entries</h2>
+            <p className="leadin">
+              Keep up-to-date with posts about open-source project releases and
+              industry specific viewpoints.
+            </p>
           </div>
         </div>
         <PostContainer>
-          {stories.map((node) => {
-            return <Post node={node} />;
+          {stories.map((node, index) => {
+            return <Post key={index} node={node} />;
           })}
         </PostContainer>
+        <div className="container">
+          <Button to="/journal" text="View all journal entries" />
+        </div>
+        <ContactMethods />
       </Layout>
     </>
   );
