@@ -7,21 +7,20 @@ const TagFilter = () => {
   const allStories = useAllStories();
 
   const tagMeta = allStories
-    .map((item) => {
-      return item.metadata.tags;
+    .map((story) => {
+      return story.metadata.tags;
     })
     .flat()
-    .reduce((acc, tag) => {
-      // Check if exisiting
-      // if yes, increment
-      const exisiting = acc[tag.contentful_id];
-      if (exisiting) {
-        exisiting.count += 1;
+    .reduce((acc, tagObj) => {
+      // Check if it exists, if so, increment
+      const existing = acc[tagObj.contentful_id];
+      if (existing) {
+        existing.count++;
       } else {
-        //otherwise new entry
-        acc[tag.contentful_id] = {
-          id: tag.contentful_id,
-          name: tag.name,
+        // Otherwise, create a new entry in the object
+        acc[tagObj.contentful_id] = {
+          id: tagObj.contentful_id,
+          name: tagObj.name,
           count: 1,
         };
       }
