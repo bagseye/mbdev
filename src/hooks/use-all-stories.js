@@ -5,7 +5,7 @@ const useAllStories = () => {
     allContentfulStories: { nodes },
   } = useStaticQuery(graphql`
     query allStoriesLinksQuery {
-      allContentfulStories {
+      allContentfulStories(sort: { order: DESC, fields: createdAt }) {
         nodes {
           title
           gatsbyPath(filePath: "/journal/{contentfulStories.slug}")
