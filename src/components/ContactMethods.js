@@ -72,7 +72,7 @@ const ContactMethods = () => {
             You can contact me directly with any questions or requests at{" "}
             <a href="mailto:hello@morganbaker.dev">hello@morganbaker.dev</a>.
             <br />
-            Alternatively, call <a href="tel:00447369256509">07369 256 509</a>.
+            Alternatively, call <a href="tel:00447736592188">07736 592 188</a>.
           </motion.h2>
         </div>
       </div>

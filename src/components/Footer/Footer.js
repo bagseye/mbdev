@@ -46,8 +46,8 @@ const Footer = () => {
             Inverness,
             <br />
             <a href="mailto:hello@morganbaker.dev">hello@morganbaker.dev</a>
-            <a style={{ display: "block" }} href="tel:00447369256509">
-              07369 256 509
+            <a style={{ display: "block" }} href="tel:00447736592188">
+              07736 592 188
             </a>
           </address>
         </div>

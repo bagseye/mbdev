@@ -15,8 +15,8 @@ const Contact = () => (
               <h1>Request a quote by completing the fields below</h1>
               <h2>
                 Or, call{" "}
-                <a style={{ fontWeight: 700 }} href="tel:00447369256509">
-                  07369 256 509
+                <a style={{ fontWeight: 700 }} href="tel:00447736592188">
+                  07736 592 188
                 </a>
                 . All fields are required
               </h2>
