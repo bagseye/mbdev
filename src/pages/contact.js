@@ -16,7 +16,9 @@ const Contact = () => (
             </h2>
             <p className="leadin">
               Just enter a few of your details and what you are looking for in
-              terms of web development.
+              terms of web development. Or, if you prefer, you can drop an
+              message to{" "}
+              <a href="mailto:hello@morganbaker.dev">hello@morganbaker.dev</a>.
             </p>
             <ContactForm />
           </div>
