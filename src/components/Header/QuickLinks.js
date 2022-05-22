@@ -22,14 +22,7 @@ const QuickLinks = () => {
           <span>Log Out</span>
         </a>
       ) : null}
-      <Link className="headerlink" to="/dashboard">
-        <User />
-        <span>Dash</span>
-      </Link>
-      <Link className="headerlink" to="/contact">
-        <Mail />
-        <span>Contact</span>
-      </Link>
+      <a href="mailto:hello@morganbaker.dev">hello@morganbaker.dev</a>
     </QuickLinksGlobalStyles>
   );
 };

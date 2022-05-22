@@ -45,6 +45,7 @@ export const QuickLinksGlobalStyles = styled.div`
   right: 70px;
   display: flex;
   gap: 0 15px;
+  align-items: center;
 
   @media (max-width: 374px) {
     gap: 0 9px;
