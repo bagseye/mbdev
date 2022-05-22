@@ -3,6 +3,7 @@ import SEO from "../components/SEO";
 import Layout from "../components/Layout";
 import ContactMethods from "../components/ContactMethods";
 import Banner from "../components/Banner/Banner";
+import BannerForm from "../components/BannerForm/BannerForm";
 import CardContainer from "../components/Cards/CardContainer";
 import Card from "../components/Cards/Card";
 import useFeaturedProjects from "../hooks/use-featured-projects";
@@ -19,7 +20,11 @@ const Index = () => {
     <>
       <SEO title="Home" />
       <Layout>
-        <Banner
+        <BannerForm
+          title="User-focused web design & development services."
+          subTitle="Developing bespoke content-management systems for businesses, helping them achieve higher conversions."
+        />
+        {/* <Banner
           title="Bespoke web design & development in Inverness."
           subTitle="Creating modern, user-friendly experiences using Wordpress and GatsbyJS."
           scrollerText="Scroll"
@@ -27,7 +32,7 @@ const Index = () => {
           ctaOneLink="/services"
           ctaTwoText="All Projects"
           ctaTwoLink="/projects"
-        />
+        /> */}
         <div className="container sectiongap">
           <div className="content__area">
             <h2 className="as__h1">Featured web development projects</h2>

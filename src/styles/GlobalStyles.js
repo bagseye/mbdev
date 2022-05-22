@@ -28,7 +28,7 @@ export const GlobalStyles = createGlobalStyle`
         --sansSerif: 'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
         
         @media(min-width:414px) {
-            --titleLarge: 2.1rem;
+            --titleLarge: 1.9rem;
             --h2: 1.35rem;
             --h2LineHeight: 1.35;
             --paragraph: 1.05rem;
@@ -39,12 +39,12 @@ export const GlobalStyles = createGlobalStyle`
         }
 
         @media(min-width:768px) {
-            --titleLarge: 2.3rem;
+            /* --titleLarge: 2.3rem; */
             --h2: 1.4rem;
         }
 
         @media(min-width: 834px) {
-          --titleLarge: 2.4rem;
+          --titleLarge: 2.75rem;
           --margins: 150px;
           --titleLargeLineHeight: 1.3;
           --h2: 1.45rem;
@@ -53,7 +53,7 @@ export const GlobalStyles = createGlobalStyle`
         }
 
         @media(min-width: 1600px) {
-          --titleLarge: 3rem;
+          /* --titleLarge: 3rem; */
           --margins: 225px;
           --h2: 1.6rem;
           --h2LineHeight: 1.45;

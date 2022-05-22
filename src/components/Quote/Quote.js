@@ -5,6 +5,7 @@ import Button from "../Button/Button";
 const Quote = () => {
   return (
     <ContactFormStyles className="sectiongap">
+      <h2 className="as__h1">Request a quote.</h2>
       <form
         name="quote"
         method="post"
@@ -20,11 +21,31 @@ const Quote = () => {
           </label>
         </div>
         <div className="area">
-          <label>Your name </label>
+          <label>
+            Your name <span>(Required)</span>
+          </label>
           <input
             type="text"
             name="name"
             placeholder="Enter your name here..."
+          />
+        </div>
+        <div className="area">
+          <label>
+            Email contact <span>(Required)</span>
+          </label>
+          <input
+            type="email"
+            name="email"
+            placeholder="An email address to contact you on..."
+          />
+        </div>
+        <div className="area">
+          <label>Phone number </label>
+          <input
+            type="number"
+            name="phone"
+            placeholder="And a phone hone number to use..."
           />
         </div>
         <div className="area">
@@ -43,22 +64,7 @@ const Quote = () => {
             placeholder="Next, enter your web address..."
           />
         </div>
-        <div className="area">
-          <label>Email contact </label>
-          <input
-            type="email"
-            name="email"
-            placeholder="An email address to contact you on..."
-          />
-        </div>
-        <div className="area">
-          <label>Phone number </label>
-          <input
-            type="number"
-            name="phone"
-            placeholder="And a phone hone number to use..."
-          />
-        </div>
+
         <div className="area">
           <label>Any requirements needed for your new site? </label>
           <textarea
