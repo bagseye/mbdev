@@ -18,7 +18,8 @@ export const ButtonGlobalStyles = styled(Link)`
   background-color: var(--accent);
   border: none;
   border-bottom: 2px solid var(--accent);
-  transition: color 0.3s ease, border-bottom 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-bottom 0.3s ease;
   margin-top: var(--gridGap);
   margin-bottom: var(--gridGap);
   cursor: pointer;
@@ -33,8 +34,9 @@ export const ButtonGlobalStyles = styled(Link)`
   }
 
   &:hover {
-    border-bottom: 2px solid var(--accentHover);
-    color: var(--accent);
+    /* border-bottom: 2px solid var(--accentHover); */
+    /* color: var(--accent); */
+    background-color: rgb(187, 48, 252);
 
     svg {
       transform: translateX(5px);

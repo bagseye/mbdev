@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 import Quote from "../Quote/Quote";
 import Button from "../Button/Button";
+import { StaticImage } from "gatsby-plugin-image";
 
 const BannerForm = ({ title, subTitle, children }) => {
   return (
@@ -122,6 +123,12 @@ const BannerForm = ({ title, subTitle, children }) => {
           </div>
         </div>
       )}
+      <div className="banner__bg">
+        <StaticImage
+          src="../../images/smoke-purple.jpg"
+          alt="Decoration banner"
+        />
+      </div>
       {children}
     </BannerFormGlobalStyles>
   );

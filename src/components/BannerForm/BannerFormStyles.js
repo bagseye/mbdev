@@ -12,18 +12,31 @@ export const BannerFormGlobalStyles = styled.section`
     max-width: calc(1500px - (var(--gridGap) * 2));
     display: flex;
     gap: 40px;
-    /* flex-direction: column; */
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
 
     @media (min-width: 768px) {
       padding-top: calc(var(--gridGap) * 7);
     }
 
     @media (min-width: 1200px) {
+      flex-wrap: wrap;
+      flex-direction: row;
     }
 
     &__content {
       max-width: 540px;
+
+      @media (min-width: 1200px) {
+        position: sticky;
+        top: 120px;
+      }
+
+      h1,
+      h2 {
+        text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+      }
+
       h2 {
         font-size: var(--leadIn);
       }
@@ -122,13 +135,31 @@ export const BannerFormGlobalStyles = styled.section`
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.5;
+    opacity: 0.6;
+
+    .gatsby-image-wrapper {
+      height: 100%;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 250px;
+      background: linear-gradient(
+        0deg,
+        rgba(28, 27, 27, 1) 0%,
+        rgba(28, 27, 27, 0) 100%
+      );
+    }
 
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center;
+      object-position: left center;
     }
   }
 `;
