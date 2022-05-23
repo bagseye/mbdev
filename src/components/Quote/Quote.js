@@ -73,7 +73,7 @@ const Quote = () => {
             placeholder="Use this field to give a brief description of what you are looking for. For example a website with branding..."
           />
         </div>
-        <Button type="submit" text="Send Request" />
+        <Button as="button" type="submit" text="Send this request" />
       </form>
     </ContactFormStyles>
   );

@@ -67,7 +67,7 @@ const BannerForm = ({ title, subTitle, children }) => {
                     <input
                       type="text"
                       name="name"
-                      placeholder="Enter your name here..."
+                      placeholder="Enter your name..."
                     />
                   </div>
                   <div className="area">
@@ -77,7 +77,7 @@ const BannerForm = ({ title, subTitle, children }) => {
                     <input
                       type="email"
                       name="email"
-                      placeholder="An email address to contact you on..."
+                      placeholder="example@email.com..."
                     />
                   </div>
                   <div className="area">
@@ -85,7 +85,7 @@ const BannerForm = ({ title, subTitle, children }) => {
                     <input
                       type="number"
                       name="phone"
-                      placeholder="And a phone hone number to use..."
+                      placeholder="Best contact number..."
                     />
                   </div>
                   <div className="area">
@@ -93,29 +93,29 @@ const BannerForm = ({ title, subTitle, children }) => {
                     <input
                       type="text"
                       name="business"
-                      placeholder="And then enter your business name..."
+                      placeholder="Enter your business name..."
                     />
                   </div>
                 </div>
 
                 <div className="form__column--two">
                   <div className="area">
-                    <label>Website address (if applicable) </label>
+                    <label>Business website address </label>
                     <input
                       type="text"
                       name="website"
-                      placeholder="Next, enter your web address..."
+                      placeholder="www.example-business.com..."
                     />
                   </div>
                   <div className="area">
-                    <label>Any requirements needed for your new site? </label>
+                    <label>Your requirments </label>
                     <textarea
                       type="text"
                       name="requirements"
-                      placeholder="Use this field to give a brief description of what you are looking for. For example a website with branding..."
+                      placeholder="A brief description of what you are looking for..."
                     />
                   </div>
-                  <Button type="submit" text="Send Request" />
+                  <Button as="button" type="submit" text="Send this request" />
                 </div>
               </div>
             </form>
