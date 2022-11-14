@@ -24,7 +24,7 @@
     "babel-plugin-styled-components": "^2.0.2",
     "dotenv": "^11.0.0",
     "framer-motion": "^5.5.7",
-    "gatsby": "^4.5.0",
+    "gatsby": "^4.24.8",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-google-gtag": "^4.5.0",
     "gatsby-plugin-image": "^2.5.0",
