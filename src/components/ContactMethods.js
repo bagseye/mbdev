@@ -69,7 +69,7 @@ const ContactMethods = () => {
       <div className="container-grid">
         <div className="contact__content">
           <motion.h2 initial={{ opacity: 0 }} animate={controls}>
-            You can contact me directly with any questions or requests at{" "}
+            If you're looking for web design in Inverness, or beyond, you can contact me directly with any questions or requests at{" "}
             <a href="mailto:hello@morganbaker.dev">hello@morganbaker.dev</a>.
             <br />
             Alternatively, call <a href="tel:00447736592188">07736 592 188</a>.

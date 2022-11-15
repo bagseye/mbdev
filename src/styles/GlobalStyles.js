@@ -25,7 +25,7 @@ export const GlobalStyles = createGlobalStyle`
         --boxShadow: 0px 8px 15px 6px rgba(0, 0, 0, 0.2);
         
 
-        --sansSerif: 'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+        --sansSerif: 'Helvetica Neue', 'Helvetica', 'Inter', 'Arial', sans-serif;
         
         @media(min-width:414px) {
             --titleLarge: 1.9rem;

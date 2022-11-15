@@ -6,6 +6,7 @@ const ContactForm = () => {
   return (
     <ContactFormStyles className="sectiongap">
       <form
+        id="contactForm"
         name="contact"
         method="post"
         action="/thanks/"
