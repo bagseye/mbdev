@@ -35,6 +35,10 @@ export const serviceLinks = [
     text: "development services",
   },
   {
+    path: "/services/white-label-development",
+    text: "white label development",
+  },
+  {
     path: "/services/brand-consultancy",
     text: "brand consultancy",
   },
