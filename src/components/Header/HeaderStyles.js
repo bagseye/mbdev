@@ -131,6 +131,7 @@ export const LogoGlobalStyles = styled.div`
 
   span:nth-child(1) {
     margin-right: 5px;
+    white-space: no-wrap;
   }
 
   @media (min-width: 768px) {
@@ -138,7 +139,7 @@ export const LogoGlobalStyles = styled.div`
   }
 
   @media (min-width: 834px) {
-    font-size: 20px;
+    font-size: 21px;
   }
 
   @media (min-width: 1600px) {

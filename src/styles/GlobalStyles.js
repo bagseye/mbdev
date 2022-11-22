@@ -2,6 +2,7 @@ import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
     :root {
+      scroll-behavior: smooth;
       font-size: 16px;
         --background: #1c1b1b;
         --primary: #fff;

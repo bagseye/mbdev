@@ -16,8 +16,10 @@ const Banner = ({
   scrollerText,
   ctaOneLink,
   ctaOneText,
+  ctaOneAnchor,
   ctaTwoLink,
   ctaTwoText,
+  ctaTwoAnchor
 }) => {
   return (
     <BannerGlobalStyles styles={{ backgroundColor: children ? "#000" : "" }}>
@@ -46,18 +48,18 @@ const Banner = ({
             )}
 
             {/* If there is either a CTA one or CTA two, show this container */}
-            {(ctaOneText && ctaOneLink) || (ctaTwoText && ctaTwoLink) ? (
+            {(ctaOneText && ctaOneLink || ctaOneText && ctaOneAnchor) || (ctaTwoText && ctaTwoLink || ctaTwoText && ctaTwoAnchor) ? (
               <motion.div
                 className="banner__ctas"
                 transition={{ ease: "easeOut", duration: 0.65 }}
                 variants={titleVariants}
               >
-                {ctaOneText && ctaOneLink ? (
-                  <Button to={ctaOneLink} text={ctaOneText} />
+                {(ctaOneText && ctaOneLink || ctaOneText && ctaOneAnchor) ? (
+                  <Button anchor={ctaOneAnchor} to={ctaOneLink} text={ctaOneText} />
                 ) : null}
 
-                {ctaTwoText && ctaTwoLink ? (
-                  <Button to={ctaTwoLink} text={ctaTwoText} />
+                {(ctaTwoText && ctaTwoLink || ctaTwoText && ctaTwoAnchor) ? (
+                  <Button anchor={ctaOneAnchor} to={ctaTwoLink} text={ctaTwoText} />
                 ) : null}
               </motion.div>
             ) : null}

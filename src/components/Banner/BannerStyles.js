@@ -55,17 +55,26 @@ export const BannerGlobalStyles = styled.section`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--gridGap) 0;
     margin-top: var(--gridGap);
-    margin-bottom: calc(var(--gridGap) * 2);
 
     > * {
-      margin: 0;
+      margin: 0 0 var(--gridGap) 0;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
 
     @media (min-width: 768px) {
       flex-direction: row;
-      gap: 0 var(--gridGap);
+
+      > * {
+        margin: 0 var(--gridGap) 0 0;
+  
+        &:last-child {
+          margin-right: 0;
+        }
+      }
     }
   }
 `;

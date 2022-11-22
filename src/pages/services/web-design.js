@@ -21,13 +21,15 @@ const WebDesign = () => {
   return (
     <>
       <Seo
-        title="Inverness Web Design & E-commerce services. Delivering expert results."
-        description="Bespoke web design & development using the world's favourite CMS"
+        title="Inverness web design & e-commerce services. Delivering expert results in user experience."
+        description="Experience web design and development using the world's most popular content management system, WordPress. The ideal partner for your business."
       />
       <Layout>
         <Banner
-          title="Inverness Web Design & E-commerce services. Delivering expert results."
-          subTitle="Web design and development using the world's most popular content management system. The ideal partner for content-rich websites."
+          title="Inverness web design & e-commerce services. Delivering expert results in user experience."
+          subTitle="Experience web design and development using the world's most popular content management system, WordPress. The ideal partner for your business."
+          ctaOneText="Find out more"
+          ctaOneAnchor="#pageTop"
         >
           <StaticImage
             className="banner__bg"
@@ -38,6 +40,7 @@ const WebDesign = () => {
             alt="WordPress Development Services Banner Image"
           />
         </Banner>
+        <div id="pageTop"></div>
         <Perks
           title="What are the benefits of using WordPress for your next business website?"
           cta="User-focused development, creating bespoke environments for your business. Helping create digital growth in Inverness & the Highlands."
