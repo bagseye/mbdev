@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 const Prices = ({ children, title, cta }) => {
   return (
-    <PricesGlobalStyles className="sectiongap">
+    <PricesGlobalStyles id="prices" className="sectiongap">
       <div className="container">
         {title && (
           <div className="content__area">
