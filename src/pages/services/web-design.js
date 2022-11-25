@@ -22,7 +22,7 @@ const WebDesign = () => {
     <>
       <Seo
         title="Inverness web design & e-commerce services. Delivering expert results in user experience."
-        description="Experience web design and development using the world's most popular content management system, WordPress. The ideal partner for your business."
+        description="Are you a business owner in Inverness, looking for expert web design? Take a look at what is on offer."
       />
       <Layout>
         <Banner

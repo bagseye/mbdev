@@ -45,10 +45,14 @@ const Footer = () => {
             <br />
             Inverness,
             <br />
-            <a href="mailto:hello@morganbaker.dev">hello@morganbaker.dev</a>
-            <a style={{ display: "block" }} href="tel:00447736592188">
-              07736 592 188
-            </a>
+            <div itemscope itemtype="http://schema.org/LocalBusiness">
+              <a href="mailto:hello@morganbaker.dev">
+                <span itemprop="email">hello@morganbaker.dev</span>
+              </a>
+              <a style={{display: 'block'}} href="tel:00447736592188">
+                <span itemprop="telephone">07736 592 188</span>
+              </a>
+            </div>
           </address>
         </div>
         <div className="col__full">

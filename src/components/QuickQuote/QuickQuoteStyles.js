@@ -82,4 +82,41 @@ export const QuickQuoteStyles = styled.section`
       }
     }
   }
+
+  .form__contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: rgba(0,0,0, 0.35);
+    padding: calc(var(--gridGap) / 1);
+    border-radius: 4px;
+    box-shadow: 1px 15px 36px 0px rgba(0, 0, 0, 0.75);
+    border: 1px solid rgba(255,255,255,0.15);
+
+    &--link {
+      margin-bottom: 0.75rem;
+      font-size: var(--paragraph);
+      display: inline-block;
+
+      @media(min-width:760px) {
+        font-size: var(--leadIn);
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+      
+      >span {
+        display: inline-flex;
+        align-items: center;
+        font-weight: 700;
+
+      }
+
+      svg {
+        margin-right: 0.75rem;
+        fill: var(--secondary);
+      }
+    }
+  }
 `

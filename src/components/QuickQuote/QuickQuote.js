@@ -1,6 +1,8 @@
 import React from "react";
 import { QuickQuoteStyles } from "../QuickQuote/QuickQuoteStyles.js";
 import Button from "../Button/Button";
+import { BsTelephoneFill as Phone, BsEnvelopeFill as Email } from "react-icons/bs";
+
 
 const QuickQuote = () => {
   return (
@@ -50,6 +52,14 @@ const QuickQuote = () => {
         </div>
         <Button as="button" type="submit" text="Send" />
       </form>
+      <div className="form__contacts" itemscope itemtype="http://schema.org/LocalBusiness">
+        <a className="form__contacts--link" href="tel:00447736592188">
+          <span itemprop="telephone"><Phone />07736 592 188</span>
+        </a>
+        <a className="form__contacts--link" href="mailto:hello@morganbaker.dev">
+          <span itemprop="email"><Email />hello@morganbaker.dev</span>
+        </a>
+      </div>
     </QuickQuoteStyles>
   );
 };

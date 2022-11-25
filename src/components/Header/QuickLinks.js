@@ -22,7 +22,11 @@ const QuickLinks = () => {
           <span>Log Out</span>
         </a>
       ) : null}
-      <a href="mailto:hello@morganbaker.dev">hello@morganbaker.dev</a>
+      <div itemscope itemtype="http://schema.org/LocalBusiness">
+        <a href="mailto:hello@morganbaker.dev">
+          <span itemprop="email">hello@morganbaker.dev</span>
+        </a>
+      </div>
     </QuickLinksGlobalStyles>
   );
 };
