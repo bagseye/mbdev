@@ -4,7 +4,11 @@ import Layout from "../components/Layout";
 import TechList from "../components/Tech/TechList";
 import Button from "../components/Button/Button";
 
-const aboutPage = () => (
+const aboutPage = () => {
+  const date_today = new Date().getFullYear();
+  const experience = date_today - 2015;
+
+  return (
   <>
     <SEO title="About the developer" />
     <Layout>
@@ -12,7 +16,7 @@ const aboutPage = () => (
         <div className="container">
           <div className="content__area">
             <h1>
-              I'm a frontend web developer with 5+years of agency-based
+              I'm a frontend web developer with over {`${experience}`} years of agency-based
               employment working in Inverness for projects across Scotland.
             </h1>
             <p className="leadin">
@@ -28,7 +32,11 @@ const aboutPage = () => (
               on the Gatsby Starter Library under an open-source licence.
             </p>
           </div>
-          <TechList />
+        </div>
+      </section>
+      <TechList />
+      <section className="sectiongap">
+        <div className="container">
           <div className="content__area">
             <h2 className="as__h1">
               Are you an employer looking to know more about projects I have
@@ -46,6 +54,7 @@ const aboutPage = () => (
       </section>
     </Layout>
   </>
-);
+
+  )};
 
 export default aboutPage;

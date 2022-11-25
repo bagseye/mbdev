@@ -57,8 +57,8 @@ const SideMenuStyles = styled(motion.div)`
     max-width: 1500px;
 
     @media (min-width: 768px) {
-      display: flex;
-      justify-content: flex-start;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: calc(var(--gridGap) * 2);
     }
   }
@@ -83,9 +83,7 @@ const SideMenuStyles = styled(motion.div)`
     box-sizing: content-box;
 
     @media (min-width: 768px) {
-      flex: 0 0 calc(100% / 3);
       box-sizing: border-box;
-      gap: var(--gridGap);
     }
   }
 
@@ -116,11 +114,7 @@ const SideMenuStyles = styled(motion.div)`
 const SideMenu = () => {
   // Access state globally using context
   const [isOpen, setNav] = useContext(MenuContext);
-
-  const toggleNav = () => {
-    setNav((isOpen) => !isOpen);
-  };
-
+  const toggleNav = () => setNav((isOpen) => !isOpen);
   const featuredProjects = useFeaturedProjects();
 
   return (
