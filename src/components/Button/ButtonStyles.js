@@ -13,7 +13,7 @@ export const ButtonGlobalStyles = styled(Link)`
   letter-spacing: 0.15rem;
   font-family: var(--sansSerif);
   text-decoration: none;
-  padding: 16px 8px 16px 8px;
+  padding: 16px var(--gridGap);
   border-radius: 4px;
   background-color: var(--accent);
   border: none;
@@ -23,6 +23,7 @@ export const ButtonGlobalStyles = styled(Link)`
   margin-top: var(--gridGap);
   margin-bottom: var(--gridGap);
   cursor: pointer;
+  min-width: 150px;
 
   @media (min-width: 834px) {
     font-size: 0.9rem;

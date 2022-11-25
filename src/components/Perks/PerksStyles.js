@@ -7,7 +7,6 @@ export const PerksGlobalStyles = styled.section`
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: var(--gridGap);
-    flex-wrap: wrap;
 
     @media (min-width: 760px) {
       grid-template-columns: repeat(2, 1fr);
@@ -22,7 +21,6 @@ export const PerksGlobalStyles = styled.section`
 export const PerkItemStyles = styled.aside`
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: calc(var(--gridGap) * 2) var(--gridGap);
-  // flex: 0 0 100%;
 
   > svg {
     font-size: 50px;
@@ -31,20 +29,12 @@ export const PerkItemStyles = styled.aside`
   }
 
   @media (min-width: 414px) {
-    // flex-basis: calc(50% - calc(var(--gridGap) / 2));
-
     > svg {
       font-size: 55px;
     }
   }
 
-  // @media (min-width: 834px) {
-    // flex-basis: calc(33.333% - 20px);
-  // }
-
   @media (min-width: 1600px) {
-    // flex-basis: calc(33.333% - 27px);
-
     > svg {
       font-size: 65px;
     }

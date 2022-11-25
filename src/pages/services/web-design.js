@@ -14,8 +14,8 @@ import { CgMenuBoxed as Flexible } from "react-icons/cg";
 import { AiOutlineLock as Security } from "react-icons/ai";
 import { IoIosInfinite as Dynamic } from "react-icons/io";
 import Slide from "../../components/Slide/Slide";
-import ContactForm from "../../components/Contact/Contact";
 import Button from "../../components/Button/Button";
+import QuickQuote from "../../components/QuickQuote/QuickQuote";
 
 const WebDesign = () => {
   return (
@@ -70,11 +70,11 @@ const WebDesign = () => {
         >
           <StaticImage
             className="slide__bg"
-            src="../../../static/business-meeting.jpg"
+            src="../../../static/coffee-pour.jpg"
             placeholder="blurred"
             transformOptions={{ fit: "cover" }}
             formats={["auto", "webp"]}
-            alt="WordPress Development Services"
+            alt="Pouring coffee into a cup"
           />
         </Slide>
         <section className="sectiongap">
@@ -145,7 +145,7 @@ const WebDesign = () => {
           <Price title="Branded websites" cost="695" content="A beautifully crafted website that complements your business and creates brand-awareness within your customer base."/>
           <Price title="E-commerce websites" cost="1250" content="Do you have products to sell direct to customers? An e-commerce website with secure hosting and payments is the ideal partner."/>
         </Prices>
-        <section className="sectiongap">
+        <section id="contactForm" className="sectiongap">
           <div className="container">
             <div className="content__area">
               <h2 className="as__h1">
@@ -156,7 +156,7 @@ const WebDesign = () => {
                 Just enter a few of your details and what you are looking for in
                 your next web development project.
               </p>
-              <ContactForm />
+              <QuickQuote />
             </div>
           </div>
         </section>
