@@ -28,31 +28,36 @@ const options = {
       );
     },
     [INLINES.HYPERLINK]: (node) => {
-      if (node.data.uri.includes("player.vimeo.com/video")) {
+      const { uri } = node.data;
+      if (uri.includes("player.vimeo.com/video")) {
         return (
           <span className="iframe__ratio">
             <iframe
-              src={node.data.uri}
+              src={uri}
               frameBorder="0"
               allowFullScreen
             ></iframe>
           </span>
         );
-      } else if (node.data.uri.includes("youtube.com/embed")) {
+      } else if (uri.includes("youtube.com/embed")) {
         return (
           <span className="iframe__ratio">
             <iframe
-              src={node.data.uri}
+              src={uri}
               allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
               frameBorder="0"
               allowFullScreen
             ></iframe>
           </span>
         );
-      } else if (node.data.uri.includes("giphy.com/embed")) {
+      } else if (uri.includes("giphy.com/embed")) {
         return (
-          <iframe src={node.data.uri} frameBorder="0" allowFullScreen></iframe>
+          <iframe src={uri} frameBorder="0" allowFullScreen></iframe>
         );
+      } else {
+        return (
+          <a href={uri} title={node.content[0].value}>{node.content[0].value}</a>
+        )
       }
     },
   },
