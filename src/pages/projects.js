@@ -4,6 +4,9 @@ import ContactMethods from "../components/ContactMethods";
 import useAllProjects from "../hooks/use-all-projects";
 import CardContainer from "../components/Cards/CardContainer";
 import Card from "../components/Cards/Card";
+import ServicesContainer from "../components/Services/ServicesContainer";
+import Service from "../components/Services/Service";
+import { StaticImage } from "gatsby-plugin-image";
 
 const projectsPage = () => {
   const allProjects = useAllProjects();
@@ -33,6 +36,33 @@ const projectsPage = () => {
           })}
         </CardContainer>
       </section>
+      <div className="container sectiongap">
+          <div className="content__area">
+            <h2 className="as__h1">Looking for web design or branding serivces in Inverness?</h2>
+
+            <p className="leadin">
+              Choose from the options below, if you are looking for expert web development, or finely crafted branding services.
+            </p>
+          </div>
+        </div>
+        <ServicesContainer>
+          <Service
+            route="/services"
+            to="/services/web-design"
+            name="Inverness Web Design"
+            excerpt="SEO-friendly websites that are perfect for accelerating your business growth."
+          >
+            <StaticImage src="../../static/gatsby-services-banner.jpg"/>
+          </Service>
+          <Service
+            route="/services"
+            to="/services/brand-consultancy"
+            name="Branding & Logo Design in Inverness"
+            excerpt="Complement your products and services with a brand or logo design design package."
+          >
+            <StaticImage src="../../static/business-meeting.jpg"/>
+          </Service>
+        </ServicesContainer>
       <ContactMethods />
     </Layout>
   );
