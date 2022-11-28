@@ -2,14 +2,15 @@ import styled from "styled-components";
 import { Link } from "gatsby";
 
 export const CardContainerGlobalStyles = styled.section`
-  display: flex;
+  display: grid;
   gap: calc(var(--gridGap) * 2) var(--gridGap);
-  flex-wrap: wrap;
+  grid-template-columns: repeat(1, 1fr);
   max-width: 600px;
 
   @media (min-width: 992px) {
     max-width: 1500px;
     gap: calc(var(--gridGap) * 2);
+    grid-template-columns: repeat(2, 1fr);
   }
 `;
 
@@ -22,10 +23,6 @@ export const CardGlobalStyles = styled(Link)`
   width: 100%;
   text-decoration: none;
   transition: background-color 0.5s ease;
-
-  @media (min-width: 992px) {
-    width: calc(50% - var(--gridGap));
-  }
 
   &:before {
     content: "";
