@@ -2,9 +2,11 @@ import React from "react";
 import { Link } from "gatsby";
 import { VscMail as Mail } from "react-icons/vsc";
 import { RiUserLine as User } from "react-icons/ri";
+import { BsLinkedin as LinkedIn } from "react-icons/bs";
 import { IoExitOutline as Exit } from "react-icons/io5";
 import { QuickLinksGlobalStyles } from "./HeaderStyles";
 import { logout, isAuthenticated } from "../../utils/auth";
+import SocialLink from "../SocialLink/SocialLink";
 
 const QuickLinks = () => {
   return (
@@ -22,9 +24,18 @@ const QuickLinks = () => {
           <span>Log Out</span>
         </a>
       ) : null}
-      <div itemscope itemtype="http://schema.org/LocalBusiness">
+      <SocialLink 
+        type="Person" 
+        prop="url" 
+        link="https://www.linkedin.com/in/morgan-baker-development/"
+        relation={['me', 'noopener', 'noreferrer']}
+        classes="headerlink"
+      >
+        <LinkedIn />
+      </SocialLink>
+      <div itemScope itemType="http://schema.org/LocalBusiness">
         <a href="mailto:hello@morganbaker.dev">
-          <span itemprop="email">hello@morganbaker.dev</span>
+          <span itemProp="email">hello@morganbaker.dev</span>
         </a>
       </div>
     </QuickLinksGlobalStyles>

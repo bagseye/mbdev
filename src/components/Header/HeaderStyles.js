@@ -44,17 +44,14 @@ export const QuickLinksGlobalStyles = styled.div`
   top: 12px;
   right: 70px;
   display: flex;
-  gap: 0 15px;
   align-items: center;
 
   @media (max-width: 374px) {
-    gap: 0 9px;
     right: 64px;
   }
 
   @media (min-width: 768px) {
     right: 95px;
-    gap: 0 35px;
   }
 
   @media (min-width: 834px) {
@@ -67,8 +64,8 @@ export const QuickLinksGlobalStyles = styled.div`
 
   .headerlink {
     flex-shrink: 0;
-    min-width: 40px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -76,15 +73,19 @@ export const QuickLinksGlobalStyles = styled.div`
     font-size: 11px;
     text-transform: uppercase;
     text-decoration: none;
+    margin-right: var(--gridGap);
 
     @media (max-width: 374px) {
       font-size: 10px;
+      width: 26px;
+      height: 26px;
+      margin-right: 0;
     }
 
     svg {
       font-size: 30px;
       width: 100%;
-      height: 36px;
+      height: 100%;
       padding: 4px;
     }
 
