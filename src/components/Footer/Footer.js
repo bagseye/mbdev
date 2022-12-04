@@ -39,24 +39,30 @@ const Footer = () => {
             ))}
           </ul>
         </div>
-        <div className="col col__contact">
-          <address>
+        <div itemScope itemType="http://schema.org/LocalBusiness" className="col col__contact">
+          <address itemProp="address">
             Morgan Baker Development,
             <br />
             Inverness,
-            <br />
-            <div itemscope itemtype="http://schema.org/LocalBusiness">
-              <a href="mailto:hello@morganbaker.dev">
-                <span itemprop="email">hello@morganbaker.dev</span>
-              </a>
-              <a style={{display: 'block'}} href="tel:00447736592188">
-                <span itemprop="telephone">07736 592 188</span>
-              </a>
-            </div>
+            IV2 5AB
           </address>
+          <div>
+            <a href="mailto:hello@morganbaker.dev" title="Email Address">
+              <span itemProp="email">hello@morganbaker.dev</span>
+            </a>
+            <a style={{display: 'block'}} href="tel:00447736592188" title="Telephone Number">
+              <span itemProp="telephone">07736 592 188</span>
+            </a>
+          </div>
         </div>
         <div className="col__full">
-          &copy; {new Date().getFullYear()} {siteMetadata.author} |{" "}
+          &copy; {new Date().getFullYear()}{" "} 
+          <span itemScope itemType="http://schema.org/Person">
+            <span itemProp="founder">
+              {siteMetadata.author}
+            </span>
+          </span>
+          {" "}|{" "}
           <Link to="/privacy">Privacy & Your Data</Link> |{" "}
           <Link to="/credits">Credits</Link>
         </div>

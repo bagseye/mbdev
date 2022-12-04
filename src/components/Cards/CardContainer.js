@@ -5,7 +5,9 @@ import PropTypes from "prop-types";
 const CardContainer = ({ children }) => {
   return (
     <CardContainerGlobalStyles className="container sectiongap">
-      {children}
+      <ul>
+        {children}
+      </ul>
     </CardContainerGlobalStyles>
   );
 };

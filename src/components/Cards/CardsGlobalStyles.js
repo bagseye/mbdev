@@ -1,20 +1,24 @@
 import styled from "styled-components";
-import { Link } from "gatsby";
 
 export const CardContainerGlobalStyles = styled.section`
-  display: grid;
-  gap: calc(var(--gridGap) * 2) var(--gridGap);
-  grid-template-columns: repeat(1, 1fr);
-  max-width: 600px;
-
-  @media (min-width: 992px) {
-    max-width: 1500px;
-    gap: calc(var(--gridGap) * 2);
-    grid-template-columns: repeat(2, 1fr);
+  >ul {
+    display: grid;
+    gap: calc(var(--gridGap) * 2) var(--gridGap);
+    grid-template-columns: repeat(1, 1fr);
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+  
+    @media (min-width: 992px) {
+      max-width: 1500px;
+      gap: calc(var(--gridGap) * 2);
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 `;
 
-export const CardGlobalStyles = styled(Link)`
+export const CardGlobalStyles = styled.li`
   position: relative;
   background-color: #000;
   border-radius: 5px;

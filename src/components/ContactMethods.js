@@ -67,12 +67,16 @@ const ContactMethods = () => {
   return (
     <ContactMethodsStyles className="container" ref={ref}>
       <div className="container-grid">
-        <div className="contact__content" itemscope itemtype="http://schema.org/LocalBusiness">
+        <div className="contact__content" itemScope itemType="http://schema.org/LocalBusiness">
           <motion.h2 initial={{ opacity: 0 }} animate={controls}>
             If you're looking for web design in Inverness, or beyond, you can contact me directly with any questions or requests at{" "}
-            <a href="mailto:hello@morganbaker.dev"><span itemprop="email">hello@morganbaker.dev</span></a>.
+            <a href="mailto:hello@morganbaker.dev" title="Email Address">
+              <span itemProp="email">hello@morganbaker.dev</span>
+            </a>.
             <br />
-            Alternatively, call <a href="tel:00447736592188"><span itemprop="phone">07736 592 188</span></a>.
+            Alternatively, call <a href="tel:00447736592188" title="Telephone Number">
+              <span itemProp="phone">07736 592 188</span>
+            </a>.
           </motion.h2>
         </div>
       </div>

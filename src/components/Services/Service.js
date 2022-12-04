@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { Link } from "gatsby";
 import { CardGlobalStyles as ServicesCardGlobalStyles } from "../Cards/CardsGlobalStyles";
 import { motion, useAnimation } from "framer-motion";
 
@@ -29,20 +30,27 @@ const Service = ({ children, route, to, name, excerpt }) => {
   }, [ref]);
 
   return (
-    <ServicesCardGlobalStyles to={to} ref={ref}>
-      <div className="img__area">
-        {children}
-      </div>
-      {route && <p className="route">{route}</p>}
-      <motion.div
-        className="content__area"
-        initial={{ opacity: 0, y: "20px" }}
-        animate={controls}
-      >
-        <h2 className="as__h1">{name}</h2>
-        <h4>{excerpt}</h4>
-        <span className="btn">Learn More</span>
-      </motion.div>
+    <ServicesCardGlobalStyles 
+      itemProp="itemListElement" 
+      itemScope 
+      itemType="https://schema.org/OfferCatalog"
+      ref={ref}
+    >
+      <Link to={to}>
+        <div className="img__area">
+          {children}
+        </div>
+        {route && <p className="route">{route}</p>}
+        <motion.div
+          className="content__area"
+          initial={{ opacity: 0, y: "20px" }}
+          animate={controls}
+        >
+          <h2 className="as__h1" itemProp="name">{name}</h2>
+          <h4>{excerpt}</h4>
+          <span className="btn">Learn More</span>
+        </motion.div>
+      </Link>
     </ServicesCardGlobalStyles>
   );
 };

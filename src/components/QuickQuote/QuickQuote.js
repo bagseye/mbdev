@@ -52,12 +52,12 @@ const QuickQuote = () => {
         </div>
         <Button as="button" type="submit" text="Send" />
       </form>
-      <div className="form__contacts" itemscope itemtype="http://schema.org/LocalBusiness">
-        <a className="form__contacts--link" href="tel:00447736592188">
-          <span itemprop="telephone"><Phone />07736 592 188</span>
+      <div className="form__contacts" itemScope itemType="http://schema.org/LocalBusiness">
+        <a className="form__contacts--link" href="tel:00447736592188" title="Telephone Number">
+          <span itemProp="telephone"><Phone />07736 592 188</span>
         </a>
-        <a className="form__contacts--link" href="mailto:hello@morganbaker.dev">
-          <span itemprop="email"><Email />hello@morganbaker.dev</span>
+        <a className="form__contacts--link" href="mailto:hello@morganbaker.dev" title="Email Address">
+          <span itemProp="email"><Email />hello@morganbaker.dev</span>
         </a>
       </div>
     </QuickQuoteStyles>

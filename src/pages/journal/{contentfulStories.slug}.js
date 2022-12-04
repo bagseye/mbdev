@@ -8,20 +8,36 @@ import TagItem from "../../components/TagItems/TagItem";
 import { TagItemsGlobalStyles } from "../../components/TagItems/TagItemsStyles";
 import Author from "../../components/Author/Author";
 import ServicesContainer from "../../components/Services/ServicesContainer";
-import Service from "../../components/Services/Service";
-import { StaticImage } from "gatsby-plugin-image";
+import { Helmet } from "react-helmet";
 
 const StoriesTemplate = ({ data }) => {
   const { title, createdAt, mainContent, metadata } = data.storiesPage;
   const { tags } = metadata;
+  const dateTimeFormat = new Date(Date.parse(createdAt));
 
   return (
     <>
       <Seo title={title} description={title} />
+      <Helmet>
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org/",
+              "@type": "BlogPosting",
+              "headline": ${title},
+              "publisher": {
+                "@type": "Organization",
+                "name": "Morgan Baker Development",
+              },
+              "datePublished": ${createdAt}
+            }
+          `}
+        </script>
+      </Helmet>
       <Layout>
         <div className="container topgap">
           <div className="container__blog">
-            <h4 className="published">Posted on {createdAt}</h4>
+            <h4 className="published">Posted on <time dateTime={dateTimeFormat}>{createdAt}</time></h4>
             <h1>{title}</h1>
             <hr />
             <RichText richText={mainContent} />
@@ -41,32 +57,15 @@ const StoriesTemplate = ({ data }) => {
           </div>
         </div>
         <div className="container sectiongap">
-        <div className="content__area">
-          <h2 className="as__h1">Looking for web design or branding serivces in Inverness?</h2>
+          <div className="content__area">
+            <h2 className="as__h1">Looking for web design or branding serivces in Inverness?</h2>
 
-          <p className="leadin">
-            Choose from the options below, if you are looking for expert web development, or finely crafted branding services.
-          </p>
+            <p className="leadin">
+              Choose from the options below, if you are looking for expert web development, or finely crafted branding services.
+            </p>
+          </div>
         </div>
-      </div>
-      <ServicesContainer>
-        <Service
-          route="/services"
-          to="/services/web-design"
-          name="Inverness Web Design"
-          excerpt="SEO-friendly websites that are perfect for accelerating your business growth."
-        >
-          <StaticImage src="../../static/gatsby-services-banner.jpg"/>
-        </Service>
-        <Service
-          route="/services"
-          to="/services/brand-consultancy"
-          name="Branding & Logo Design in Inverness"
-          excerpt="Complement your products and services with a brand or logo design design package."
-        >
-          <StaticImage src="../../static/business-meeting.jpg"/>
-        </Service>
-      </ServicesContainer>
+        <ServicesContainer />
       </Layout>
     </>
   );

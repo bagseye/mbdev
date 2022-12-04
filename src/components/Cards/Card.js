@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { Link } from 'gatsby';
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { CardGlobalStyles } from "./CardsGlobalStyles";
 import { motion, useAnimation } from "framer-motion";
@@ -35,23 +36,25 @@ const Card = ({ node, route, to }) => {
   }, [ref]);
 
   return (
-    <CardGlobalStyles to={to} ref={ref}>
-      <div className="img__area">
-        <GatsbyImage
-          image={cardImage}
-          alt={cardImageAlt ? cardImageAlt : "Card Image"}
-        />
-      </div>
-      {route && <p className="route">{route}</p>}
-      <motion.div
-        className="content__area"
-        initial={{ opacity: 0, y: "20px" }}
-        animate={controls}
-      >
-        <h2 className="as__h1">{name}</h2>
-        <h4>{excerpt}</h4>
-        <span className="btn">View Project</span>
-      </motion.div>
+    <CardGlobalStyles ref={ref}>
+      <Link to={to}>
+        <div className="img__area">
+          <GatsbyImage
+            image={cardImage}
+            alt={cardImageAlt ? cardImageAlt : "Card Image"}
+          />
+        </div>
+        {route && <p className="route">{route}</p>}
+        <motion.div
+          className="content__area"
+          initial={{ opacity: 0, y: "20px" }}
+          animate={controls}
+        >
+          <h2 className="as__h1">{name}</h2>
+          <h4>{excerpt}</h4>
+          <span className="btn">View Project</span>
+        </motion.div>
+      </Link>
     </CardGlobalStyles>
   );
 };

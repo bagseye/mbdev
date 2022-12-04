@@ -1,7 +1,6 @@
 import React from "react";
 import Layout from "../components/Layout";
 import { Link } from "gatsby";
-import ContactMethods from "../components/ContactMethods";
 import styled from "styled-components";
 import Button from "../components/Button/Button";
 

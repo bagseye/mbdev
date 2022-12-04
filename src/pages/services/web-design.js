@@ -16,6 +16,7 @@ import { IoIosInfinite as Dynamic } from "react-icons/io";
 import Slide from "../../components/Slide/Slide";
 import Button from "../../components/Button/Button";
 import QuickQuote from "../../components/QuickQuote/QuickQuote";
+import { Helmet } from "react-helmet";
 
 const WebDesign = () => {
   return (
@@ -24,6 +25,79 @@ const WebDesign = () => {
         title="Inverness web design & e-commerce services. Delivering expert results in user experience."
         description="Are you a business owner in Inverness, looking for expert web design? Take a look at what is on offer."
       />
+      <Helmet>
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "ProfessionalService",
+              "name": "Morgan Baker Development",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Briargrove Terrace",
+                "addressLocality": "Inverness",
+                "addressRegion": "Highland",
+                "postalCode": "IV2 5AB",
+                "addressCountry": "Scotland"
+              },
+              "areaServed": {
+                "@type": "City",
+                "name": "Invernesss",
+              },
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Web Design",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "WordPress Design & Development"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Ecommerce Design & Development"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Gatsby Design & Development"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Whitelabel WordPress Development"
+                    }
+                  }
+                ]
+              },
+              "url": "https://www.morganbaker.dev",
+              "telephone": "+447736592188",
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday"
+                  ],
+                  "opens": "09:00",
+                  "closes": "17:00"
+                },
+              ],
+            }
+          `}
+        </script>
+      </Helmet>
       <Layout>
         <Banner
           title="Inverness web design & e-commerce services. Delivering expert results in user experience."

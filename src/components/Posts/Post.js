@@ -4,11 +4,16 @@ import PropTypes from "prop-types";
 
 const Post = ({ node }) => {
   const { title, gatsbyPath, createdAt } = node;
+  const dateTimeFormat = new Date(Date.parse(createdAt));
   return (
     <PostGlobalStyles to={gatsbyPath}>
       <p className="route">/journal</p>
       <h2>{title}</h2>
-      {createdAt && <p className="date">{createdAt}</p>}
+      {createdAt && 
+        <p className="date">
+          <time dateTime={dateTimeFormat}>{createdAt}</time>
+        </p>
+      }
       <span className="btn">Read Article</span>
     </PostGlobalStyles>
   );

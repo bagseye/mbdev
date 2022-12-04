@@ -6,7 +6,6 @@ import {
 } from "./BannerFormStyles";
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
-import Quote from "../Quote/Quote";
 import Button from "../Button/Button";
 import { StaticImage } from "gatsby-plugin-image";
 
