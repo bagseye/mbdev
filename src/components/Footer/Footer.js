@@ -57,11 +57,7 @@ const Footer = () => {
         </div>
         <div className="col__full">
           &copy; {new Date().getFullYear()}{" "} 
-          <span itemScope itemType="http://schema.org/Person">
-            <span itemProp="founder">
-              {siteMetadata.author}
-            </span>
-          </span>
+          {siteMetadata.author}
           {" "}|{" "}
           <Link to="/privacy">Privacy & Your Data</Link> |{" "}
           <Link to="/credits">Credits</Link>

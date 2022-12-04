@@ -75,7 +75,7 @@ const ContactMethods = () => {
             </a>.
             <br />
             Alternatively, call <a href="tel:00447736592188" title="Telephone Number">
-              <span itemProp="phone">07736 592 188</span>
+              <span itemProp="telephone">07736 592 188</span>
             </a>.
           </motion.h2>
         </div>

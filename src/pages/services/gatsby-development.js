@@ -19,7 +19,6 @@ import Slide from "../../components/Slide/Slide";
 import ContactForm from "../../components/Contact/Contact";
 import Button from "../../components/Button/Button";
 import ServicesContainer from "../../components/Services/ServicesContainer";
-import { Helmet } from "react-helmet";
 
 const GatsbyDevelopment = () => {
   return (
@@ -28,79 +27,6 @@ const GatsbyDevelopment = () => {
         title="Gatsby Development Services"
         description="Super-fast sites using GatsbyJS and pre-rendered content"
       />
-      <Helmet>
-        <script type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "ProfessionalService",
-              "name": "Morgan Baker Development",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Briargrove Terrace",
-                "addressLocality": "Inverness",
-                "addressRegion": "Highland",
-                "postalCode": "IV2 5AB",
-                "addressCountry": "Scotland"
-              },
-              "areaServed": {
-                "@type": "City",
-                "name": "Invernesss",
-              },
-              "hasOfferCatalog": {
-                "@type": "OfferCatalog",
-                "name": "Web Design",
-                "itemListElement": [
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "WordPress Design & Development"
-                    }
-                  },
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "Ecommerce Design & Development"
-                    }
-                  },
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "Gatsby Design & Development"
-                    }
-                  },
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "Whitelabel WordPress Development"
-                    }
-                  }
-                ]
-              },
-              "url": "https://www.morganbaker.dev",
-              "telephone": "+447736592188",
-              "openingHoursSpecification": [
-                {
-                  "@type": "OpeningHoursSpecification",
-                  "dayOfWeek": [
-                    "Monday",
-                    "Tuesday",
-                    "Wednesday",
-                    "Thursday",
-                    "Friday"
-                  ],
-                  "opens": "09:00",
-                  "closes": "17:00"
-                },
-              ],
-            }
-          `}
-        </script>
-      </Helmet>
       <Layout>
         <Banner
           title="Gatsby Development Services"
