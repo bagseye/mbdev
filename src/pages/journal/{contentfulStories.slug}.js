@@ -24,12 +24,12 @@ const StoriesTemplate = ({ data }) => {
             {
               "@context": "https://schema.org/",
               "@type": "BlogPosting",
-              "headline": ${title},
+              "headline": "${title}",
               "publisher": {
                 "@type": "Organization",
                 "name": "Morgan Baker Development",
               },
-              "datePublished": ${createdAt}
+              "datePublished": "${createdAt}"
             }
           `}
         </script>
