@@ -105,7 +105,7 @@ export const data = graphql`
         description
         gatsbyImageData(
           layout: FULL_WIDTH
-          placeholder: TRACED_SVG
+          placeholder: DOMINANT_COLOR
           formats: [AUTO, WEBP]
           quality: 90
         )

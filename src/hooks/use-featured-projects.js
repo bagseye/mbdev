@@ -12,7 +12,7 @@ const useFeaturedProjects = () => {
           excerpt
           images {
             gatsbyImageData(
-              placeholder: TRACED_SVG
+              placeholder: DOMINANT_COLOR
               quality: 90
               layout: FULL_WIDTH
               formats: [AUTO, WEBP, AVIF]

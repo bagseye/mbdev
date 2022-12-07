@@ -26,7 +26,7 @@ const ServicesContainer = () => {
             loading="lazy"
             placeholder="blurred"
             alt="Macbook slightly open on a dark background"
-            src="../../static/gatsby-services-banner.jpg"/>
+            src="../../../static/gatsby-services-banner.jpg"/>
         </Service>
         <Service
           route="/services"
@@ -38,7 +38,7 @@ const ServicesContainer = () => {
             loading="lazy"
             placeholder="blurred"
             alt="Team meeting being held around a table"
-            src="../../static/business-meeting.jpg"/>
+            src="../../../static/business-meeting.jpg"/>
         </Service>
       </ul>
     </ServicesContainerGlobalStyles>
