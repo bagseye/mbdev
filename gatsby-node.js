@@ -32,6 +32,15 @@ async function turnTagsIntoPages({ graphql, actions }) {
   });
 }
 exports.createPages = async (params) => {
+  const { actions } = params;
+  actions.createSlice({
+    id: `sideMenu`,
+    component: require.resolve('./src/components/Header/SideMenu.js'),
+  });
+  actions.createSlice({
+    id: `footerArea`,
+    component: require.resolve('./src/components/Footer/Footer.js'),
+  });
   await turnTagsIntoPages(params);
 };
 

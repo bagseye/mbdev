@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "gatsby";
+import { Link, Slice } from "gatsby";
 import { GlobalStyles } from "../styles/GlobalStyles";
 import { motion } from "framer-motion";
 import Header from "./Header/Header";
@@ -26,11 +26,13 @@ const Layout = (props) => {
           <Logo className="logo__link" />
           <QuickLinks />
           <MenuButton />
-          <SideMenu />
+          <Slice alias="sideMenu" />
+          {/* <SideMenu /> */}
         </Header>
         <div id="main">
           {children}
-          <Footer />
+          <Slice alias="footerArea" />
+          {/* <Footer /> */}
         </div>
         <CookieConsent
           location="bottom"
