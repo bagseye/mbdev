@@ -1,0 +1,9 @@
+[[redirects]]
+  from = "/freelance-wordpress-development"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/journal/null/"
+  to = "/"
+  status = 301
