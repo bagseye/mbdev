@@ -41,6 +41,14 @@ exports.createPages = async (params) => {
     id: `footerArea`,
     component: require.resolve('./src/components/Footer/Footer.js'),
   });
+  actions.createSlice({
+    id: `logoArea`,
+    component: require.resolve('./src/components/Header/Logo.js'),
+  });
+  actions.createSlice({
+    id: `quickQuote`,
+    component: require.resolve('./src/components/QuickQuote/QuickQuote.js'),
+  });
   await turnTagsIntoPages(params);
 };
 

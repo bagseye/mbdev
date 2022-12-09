@@ -1,8 +1,8 @@
 import React from "react";
+import { Slice } from 'gatsby';
 import { SlideGlobalStyles } from "./SlideStyles";
 import PropTypes from "prop-types";
 import Button from "../Button/Button";
-import QuickQuote from "../QuickQuote/QuickQuote";
 
 const Slide = ({ children, title, subTitle, content, contentTwo, anchor, form }) => {
   return (
@@ -20,7 +20,7 @@ const Slide = ({ children, title, subTitle, content, contentTwo, anchor, form })
         </div>
         {form && 
         <div class="form__area">
-          <QuickQuote />
+          <Slice alias="quickQuote" />
         </div>}
       </div>
       {children}

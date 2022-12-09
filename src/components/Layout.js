@@ -4,11 +4,8 @@ import { GlobalStyles } from "../styles/GlobalStyles";
 import { motion } from "framer-motion";
 import Header from "./Header/Header";
 import MenuButton from "./Header/MenuButton";
-import Footer from "./Footer/Footer";
 import CookieConsent from "react-cookie-consent";
 import QuickLinks from "./Header/QuickLinks";
-import Logo from "./Header/Logo";
-import SideMenu from "./Header/SideMenu";
 import PropTypes from "prop-types";
 
 const Layout = (props) => {
@@ -23,16 +20,14 @@ const Layout = (props) => {
         transition={{ duration: 0.5, delay: 0.25 }}
       >
         <Header>
-          <Logo className="logo__link" />
+          <Slice alias="logoArea" className="logo__link" />
           <QuickLinks />
           <MenuButton />
           <Slice alias="sideMenu" />
-          {/* <SideMenu /> */}
         </Header>
         <div id="main">
           {children}
           <Slice alias="footerArea" />
-          {/* <Footer /> */}
         </div>
         <CookieConsent
           location="bottom"

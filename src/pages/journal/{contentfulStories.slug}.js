@@ -11,9 +11,10 @@ import ServicesContainer from "../../components/Services/ServicesContainer";
 import { Helmet } from "react-helmet";
 
 const StoriesTemplate = ({ data }) => {
-  const { title, createdAt, mainContent, metadata } = data.storiesPage;
+  const { title, createdAt, updatedAt, mainContent, metadata } = data.storiesPage;
   const { tags } = metadata;
   const dateTimeFormat = new Date(Date.parse(createdAt));
+  const updatedAtFormat = new Date(Date.parse(updatedAt));
 
   return (
     <>
@@ -25,11 +26,14 @@ const StoriesTemplate = ({ data }) => {
               "@context": "https://schema.org/",
               "@type": "BlogPosting",
               "headline": "${title}",
-              "publisher": {
-                "@type": "Organization",
-                "name": "Morgan Baker Development",
-              },
-              "datePublished": "${createdAt}"
+              "datePublished": "${createdAt}",
+              "dateModified": "${updatedAtFormat}",
+              "author": [{
+                "@type": "Person",
+                "name": "Morgan Baker",
+                "jobTitle": "Web Developer",
+                "url": "https://www.linkedin.com/in/morgan-baker-development/"
+              }]
             }
           `}
         </script>

@@ -15,7 +15,7 @@ import { AiOutlineLock as Security } from "react-icons/ai";
 import { IoIosInfinite as Dynamic } from "react-icons/io";
 import Slide from "../../components/Slide/Slide";
 import Button from "../../components/Button/Button";
-import QuickQuote from "../../components/QuickQuote/QuickQuote";
+import { Slice } from "gatsby";
 
 const WebDesign = () => {
   return (
@@ -156,7 +156,7 @@ const WebDesign = () => {
                 Just enter a few of your details and what you are looking for in
                 your next web development project.
               </p>
-              <QuickQuote />
+              <Slice alias="quickQuote" />
             </div>
           </div>
         </section>
