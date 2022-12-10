@@ -19,7 +19,7 @@ const Slide = ({ children, title, subTitle, content, contentTwo, anchor, form })
           {anchor ? <Button anchor={anchor} /> : <Button to="/contact" /> }
         </div>
         {form && 
-        <div class="form__area">
+        <div className="form__area">
           <Slice alias="quickQuote" />
         </div>}
       </div>

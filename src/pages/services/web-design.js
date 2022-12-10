@@ -142,8 +142,8 @@ const WebDesign = () => {
           />
         </Perks>
         <Prices>
-          <Price title="Branded websites" cost="695" content="A beautifully crafted website that complements your business and creates brand-awareness within your customer base."/>
-          <Price title="E-commerce websites" cost="1250" content="Do you have products to sell direct to customers? An e-commerce website with secure hosting and payments is the ideal partner."/>
+          <Price title="Branded websites" cost={695} content="A beautifully crafted website that complements your business and creates brand-awareness within your customer base."/>
+          <Price title="E-commerce websites" cost={1250} content="Do you have products to sell direct to customers? An e-commerce website with secure hosting and payments is the ideal partner."/>
         </Prices>
         <section id="contactForm" className="sectiongap">
           <div className="container">

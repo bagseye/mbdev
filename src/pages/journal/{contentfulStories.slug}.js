@@ -50,8 +50,8 @@ const StoriesTemplate = ({ data }) => {
               <h3>Categorised under</h3>
               <TagItemsGlobalStyles>
                 <div className="tagfilter__container">
-                  {tags.map((item) => {
-                    return <TagItem id={item.contentful_id} name={item.name} />;
+                  {tags.map((item, i) => {
+                    return <TagItem key={i} id={item.contentful_id} name={item.name} />;
                   })}
                 </div>
               </TagItemsGlobalStyles>

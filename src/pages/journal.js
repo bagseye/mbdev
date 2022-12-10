@@ -24,8 +24,8 @@ const journalsPage = () => {
         <TagItems />
       </div>
       <PostContainer noscroll={true}>
-        {allStories.map((node) => {
-          return <Post node={node} />;
+        {allStories.map((node, i) => {
+          return <Post key={i} node={node} />;
         })}
       </PostContainer>
       <div className="container sectiongap">
