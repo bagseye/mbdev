@@ -15,8 +15,8 @@ const SingleTagPage = ({ data, pageContext }) => {
         </div>
       </div>
       <PostContainer noscroll={true}>
-        {catStory.nodes.map((node) => {
-          return <Post node={node} />;
+        {catStory.nodes.map((node, i) => {
+          return <Post key={i} node={node} />;
         })}
       </PostContainer>
     </Layout>

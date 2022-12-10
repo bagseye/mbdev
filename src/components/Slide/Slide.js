@@ -37,5 +37,5 @@ Slide.propTypes = {
   contentTwo: PropTypes.string,
   children: PropTypes.element.isRequired,
   anchor: PropTypes.string,
-  fform: PropTypes.bool
+  form: PropTypes.bool
 };

@@ -4,16 +4,6 @@ import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image";
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 
-const BannerGridColumn = styled.section`
-  grid-column: 1 / 7;
-  display: flex;
-  align-items: center;
-
-  @media (min-width: 768px) {
-    grid-column: 1 / 5;
-  }
-`;
-
 const BannerStyles = styled.div`
   position: relative;
 

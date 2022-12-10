@@ -119,8 +119,8 @@ const WhiteLabelDevelopment = () => {
           </div>
         </section>
         <Prices>
-          <Price title="HTML/CSS Only" cost="120" content="Not looking to include a content management system? If you're looking for just markup start here."/>
-          <Price title="WordPress Development" cost="695" content="Frontend development with WordPress as a CMS, fully bespoke and built to your requirements."/>
+          <Price title="HTML/CSS Only" cost={120} content="Not looking to include a content management system? If you're looking for just markup start here."/>
+          <Price title="WordPress Development" cost={695} content="Frontend development with WordPress as a CMS, fully bespoke and built to your requirements."/>
         </Prices>
         <section className="sectiongap">
           <div className="container">

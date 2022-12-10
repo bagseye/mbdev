@@ -5,8 +5,6 @@ import useAllProjects from "../hooks/use-all-projects";
 import CardContainer from "../components/Cards/CardContainer";
 import Card from "../components/Cards/Card";
 import ServicesContainer from "../components/Services/ServicesContainer";
-import Service from "../components/Services/Service";
-import { StaticImage } from "gatsby-plugin-image";
 
 const projectsPage = () => {
   const allProjects = useAllProjects();

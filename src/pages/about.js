@@ -4,8 +4,6 @@ import Layout from "../components/Layout";
 import TechList from "../components/Tech/TechList";
 import Button from "../components/Button/Button";
 import ServicesContainer from "../components/Services/ServicesContainer";
-import Service from "../components/Services/Service";
-import { StaticImage } from "gatsby-plugin-image";
 
 const aboutPage = () => {
   const date_today = new Date().getFullYear();
