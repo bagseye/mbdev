@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import { GlobalStyles } from "../styles/GlobalStyles";
 
@@ -18,6 +19,9 @@ const RedirectStyles = styled.div`
 const Redirect = () => {
   return (
     <>
+      <Helmet>
+        <meta name="robots" content="noindex" />
+      </Helmet>
       <GlobalStyles />
       <RedirectStyles>
         <div>

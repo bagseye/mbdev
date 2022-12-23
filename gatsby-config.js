@@ -48,7 +48,7 @@ module.exports = {
       resolve: "gatsby-plugin-robots-txt",
       options: {
         host: "https://www.morganbaker.dev",
-        sitemap: "https://www.morganbaker.dev/sitemap.xml",
+        sitemap: "https://www.morganbaker.dev/sitemap-0.xml",
         policy: [{ userAgent: "*", allow: "/" }],
       },
     },

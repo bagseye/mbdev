@@ -2,10 +2,14 @@ import React from "react";
 import { Link } from "gatsby";
 import { VscArrowLeft as Arrow } from "react-icons/vsc";
 import Layout from "../components/Layout";
+import { Helmet } from "react-helmet";
 
 const Thanks = () => {
   return (
     <Layout>
+      <Helmet>
+        <meta name="robots" content="noindex" />
+      </Helmet>
       <section className="sectiongap topgap">
         <div className="container">
           <div className="content__area">

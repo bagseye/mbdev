@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { handleAuthentication } from "../utils/auth";
 import { GlobalStyles } from "../styles/GlobalStyles";
+import { Helmet } from "react-helmet";
 
 const LoadingStyles = styled.div`
   padding: var(--gridGap);
@@ -21,6 +22,9 @@ const Callback = () => {
 
   return (
     <>
+      <Helmet>
+        <meta name="robots" content="noindex" />
+      </Helmet>
       <GlobalStyles />
       <LoadingStyles>
         <div>
