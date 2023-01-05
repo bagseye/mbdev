@@ -16,7 +16,7 @@ const BannerForm = ({ title, subTitle, children }) => {
     >
       {title && (
         <div className="container">
-          <div className="container__content">
+          <div className="content__area">
             <motion.div
               initial="hidden"
               animate="visible"
@@ -38,9 +38,10 @@ const BannerForm = ({ title, subTitle, children }) => {
                   {subTitle}
                 </motion.h2>
               )}
+              <Button to="/services" text="Services" />
             </motion.div>
           </div>
-          <div className="container__form">
+          {/* <div className="container__form">
             <div className="form__title">
               <h2 className="as__h1">Request a quote.</h2>
             </div>
@@ -119,7 +120,7 @@ const BannerForm = ({ title, subTitle, children }) => {
                 </div>
               </div>
             </form>
-          </div>
+          </div> */}
         </div>
       )}
       <div className="banner__bg">

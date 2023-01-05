@@ -11,7 +11,7 @@ const Toolkit = () => {
         <section className="sectiongap topgap">
           <div className="container">
             <div className="content__area">
-              <InputText />
+              <InputText/>
             </div>
           </div>
         </section>

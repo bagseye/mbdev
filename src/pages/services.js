@@ -98,16 +98,16 @@ const servicesPage = () => {
             </h2>
           </div>
           <div className="journal__content">
-            <JournalItem to="/services/gatsby-development">
-              <h2>Gatsby Development</h2>
+            <JournalItem to="/services/web-design">
+              <h2>Web Design</h2>
               <Button as="span" text="View Service" />
             </JournalItem>
             <JournalItem to="/services/wordpress-development">
               <h2>WordPress Development</h2>
               <Button as="span" text="View Service" />
             </JournalItem>
-            <JournalItem to="/services/web-design">
-              <h2>Web Design</h2>
+            <JournalItem to="/services/gatsby-development">
+              <h2>Gatsby Development</h2>
               <Button as="span" text="View Service" />
             </JournalItem>
             <JournalItem to="/services/brand-consultancy">

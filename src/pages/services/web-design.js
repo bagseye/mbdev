@@ -5,8 +5,6 @@ import Seo from "../../components/SEO";
 import Banner from "../../components/Banner/Banner";
 import Perks from "../../components/Perks/Perks";
 import Perk from "../../components/Perks/Perk";
-import Prices from "../../components/Prices/Prices";
-import Price from "../../components/Prices/Price";
 import { SiZeromq as Zero } from "react-icons/si";
 import { RiTeamLine as Community } from "react-icons/ri";
 import { BsSpeedometer2 as Speed } from "react-icons/bs";
@@ -21,8 +19,8 @@ const WebDesign = () => {
   return (
     <>
       <Seo
-        title="Inverness web design & e-commerce services. Delivering expert results in user experience."
-        description="Are you a business owner in Inverness, looking for expert web design? Take a look at what is on offer."
+        title="Inverness web design & e-commerce development services."
+        description="Creating standout, mobile-friendly websites for all business types. Optimised for speed, search engine optimisation, and delivering great user experiences."
       />
       <Layout>
         <Banner
@@ -141,10 +139,6 @@ const WebDesign = () => {
             content="With a claim to power over half of the internet, WordPress has a massive developer community on-hand to issue regular updates that improve not only the user experience, but add essential security fixes as the web evolves."
           />
         </Perks>
-        <Prices>
-          <Price title="Branded websites" cost={695} content="A beautifully crafted website that complements your business and creates brand-awareness within your customer base."/>
-          <Price title="E-commerce websites" cost={1250} content="Do you have products to sell direct to customers? An e-commerce website with secure hosting and payments is the ideal partner."/>
-        </Prices>
         <section id="contactForm" className="sectiongap">
           <div className="container">
             <div className="content__area">
