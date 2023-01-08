@@ -4,6 +4,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { CardGlobalStyles } from "./CardsGlobalStyles";
 import { motion, useAnimation } from "framer-motion";
 import PropTypes from "prop-types";
+import Button from "../Button/Button";
 
 const Card = ({ node, route, to }) => {
   const { name, excerpt, images } = node;
@@ -51,8 +52,8 @@ const Card = ({ node, route, to }) => {
           animate={controls}
         >
           <h2 className="as__h1">{name}</h2>
-          <h4>{excerpt}</h4>
-          <span className="btn">View Project</span>
+          <h4 className="leadin">{excerpt}</h4>
+          <Button as="span" text="View Project" />
         </motion.div>
       </Link>
     </CardGlobalStyles>

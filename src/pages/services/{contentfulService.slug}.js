@@ -1,11 +1,12 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import Seo from "../../components/SEO";
 import Layout from "../../components/Layout";
 import { GeneralContentStyles } from "../../components/GeneralContent/GeneralContentStyles";
 import CMSContact from "../../components/CMS/CMSContact/CMSContact";
 import CMSBanner from "../../components/CMS/CMSBanner/CMSBanner";
 import RichText from "../../components/RichText";
+import Button from "../../components/Button/Button";
 
 const ServicePage = ({ data }) => {
   const {
@@ -51,9 +52,7 @@ const ServicePage = ({ data }) => {
                   <div className="col">
                     <RichText richText={contentAreaThree} />
                   </div>
-                  <Link className="btn" to="/content">
-                    Get in touch
-                  </Link>
+                  <Button to="/content" text="Get in Touch" />
                 </div>
               </div>
             </>

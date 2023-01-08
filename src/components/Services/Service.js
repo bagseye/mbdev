@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { Link } from "gatsby";
 import { CardGlobalStyles as ServicesCardGlobalStyles } from "../Cards/CardsGlobalStyles";
 import { motion, useAnimation } from "framer-motion";
+import Button from "../Button/Button";
 
 const Service = ({ children, route, to, name, excerpt }) => {
   const controls = useAnimation();
@@ -47,8 +48,8 @@ const Service = ({ children, route, to, name, excerpt }) => {
           animate={controls}
         >
           <h2 className="as__h1" itemProp="name">{name}</h2>
-          <h4>{excerpt}</h4>
-          <span className="btn">Learn More</span>
+          <h4 className="leadin">{excerpt}</h4>
+          <Button as="span" text="Learn More" />
         </motion.div>
       </Link>
     </ServicesCardGlobalStyles>

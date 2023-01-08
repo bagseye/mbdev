@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import { CMSContactStyles, CMSContactMediaStyles } from "./CMSContactStyles";
+import Button from "../../Button/Button";
 
 const CMSContact = () => {
   return (
@@ -28,9 +29,7 @@ const CMSContact = () => {
               guidance as you take the next step, get in touch today. Moving
               your business to the next stage starts today!
             </p>
-            <Link className="btn" to="/contact">
-              Get in touch
-            </Link>
+            <Button to="/contact" text="Get in Touch" />
           </div>
         </div>
       </CMSContactStyles>

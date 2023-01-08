@@ -1,6 +1,7 @@
 import React from "react";
 import { PostGlobalStyles } from "./PostsGlobalStyles";
 import PropTypes from "prop-types";
+import Button from "../Button/Button";
 
 const Post = ({ node }) => {
   const { title, gatsbyPath, createdAt } = node;
@@ -14,7 +15,7 @@ const Post = ({ node }) => {
           <time dateTime={dateTimeFormat}>{createdAt}</time>
         </p>
       }
-      <span className="btn">Read Article</span>
+      <Button as="span" text="read Article" />
     </PostGlobalStyles>
   );
 };

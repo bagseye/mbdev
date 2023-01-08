@@ -129,17 +129,17 @@ const GatsbyDevelopment = () => {
             </div>
           </div>
         </section>
-      </Layout>
-      <div className="container sectiongap">
-        <div className="content__area">
-          <h2 className="as__h1">Looking for something else?</h2>
+        <div className="container sectiongap">
+          <div className="content__area">
+            <h2 className="as__h1">Looking for something else?</h2>
 
-          <p className="leadin">
-            Choose from the options below, if you are looking for expert web development, or finely crafted branding services.
-          </p>
+            <p className="leadin">
+              Choose from the options below, if you are looking for expert web development, or finely crafted branding services.
+            </p>
+          </div>
         </div>
-      </div>
-      <ServicesContainer />
+        <ServicesContainer />
+      </Layout>
     </>
   );
 };

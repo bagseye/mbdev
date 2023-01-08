@@ -12,10 +12,12 @@ export const GlobalStyles = createGlobalStyle`
         --accentHover: rgba(142,45,226, 0.25);
         --titleLarge: 1.75rem;
         --titleLargeLineHeight: 1.45;
+        --titleLargeLineHeight: 1.15;
         --titleLargeLetterSpacing: -2px;
         --h2: 1.3rem;
         --h2LineHeight: 1.25;
         --h2LetterSpacing: -0.05rem;
+        --h3: 1.1rem;
         --paragraph: 1rem;
         --leadIn: 1.2rem;
         --btn: 1rem;
@@ -32,23 +34,24 @@ export const GlobalStyles = createGlobalStyle`
             --titleLarge: 1.9rem;
             --h2: 1.35rem;
             --h2LineHeight: 1.35;
+            --h3: 1.15rem;
             --paragraph: 1.05rem;
             --leadIn: 1.25rem;
             --gridGap: 20px;
             --margins: 100px;
-            --titleLargeLineHeight: 1.35;
         }
 
         @media(min-width:768px) {
             /* --titleLarge: 2.3rem; */
             --h2: 1.4rem;
+            --h3: 1.2rem;
         }
 
         @media(min-width: 834px) {
           --titleLarge: 2.75rem;
           --margins: 150px;
-          --titleLargeLineHeight: 1.3;
           --h2: 1.45rem;
+          --h3: 1.25rem;
           --leadIn: 1.35rem;
           --gridGap: 30px;
         }
@@ -57,6 +60,7 @@ export const GlobalStyles = createGlobalStyle`
           /* --titleLarge: 3rem; */
           --margins: 225px;
           --h2: 1.6rem;
+          --h3: 1.3rem;
           --h2LineHeight: 1.45;
           --gridGap: 40px;
           --leadIn: 1.45rem;
@@ -89,11 +93,12 @@ export const GlobalStyles = createGlobalStyle`
     h1,
     h2 {
       font-weight: 700;
-      margin-top: 0.25rem;
+      // margin-top: 0.25rem;
+      margin-bottom: 1rem;
 
-      @media(min-width: 1200px) {
-        margin-bottom: 1.5rem;
-      }
+      // @media(min-width: 1200px) {
+      //   margin-bottom: 1.5rem;
+      // }
     }
 
     h1,
@@ -102,12 +107,14 @@ export const GlobalStyles = createGlobalStyle`
     h4,
     h5,
     h6 {
+      margin-top: 0.25rem;
       font-family: var(--sansSerif);
     }
 
     h1,
     .as__h1 {
       font-size: var(--titleLarge);
+      // font-size: clamp(2rem, 33vw, 5rem);
       line-height: var(--titleLargeLineHeight);
       letter-spacing: var(--titleLargeLetterSpacing);
     }
@@ -117,7 +124,16 @@ export const GlobalStyles = createGlobalStyle`
       line-height: 1.35;
     }
 
-    h4 {
+    h3,
+    .as__h3 {
+      font-weight: 400;
+      color: #999;
+      line-height: 1.3;
+      font-size: var(--h3);
+    }
+
+    h4,
+    .as__h4 {
       font-weight: 500;
       color: #888;
       line-height: 1.4;
@@ -134,6 +150,8 @@ export const GlobalStyles = createGlobalStyle`
     .leadin {
       font-size: var(--leadIn);
       font-weight: 500;
+      color: #fff;
+      line-height: 1.3;
     }
 
     p,

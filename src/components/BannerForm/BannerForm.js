@@ -34,6 +34,7 @@ const BannerForm = ({ title, subTitle, children }) => {
                 <motion.h2
                   transition={{ ease: "easeOut", duration: 0.65 }}
                   variants={titleVariants}
+                  className="leadin"
                 >
                   {subTitle}
                 </motion.h2>
