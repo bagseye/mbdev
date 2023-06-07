@@ -1,43 +1,13 @@
 import React from "react";
 import { MenuProvider } from "./src/components/MenuContext";
 import { AnimatePresence } from "framer-motion";
-import { silentAuth } from "./src/utils/auth";
 import "@fontsource/inter/300.css";
 import "@fontsource/inter/400.css";
 import "@fontsource/inter/500.css";
 import "@fontsource/inter/700.css";
 
-class SessionCheck extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loading: true,
-    };
-  }
-
-  handleCheckSession = () => {
-    this.setState({ loading: false });
-  };
-
-  componentDidMount() {
-    silentAuth(this.handleCheckSession);
-  }
-
-  render() {
-    return (
-      this.state.loading === false && (
-        <React.Fragment>{this.props.children}</React.Fragment>
-      )
-    );
-  }
-}
-
 export function wrapRootElement({ element }) {
-  return (
-    <SessionCheck>
-      <MenuProvider>{element}</MenuProvider>
-    </SessionCheck>
-  );
+  return <MenuProvider>{element}</MenuProvider>;
 }
 
 export function wrapPageElement({ element }) {

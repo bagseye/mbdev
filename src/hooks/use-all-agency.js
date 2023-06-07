@@ -8,6 +8,7 @@ const useAllAgency = () => {
       allContentfulAgency {
         nodes {
           name
+          gatsbyPath(filePath: "/agency/{contentfulAgency.slug}")
           excerpt
           slug
           images {

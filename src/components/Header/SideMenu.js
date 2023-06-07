@@ -159,7 +159,7 @@ const SideMenu = () => {
           ))}
           <li className="menu__title">For Employers</li>
           <li onClick={toggleNav}>
-            <Link to="/dashboard">Dashboard Login</Link>
+            <Link to="/agency">Agency Projects</Link>
           </li>
         </motion.ul>
       </div>

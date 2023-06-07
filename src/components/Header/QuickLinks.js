@@ -1,26 +1,11 @@
 import React from "react";
 import { BsLinkedin as LinkedIn } from "react-icons/bs";
-import { IoExitOutline as Exit } from "react-icons/io5";
 import { QuickLinksGlobalStyles } from "./HeaderStyles";
-import { logout, isAuthenticated } from "../../utils/auth";
 import SocialLink from "../SocialLink/SocialLink";
 
 const QuickLinks = () => {
   return (
     <QuickLinksGlobalStyles>
-      {isAuthenticated() ? (
-        <a
-          className="headerlink"
-          href="#logout"
-          onClick={(e) => {
-            logout();
-            e.preventDefault();
-          }}
-        >
-          <Exit />
-          <span>Log Out</span>
-        </a>
-      ) : null}
       <SocialLink 
         type="Person" 
         prop="url" 
