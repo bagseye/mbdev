@@ -42,55 +42,56 @@ const agencyTemplate = ({ data }) => {
     website,
   } = data.agencyPage;
 
-  let [mainImage, ...projectImages] = images;
+  // let [mainImage, ...projectImages] = images;
 
-  mainImage = getImage(mainImage);
+  // mainImage = getImage(mainImage);
 
   return (
-    <>
-      <SEO title={name} description={excerpt} noIndex />
-      <Layout>
-        <Banner
-          title={name}
-          subTitle={excerpt}
-          scrollerText="View this project"
-        >
-          <GatsbyImage
-            className="banner__bg"
-            image={mainImage}
-            alt="Project Image"
-          />
-        </Banner>
-        {technology || website ? (
-          <TechUsed>
-            <div className="container container-grid">
-              {technology && (
-                <div className="col">
-                  <p>
-                    <strong>Built using: </strong>
-                    {technology}
-                  </p>
-                </div>
-              )}
+    null
+    // <>
+    //   <SEO title={name} description={excerpt} noIndex />
+    //   <Layout>
+    //     <Banner
+    //       title={name}
+    //       subTitle={excerpt}
+    //       scrollerText="View this project"
+    //     >
+    //       <GatsbyImage
+    //         className="banner__bg"
+    //         image={mainImage}
+    //         alt="Project Image"
+    //       />
+    //     </Banner>
+    //     {technology || website ? (
+    //       <TechUsed>
+    //         <div className="container container-grid">
+    //           {technology && (
+    //             <div className="col">
+    //               <p>
+    //                 <strong>Built using: </strong>
+    //                 {technology}
+    //               </p>
+    //             </div>
+    //           )}
 
-              {website && (
-                <div className="col">
-                  <p>
-                    <strong>Website: </strong>
-                    <a href={`https://${website}`} target="_blank">
-                      {website}
-                    </a>
-                  </p>
-                </div>
-              )}
-            </div>
-          </TechUsed>
-        ) : null}
+    //           {website && (
+    //             <div className="col">
+    //               <p>
+    //                 <strong>Website: </strong>
+    //                 <a href={`https://${website}`} target="_blank">
+    //                   {website}
+    //                 </a>
+    //               </p>
+    //             </div>
+    //           )}
+    //         </div>
+    //       </TechUsed>
+    //     ) : null}
 
-        <GeneralContent content={richDescription} />
-        <Gallery projectImages={projectImages} />
-      </Layout>
-    </>
+    //     <GeneralContent content={richDescription} />
+    //     <Gallery projectImages={projectImages} />
+    //   </Layout>
+    // </>
   );
 };
 

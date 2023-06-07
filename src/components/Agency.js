@@ -44,49 +44,50 @@ const Agency = ({ data, next }) => {
     images,
   } = data;
 
-  let [mainImage, ...projectImages] = images;
+  // let [mainImage, ...projectImages] = images;
 
-  mainImage = getImage(mainImage);
+  // mainImage = getImage(mainImage);
 
   return (
-    <>
-      <SEO title={name} description={excerpt} noIndex />
-      <Layout>
-        <Banner
-          title={name}
-          subTitle={excerpt}
-          scrollerText="View this project"
-        >
-          <GatsbyImage className="banner__bg" image={mainImage} />
-        </Banner>
-        <TechUsed>
-          <div className="container container-grid">
-            {technology && (
-              <div className="col">
-                <p>
-                  <strong>Built using: </strong>
-                  {technology}
-                </p>
-              </div>
-            )}
+    null
+    // <>
+    //   <SEO title={name} description={excerpt} noIndex />
+    //   <Layout>
+    //     <Banner
+    //       title={name}
+    //       subTitle={excerpt}
+    //       scrollerText="View this project"
+    //     >
+    //       <GatsbyImage className="banner__bg" image={mainImage} />
+    //     </Banner>
+    //     <TechUsed>
+    //       <div className="container container-grid">
+    //         {technology && (
+    //           <div className="col">
+    //             <p>
+    //               <strong>Built using: </strong>
+    //               {technology}
+    //             </p>
+    //           </div>
+    //         )}
 
-            {website && (
-              <div className="col">
-                <p>
-                  <strong>Website: </strong>
-                  <a href={`https://${website}`} target="_blank">
-                    {website}
-                  </a>
-                </p>
-              </div>
-            )}
-          </div>
-        </TechUsed>
-        <GeneralContent content={richDescription} />
-        <Gallery projectImages={projectImages} />
-        <ProjectNavigation next={nextItem} prefix="dashboard" />
-      </Layout>
-    </>
+    //         {website && (
+    //           <div className="col">
+    //             <p>
+    //               <strong>Website: </strong>
+    //               <a href={`https://${website}`} target="_blank">
+    //                 {website}
+    //               </a>
+    //             </p>
+    //           </div>
+    //         )}
+    //       </div>
+    //     </TechUsed>
+    //     <GeneralContent content={richDescription} />
+    //     <Gallery projectImages={projectImages} />
+    //     <ProjectNavigation next={nextItem} prefix="dashboard" />
+    //   </Layout>
+    // </>
   );
 };
 
