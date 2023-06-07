@@ -12,7 +12,7 @@ const agencyPage = () => {
 
   return (
     <>
-      <SEO noIndex />
+      <SEO title="Agency projects" description="Past projects completed as an employee of digital agencies" noIndex />
       <Layout>
         <section className="topgap">
           <div className="container">
@@ -25,13 +25,15 @@ const agencyPage = () => {
           </div>
           <CardContainer>
             {allAgency.map((node, index) => {
+              console.log(node);
               return (
-                <Card
-                  route="/agency"
-                  key={index}
-                  to={node.gatsbyPath}
-                  node={node}
-                />
+                // <Card
+                //   route="/agency"
+                //   key={index}
+                //   to={node.gatsbyPath}
+                //   node={node}
+                // />
+                <a href={`https://${node.website}`} target="_blank" rel="noopener noreferrer"><h2 className="as__h1">{node.name}</h2></a>
               );
             })}
           </CardContainer>

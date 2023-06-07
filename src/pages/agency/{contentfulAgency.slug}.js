@@ -36,7 +36,7 @@ const agencyTemplate = ({ data }) => {
     name,
     excerpt,
     richDescription,
-    richDescription: { raw },
+    // richDescription: { raw },
     images,
     technology,
     website,

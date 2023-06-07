@@ -11,6 +11,7 @@ const useAllAgency = () => {
           gatsbyPath(filePath: "/agency/{contentfulAgency.slug}")
           excerpt
           slug
+          website
           images {
             gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
           }

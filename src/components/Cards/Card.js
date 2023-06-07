@@ -8,8 +8,8 @@ import Button from "../Button/Button";
 
 const Card = ({ node, route, to }) => {
   const { name, excerpt, images } = node;
-  const cardImage = getImage(images[0]);
-  const cardImageAlt = images[0].description;
+  const cardImage = images ? getImage(images[0]) : null;
+  const cardImageAlt = images ? images[0].description : null;
 
   const controls = useAnimation();
   const ref = useRef();
